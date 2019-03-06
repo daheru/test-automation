@@ -1,0 +1,5 @@
+movile-app-testing/.settings/
+movile-app-testing/target/
+*.classpath
+*.project
+movile-app-testing/bin
