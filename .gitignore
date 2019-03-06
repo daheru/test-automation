@@ -1,0 +1,5 @@
+walmartmg/.settings/
+walmartmg/target/
+*.classpath
+*.project
+walmartmg/bin
