@@ -3,4 +3,5 @@ walmartmg/target/
 *.classpath
 *.project
 walmartmg/bin
-movile-app-testing
+mobile-app-testing
+bodega
