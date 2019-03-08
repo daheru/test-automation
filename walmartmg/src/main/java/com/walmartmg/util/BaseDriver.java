@@ -79,6 +79,14 @@ public class BaseDriver {
 		return wait.until(ExpectedConditions.visibilityOfElementLocated( getLocator(element) ));
 	}
 	
+	public boolean elementExist( String element ) {
+		List<MobileElement> elements = driver.findElements( getLocator(element) );
+		if( elements.size() > 0 ) {
+			return true;
+		}
+		return false;
+	}
+	
 	public void tapUp( ) {
 		actions.press(PointOption.point(width, startPoint)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(2000))).moveTo(PointOption.point(width, endPoint));
 		actions.release();

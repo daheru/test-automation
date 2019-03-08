@@ -1,4 +1,4 @@
-package com.walmartmg.business;
+package com.walmartmg.business.android;
 
 import org.apache.log4j.Logger;
 import org.junit.Assert;
@@ -49,7 +49,7 @@ public class LoginBusinessTest extends BaseDriver {
 		} else if( email.isEmpty() && !password.isEmpty() ){
 			generalBusinessTest.validateMessages( MobileNamesConstants.NAME_FIELD, MobileNamesConstants.ERROR_TEXT_FIELD );
 		} else {
-			validateWarningMessage();
+			generalBusinessTest.validateWarningMessage();
 		}
 	}
 	
@@ -61,7 +61,7 @@ public class LoginBusinessTest extends BaseDriver {
 	
 	public void validateLogout( ) {
 		logger.info("Validando Login");
-		findElement( MobileNamesConstants.CAR ).click();
+		findElement( MobileNamesConstants.HOME_CAR ).click();
 		findElementByXpath( MobileNamesConstants.BACK_BUTTON ).click();
 		generalBusinessTest.selectNavigationOption( NavigationBarEnum.PROFILE.getNavigation() );
 		generalBusinessTest.selectMenuOption( MenuOptionsEnum.LOGIN.getMenu() );
@@ -90,7 +90,7 @@ public class LoginBusinessTest extends BaseDriver {
 		logger.info("Ingresando email");
 		emailField.sendKeys(email);
 		findElement( MobileNamesConstants.FORGOT_PASS ).click();
-		validateWarningMessage();
+		generalBusinessTest.validateWarningMessage();
 	}
 	
 	public void createAccount(  ) {
@@ -104,12 +104,5 @@ public class LoginBusinessTest extends BaseDriver {
 	private void goLogin() {
 		generalBusinessTest.selectNavigationOption( NavigationBarEnum.PROFILE.getNavigation() );
 		generalBusinessTest.selectMenuOption( MenuOptionsEnum.LOGIN.getMenu() );
-	}
-	
-	private void validateWarningMessage( ) {
-		waitVisibility( MobileNamesConstants.WARNING_MESSAGE );
-		MobileElement messageError = findElement( MobileNamesConstants.WARNING_MESSAGE );
-		Assert.assertNotNull( messageError );
-	}
-	
+	}	
 }

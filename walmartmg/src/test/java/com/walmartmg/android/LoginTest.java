@@ -1,10 +1,10 @@
-package com.walmartmg.mobileTesting;
+package com.walmartmg.android;
 
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.walmartmg.business.LoginBusinessTest;
+import com.walmartmg.business.android.LoginBusinessTest;
 
 /**
  * Unit test for LoginPage.
