@@ -1,6 +1,7 @@
-mobile-app-testing/.settings/
-mobile-app-testing/target/
+bodega/.settings/
+bodega/target/
 *.classpath
 *.project
-mobile-app-testing/bin
+bodega/bin
 walmartmg
+mobile-app-testing
