@@ -59,6 +59,10 @@ public class BaseDriver {
 		return driver.findElement( getLocator(element) );
 	}
 	
+	public List<MobileElement> findSubElements( MobileElement elementParent, String element ) {
+		return elementParent.findElements( getLocator(element) );
+	}
+	
 	public List<MobileElement> findElements( String element ) {
 		return driver.findElements( getLocator(element) );
 	}
