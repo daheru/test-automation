@@ -59,6 +59,10 @@ public class BaseDriver {
 		return driver.findElement( getLocator(element) );
 	}
 	
+	public List<MobileElement> findSubElements( MobileElement elementParent, String element ) {
+		return elementParent.findElements( getLocator(element) );
+	}
+	
 	public List<MobileElement> findElements( String element ) {
 		return driver.findElements( getLocator(element) );
 	}
@@ -73,6 +77,14 @@ public class BaseDriver {
 	
 	public WebElement waitVisibility( String element ) {
 		return wait.until(ExpectedConditions.visibilityOfElementLocated( getLocator(element) ));
+	}
+	
+	public boolean elementExist( String element ) {
+		List<MobileElement> elements = driver.findElements( getLocator(element) );
+		if( elements.size() > 0 ) {
+			return true;
+		}
+		return false;
 	}
 	
 	public void tapUp( ) {

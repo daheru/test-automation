@@ -2,16 +2,16 @@ package com.walmartmg.commons;
 
 import com.walmartmg.util.PropertiesValuesUtil;
 
-public final class MovileNamesConstants {
+public final class MobileNamesConstants {
 	
-	private MovileNamesConstants() {
+	private MobileNamesConstants() {
 		
 	}
 	
 	public static final String NAV_BAR = PropertiesValuesUtil.getPropertyName("NAV_BAR");
-	public static final String MENU_PROFILE = PropertiesValuesUtil.getPropertyName("MENU_PROFILE");
-	public static final String MENU_DEPARTMENTS = PropertiesValuesUtil.getPropertyName("MENU_DEPARTMENT");
-	public static final String MENU_HOME = PropertiesValuesUtil.getPropertyName("MENU_HOME");
+	public static final String NAV_BAR_PROFILE = PropertiesValuesUtil.getPropertyName("NAV_BAR_PROFILE");
+	public static final String NAV_BAR_DEPARTMENTS = PropertiesValuesUtil.getPropertyName("NAV_BAR_DEPARTMENTS");
+	public static final String NAV_BAR_HOME = PropertiesValuesUtil.getPropertyName("NAV_BAR_HOME");
 	
 	public static final String MENU_LIST = PropertiesValuesUtil.getPropertyName("MENU_LIST");
 	public static final String MENU_NAME = PropertiesValuesUtil.getPropertyName("MENU_NAME");
