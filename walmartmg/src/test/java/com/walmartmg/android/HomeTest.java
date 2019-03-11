@@ -44,4 +44,79 @@ public class HomeTest {
 		home.scanProduct();
 		home.validateScanPage();
 	}
+	
+	@Test
+	public void home_empty_car() {
+		home.selectCar();
+		home.validateEmptyCar();
+	}
+	
+	@Test
+	public void home_validate_starting_buy() {
+		home.selectCar();
+		home.validateStartingBuy();
+	}
+	
+	@Test
+	public void add_product() {
+		home.selectProduct();
+		home.validateProduct();
+		home.addProduct();
+	}
+	
+	@Test
+	public void add_product_by_search() {
+		home.searchProduct("Celulares");
+		home.validateSearch();
+		home.selectProduct();
+		home.validateProduct();
+		home.addProduct();
+	}
+	
+	@Test
+	public void add_product_by_two_ways() {
+		home.selectProduct();
+		home.validateProduct();
+		home.addProduct();
+		home.goBack();
+		home.searchProduct("Celulares");
+		home.validateSearch();
+		home.selectProduct();
+		home.validateProduct();
+		home.addProduct();
+		home.goBack();
+		home.selectCar();
+		home.validateCar( 2 );
+	}
+	
+	@Test
+	public void validate_car() {
+		home.searchProduct("Celulares");
+		home.validateSearch();
+		home.selectProduct();
+		home.validateProduct();
+		home.addProduct();
+		home.goBack();
+		home.selectCar();
+		home.validateCar( 1 );
+	}
+	
+	@Test
+	public void eliminate_product() {
+		home.selectProduct();
+		home.validateProduct();
+		home.addProduct();
+		home.goBack();
+		home.selectCar();
+		home.deleteProduct();
+	}
+	
+	@Test
+	public void validate_buy() {
+		home.selectProduct();
+		home.validateProduct();
+		home.addProduct();
+		home.selectCar();
+		home.validateBuy();
+	}
 }

@@ -122,8 +122,8 @@ public class BaseDriver {
 		// Inicializar caracteristicas de Android
 		caps.setCapability(PropertiesConstants.APP_PACKAGE, PropertiesConstants.APP_PACKAGE_VALUE);
 		caps.setCapability(PropertiesConstants.APP_ACTIVITY, PropertiesConstants.APP_ACTIVITY_VALUE);
+		caps.setCapability(MobileCapabilityType.AUTOMATION_NAME, PropertiesConstants.AUTOMATION_NAME);
 		caps.setCapability(PropertiesConstants.NO_RESET, PropertiesConstants.NO_RESET_VALUE);
-
 	}
 
 	private void initIOS() {

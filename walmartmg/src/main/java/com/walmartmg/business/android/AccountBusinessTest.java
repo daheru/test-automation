@@ -27,14 +27,14 @@ public class AccountBusinessTest extends BaseDriver {
 	}
 	
 	public void validateElements() {
-		generalBusinessTest.validateElements( MobileNamesConstants.ACCOUNT_NAME_TEXTBOX );
-		generalBusinessTest.validateElements( MobileNamesConstants.ACCOUNT_LASTNAME_TEXTBOX );
-		generalBusinessTest.validateElements( MobileNamesConstants.ACCOUNT_EMAIL_TEXTBOX );
-		generalBusinessTest.validateElements( MobileNamesConstants.ACCOUNT_PASS_TEXTBOX );
-		generalBusinessTest.validateElements( MobileNamesConstants.ACCOUNT_SHOW_PASS );
-		generalBusinessTest.validateElements( MobileNamesConstants.ACCOUNT_TERMS_LINK );
-		generalBusinessTest.validateElements( MobileNamesConstants.ACCOUNT_CREATE_BUTTON );
-		generalBusinessTest.validateElements( MobileNamesConstants.ACCOUNT_LOGIN_LINK );
+		generalBusinessTest.validateElement( MobileNamesConstants.ACCOUNT_NAME_TEXTBOX );
+		generalBusinessTest.validateElement( MobileNamesConstants.ACCOUNT_LASTNAME_TEXTBOX );
+		generalBusinessTest.validateElement( MobileNamesConstants.ACCOUNT_EMAIL_TEXTBOX );
+		generalBusinessTest.validateElement( MobileNamesConstants.ACCOUNT_PASS_TEXTBOX );
+		generalBusinessTest.validateElement( MobileNamesConstants.ACCOUNT_SHOW_PASS );
+		generalBusinessTest.validateElement( MobileNamesConstants.ACCOUNT_TERMS_LINK );
+		generalBusinessTest.validateElement( MobileNamesConstants.ACCOUNT_CREATE_BUTTON );
+		generalBusinessTest.validateElement( MobileNamesConstants.ACCOUNT_LOGIN_LINK );
 	}
 	
 	public void createAccount( String name, String lastname, String email, String pass ) {

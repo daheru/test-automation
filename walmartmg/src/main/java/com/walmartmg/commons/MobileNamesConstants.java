@@ -52,6 +52,26 @@ public final class MobileNamesConstants {
 	public static final String HOME_OFFERS_FILTER = PropertiesValuesUtil.getPropertyName("HOME_OFFERS_FILTER");
 	public static final String HOME_PRODUCT_LIST = PropertiesValuesUtil.getPropertyName("HOME_PRODUCT_LIST");
 	public static final String HOME_PRODUCT_ELEMENT = PropertiesValuesUtil.getPropertyName("HOME_PRODUCT_ELEMENT");
+	public static final String HOME_EMPTY_CAR = PropertiesValuesUtil.getPropertyName("HOME_EMPTY_CAR");
+	public static final String HOME_EMPTY_CAR_ICON = PropertiesValuesUtil.getPropertyName("HOME_EMPTY_CAR_ICON");
+	public static final String HOME_EMPTY_CAR_BUTTON = PropertiesValuesUtil.getPropertyName("HOME_EMPTY_CAR_BUTTON");
+	public static final String HOME_PRODUCT_CONTAINER = PropertiesValuesUtil.getPropertyName("HOME_PRODUCT_CONTAINER");
+	public static final String HOME_PRODUCT_PROMOTION = PropertiesValuesUtil.getPropertyName("HOME_PRODUCT_PROMOTION");
+	public static final String HOME_PRODUCT_ITEM = PropertiesValuesUtil.getPropertyName("HOME_PRODUCT_ITEM");
+	public static final String HOME_PRODUCT_IMAGE = PropertiesValuesUtil.getPropertyName("HOME_PRODUCT_IMAGE");
+	public static final String HOME_PRODUCT_DESCRIPTION = PropertiesValuesUtil.getPropertyName("HOME_PRODUCT_DESCRIPTION");
+	public static final String HOME_PRODUCT_PRICE = PropertiesValuesUtil.getPropertyName("HOME_PRODUCT_PRICE");
+	public static final String HOME_PRODUCT_OLD_PRICE = PropertiesValuesUtil.getPropertyName("HOME_PRODUCT_OLD_PRICE");
+	
+	public static final String PRODUCT_CONTAINER = PropertiesValuesUtil.getPropertyName("PRODUCT_CONTAINER");
+	public static final String PRODUCT_TITLE = PropertiesValuesUtil.getPropertyName("PRODUCT_TITLE");
+	public static final String PRODUCT_IMAGE = PropertiesValuesUtil.getPropertyName("PRODUCT_IMAGE");
+	public static final String PRODUCT_PRICE = PropertiesValuesUtil.getPropertyName("PRODUCT_PRICE");
+	public static final String PRODUCT_SELL_BY = PropertiesValuesUtil.getPropertyName("PRODUCT_SELL_BY");
+	public static final String PRODUCT_UPC = PropertiesValuesUtil.getPropertyName("PRODUCT_UPC");
+	public static final String PRODUCT_ADD = PropertiesValuesUtil.getPropertyName("PRODUCT_ADD");
+	public static final String PRODUCT_PROMO = PropertiesValuesUtil.getPropertyName("PRODUCT_PROMO");
+	public static final String PRODUCT_DESC = PropertiesValuesUtil.getPropertyName("PRODUCT_DESC");
 	
 	public static final String SEARCH_RESULT_LIST = PropertiesValuesUtil.getPropertyName("SEARCH_RESULT_LIST");
 	public static final String SEARCH_RESULT_ELEMENT = PropertiesValuesUtil.getPropertyName("SEARCH_RESULT_ELEMENT");
@@ -64,4 +84,19 @@ public final class MobileNamesConstants {
 	public static final String SCAN_TITLE = PropertiesValuesUtil.getPropertyName("SCAN_TITLE");
 	public static final String SCAN_MESSAGE = PropertiesValuesUtil.getPropertyName("SCAN_MESSAGE");
 	public static final String SCAN_BOX = PropertiesValuesUtil.getPropertyName("SCAN_BOX");
+	
+	public static final String CAR_CONTAINER = PropertiesValuesUtil.getPropertyName("CAR_CONTAINER");
+	public static final String CAR_ITEM = PropertiesValuesUtil.getPropertyName("CAR_ITEM");
+	public static final String CAR_BUY_BUTTON = PropertiesValuesUtil.getPropertyName("CAR_BUY_BUTTON");
+	public static final String CAR_DELETE_ITEM = PropertiesValuesUtil.getPropertyName("CAR_DELETE_ITEM");
+	public static final String CAR_DELETE_DIALOG = PropertiesValuesUtil.getPropertyName("CAR_DELETE_DIALOG");
+	public static final String CAR_CANCEL_BUTTON = PropertiesValuesUtil.getPropertyName("CAR_CANCEL_BUTTON");
+	public static final String CAR_CONFIRM_BUTTON = PropertiesValuesUtil.getPropertyName("CAR_CONFIRM_BUTTON");
+	
+	public static final String HELP_TITLE = PropertiesValuesUtil.getPropertyName("HELP_TITLE");
+	public static final String HELP_ICON = PropertiesValuesUtil.getPropertyName("HELP_ICON");
+	public static final String HELP_PHONE = PropertiesValuesUtil.getPropertyName("HELP_PHONE");
+	public static final String HELP_CALL_BUTTON = PropertiesValuesUtil.getPropertyName("HELP_CALL_BUTTON");
+	public static final String HELP_EMAIL_BUTTON = PropertiesValuesUtil.getPropertyName("HELP_EMAIL_BUTTON");
+	
 }

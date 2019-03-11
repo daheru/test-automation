@@ -23,6 +23,7 @@ public final class PropertiesConstants {
 	public static final String APP_ACTIVITY_VALUE = PropertiesValuesUtil.getPropertyName("APP_ACTIVITY_VALUE");
 	public static final String NO_RESET = PropertiesValuesUtil.getPropertyName("NO_RESET");
 	public static final String NO_RESET_VALUE = PropertiesValuesUtil.getPropertyName("NO_RESET_VALUE");
+	public static final String AUTOMATION_NAME = PropertiesValuesUtil.getPropertyName("AUTOMATION_NAME");
 	
 	public static final String APP = PropertiesValuesUtil.getPropertyName("APP");
 }

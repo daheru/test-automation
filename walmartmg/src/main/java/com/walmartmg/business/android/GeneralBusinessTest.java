@@ -80,7 +80,7 @@ public class GeneralBusinessTest extends BaseDriver {
 		Assert.assertNotNull( errorMessage );
 	}
 	
-	public void validateElements( String fieldName ) {
+	public void validateElement( String fieldName ) {
 		MobileElement element = findElement( fieldName );
 		Assert.assertNotNull(element);
 		
@@ -95,5 +95,9 @@ public class GeneralBusinessTest extends BaseDriver {
 			//Select element
 			//Click to close
 		}
+	}
+	
+	public void goBack( ) {
+		findElementByXpath( MobileNamesConstants.BACK_BUTTON ).click();
 	}
 }
