@@ -17,6 +17,13 @@ public class GeneralBusinessTest extends BaseDriver {
 	
 	private static final Logger logger = Logger.getLogger(GeneralBusinessTest.class.getName());
 	
+	public void validateElement( String fieldName ) {
+		MobileElement element = findElement( fieldName );
+		Assert.assertNotNull(element);
+		
+	}
+	
+	/*
 	public void selectNavigationOption( int navOption ) {
 		waitVisibility( MobileNamesConstants.NAV_BAR );
 		MobileElement navigationElement = null;
@@ -100,4 +107,5 @@ public class GeneralBusinessTest extends BaseDriver {
 	public void goBack( ) {
 		findElementByXpath( MobileNamesConstants.BACK_BUTTON ).click();
 	}
+	*/
 }
