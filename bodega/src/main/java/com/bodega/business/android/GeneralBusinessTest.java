@@ -17,13 +17,6 @@ public class GeneralBusinessTest extends BaseDriver {
 	
 	private static final Logger logger = Logger.getLogger(GeneralBusinessTest.class.getName());
 	
-	public void validateElement( String fieldName ) {
-		MobileElement element = findElement( fieldName );
-		Assert.assertNotNull(element);
-		
-	}
-	
-	/*
 	public void selectNavigationOption( int navOption ) {
 		waitVisibility( MobileNamesConstants.NAV_BAR );
 		MobileElement navigationElement = null;
@@ -33,16 +26,18 @@ public class GeneralBusinessTest extends BaseDriver {
 		} else if( navOption == NavigationBarEnum.DEPARTMENTS.getNavigation() ){
 			logger.info(" Seleccionando menu departamentos");
 			navigationElement = findElement( MobileNamesConstants.NAV_BAR_DEPARTMENTS );
-		} else if( navOption == NavigationBarEnum.PROFILE.getNavigation() ){
+		} else if( navOption == NavigationBarEnum.PROMOTIONS.getNavigation() ){
 			logger.info(" Seleccionando menu perfil");
-			navigationElement = findElement( MobileNamesConstants.NAV_BAR_PROFILE );
+			navigationElement = findElement( MobileNamesConstants.NAV_BAR_PROMOTIONS );
+		} else if( navOption == NavigationBarEnum.CAR.getNavigation() ){
+			logger.info(" Seleccionando menu perfil");
+			navigationElement = findElement( MobileNamesConstants.NAV_BAR_CAR );
 		} 
 		navigationElement.click();
 	}
 	
 	public void selectMenuOption( String menuOptionEnum ) {
 		logger.info("Seleccionando la opcion: " + menuOptionEnum);
-		waitVisibility( MobileNamesConstants.NAV_BAR );
 		List<MobileElement> menuList = findElements( MobileNamesConstants.MENU_NAME );
 		boolean clicMenu = false;
 		do{
@@ -69,6 +64,14 @@ public class GeneralBusinessTest extends BaseDriver {
 		}
 	}
 	
+	public void validateElement( String fieldName ) {
+		Assert.assertTrue( elementExist(fieldName) );
+	}
+	
+	public void goBack( ) {
+		tapOnElement( MobileNamesConstants.BACK_BUTTON );
+	}
+	
 	public void scrollUntilShowElement( int scrollType, String element ) {
 		if( GeneralConstants.SCROLL_UP == scrollType ){
 			while( findElements(element).size() == 0  ) {
@@ -81,31 +84,27 @@ public class GeneralBusinessTest extends BaseDriver {
 		}
 	}
 	
-	public void validateMessages( String fieldName, String errorText ) {
+	public void validateErrorMessages( String fieldName, String errorText ) {
 		MobileElement fieldElement = findElement( fieldName );
-		MobileElement errorMessage = fieldElement.findElementById( errorText );
-		Assert.assertNotNull( errorMessage );
+		List<MobileElement> errorMessages = findSubElements(fieldElement, errorText);
+		Assert.assertTrue( errorMessages.size() > 0 );
 	}
 	
-	public void validateElement( String fieldName ) {
-		MobileElement element = findElement( fieldName );
-		Assert.assertNotNull(element);
-		
+	public void selectProfile() {
+		tapOnElement( MobileNamesConstants.HOME_PROFILE );
 	}
 	
-	public void validateWarningMessage( ) {
+	public void initAsGuess() {
+		tapOnElement( MobileNamesConstants.WELCOME_LINK_GUESS );
+	}
+	
+	public void validateMessage( ) {
 		if( PropertiesConstants.PLATFORM_NAME.toLowerCase().equals( GeneralConstants.ANDROID.toLowerCase() ) ) {
 			waitVisibility( MobileNamesConstants.WARNING_MESSAGE );
-			MobileElement messageError = findElement( MobileNamesConstants.WARNING_MESSAGE );
-			Assert.assertNotNull( messageError );
+			Assert.assertTrue( elementExist( MobileNamesConstants.WARNING_MESSAGE ) );
 		} else {
 			//Select element
 			//Click to close
 		}
 	}
-	
-	public void goBack( ) {
-		findElementByXpath( MobileNamesConstants.BACK_BUTTON ).click();
-	}
-	*/
 }

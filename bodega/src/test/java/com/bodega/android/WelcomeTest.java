@@ -13,7 +13,7 @@ public class WelcomeTest {
 	
 	@AfterClass
 	public static void tearDown() {
-		welcome.desconectarDriver();
+		welcome.driverDisconect();
 	}
 	
 	@Before
@@ -31,5 +31,17 @@ public class WelcomeTest {
 		welcome.validateHome();
 	}
 	
-
+	@Test
+	public void test_nav_bar() {
+		welcome.initGuess();
+		welcome.selectMenus();
+	}
+	
+	@Test
+	public void test_menus() {
+		welcome.initGuess();
+		welcome.selectProfile();
+		welcome.validateMenu();
+	}
+	
 }

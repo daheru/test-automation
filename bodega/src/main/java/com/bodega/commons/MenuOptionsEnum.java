@@ -4,7 +4,7 @@ public enum MenuOptionsEnum {
 	
 	LOGIN("iniciar"),
 	CREATE_PROFILE("crear"),
-	SUPPORT("ayuda"),
+	SUPPORT("soporte"),
 	TERMS("condiciones"),
 	PROFILE("perfil"),
 	ADDRESS("direcciones"),

@@ -4,7 +4,8 @@ public enum NavigationBarEnum {
 	
 	HOME(1),
 	DEPARTMENTS(2),
-	PROFILE(3);
+	PROMOTIONS(3),
+	CAR(4);
 	
 	private int navBarOption;
 	
