@@ -14,7 +14,6 @@ public final class PropertiesConstants {
 	public static final String UDID = PropertiesValuesUtil.getPropertyName("UDID");
 	public static final String PLATFORM_NAME = PropertiesValuesUtil.getPropertyName("PLATFORM_NAME");
 	public static final String PLATFORM_VERSION = PropertiesValuesUtil.getPropertyName("PLATFORM_VERSION");
-	public static final String LOCATOR = PropertiesValuesUtil.getPropertyName("LOCATOR");
 	public static final String ATTRIBUTE_TEXT = PropertiesValuesUtil.getPropertyName("ATTRIBUTE_TEXT");
 	
 	public static final String APP_PACKAGE = PropertiesValuesUtil.getPropertyName("APP_PACKAGE");

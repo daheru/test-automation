@@ -36,8 +36,8 @@ public class HomeBusinessTest extends BaseDriver {
 	
 	public void searchProduct(String product) {
 		waitVisibility( MobileNamesConstants.HOME_OFFERS_FILTER );
-		findElement( MobileNamesConstants.HOME_SEARCH_BUTTON ).click();
-		findElement( MobileNamesConstants.HOME_SEARCH_FIELD ).sendKeys( product + "\\n" );
+		tapOnElement( MobileNamesConstants.HOME_SEARCH_BUTTON );
+		fillElement( MobileNamesConstants.HOME_SEARCH_FIELD, product + "\\n");
 	}
 	
 	public void validateSearch() {
@@ -55,12 +55,13 @@ public class HomeBusinessTest extends BaseDriver {
 	}
 	
 	public void scanProduct() {
-		findElement( MobileNamesConstants.HOME_SCAN ).click();
+		waitVisibility( MobileNamesConstants.HOME_OFFERS_FILTER );
+		tapOnElement( MobileNamesConstants.HOME_SCAN );
 	}
 	
 	public void validateScanPage() {
 		if( elementExist( MobileNamesConstants.ANDROID_DIALOG_CONT ) ) {
-			findElement( MobileNamesConstants.ANDROID_NATIVE_ALLOW ).click();	
+			tapOnElement( MobileNamesConstants.ANDROID_NATIVE_ALLOW );
 		}
 		waitVisibility( MobileNamesConstants.SCAN_CONTAINER );
 		generalBusinessTest.validateElement( MobileNamesConstants.SCAN_TITLE );
@@ -69,7 +70,8 @@ public class HomeBusinessTest extends BaseDriver {
 	}
 	
 	public void selectCar() {
-		findElement( MobileNamesConstants.HOME_CAR ).click();
+		waitVisibility( MobileNamesConstants.HOME_OFFERS_FILTER );
+		tapOnElement( MobileNamesConstants.HOME_CAR );
 	}
 	
 	public void validateEmptyCar() {
@@ -80,7 +82,7 @@ public class HomeBusinessTest extends BaseDriver {
 	
 	public void validateStartingBuy() {
 		waitVisibility( MobileNamesConstants.HOME_EMPTY_CAR );
-		findElement( MobileNamesConstants.HOME_EMPTY_CAR_BUTTON ).click();
+		tapOnElement( MobileNamesConstants.HOME_EMPTY_CAR_BUTTON );
 		validateElements();
 	}
 	
@@ -107,7 +109,7 @@ public class HomeBusinessTest extends BaseDriver {
 	
 	public void addProduct() {
 		generalBusinessTest.scrollUntilShowElement( GeneralConstants.SCROLL_DOWN, MobileNamesConstants.PRODUCT_TITLE );
-		findElement( MobileNamesConstants.PRODUCT_ADD ).click();
+		tapOnElement( MobileNamesConstants.PRODUCT_ADD );
 		waitVisibility( MobileNamesConstants.WARNING_MESSAGE );
 	}
 	
@@ -135,7 +137,7 @@ public class HomeBusinessTest extends BaseDriver {
 	
 	public void validateBuy() {
 		generalBusinessTest.findElement( MobileNamesConstants.CAR_BUY_BUTTON );
-		findElement( MobileNamesConstants.CAR_BUY_BUTTON ).click();
+		tapOnElement( MobileNamesConstants.CAR_BUY_BUTTON );
 		waitVisibility( MobileNamesConstants.LOGIN_BUTTON );
 	}
 

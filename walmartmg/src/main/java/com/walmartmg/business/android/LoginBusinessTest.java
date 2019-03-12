@@ -18,18 +18,15 @@ public class LoginBusinessTest extends BaseDriver {
 	public void login(String email, String password){
 		goLogin();
 		if( !email.isEmpty() ) {
-			MobileElement emailField = findElement( MobileNamesConstants.LOGIN_EMAIL );
 			logger.info("Ingresando email");
-			emailField.sendKeys(email);
+			fillElement(MobileNamesConstants.LOGIN_EMAIL, email);
 		}
 		if( !password.isEmpty() ) {
-			MobileElement passField = findElement( MobileNamesConstants.LOGIN_PASS );
 			logger.info("Ingresando password");
-			passField.sendKeys(password);
+			fillElement(MobileNamesConstants.LOGIN_PASS, password);
 		}
-		MobileElement loginBtn = findElement( MobileNamesConstants.LOGIN_BUTTON );
 		logger.info("Tap en iniciar sesion");
-		loginBtn.click();
+		tapOnElement( MobileNamesConstants.LOGIN_BUTTON );
 	}
 	
 	public void validateLogin( String email ) {
@@ -42,14 +39,14 @@ public class LoginBusinessTest extends BaseDriver {
 	public void validateErrorMessages( String email, String password ) {
 		logger.info("Verificando mensajes de validacion");
 		if( email.isEmpty() && password.isEmpty() ){
-			generalBusinessTest.validateMessages( MobileNamesConstants.NAME_FIELD, MobileNamesConstants.ERROR_TEXT_FIELD );
-			generalBusinessTest.validateMessages( MobileNamesConstants.PASS_FIELD, MobileNamesConstants.ERROR_TEXT_FIELD );
+			generalBusinessTest.validateErrorMessages( MobileNamesConstants.NAME_FIELD, MobileNamesConstants.ERROR_TEXT_FIELD );
+			generalBusinessTest.validateErrorMessages( MobileNamesConstants.PASS_FIELD, MobileNamesConstants.ERROR_TEXT_FIELD );
 		} else if( !email.isEmpty() && password.isEmpty() ){
-			generalBusinessTest.validateMessages( MobileNamesConstants.PASS_FIELD, MobileNamesConstants.ERROR_TEXT_FIELD );
+			generalBusinessTest.validateErrorMessages( MobileNamesConstants.PASS_FIELD, MobileNamesConstants.ERROR_TEXT_FIELD );
 		} else if( email.isEmpty() && !password.isEmpty() ){
-			generalBusinessTest.validateMessages( MobileNamesConstants.NAME_FIELD, MobileNamesConstants.ERROR_TEXT_FIELD );
+			generalBusinessTest.validateErrorMessages( MobileNamesConstants.NAME_FIELD, MobileNamesConstants.ERROR_TEXT_FIELD );
 		} else {
-			generalBusinessTest.validateWarningMessage();
+			generalBusinessTest.validateMessage();
 		}
 	}
 	
@@ -61,8 +58,8 @@ public class LoginBusinessTest extends BaseDriver {
 	
 	public void validateLogout( ) {
 		logger.info("Validando Login");
-		findElement( MobileNamesConstants.HOME_CAR ).click();
-		findElementByXpath( MobileNamesConstants.BACK_BUTTON ).click();
+		tapOnElement(MobileNamesConstants.HOME_CAR);
+		tapOnElement(MobileNamesConstants.BACK_BUTTON);
 		generalBusinessTest.selectNavigationOption( NavigationBarEnum.PROFILE.getNavigation() );
 		generalBusinessTest.selectMenuOption( MenuOptionsEnum.LOGIN.getMenu() );
 		MobileElement loginButton = findElement( MobileNamesConstants.LOGIN_BUTTON );
@@ -74,28 +71,27 @@ public class LoginBusinessTest extends BaseDriver {
 		MobileElement passField = findElement( MobileNamesConstants.LOGIN_PASS );
 		logger.info("Ingresando password");
 		passField.sendKeys(password);
-		findElement( MobileNamesConstants.SHOW_PASS ).click();
+		tapOnElement( MobileNamesConstants.SHOW_PASS );
 		Assert.assertEquals( Boolean.FALSE.toString(), passField.getAttribute("password") );
 	}
 	
 	public void forgotPass_Without_Email(  ) {
 		goLogin();
-		findElement( MobileNamesConstants.FORGOT_PASS ).click();
-		generalBusinessTest.validateMessages( MobileNamesConstants.NAME_FIELD, MobileNamesConstants.ERROR_TEXT_FIELD );
+		tapOnElement( MobileNamesConstants.FORGOT_PASS );
+		generalBusinessTest.validateErrorMessages( MobileNamesConstants.NAME_FIELD, MobileNamesConstants.ERROR_TEXT_FIELD );
 	}
 	
 	public void forgotPass( String email ) {
 		goLogin();
-		MobileElement emailField = findElement( MobileNamesConstants.LOGIN_EMAIL );
 		logger.info("Ingresando email");
-		emailField.sendKeys(email);
-		findElement( MobileNamesConstants.FORGOT_PASS ).click();
-		generalBusinessTest.validateWarningMessage();
+		fillElement(MobileNamesConstants.LOGIN_EMAIL, email);
+		tapOnElement( MobileNamesConstants.FORGOT_PASS );
+		generalBusinessTest.validateMessage();
 	}
 	
 	public void createAccount(  ) {
 		goLogin();
-		findElement( MobileNamesConstants.REGISTER_BUTTON ).click();
+		tapOnElement( MobileNamesConstants.REGISTER_BUTTON );
 		waitVisibility( MobileNamesConstants.ACCOUNT_CREATE_BUTTON );
 		MobileElement createButton = findElement( MobileNamesConstants.ACCOUNT_CREATE_BUTTON );
 		Assert.assertNotNull( createButton );

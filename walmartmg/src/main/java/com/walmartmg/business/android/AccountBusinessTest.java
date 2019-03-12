@@ -38,51 +38,45 @@ public class AccountBusinessTest extends BaseDriver {
 	}
 	
 	public void createAccount( String name, String lastname, String email, String pass ) {
-		MobileElement inputElement = null;
 		if( !name.isEmpty() ) {
-			inputElement = findElement( MobileNamesConstants.ACCOUNT_NAME_TEXTBOX );
-			inputElement.sendKeys(name);
+			fillElement( MobileNamesConstants.ACCOUNT_NAME_TEXTBOX, name);
 		}
 		if( !lastname.isEmpty() ) {
-			inputElement = findElement( MobileNamesConstants.ACCOUNT_LASTNAME_TEXTBOX );
-			inputElement.sendKeys(lastname);
+			fillElement( MobileNamesConstants.ACCOUNT_LASTNAME_TEXTBOX, lastname);
 		}
 		if( !email.isEmpty() ) {
-			inputElement = findElement( MobileNamesConstants.ACCOUNT_EMAIL_TEXTBOX );
-			inputElement.sendKeys(email);
+			fillElement( MobileNamesConstants.ACCOUNT_EMAIL_TEXTBOX, email);
 		}
 		if( !pass.isEmpty() ) {
-			inputElement = findElement( MobileNamesConstants.ACCOUNT_PASS_TEXTBOX );
-			inputElement.sendKeys(pass);
+			fillElement( MobileNamesConstants.ACCOUNT_PASS_TEXTBOX, pass);
 		}
 		generalBusinessTest.scrollUntilShowElement( GeneralConstants.SCROLL_UP, MobileNamesConstants.ACCOUNT_CREATE_BUTTON );
-		findElement( MobileNamesConstants.ACCOUNT_CREATE_BUTTON ).click();
+		tapOnElement( MobileNamesConstants.ACCOUNT_CREATE_BUTTON );
 	}
 	
 	public void validateErrorMessages( String name, String lastname, String email, String pass ) {
 		if( name.isEmpty() ) {
-			generalBusinessTest.validateMessages( MobileNamesConstants.ACCOUNT_NAME_TEXTBOX, MobileNamesConstants.ERROR_TEXT_FIELD );
+			generalBusinessTest.validateErrorMessages( MobileNamesConstants.ACCOUNT_NAME_TEXTBOX, MobileNamesConstants.ERROR_TEXT_FIELD );
 		}
 		if( lastname.isEmpty() ) {
-			generalBusinessTest.validateMessages( MobileNamesConstants.ACCOUNT_LASTNAME_TEXTBOX, MobileNamesConstants.ERROR_TEXT_FIELD );
+			generalBusinessTest.validateErrorMessages( MobileNamesConstants.ACCOUNT_LASTNAME_TEXTBOX, MobileNamesConstants.ERROR_TEXT_FIELD );
 		}
 		if( email.isEmpty() ) {
-			generalBusinessTest.validateMessages( MobileNamesConstants.ACCOUNT_EMAIL_TEXTBOX, MobileNamesConstants.ERROR_TEXT_FIELD );
+			generalBusinessTest.validateErrorMessages( MobileNamesConstants.ACCOUNT_EMAIL_TEXTBOX, MobileNamesConstants.ERROR_TEXT_FIELD );
 		}
 		if( pass.isEmpty() ) {
-			generalBusinessTest.validateMessages( MobileNamesConstants.ACCOUNT_PASS_TEXTBOX, MobileNamesConstants.ERROR_TEXT_FIELD );
+			generalBusinessTest.validateErrorMessages( MobileNamesConstants.ACCOUNT_PASS_TEXTBOX, MobileNamesConstants.ERROR_TEXT_FIELD );
 		} 
 	}
 	
 	public void showPassword( String password ) {
-		MobileElement passField = findElement( MobileNamesConstants.ACCOUNT_PASS_TEXTBOX );
-		passField.sendKeys(password);
-		findElement( MobileNamesConstants.SHOW_PASS ).click();
-		Assert.assertEquals( Boolean.FALSE.toString(), passField.getAttribute("password") );
+		fillElement( MobileNamesConstants.ACCOUNT_PASS_TEXTBOX, password);
+		tapOnElement( MobileNamesConstants.SHOW_PASS );
+		Assert.assertEquals( Boolean.FALSE.toString(), findElement(MobileNamesConstants.ACCOUNT_PASS_TEXTBOX).getAttribute("password") );
 	}
 	
 	public void tapTermsLink( ) {
-		findElement( MobileNamesConstants.ACCOUNT_TERMS_LINK ).click();
+		tapOnElement( MobileNamesConstants.ACCOUNT_TERMS_LINK );
 	}
 	
 	public void validateTerms(int elementNum) {
@@ -91,12 +85,12 @@ public class AccountBusinessTest extends BaseDriver {
 		Assert.assertEquals(elementNum, terms.size());
 		for( MobileElement element : terms) {
 			element.click();
-			findElementByXpath( MobileNamesConstants.BACK_BUTTON ).click();
+			tapOnElement( MobileNamesConstants.BACK_BUTTON );
 		}
 	}
 	
 	public void tapLoginLink( ) {
-		findElement( MobileNamesConstants.ACCOUNT_LOGIN_LINK ).click();
+		tapOnElement( MobileNamesConstants.ACCOUNT_LOGIN_LINK );
 	}
 	
 	public void validateLogin( ) {

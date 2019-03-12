@@ -56,31 +56,51 @@ public class BaseDriver {
 	}
 	
 	public MobileElement findElement( String element ) {
-		return driver.findElement( getLocator(element) );
+		if( element.startsWith( GeneralConstants.SLASH ) ) {
+			return driver.findElement( By.xpath(element) );
+		} 
+		return driver.findElement( By.id(element) );
+	}
+	
+	public void tapOnElement( String element ) {
+		if( element.startsWith( GeneralConstants.SLASH ) ) {
+			driver.findElement( By.xpath(element) ).click();
+		} else {
+			driver.findElement( By.id(element) ).click();
+		}
+	}
+	
+	public void fillElement( String element, String text ) {
+		if( element.startsWith( GeneralConstants.SLASH ) ) {
+			driver.findElement( By.xpath(element) ).sendKeys(text);
+		} else {
+			driver.findElement( By.id(element) ).sendKeys(text);
+		}
 	}
 	
 	public List<MobileElement> findSubElements( MobileElement elementParent, String element ) {
-		return elementParent.findElements( getLocator(element) );
+		if( element.startsWith( GeneralConstants.SLASH ) ) {
+			return elementParent.findElements( By.xpath(element) );
+		} 
+		return elementParent.findElements( By.id(element) );
 	}
 	
 	public List<MobileElement> findElements( String element ) {
-		return driver.findElements( getLocator(element) );
-	}
-	
-	public MobileElement findElementByXpath( String element ) {
-		return driver.findElementByXPath(element);
-	}
-	
-	public List<MobileElement> findElementsByXpath( String element ) {
-		return driver.findElementsByXPath(element);
+		if( element.startsWith( GeneralConstants.SLASH ) ) {
+			return driver.findElements( By.xpath(element) );
+		} 
+		return driver.findElements( By.id(element) );
 	}
 	
 	public WebElement waitVisibility( String element ) {
-		return wait.until(ExpectedConditions.visibilityOfElementLocated( getLocator(element) ));
+		if( element.startsWith( GeneralConstants.SLASH ) ) {
+			return wait.until(ExpectedConditions.visibilityOfElementLocated( By.xpath(element) ));
+		} 
+		return wait.until(ExpectedConditions.visibilityOfElementLocated( By.id(element) ));
 	}
 	
 	public boolean elementExist( String element ) {
-		List<MobileElement> elements = driver.findElements( getLocator(element) );
+		List<MobileElement> elements = findElements( element );
 		if( elements.size() > 0 ) {
 			return true;
 		}
@@ -165,14 +185,5 @@ public class BaseDriver {
 	private void initActions() {
 		actions = new TouchAction(driver);
 	}
-	
-	private By getLocator(String element) {
-		By locator = null;
-		if( GeneralConstants.ID.toLowerCase().equals( PropertiesConstants.LOCATOR ) ) {
-			locator = By.id(element);
-		} else {
-			locator = By.xpath(element);
-		}
-		return locator;
-	}
+		
 }

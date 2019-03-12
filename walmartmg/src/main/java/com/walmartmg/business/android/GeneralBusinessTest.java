@@ -74,23 +74,21 @@ public class GeneralBusinessTest extends BaseDriver {
 		}
 	}
 	
-	public void validateMessages( String fieldName, String errorText ) {
+	public void validateErrorMessages( String fieldName, String errorText ) {
 		MobileElement fieldElement = findElement( fieldName );
-		MobileElement errorMessage = fieldElement.findElementById( errorText );
-		Assert.assertNotNull( errorMessage );
+		List<MobileElement> errorMessages = findSubElements(fieldElement, errorText);
+		Assert.assertTrue( errorMessages.size() > 0 );
 	}
 	
 	public void validateElement( String fieldName ) {
-		MobileElement element = findElement( fieldName );
-		Assert.assertNotNull(element);
+		Assert.assertTrue( elementExist(fieldName) );
 		
 	}
 	
-	public void validateWarningMessage( ) {
+	public void validateMessage( ) {
 		if( PropertiesConstants.PLATFORM_NAME.toLowerCase().equals( GeneralConstants.ANDROID.toLowerCase() ) ) {
 			waitVisibility( MobileNamesConstants.WARNING_MESSAGE );
-			MobileElement messageError = findElement( MobileNamesConstants.WARNING_MESSAGE );
-			Assert.assertNotNull( messageError );
+			Assert.assertTrue( elementExist(MobileNamesConstants.WARNING_MESSAGE) );
 		} else {
 			//Select element
 			//Click to close
@@ -98,6 +96,6 @@ public class GeneralBusinessTest extends BaseDriver {
 	}
 	
 	public void goBack( ) {
-		findElementByXpath( MobileNamesConstants.BACK_BUTTON ).click();
+		tapOnElement( MobileNamesConstants.BACK_BUTTON );
 	}
 }

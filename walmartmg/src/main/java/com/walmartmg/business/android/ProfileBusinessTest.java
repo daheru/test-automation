@@ -28,8 +28,7 @@ public class ProfileBusinessTest extends BaseDriver {
 		generalBusinessTest.validateElement( MobileNamesConstants.HELP_PHONE );
 		generalBusinessTest.validateElement( MobileNamesConstants.HELP_EMAIL_BUTTON );
 		generalBusinessTest.validateElement( MobileNamesConstants.HELP_CALL_BUTTON );
-		findElement( MobileNamesConstants.HELP_CALL_BUTTON ).click();
-		
+		tapOnElement( MobileNamesConstants.HELP_CALL_BUTTON );		
 	}
 	
 	
