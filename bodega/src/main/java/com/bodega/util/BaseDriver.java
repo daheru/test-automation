@@ -108,6 +108,14 @@ public class BaseDriver {
 		return false;
 	}
 	
+	public String getText( String element ) {
+		return findElement(element).getAttribute( PropertiesConstants.ATTRIBUTE_TEXT ).toLowerCase();
+	}
+	
+	public String getText( MobileElement element ) {
+		return element.getAttribute( PropertiesConstants.ATTRIBUTE_TEXT ).toLowerCase();
+	}
+	
 	public void tapUp( ) {
 		actions.press(PointOption.point(width, startPoint)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(2000))).moveTo(PointOption.point(width, endPoint));
 		actions.release();
@@ -118,6 +126,14 @@ public class BaseDriver {
 		actions.press(PointOption.point(width, endPoint)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(2000))).moveTo(PointOption.point(width, startPoint));
 		actions.release();
 		actions.perform();
+	}
+	
+	public void hideKeyboard( ) {
+		driver.hideKeyboard();
+	}
+	
+	public void resetApp( ) {
+		driver.resetApp();
 	}
 	
 	public void lauchApp() {

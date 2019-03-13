@@ -29,8 +29,8 @@ public class LoginTest {
 		logger.info("Iniciando caso de prueba: Login as guess success");
 		login.goToLogin();
 		login.login("emmanuel.dominguez@live.com.mx", "Edominguez#1234");
-		login.validateLogin("emmanuel1.dominguez@live.com.mx");
-		logger.info("Finalizando caso de prueba");
+		login.validateLogin("emmanuel.dominguez@live.com.mx");
+		logger.info("Caso de prueba finalizado");
 	}
 	
 	//@Test
@@ -39,7 +39,7 @@ public class LoginTest {
 		login.goToLogin();
 		login.selectCreateAccount();
 		login.createAccount("Juan", "Perez", "j@correo.com", "Juan#123");
-		logger.info("Finalizando caso de prueba");
+		logger.info("Caso de prueba finalizado");
 	}
 	
 	@Test
@@ -47,7 +47,7 @@ public class LoginTest {
 		logger.info("Iniciando caso de prueba: Login password recovery");
 		login.goToLogin();
 		login.selectPassRecovery("emmanuel.dominguez@live.com.mx");
-		logger.info("Finalizando caso de prueba");
+		logger.info("Caso de prueba finalizado");
 	}
 	
 	@Test
@@ -57,6 +57,6 @@ public class LoginTest {
 		login.selectCreateAccount();
 		login.createAccount("1Juan", "Dominguez", "correo", "1");
 		login.validateErrorMessage();
-		logger.info("Finalizando caso de prueba");
+		logger.info("Caso de prueba finalizado");
 	}
 }

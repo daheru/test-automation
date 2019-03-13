@@ -53,4 +53,28 @@ public final class MobileNamesConstants {
 	
 	public static final String PROFILE_EMAIL = PropertiesValuesUtil.getPropertyName("PROFILE_EMAIL");
 	
+	public static final String ADDRESS_LIST = PropertiesValuesUtil.getPropertyName("ADDRESS_LIST");
+	public static final String ADDRESS_ADD_BUTTON = PropertiesValuesUtil.getPropertyName("ADDRESS_ADD_BUTTON");
+	public static final String ADDRESS_NAME_TEXT = PropertiesValuesUtil.getPropertyName("ADDRESS_NAME_TEXT");
+	public static final String ADDRESS_USER_NAME = PropertiesValuesUtil.getPropertyName("ADDRESS_USER_NAME");
+	public static final String ADDRESS_USER_LAST_NAME = PropertiesValuesUtil.getPropertyName("ADDRESS_USER_LAST_NAME");
+	public static final String ADDRESS_STREET_TEXT = PropertiesValuesUtil.getPropertyName("ADDRESS_STREET_TEXT");
+	public static final String ADDRESS_OUT_NUMBER = PropertiesValuesUtil.getPropertyName("ADDRESS_OUT_NUMBER");
+	public static final String ADDRESS_INNER_NUMBER = PropertiesValuesUtil.getPropertyName("ADDRESS_INNER_NUMBER");
+	public static final String ADDRESS_ZIP_CODE = PropertiesValuesUtil.getPropertyName("ADDRESS_ZIP_CODE");
+	public static final String ADDRESS_REFERENCES_ONE = PropertiesValuesUtil.getPropertyName("ADDRESS_REFERENCES_ONE");
+	public static final String ADDRESS_REFERENCES_TWO = PropertiesValuesUtil.getPropertyName("ADDRESS_REFERENCES_TWO");
+	public static final String ADDRESS_PHONE_TYPE = PropertiesValuesUtil.getPropertyName("ADDRESS_PHONE_TYPE");
+	public static final String ADDRESS_COMBO_OPTIONS = PropertiesValuesUtil.getPropertyName("ADDRESS_COMBO_OPTIONS");
+	public static final String ADDRESS_PHONE_TEXT = PropertiesValuesUtil.getPropertyName("ADDRESS_PHONE_TEXT");
+	public static final String ADDRESS_MAIN_ADDRESS_CHECK = PropertiesValuesUtil.getPropertyName("ADDRESS_MAIN_ADDRESS_CHECK");
+	public static final String ADDRESS_SAVE_BUTTON = PropertiesValuesUtil.getPropertyName("ADDRESS_SAVE_BUTTON");
+	public static final String ADDRESS_NEIGHBORNHOOD = PropertiesValuesUtil.getPropertyName("ADDRESS_NEIGHBORNHOOD");
+	public static final String ADDRESS_DISTRICT = PropertiesValuesUtil.getPropertyName("ADDRESS_DISTRICT");
+	public static final String ADDRESS_CITY = PropertiesValuesUtil.getPropertyName("ADDRESS_CITY");
+	public static final String ADDRESS_STATE = PropertiesValuesUtil.getPropertyName("ADDRESS_STATE");
+	public static final String ADDRESS_DETAIL_NAME = PropertiesValuesUtil.getPropertyName("ADDRESS_DETAIL_NAME");
+	public static final String ADDRESS_DETAIL_EDIT = PropertiesValuesUtil.getPropertyName("ADDRESS_DETAIL_EDIT");
+	public static final String ADDRESS_DETAIL_DELETE = PropertiesValuesUtil.getPropertyName("ADDRESS_DETAIL_DELETE");
+	
 }
