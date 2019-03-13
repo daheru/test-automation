@@ -23,6 +23,7 @@ public final class MobileNamesConstants {
 	public static final String NAV_BAR_DEPARTMENTS = PropertiesValuesUtil.getPropertyName("NAV_BAR_DEPARTMENTS");
 	public static final String NAV_BAR_HOME = PropertiesValuesUtil.getPropertyName("NAV_BAR_HOME");
 	public static final String NAV_BAR_CAR = PropertiesValuesUtil.getPropertyName("NAV_BAR_CAR");
+	public static final String NAV_BAR_CAR_QUANTITY = PropertiesValuesUtil.getPropertyName("NAV_BAR_CAR_QUANTITY");
 	
 	public static final String HOME_SEARCH_BAR = PropertiesValuesUtil.getPropertyName("HOME_SEARCH_BAR");
 	public static final String HOME_PROFILE = PropertiesValuesUtil.getPropertyName("HOME_PROFILE");
@@ -30,7 +31,8 @@ public final class MobileNamesConstants {
 	public static final String HOME_CARROUSEL = PropertiesValuesUtil.getPropertyName("HOME_CARROUSEL");
 	
 	public static final String BACK_BUTTON = PropertiesValuesUtil.getPropertyName("BACK_BUTTON");
-	public static final String WARNING_MESSAGE = PropertiesValuesUtil.getPropertyName("WARNING_MESSAGE");
+	public static final String WARNING_MESSAGE_TEXT = PropertiesValuesUtil.getPropertyName("WARNING_MESSAGE_TEXT");
+	public static final String TEXT_INPUT_ERROR = PropertiesValuesUtil.getPropertyName("TEXT_INPUT_ERROR");
 	
 	public static final String MENU_NAME = PropertiesValuesUtil.getPropertyName("MENU_NAME");
 	

@@ -192,14 +192,4 @@ public class BaseDriver {
 	private void initActions() {
 		actions = new TouchAction(driver);
 	}
-	
-	private By getLocator(String element) {
-		By locator = null;
-		if( GeneralConstants.ID.toLowerCase().equals( PropertiesConstants.LOCATOR ) ) {
-			locator = By.id(element);
-		} else {
-			locator = By.xpath(element);
-		}
-		return locator;
-	}
 }

@@ -84,9 +84,8 @@ public class GeneralBusinessTest extends BaseDriver {
 		}
 	}
 	
-	public void validateErrorMessages( String fieldName, String errorText ) {
-		MobileElement fieldElement = findElement( fieldName );
-		List<MobileElement> errorMessages = findSubElements(fieldElement, errorText);
+	public void validateErrorMessages( ) {
+		List<MobileElement> errorMessages = findElements( MobileNamesConstants.TEXT_INPUT_ERROR );
 		Assert.assertTrue( errorMessages.size() > 0 );
 	}
 	
@@ -100,8 +99,9 @@ public class GeneralBusinessTest extends BaseDriver {
 	
 	public void validateMessage( ) {
 		if( PropertiesConstants.PLATFORM_NAME.toLowerCase().equals( GeneralConstants.ANDROID.toLowerCase() ) ) {
-			waitVisibility( MobileNamesConstants.WARNING_MESSAGE );
-			Assert.assertTrue( elementExist( MobileNamesConstants.WARNING_MESSAGE ) );
+			waitVisibility( MobileNamesConstants.WARNING_MESSAGE_TEXT );
+			String messageText = findElement( MobileNamesConstants.WARNING_MESSAGE_TEXT ).getAttribute( PropertiesConstants.ATTRIBUTE_TEXT );
+			Assert.assertFalse( messageText.toLowerCase().contains( GeneralConstants.ERROR.toLowerCase() ) );
 		} else {
 			//Select element
 			//Click to close

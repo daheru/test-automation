@@ -17,7 +17,7 @@ public class LoginBusinessTest extends BaseDriver {
 	
 	
 	public void goToLogin() {
-		logger.info("Ingresando a Login");
+		logger.info("Tap en Login");
 		generalBusinessTest.initAsGuess();
 		waitVisibility( MobileNamesConstants.HOME_PROFILE );
 		generalBusinessTest.selectProfile();
@@ -41,21 +41,30 @@ public class LoginBusinessTest extends BaseDriver {
 	}
 	
 	public void selectCreateAccount() {
+		logger.info("Tap en Registrarse");
 		tapOnElement( MobileNamesConstants.LOGIN_CREATE_LINK );
 	}
 	
 	public void createAccount( String name, String lastName, String email, String pass ) {
+		logger.info("Escribiendo nombre, apellido, correo y password");
 		fillElement( MobileNamesConstants.REG_NAME_TEXT , name);
 		fillElement( MobileNamesConstants.REG_LAST_NAME_TEXT, lastName );
 		fillElement( MobileNamesConstants.REG_EMAIL_TEXT, email );
 		fillElement( MobileNamesConstants.REG_PASS_TEXT, pass );
-		//tapOnElement( MobileNamesConstants.REG_CREATE_BUTTON );
+		tapOnElement( MobileNamesConstants.REG_CREATE_BUTTON );
 	}
 	
 	public void selectPassRecovery(String email) {
+		logger.info("Escribiendo correo");
 		fillElement( MobileNamesConstants.LOGIN_EMAIL_TEXT, email );
+		logger.info("Tap en Olvidaste tu contraseña");
 		tapOnElement( MobileNamesConstants.LOGIN_FORGOT_PASS_LINK );
 		generalBusinessTest.validateMessage();
+	}
+	
+	public void validateErrorMessage() {
+		logger.info("Validando mensajes de error");
+		generalBusinessTest.validateErrorMessages();
 	}
 	
 }
