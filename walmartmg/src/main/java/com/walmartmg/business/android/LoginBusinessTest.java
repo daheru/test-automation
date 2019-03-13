@@ -6,6 +6,7 @@ import org.junit.Assert;
 import com.walmartmg.commons.MenuOptionsEnum;
 import com.walmartmg.commons.MobileNamesConstants;
 import com.walmartmg.commons.NavigationBarEnum;
+import com.walmartmg.commons.PropertiesConstants;
 import com.walmartmg.util.BaseDriver;
 
 import io.appium.java_client.MobileElement;
@@ -33,7 +34,7 @@ public class LoginBusinessTest extends BaseDriver {
 		logger.info("Validando Login");
 		generalBusinessTest.selectMenuOption( MenuOptionsEnum.PROFILE.getMenu() );
 		MobileElement userEmail = findElement( MobileNamesConstants.USER_EMAIL );
-		Assert.assertEquals(email, userEmail.getAttribute("text"));
+		Assert.assertEquals(email, userEmail.getAttribute( PropertiesConstants.ATTRIBUTE_TEXT ));
 	}
 	
 	public void validateErrorMessages( String email, String password ) {
