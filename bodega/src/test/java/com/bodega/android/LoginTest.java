@@ -29,7 +29,7 @@ public class LoginTest {
 		logger.info("Iniciando caso de prueba: Login as guess success");
 		login.goToLogin();
 		login.login("emmanuel.dominguez@live.com.mx", "Edominguez#1234");
-		login.validateLogin("emmanuel.dominguez@live.com.mx");
+		login.validateLogin("emmanuel1.dominguez@live.com.mx");
 		logger.info("Finalizando caso de prueba");
 	}
 	

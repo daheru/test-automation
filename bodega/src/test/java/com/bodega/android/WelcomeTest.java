@@ -22,6 +22,7 @@ public class WelcomeTest {
 		welcome.lauchApp();
 		if( welcome.elementExist( MobileNamesConstants.DIALOG_CONTENT ) ) {
 			welcome.findElement( MobileNamesConstants.DIALOG_ALLOW ).click();
+			//welcome.findElement( MobileNamesConstants.DIALOG_ALLOW ).click();
 		}
 	}
 	
