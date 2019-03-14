@@ -9,6 +9,7 @@ import org.junit.Assert;
 import com.bodega.commons.GeneralConstants;
 import com.bodega.commons.MenuOptionsEnum;
 import com.bodega.commons.MobileNamesConstants;
+import com.bodega.commons.NavigationBarEnum;
 import com.bodega.commons.PropertiesConstants;
 import com.bodega.util.BaseDriver;
 import com.bodega.vo.AddressVO;
@@ -32,9 +33,8 @@ public class MainBusinessTest extends BaseDriver {
 		generalBusinessTest.selectProfile();
 	}
 	
-	public void selectMenuDirections() {
-		logger.info("Tap en el menu de direcciones");
-		generalBusinessTest.selectMenuOption( MenuOptionsEnum.ADDRESS.getMenu() );
+	public void selectMenu( String menuOption ) {
+		generalBusinessTest.selectMenuOption( menuOption );
 	}
 	
 	public void addNewDirection( AddressVO addressVO ) {
@@ -42,6 +42,7 @@ public class MainBusinessTest extends BaseDriver {
 		logger.info("Tap en agrega direccion");
 		tapOnElement( MobileNamesConstants.ADDRESS_ADD_BUTTON );
 		logger.info("Ingresado datos");
+		randomAddressName( addressVO );
 		fillElement( MobileNamesConstants.ADDRESS_NAME_TEXT , addressVO.getAddressName());
 		fillElement( MobileNamesConstants.ADDRESS_USER_NAME , addressVO.getAddressUserName());
 		fillElement( MobileNamesConstants.ADDRESS_USER_LAST_NAME , addressVO.getAddressUserLastName());
@@ -79,7 +80,9 @@ public class MainBusinessTest extends BaseDriver {
 		logger.info("Tap en checkbox de direccion principal");
 		MobileElement checkMainAddress = findElement( MobileNamesConstants.ADDRESS_MAIN_ADDRESS_CHECK );
 		boolean checkMainAddressBool =  Boolean.parseBoolean( checkMainAddress.getAttribute( GeneralConstants.CHECKED ) );
-		if( check && !checkMainAddressBool) {
+		if( check && !checkMainAddressBool ) {
+			tapOnElement( MobileNamesConstants.ADDRESS_MAIN_ADDRESS_CHECK );
+		} if( !check && checkMainAddressBool ) {
 			tapOnElement( MobileNamesConstants.ADDRESS_MAIN_ADDRESS_CHECK );
 		}
 	}
@@ -107,9 +110,7 @@ public class MainBusinessTest extends BaseDriver {
 		logger.info("Editando direccion");
 		if( elementExist(MobileNamesConstants.ADDRESS_DETAIL_EDIT) ) {
 			tapOnElement( MobileNamesConstants.ADDRESS_DETAIL_EDIT );
-			Random generator = new Random();
-			String newAddress = addressVO.getAddressName() + " " + generator.nextInt(100);
-			addressVO.setAddressName(newAddress);
+			randomAddressName( addressVO );
 			fillElement( MobileNamesConstants.ADDRESS_NAME_TEXT , addressVO.getAddressName() );
 			generalBusinessTest.scrollUntilShowElement( GeneralConstants.SCROLL_UP , MobileNamesConstants.ADDRESS_SAVE_BUTTON );
 			fillElement( MobileNamesConstants.ADDRESS_PHONE_TEXT , addressVO.getAddressPhone());
@@ -125,8 +126,11 @@ public class MainBusinessTest extends BaseDriver {
 			waitVisibility( MobileNamesConstants.ADDRESS_DIALOG_DELETE );
 			tapOnElement( MobileNamesConstants.ADDRESS_DIALOG_DELETE );
 		} else {
+			randomAddressName( addressVO );
 			addNewDirection(addressVO);
+			selectAsMainAddress(false);
 			saveDirection();
+			validateAddressAsFavorite(false, addressVO.getAddressName());
 			removeAddress(addressVO);
 		}
 	}
@@ -135,11 +139,6 @@ public class MainBusinessTest extends BaseDriver {
 		generalBusinessTest.validateMessage();
 		List<MobileElement> deletes = findElements( MobileNamesConstants.ADDRESS_DETAIL_DELETE );
 		Assert.assertTrue( deletes.size() < numAddress );
-	}
-	
-	public void selectOrders() {
-		logger.info("Tap en el menu pedidos");
-		generalBusinessTest.selectMenuOption( MenuOptionsEnum.ORDERS.getMenu() );
 	}
 	
 	public void validateOrderPage() {
@@ -152,12 +151,56 @@ public class MainBusinessTest extends BaseDriver {
 		}
 	}
 	
-	public void orderDetail() {
+	public String[] orderDetail() {
 		waitVisibility( MobileNamesConstants.ORDER_ORDER_CONT );
+		String orderNumber[] = { getText( MobileNamesConstants.ORDER_ORDER_NUMBER ), 
+				getText( MobileNamesConstants.ORDER_ORDER_DATE )};
 		tapOnElement( MobileNamesConstants.ORDER_ORDER_DETAIL_LINK );
+		return orderNumber;
 	}
 	
-	public void validateOrderDetail() {
-		
+	public void validateOrderDetail( String[] orderNumber ) {
+		String orderDetailNumber = getText( MobileNamesConstants.ORDER_DETAIL_ORDER_NUMBER );
+		String orderDetailDate = getText( MobileNamesConstants.ORDER_DETAIL_ORDER_DATE );
+		Assert.assertTrue( orderDetailNumber.equals( orderNumber[0] ) );
+		Assert.assertTrue( orderDetailDate.contains( orderNumber[1] ) );
+		generalBusinessTest.validateElement( MobileNamesConstants.ORDER_DETAIL_ORDER_LIST );
+		generalBusinessTest.validateElement( MobileNamesConstants.ORDER_DETAIL_ORDER_PRICE );
+	}
+	
+	public void manualBill( String ticketCode ) {
+		waitVisibility( MobileNamesConstants.GETBILL_SCAN_CONT );
+		tapOnElement( MobileNamesConstants.GETBILL_MANUAL_CODE );
+		fillElement( MobileNamesConstants.GETBILL_SCAN_MANUAL_TICKET_NUMBER , ticketCode);
+		tapOnElement( MobileNamesConstants.GETBILL_SCAN_MANUAL_BUTTON );
+	}
+	
+	public void validateTerms(int elementNum) {
+		MobileElement menuTerm = findElement( MobileNamesConstants.LIST_TERMS );
+		List<MobileElement> terms = findSubElements( menuTerm, MobileNamesConstants.LIST_TERM_ELEMENT );
+		Assert.assertEquals(elementNum, terms.size());
+		for( MobileElement element : terms) {
+			tapOnElement(element);
+			tapOnElement( MobileNamesConstants.BACK_BUTTON );
+		}
+	}
+	
+	public void validateSupportPage() {
+		waitVisibility( MobileNamesConstants.SUPPORT_CALL_ICON );
+		generalBusinessTest.validateElement( MobileNamesConstants.SUPPORT_CALL_ICON );
+		generalBusinessTest.validateElement( MobileNamesConstants.SUPPORT_EMAIL_ICON );
+	}
+	
+	public void validateLogout( ) {
+		logger.info("Validando Login");
+		selectProfile();
+		selectMenu( MenuOptionsEnum.LOGIN.getMenu() );
+		Assert.assertTrue( elementExist(MobileNamesConstants.LOGIN_LOGIN_BUTTON) );
+	}
+	
+	private void randomAddressName( AddressVO addressVO ) {
+		Random generator = new Random();
+		String newAddress = addressVO.getAddressName() + " " + generator.nextInt(100);
+		addressVO.setAddressName(newAddress);
 	}
 }

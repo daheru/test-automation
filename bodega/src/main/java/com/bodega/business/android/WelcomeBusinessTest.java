@@ -45,17 +45,17 @@ public class WelcomeBusinessTest extends BaseDriver {
 	public void validateMenu() {
 		waitVisibility( MobileNamesConstants.HOME_ITEM_BANNER );
 		waitVisibility( MobileNamesConstants.HOME_CARROUSEL );
-		general.selectMenuOption( MenuOptionsEnum.LOGIN.getMenu() );
-		general.goBack();
-		general.selectMenuOption( MenuOptionsEnum.CREATE_PROFILE.getMenu() );
-		general.goBack();
-		general.selectMenuOption( MenuOptionsEnum.GET_BILL.getMenu() );
-		general.goBack();
-		general.selectMenuOption( MenuOptionsEnum.SUPPORT.getMenu() );
-		general.goBack();
-		general.selectMenuOption( MenuOptionsEnum.TERMS.getMenu() );
-		general.goBack();
-		general.selectMenuOption( MenuOptionsEnum.LEGALS.getMenu() );
+		selectMenu( MenuOptionsEnum.LOGIN.getMenu() );
+		selectMenu( MenuOptionsEnum.CREATE_PROFILE.getMenu() );
+		selectMenu( MenuOptionsEnum.GET_BILL.getMenu() );
+		selectMenu( MenuOptionsEnum.SUPPORT.getMenu() );
+		selectMenu( MenuOptionsEnum.TERMS.getMenu() );
+		selectMenu( MenuOptionsEnum.LEGALS.getMenu() );
+	}
+	
+	private void selectMenu( String menu ) {
+		general.selectMenuOption( menu );
+		closeAndroidDialog();
 		general.goBack();
 	}
 }

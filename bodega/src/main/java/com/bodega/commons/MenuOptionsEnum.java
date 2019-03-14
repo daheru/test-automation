@@ -11,7 +11,8 @@ public enum MenuOptionsEnum {
 	ORDERS("pedidos"),
 	GET_BILL("factura"),
 	LEGALS("legales"),
-	LOGOUT("cerrar");
+	LOGOUT("cerrar"),
+	NOTIFICATIONS("notificaciones");
 	
 	private String menu;
 	

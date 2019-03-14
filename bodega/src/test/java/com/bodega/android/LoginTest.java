@@ -1,6 +1,7 @@
 package com.bodega.android;
 
 import org.apache.log4j.Logger;
+import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.Test;
@@ -13,15 +14,18 @@ public class LoginTest {
 	public static LoginBusinessTest login = new LoginBusinessTest();
 	
 	@AfterClass
-	public static void tearDown() {
+	public static void shutDown() {
 		login.driverDisconect();
 	}
-	
+
 	@Before
-	public void relauchApp() {
-		login.closeApp();
-		login.lauchApp();
+	public void initApp() {
 		login.closeAndroidDialog();
+	}
+	
+	@After
+	public void relauchApp() {
+		login.resetApp();
 	}
 	
 	@Test

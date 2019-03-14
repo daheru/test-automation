@@ -1,6 +1,7 @@
 package com.bodega.android;
 
 import org.apache.log4j.Logger;
+import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.Test;
@@ -13,19 +14,23 @@ public class HomeTest {
 	public static HomeBusinessTest home = new HomeBusinessTest();
 	
 	@AfterClass
-	public static void tearDown() {
+	public static void shutDown() {
 		home.driverDisconect();
 	}
-	
+
 	@Before
-	public void relauchApp() {
-		home.closeApp();
-		home.lauchApp();
+	public void initApp() {
 		home.closeAndroidDialog();
+	}
+	
+	@After
+	public void relauchApp() {
+		home.resetApp();
 	}
 	
 	@Test
 	public void validate_home_page() {
+		home.initAsGuess();
 		home.selectHomeOption();
 		home.validateElements();
 	}

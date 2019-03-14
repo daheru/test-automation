@@ -85,5 +85,25 @@ public final class MobileNamesConstants {
 	public static final String ORDER_ORDER_LIST = PropertiesValuesUtil.getPropertyName("ORDER_ORDER_LIST");
 	public static final String ORDER_ORDER_CONT = PropertiesValuesUtil.getPropertyName("ORDER_ORDER_CONT");
 	public static final String ORDER_ORDER_DETAIL_LINK = PropertiesValuesUtil.getPropertyName("ORDER_ORDER_DETAIL_LINK");
+	public static final String ORDER_ORDER_NUMBER = PropertiesValuesUtil.getPropertyName("ORDER_ORDER_NUMBER");
+	public static final String ORDER_ORDER_DATE = PropertiesValuesUtil.getPropertyName("ORDER_ORDER_DATE");
+	public static final String ORDER_DETAIL_ORDER_NUMBER = PropertiesValuesUtil.getPropertyName("ORDER_DETAIL_ORDER_NUMBER");
+	public static final String ORDER_DETAIL_ORDER_DATE = PropertiesValuesUtil.getPropertyName("ORDER_DETAIL_ORDER_DATE");
+	public static final String ORDER_DETAIL_ORDER_LIST = PropertiesValuesUtil.getPropertyName("ORDER_DETAIL_ORDER_LIST");
+	public static final String ORDER_DETAIL_ORDER_PRICE = PropertiesValuesUtil.getPropertyName("ORDER_DETAIL_ORDER_PRICE");
+	
+	public static final String GETBILL_SCAN_CONT = PropertiesValuesUtil.getPropertyName("GETBILL_SCAN_CONT");
+	public static final String GETBILL_MANUAL_CODE = PropertiesValuesUtil.getPropertyName("GETBILL_MANUAL_CODE");
+	
+	public static final String GETBILL_SCAN_MANUAL_TICKET_NUMBER = PropertiesValuesUtil.getPropertyName("GETBILL_SCAN_MANUAL_TICKET_NUMBER");
+	public static final String GETBILL_SCAN_MANUAL_TICKET_LINK = PropertiesValuesUtil.getPropertyName("GETBILL_SCAN_MANUAL_TICKET_LINK");
+	public static final String GETBILL_SCAN_MANUAL_BUTTON = PropertiesValuesUtil.getPropertyName("GETBILL_SCAN_MANUAL_BUTTON");
+	
+	public static final String LIST_TERMS = PropertiesValuesUtil.getPropertyName("LIST_TERMS");
+	public static final String LIST_TERM_ELEMENT = PropertiesValuesUtil.getPropertyName("LIST_TERM_ELEMENT");
+	
+	public static final String SUPPORT_LABEL = PropertiesValuesUtil.getPropertyName("SUPPORT_LABEL");
+	public static final String SUPPORT_CALL_ICON = PropertiesValuesUtil.getPropertyName("SUPPORT_CALL_ICON");
+	public static final String SUPPORT_EMAIL_ICON = PropertiesValuesUtil.getPropertyName("SUPPORT_EMAIL_ICON");
 	
 }

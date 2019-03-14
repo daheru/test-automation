@@ -11,6 +11,10 @@ public class HomeBusinessTest extends BaseDriver {
 	public static final Logger logger = Logger.getLogger( HomeBusinessTest.class );
 	public GeneralBusinessTest generalBusinessTest = new GeneralBusinessTest();
 	
+	public void initAsGuess() {
+		generalBusinessTest.initAsGuess();
+	}
+	
 	public void selectHomeOption() {
 		generalBusinessTest.selectNavigationOption( NavigationBarEnum.HOME.getNavigation() );
 	}
