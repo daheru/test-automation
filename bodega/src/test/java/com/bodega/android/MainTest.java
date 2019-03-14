@@ -1,6 +1,7 @@
 package com.bodega.android;
 
 import org.apache.log4j.Logger;
+import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
@@ -17,7 +18,7 @@ public class MainTest {
 
 	@BeforeClass
 	public static void init() {
-		addressVO = new AddressVO("Prueba 1", "Juan", "Perez", "Av Rodolfo Gaona 46", "456", "", "11200", 
+		addressVO = new AddressVO("Mi primera direccion", "Juan", "Perez", "Av Rodolfo Gaona 46", "456", "", "11200", 
 				"Lomas Hermosa", "Entre walmart", "Plaza Toreo", "Movil", "5555555555");
 	}
 	
@@ -31,7 +32,7 @@ public class MainTest {
 		main.closeAndroidDialog();
 	}
 	
-	//@After
+	@After
 	public void relauchApp() {
 		main.resetApp();
 	}
@@ -52,7 +53,7 @@ public class MainTest {
 	@Test
 	public void edit_main_address( ) {
 		logger.info("Iniciando caso de prueba: Edit Address");
-		addressVO.setAddressName("Prueba Modificacion");
+		addressVO.setAddressName("Mi direccion");
 		addressVO.setAddressPhone("5512345678");
 		main.login("emmanuel.dominguez@live.com.mx", "Edominguez#1234");
 		main.selectProfile();
@@ -64,12 +65,38 @@ public class MainTest {
 	}
 	
 	@Test
-	public void delete_address() {
+	public void remove_address() {
 		logger.info("Iniciando caso de prueba: Edit Address");
-		
-
-				
+		main.login("emmanuel.dominguez@live.com.mx", "Edominguez#1234");
+		main.selectProfile();
+		main.selectMenuDirections();
+		main.removeAddress( addressVO );
+		main.validateRemoveAddress();		
 		logger.info("Caso de prueba finalizado");
 	}
-		
+	
+	@Test
+	public void view_orders() {
+		logger.info("Iniciando caso de prueba: Edit Address");
+		//juan@correo.com 12345678
+		//emmanuel.dominguez@live.com.mx Edominguez#1234
+		main.login("juan@correo.com", "12345678");
+		main.selectProfile();
+		main.selectOrders();
+		main.validateOrderPage();
+		logger.info("Caso de prueba finalizado");
+	}
+	
+	@Test
+	public void view_order_detail() {
+		logger.info("Iniciando caso de prueba: Edit Address");
+		//juan@correo.com 12345678
+		//emmanuel.dominguez@live.com.mx Edominguez#1234
+		main.login("emmanuel.dominguez@live.com.mx", "Edominguez#1234");
+		main.selectProfile();
+		main.selectOrders();
+		main.orderDetail();
+		main.validateOrderDetail();
+		logger.info("Caso de prueba finalizado");
+	}
 }

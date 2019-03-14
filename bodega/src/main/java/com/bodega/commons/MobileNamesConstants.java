@@ -76,5 +76,14 @@ public final class MobileNamesConstants {
 	public static final String ADDRESS_DETAIL_NAME = PropertiesValuesUtil.getPropertyName("ADDRESS_DETAIL_NAME");
 	public static final String ADDRESS_DETAIL_EDIT = PropertiesValuesUtil.getPropertyName("ADDRESS_DETAIL_EDIT");
 	public static final String ADDRESS_DETAIL_DELETE = PropertiesValuesUtil.getPropertyName("ADDRESS_DETAIL_DELETE");
+	public static final String ADDRESS_DIALOG_DELETE = PropertiesValuesUtil.getPropertyName("ADDRESS_DIALOG_DELETE");
+	public static final String ADDRESS_DIALOG_CANCEL = PropertiesValuesUtil.getPropertyName("ADDRESS_DIALOG_CANCEL");
+	
+	public static final String ORDER_EMPTY_CONT = PropertiesValuesUtil.getPropertyName("ORDER_EMPTY_CONT");
+	public static final String ORDER_EMPTY_ICON = PropertiesValuesUtil.getPropertyName("ORDER_EMPTY_ICON");
+	public static final String ORDER_EMPTY_BUTTON = PropertiesValuesUtil.getPropertyName("ORDER_EMPTY_BUTTON");
+	public static final String ORDER_ORDER_LIST = PropertiesValuesUtil.getPropertyName("ORDER_ORDER_LIST");
+	public static final String ORDER_ORDER_CONT = PropertiesValuesUtil.getPropertyName("ORDER_ORDER_CONT");
+	public static final String ORDER_ORDER_DETAIL_LINK = PropertiesValuesUtil.getPropertyName("ORDER_ORDER_DETAIL_LINK");
 	
 }

@@ -71,6 +71,10 @@ public class BaseDriver {
 		}
 	}
 	
+	public void tapOnElement( MobileElement element ) {
+		element.click();
+	}
+	
 	public void fillElement( String element, String text ) {
 		if( element.startsWith( GeneralConstants.SLASH ) ) {
 			driver.findElement( By.xpath(element) ).sendKeys(text);
