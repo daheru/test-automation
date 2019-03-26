@@ -108,6 +108,7 @@ public final class NamesMobileElements {
 	public static final String SUPPORT_CALL_ICON = PropertiesValuesUtil.getPropertyName("SUPPORT_CALL_ICON");
 	public static final String SUPPORT_EMAIL_ICON = PropertiesValuesUtil.getPropertyName("SUPPORT_EMAIL_ICON");
 	
+<<<<<<< refs/remotes/origin/bodega:bodega/src/main/java/com/bodega/constants/NamesMobileElements.java
 	public static final String LEGALS_ITEM = PropertiesValuesUtil.getPropertyName("LEGALS_ITEM");
 	public static final String LEGALS_SUB_ITEM = PropertiesValuesUtil.getPropertyName("LEGALS_SUB_ITEM");
 	
@@ -130,4 +131,33 @@ public final class NamesMobileElements {
 	public static final String MYPROFILE_PHONE_SECONDARY_EXT = PropertiesValuesUtil.getPropertyName ("MYPROFILE_PHONE_SECONDARY_EXT");
 	public static final String MYPROFILE_BUTTON_PHONE_SAVE = PropertiesValuesUtil.getPropertyName ("MYPROFILE_BUTTON_PHONE_SAVE");
 	
+=======
+	
+	 public static final String MYPROFILE_EDIT_PROFILE = PropertiesValuesUtil.getPropertyName ("MYPROFILE_EDIT_PROFILE");
+	 public static final String MYPROFILE_EDIT_PASSWORD = PropertiesValuesUtil.getPropertyName ("MYPROFILE_EDIT_PASSWORD");
+	 public static final String MYPROFILE_EDIT_PHONE = PropertiesValuesUtil.getPropertyName ("MYPROFILE_EDIT_PHONE");
+	 public static final String MYPROFILE_USER_NAME = PropertiesValuesUtil.getPropertyName ("MYPROFILE_USER_NAME");
+	 public static final String MYPROFILE_USER_LAST_NAME = PropertiesValuesUtil.getPropertyName ("MYPROFILE_USER_LAST_NAME");
+	 public static final String MYPROFILE_USER_BIRTHDATE = PropertiesValuesUtil.getPropertyName ("MYPROFILE_USER_BIRTHDATE");
+	 public static final String MYPROFILE_BUTTON_WOMAN = PropertiesValuesUtil.getPropertyName ("MYPROFILE_BUTTON_WOMAN");
+	 public static final String MYPROFILE_BUTTON_MAN = PropertiesValuesUtil.getPropertyName ("MYPROFILE_BUTTON_MAN");
+	 public static final String MYPROFILE_CHECKBOX_PROFILE = PropertiesValuesUtil.getPropertyName ("MYPROFILE_CHECKBOX_PROFILE");
+	 public static final String MYPROFILE_BUTTON_PROFILE_SAVE = PropertiesValuesUtil.getPropertyName ("MYPROFILE_BUTTON_PROFILE_SAVE");
+	 public static final String MYPROFILE_OLD_PASSWORD = PropertiesValuesUtil.getPropertyName ("MYPROFILE_OLD_PASSWORD");
+	 public static final String MYPROFILE_OLD_CON_PASSWORD = PropertiesValuesUtil.getPropertyName ("MYPROFILE_OLD_CON_PASSWORD");
+	 public static final String MYPROFILE_OLD_PASSWORD_EYE = PropertiesValuesUtil.getPropertyName ("MYPROFILE_OLD_PASSWORD_EYE");
+	 public static final String MYPROFILE_NEW_PASSWORD = PropertiesValuesUtil.getPropertyName ("MYPROFILE_NEW_PASSWORD");
+	 public static final String MYPROFILE_NEW_CON_PASSWORD = PropertiesValuesUtil.getPropertyName ("MYPROFILE_NEW_CON_PASSWORD");
+	 public static final String MYPROFILE_NEW_PASSWORD_EYE = PropertiesValuesUtil.getPropertyName ("MYPROFILE_NEW_PASSWORD_EYE");
+	 public static final String MYPROFILE_PHONE_PRIMARY = PropertiesValuesUtil.getPropertyName ("MYPROFILE_PHONE_PRIMARY");
+	 public static final String MYPROFILE_PHONE_SECONDARY = PropertiesValuesUtil.getPropertyName ("MYPROFILE_PHONE_SECONDARY");
+	 public static final String MYPROFILE_PHONE_SECONDARY_EXT = PropertiesValuesUtil.getPropertyName ("MYPROFILE_PHONE_SECONDARY_EXT");
+	 public static final String MYPROFILE_BUTTON_PHONE_SAVE = PropertiesValuesUtil.getPropertyName ("MYPROFILE_BUTTON_PHONE_SAVE");
+	 public static final String MYPROFILE_ADD_PHONE = PropertiesValuesUtil.getPropertyName ("MYPROFILE_ADD_PHONE");
+	 public static final String MYPROFILE_BUTTON_PHONE_MOVIL = PropertiesValuesUtil.getPropertyName ("MYPROFILE_BUTTON_PHONE_MOVIL");
+	 public static final String MYPROFILE_BUTTON_PHONE_FIJO = PropertiesValuesUtil.getPropertyName ("MYPROFILE_BUTTON_PHONE_FIJO");
+	 public static final String MYPROFILE_BUTTON_PHONE_FIJO_LIS = PropertiesValuesUtil.getPropertyName ("MYPROFILE_BUTTON_PHONE_FIJO_LIS");
+	 
+	 
+>>>>>>> MyProfileTest methods:bodega/src/main/java/com/bodega/commons/MobileNamesConstants.java
 }
