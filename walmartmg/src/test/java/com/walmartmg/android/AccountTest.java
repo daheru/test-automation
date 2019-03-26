@@ -22,37 +22,38 @@ public class AccountTest {
 	}
 	
 	@Test
-	public void create_account_validate_page() {
+	public void CP016_create_account_validate_page() {
 		account.selectProfileOption();
 		account.selectCreateAccount();
 		account.validateElements();
 	}
 	
 	@Test
-	public void create_Account_Without_Data() {
+	public void CP017_create_account_without_data() {
 		account.selectProfileOption();
 		account.selectCreateAccount();
 		account.createAccount("","","","");
-		account.validateErrorMessages("", "", "", "");
+		account.validateEmptyFields();
 	}
 	
 	@Test
-	public void create_Account_With_Wrong_Data() {
+	public void CP018_create_account_with_invalid_data() {
 		account.selectProfileOption();
 		account.selectCreateAccount();
-		account.createAccount("123Juan","Bautista","correo@correo.com","12345678");
-		account.validateErrorMessages("123Juan","Bautista","correo@correo.com","12345678");
+		account.createAccount("12345·$%","12344|@#","akakak.com@","123");
+		account.validateInvalidData();
 	}
 	
 	@Test
-	public void show_password() {
+	public void CP019_create_account_exist_email() {
 		account.selectProfileOption();
 		account.selectCreateAccount();
-		account.showPassword("hola123");
+		account.createAccount("Juan","Lopez","dj_fran_@hotmail.es","12345678");
+		account.validateExistEmail();
 	}
 	
 	@Test
-	public void term_link() {
+	public void CP020_validate_terms() {
 		account.selectProfileOption();
 		account.selectCreateAccount();
 		account.tapTermsLink();
@@ -60,12 +61,25 @@ public class AccountTest {
 	}
 	
 	@Test
-	public void login_button() {
+	public void CP021_validate_login_link() {
 		account.selectProfileOption();
 		account.selectCreateAccount();
 		account.tapLoginLink();
 		account.validateLogin();
 	}
 	
+	//@Test
+	public void CP022_create_account() {
+		account.selectProfileOption();
+		account.selectCreateAccount();
+		account.createAccount("Maria","Tester","test1@correo.com","Test#1234");
+		account.validateCreateAccount();
+	}
 	
+	@Test
+	public void show_password() {
+		account.selectProfileOption();
+		account.selectCreateAccount();
+		account.showPassword("NuevoPass12345");
+	}	
 }

@@ -1,12 +1,16 @@
-package com.walmartmg.commons;
+package com.walmartmg.constants;
 
 import com.walmartmg.util.PropertiesValuesUtil;
 
-public final class MobileNamesConstants {
+public final class NamesMobileElements {
 	
-	private MobileNamesConstants() {
+	private NamesMobileElements() {
 		
 	}
+	
+	public static final String DIALOG_CONTENT = PropertiesValuesUtil.getPropertyName("DIALOG_CONTENT");
+	public static final String DIALOG_DENY = PropertiesValuesUtil.getPropertyName("DIALOG_DENY");
+	public static final String DIALOG_ALLOW = PropertiesValuesUtil.getPropertyName("DIALOG_ALLOW");
 	
 	public static final String NAV_BAR = PropertiesValuesUtil.getPropertyName("NAV_BAR");
 	public static final String NAV_BAR_PROFILE = PropertiesValuesUtil.getPropertyName("NAV_BAR_PROFILE");
@@ -19,27 +23,33 @@ public final class MobileNamesConstants {
 	public static final String LOGIN_BUTTON = PropertiesValuesUtil.getPropertyName("LOGIN_BUTTON");
 	public static final String LOGIN_EMAIL = PropertiesValuesUtil.getPropertyName("LOGIN_EMAIL");
 	public static final String LOGIN_PASS = PropertiesValuesUtil.getPropertyName("LOGIN_PASS");
-	public static final String WARNING_MESSAGE = PropertiesValuesUtil.getPropertyName("WARNING_MESSAGE");
-	public static final String NAME_FIELD = PropertiesValuesUtil.getPropertyName("NAME_FIELD");
-	public static final String PASS_FIELD = PropertiesValuesUtil.getPropertyName("PASS_FIELD");
-	public static final String ERROR_TEXT_FIELD = PropertiesValuesUtil.getPropertyName("ERROR_TEXT_FIELD");
-	public static final String FORGOT_PASS = PropertiesValuesUtil.getPropertyName("FORGOT_PASS");
-	public static final String REGISTER_BUTTON = PropertiesValuesUtil.getPropertyName("REGISTER_BUTTON");
+	public static final String LOGIN_EMAIL_CONT = PropertiesValuesUtil.getPropertyName("LOGIN_EMAIL_CONT");
+	public static final String LOGIN_PASS_CONT = PropertiesValuesUtil.getPropertyName("LOGIN_PASS_CONT");
+	public static final String LOGIN_FORGOT_PASS = PropertiesValuesUtil.getPropertyName("LOGIN_FORGOT_PASS");
+	public static final String LOGIN_REGISTER_BUTTON = PropertiesValuesUtil.getPropertyName("LOGIN_REGISTER_BUTTON");
+	public static final String LOGIN_SHOW_PASS = PropertiesValuesUtil.getPropertyName("LOGIN_SHOW_PASS");
 	
 	public static final String USER_EMAIL = PropertiesValuesUtil.getPropertyName("USER_EMAIL");
 	
+	public static final String WARNING_MESSAGE = PropertiesValuesUtil.getPropertyName("WARNING_MESSAGE");
+	public static final String WARNING_TEXT_MESSAGE = PropertiesValuesUtil.getPropertyName("WARNING_TEXT_MESSAGE");
 	public static final String BACK_BUTTON = PropertiesValuesUtil.getPropertyName("BACK_BUTTON");
 	public static final String LIST_TERMS = PropertiesValuesUtil.getPropertyName("LIST_TERMS");
 	public static final String LIST_TERM_ELEMENT = PropertiesValuesUtil.getPropertyName("LIST_TERM_ELEMENT");
 	public static final String ANDROID_NATIVE_ALLOW = PropertiesValuesUtil.getPropertyName("ANDROID_NATIVE_ALLOW");
 	public static final String ANDROID_NATIVE_DENY = PropertiesValuesUtil.getPropertyName("ANDROID_NATIVE_DENY");
 	public static final String ANDROID_DIALOG_CONT = PropertiesValuesUtil.getPropertyName("ANDROID_DIALOG_CONT");
-	public static final String SHOW_PASS = PropertiesValuesUtil.getPropertyName("SHOW_PASS");
+	public static final String ERROR_TEXT_FIELD = PropertiesValuesUtil.getPropertyName("ERROR_TEXT_FIELD");
 	
-	public static final String ACCOUNT_NAME_TEXTBOX = PropertiesValuesUtil.getPropertyName("ACCOUNT_NAME_TEXTBOX");
-	public static final String ACCOUNT_LASTNAME_TEXTBOX = PropertiesValuesUtil.getPropertyName("ACCOUNT_LASTNAME_TEXTBOX");
-	public static final String ACCOUNT_EMAIL_TEXTBOX = PropertiesValuesUtil.getPropertyName("ACCOUNT_EMAIL_TEXTBOX");
-	public static final String ACCOUNT_PASS_TEXTBOX = PropertiesValuesUtil.getPropertyName("ACCOUNT_PASS_TEXTBOX");
+	public static final String ACCOUNT_NAME_CONT = PropertiesValuesUtil.getPropertyName("ACCOUNT_NAME_CONT");
+	public static final String ACCOUNT_NAME_TEXT = PropertiesValuesUtil.getPropertyName("ACCOUNT_NAME_TEXT");
+	public static final String ACCOUNT_LASTNAME_CONT = PropertiesValuesUtil.getPropertyName("ACCOUNT_LASTNAME_CONT");
+	public static final String ACCOUNT_LASTNAME_TEXT = PropertiesValuesUtil.getPropertyName("ACCOUNT_LASTNAME_TEXT");
+	public static final String ACCOUNT_EMAIL_CONT = PropertiesValuesUtil.getPropertyName("ACCOUNT_EMAIL_CONT");
+	public static final String ACCOUNT_EMAIL_TEXT = PropertiesValuesUtil.getPropertyName("ACCOUNT_EMAIL_TEXT");
+	public static final String ACCOUNT_PASS_CONT = PropertiesValuesUtil.getPropertyName("ACCOUNT_PASS_CONT");
+	public static final String ACCOUNT_PASS_TEXT = PropertiesValuesUtil.getPropertyName("ACCOUNT_PASS_TEXT");
+			
 	public static final String ACCOUNT_SHOW_PASS = PropertiesValuesUtil.getPropertyName("ACCOUNT_SHOW_PASS");
 	public static final String ACCOUNT_TERMS_LINK = PropertiesValuesUtil.getPropertyName("ACCOUNT_TERMS_LINK");
 	public static final String ACCOUNT_CREATE_BUTTON = PropertiesValuesUtil.getPropertyName("ACCOUNT_CREATE_BUTTON");
@@ -98,5 +108,9 @@ public final class MobileNamesConstants {
 	public static final String HELP_PHONE = PropertiesValuesUtil.getPropertyName("HELP_PHONE");
 	public static final String HELP_CALL_BUTTON = PropertiesValuesUtil.getPropertyName("HELP_CALL_BUTTON");
 	public static final String HELP_EMAIL_BUTTON = PropertiesValuesUtil.getPropertyName("HELP_EMAIL_BUTTON");
+	
+	public static final String TERMS_LIST = PropertiesValuesUtil.getPropertyName("TERMS_LIST");
+	public static final String TERMS_ITEM = PropertiesValuesUtil.getPropertyName("TERMS_ITEM");
+	public static final String TERMS_ITEM_CHILD = PropertiesValuesUtil.getPropertyName("TERMS_ITEM_CHILD");
 	
 }

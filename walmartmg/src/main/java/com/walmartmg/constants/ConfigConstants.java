@@ -1,10 +1,10 @@
-package com.walmartmg.commons;
+package com.walmartmg.constants;
 
 import com.walmartmg.util.PropertiesValuesUtil;
 
-public final class PropertiesConstants {
+public final class ConfigConstants {
 	
-	private PropertiesConstants() {
+	private ConfigConstants() {
 		
 	}
 	

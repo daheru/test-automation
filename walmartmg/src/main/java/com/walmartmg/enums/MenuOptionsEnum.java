@@ -1,4 +1,4 @@
-package com.walmartmg.commons;
+package com.walmartmg.enums;
 
 public enum MenuOptionsEnum {
 	
