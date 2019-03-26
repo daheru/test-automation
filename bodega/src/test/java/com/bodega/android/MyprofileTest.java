@@ -8,8 +8,7 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import com.bodega.business.android.MyprofileBusinessTest;
-import com.bodega.commons.MenuOptionsEnum;
-import com.bodega.commons.MobileNamesConstants;
+import com.bodega.enums.MenuOptionsEnum;
 
 public class MyprofileTest {
 
