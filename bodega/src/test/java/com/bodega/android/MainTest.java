@@ -23,7 +23,7 @@ public class MainTest {
 	@BeforeClass
 	public static void init() {
 		addressVO = new AddressVO("Direccion ", "Juan", "Perez", "Av Rodolfo Gaona 46", "456", "", "11200",
-				"Lomas Hermosa", "Entre walmart", "Plaza Toreo", "Movil", "5555555555");
+				"Lomas Hermosa", "Entre walmart", "Plaza Toreo", "Fijo", "5555555555");
 	}
 
 	@AfterClass

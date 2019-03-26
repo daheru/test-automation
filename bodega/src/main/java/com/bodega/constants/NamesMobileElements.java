@@ -35,6 +35,7 @@ public final class NamesMobileElements {
 	public static final String WARNING_TEXT_MESSAGE = PropertiesValuesUtil.getPropertyName("WARNING_TEXT_MESSAGE");
 	public static final String TEXT_INPUT_ERROR = PropertiesValuesUtil.getPropertyName("TEXT_INPUT_ERROR");
 	public static final String ERROR_TEXT_FIELD = PropertiesValuesUtil.getPropertyName("ERROR_TEXT_FIELD");
+	public static final String COMBO_OPTIONS = PropertiesValuesUtil.getPropertyName("COMBO_OPTIONS");
 	
 	public static final String MENU_NAME = PropertiesValuesUtil.getPropertyName("MENU_NAME");
 	
@@ -67,7 +68,6 @@ public final class NamesMobileElements {
 	public static final String ADDRESS_REFERENCES_ONE = PropertiesValuesUtil.getPropertyName("ADDRESS_REFERENCES_ONE");
 	public static final String ADDRESS_REFERENCES_TWO = PropertiesValuesUtil.getPropertyName("ADDRESS_REFERENCES_TWO");
 	public static final String ADDRESS_PHONE_TYPE = PropertiesValuesUtil.getPropertyName("ADDRESS_PHONE_TYPE");
-	public static final String ADDRESS_COMBO_OPTIONS = PropertiesValuesUtil.getPropertyName("ADDRESS_COMBO_OPTIONS");
 	public static final String ADDRESS_PHONE_TEXT = PropertiesValuesUtil.getPropertyName("ADDRESS_PHONE_TEXT");
 	public static final String ADDRESS_MAIN_ADDRESS_CHECK = PropertiesValuesUtil.getPropertyName("ADDRESS_MAIN_ADDRESS_CHECK");
 	public static final String ADDRESS_SAVE_BUTTON = PropertiesValuesUtil.getPropertyName("ADDRESS_SAVE_BUTTON");

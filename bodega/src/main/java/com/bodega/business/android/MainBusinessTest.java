@@ -55,7 +55,7 @@ public class MainBusinessTest extends BaseDriver {
 		hideKeyboard();
 		waitVisibility( NamesMobileElements.ADDRESS_NEIGHBORNHOOD );
 		tapOnElement( NamesMobileElements.ADDRESS_NEIGHBORNHOOD );
-		List<MobileElement> neighbornhoods = findElements( NamesMobileElements.ADDRESS_COMBO_OPTIONS );
+		List<MobileElement> neighbornhoods = findElements( NamesMobileElements.COMBO_OPTIONS );
 		for( MobileElement neighbornhood : neighbornhoods ) {
 			if( neighbornhood.getAttribute( ConfigConstants.ATTRIBUTE_TEXT ).toLowerCase().contains( addressVO.getAddressNeighbornhood().toLowerCase() ) ) {
 				neighbornhood.click();
@@ -67,7 +67,7 @@ public class MainBusinessTest extends BaseDriver {
 		generalBusinessTest.scrollUntilShowElement( GeneralConstants.SCROLL_UP , NamesMobileElements.ADDRESS_SAVE_BUTTON );
 		fillElement( NamesMobileElements.ADDRESS_REFERENCES_TWO , addressVO.getAddressReferenceTwo());
 		tapOnElement( NamesMobileElements.ADDRESS_PHONE_TYPE );
-		List<MobileElement> phoneTypes = findElements( NamesMobileElements.ADDRESS_COMBO_OPTIONS );
+		List<MobileElement> phoneTypes = findElements( NamesMobileElements.COMBO_OPTIONS );
 		for( MobileElement phoneType : phoneTypes ) {
 			if( phoneType.getAttribute( ConfigConstants.ATTRIBUTE_TEXT ).toLowerCase().contains( addressVO.getAddressPhoneOption().toLowerCase() ) ) {
 				phoneType.click();
