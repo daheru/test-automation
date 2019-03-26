@@ -1,4 +1,4 @@
-package com.bodega.commons;
+package com.bodega.constants;
 
 
 public final class GeneralConstants {

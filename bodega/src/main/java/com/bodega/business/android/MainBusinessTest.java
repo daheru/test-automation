@@ -6,11 +6,12 @@ import java.util.Random;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
 
-import com.bodega.commons.GeneralConstants;
-import com.bodega.commons.MenuOptionsEnum;
-import com.bodega.commons.MobileNamesConstants;
-import com.bodega.commons.NavigationBarEnum;
-import com.bodega.commons.PropertiesConstants;
+import com.bodega.constants.AppMessages;
+import com.bodega.constants.GeneralConstants;
+import com.bodega.constants.NamesMobileElements;
+import com.bodega.constants.ConfigConstants;
+import com.bodega.enums.LegalsEnum;
+import com.bodega.enums.MenuOptionsEnum;
 import com.bodega.util.BaseDriver;
 import com.bodega.vo.AddressVO;
 
@@ -24,7 +25,6 @@ public class MainBusinessTest extends BaseDriver {
 	public static int numAddress = 0;
 	
 	public void login( String email, String pass) {
-		login.goToLogin();
 		login.login( email, pass);
 	}
 	
@@ -38,164 +38,160 @@ public class MainBusinessTest extends BaseDriver {
 	}
 	
 	public void addNewDirection( AddressVO addressVO ) {
-		waitVisibility( MobileNamesConstants.ADDRESS_LIST );
+		waitVisibility( NamesMobileElements.ADDRESS_LIST );
 		logger.info("Tap en agrega direccion");
-		tapOnElement( MobileNamesConstants.ADDRESS_ADD_BUTTON );
+		tapOnElement( NamesMobileElements.ADDRESS_ADD_BUTTON );
 		logger.info("Ingresado datos");
 		randomAddressName( addressVO );
-		fillElement( MobileNamesConstants.ADDRESS_NAME_TEXT , addressVO.getAddressName());
-		fillElement( MobileNamesConstants.ADDRESS_USER_NAME , addressVO.getAddressUserName());
-		fillElement( MobileNamesConstants.ADDRESS_USER_LAST_NAME , addressVO.getAddressUserLastName());
-		fillElement( MobileNamesConstants.ADDRESS_STREET_TEXT , addressVO.getAddressStreet());
-		fillElement( MobileNamesConstants.ADDRESS_OUT_NUMBER , addressVO.getAddressOutNumber());
-		fillElement( MobileNamesConstants.ADDRESS_INNER_NUMBER , addressVO.getAddressInnerNumber());
-		tapOnElement( MobileNamesConstants.ADDRESS_ZIP_CODE );
-		fillElement( MobileNamesConstants.ADDRESS_ZIP_CODE , addressVO.getAddressZipcode());
+		fillElement( NamesMobileElements.ADDRESS_NAME_TEXT , addressVO.getAddressName());
+		fillElement( NamesMobileElements.ADDRESS_USER_NAME , addressVO.getAddressUserName());
+		fillElement( NamesMobileElements.ADDRESS_USER_LAST_NAME , addressVO.getAddressUserLastName());
+		fillElement( NamesMobileElements.ADDRESS_STREET_TEXT , addressVO.getAddressStreet());
+		fillElement( NamesMobileElements.ADDRESS_OUT_NUMBER , addressVO.getAddressOutNumber());
+		fillElement( NamesMobileElements.ADDRESS_INNER_NUMBER , addressVO.getAddressInnerNumber());
+		generalBusinessTest.scrollUntilShowElement( GeneralConstants.SCROLL_UP , NamesMobileElements.ADDRESS_ZIP_CODE );
+		tapOnElement( NamesMobileElements.ADDRESS_ZIP_CODE );
+		fillElement( NamesMobileElements.ADDRESS_ZIP_CODE , addressVO.getAddressZipcode());
 		hideKeyboard();
-		waitVisibility( MobileNamesConstants.ADDRESS_NEIGHBORNHOOD );
-		tapOnElement( MobileNamesConstants.ADDRESS_NEIGHBORNHOOD );
-		List<MobileElement> neighbornhoods = findElements( MobileNamesConstants.ADDRESS_COMBO_OPTIONS );
+		waitVisibility( NamesMobileElements.ADDRESS_NEIGHBORNHOOD );
+		tapOnElement( NamesMobileElements.ADDRESS_NEIGHBORNHOOD );
+		List<MobileElement> neighbornhoods = findElements( NamesMobileElements.ADDRESS_COMBO_OPTIONS );
 		for( MobileElement neighbornhood : neighbornhoods ) {
-			if( neighbornhood.getAttribute( PropertiesConstants.ATTRIBUTE_TEXT ).toLowerCase().contains( addressVO.getAddressNeighbornhood().toLowerCase() ) ) {
+			if( neighbornhood.getAttribute( ConfigConstants.ATTRIBUTE_TEXT ).toLowerCase().contains( addressVO.getAddressNeighbornhood().toLowerCase() ) ) {
 				neighbornhood.click();
 				break;
 			}
 		}
-		generalBusinessTest.scrollUntilShowElement( GeneralConstants.SCROLL_UP , MobileNamesConstants.ADDRESS_REFERENCES_ONE );
-		fillElement( MobileNamesConstants.ADDRESS_REFERENCES_ONE , addressVO.getAddressReferenceOne());
-		generalBusinessTest.scrollUntilShowElement( GeneralConstants.SCROLL_UP , MobileNamesConstants.ADDRESS_SAVE_BUTTON );
-		fillElement( MobileNamesConstants.ADDRESS_REFERENCES_TWO , addressVO.getAddressReferenceTwo());
-		tapOnElement( MobileNamesConstants.ADDRESS_PHONE_TYPE );
-		List<MobileElement> phoneTypes = findElements( MobileNamesConstants.ADDRESS_COMBO_OPTIONS );
+		generalBusinessTest.scrollUntilShowElement( GeneralConstants.SCROLL_UP , NamesMobileElements.ADDRESS_REFERENCES_TWO );
+		fillElement( NamesMobileElements.ADDRESS_REFERENCES_ONE , addressVO.getAddressReferenceOne());
+		generalBusinessTest.scrollUntilShowElement( GeneralConstants.SCROLL_UP , NamesMobileElements.ADDRESS_SAVE_BUTTON );
+		fillElement( NamesMobileElements.ADDRESS_REFERENCES_TWO , addressVO.getAddressReferenceTwo());
+		tapOnElement( NamesMobileElements.ADDRESS_PHONE_TYPE );
+		List<MobileElement> phoneTypes = findElements( NamesMobileElements.ADDRESS_COMBO_OPTIONS );
 		for( MobileElement phoneType : phoneTypes ) {
-			if( phoneType.getAttribute( PropertiesConstants.ATTRIBUTE_TEXT ).toLowerCase().contains( addressVO.getAddressPhoneOption().toLowerCase() ) ) {
+			if( phoneType.getAttribute( ConfigConstants.ATTRIBUTE_TEXT ).toLowerCase().contains( addressVO.getAddressPhoneOption().toLowerCase() ) ) {
 				phoneType.click();
 				break;
 			}
 		}
-		fillElement( MobileNamesConstants.ADDRESS_PHONE_TEXT , addressVO.getAddressPhone());
+		fillElement( NamesMobileElements.ADDRESS_PHONE_TEXT , addressVO.getAddressPhone());
 	}
 	
 	public void selectAsMainAddress(boolean check) {
 		logger.info("Tap en checkbox de direccion principal");
-		MobileElement checkMainAddress = findElement( MobileNamesConstants.ADDRESS_MAIN_ADDRESS_CHECK );
+		MobileElement checkMainAddress = findElement( NamesMobileElements.ADDRESS_MAIN_ADDRESS_CHECK );
 		boolean checkMainAddressBool =  Boolean.parseBoolean( checkMainAddress.getAttribute( GeneralConstants.CHECKED ) );
 		if( check && !checkMainAddressBool ) {
-			tapOnElement( MobileNamesConstants.ADDRESS_MAIN_ADDRESS_CHECK );
+			tapOnElement( NamesMobileElements.ADDRESS_MAIN_ADDRESS_CHECK );
 		} if( !check && checkMainAddressBool ) {
-			tapOnElement( MobileNamesConstants.ADDRESS_MAIN_ADDRESS_CHECK );
+			tapOnElement( NamesMobileElements.ADDRESS_MAIN_ADDRESS_CHECK );
 		}
 	}
 	
 	public void saveDirection() {
 		logger.info("Tap en guardar direccion");
-		tapOnElement( MobileNamesConstants.ADDRESS_SAVE_BUTTON );
+		tapOnElement( NamesMobileElements.ADDRESS_SAVE_BUTTON );
 	}
 	
-	public void validateAddressAsFavorite(boolean favorite, String name) {
-		waitVisibility( MobileNamesConstants.ADDRESS_LIST );
-		List<MobileElement> address = findSubElements( findElement( MobileNamesConstants.ADDRESS_LIST ),  MobileNamesConstants.ADDRESS_DETAIL_NAME );
-		if( favorite ) {
-			Assert.assertEquals(name.toLowerCase(), getText(address.get(0)) );
-		} else {
-			Assert.assertEquals(name.toLowerCase(), getText(address.get( address.size() - 1 )) );
-		}
-	}
-	
-	public void validateMessage() {
-		generalBusinessTest.validateMessage();
+	public void validateAddress( boolean isEdition, String validationMessage ) {
+		generalBusinessTest.validatePopUpMessages(validationMessage);
 	}
 	
 	public void editAddress( AddressVO addressVO ) {
 		logger.info("Editando direccion");
-		if( elementExist(MobileNamesConstants.ADDRESS_DETAIL_EDIT) ) {
-			tapOnElement( MobileNamesConstants.ADDRESS_DETAIL_EDIT );
+		if( elementExist(NamesMobileElements.ADDRESS_DETAIL_EDIT) ) {
+			tapOnElement( NamesMobileElements.ADDRESS_DETAIL_EDIT );
 			randomAddressName( addressVO );
-			fillElement( MobileNamesConstants.ADDRESS_NAME_TEXT , addressVO.getAddressName() );
-			generalBusinessTest.scrollUntilShowElement( GeneralConstants.SCROLL_UP , MobileNamesConstants.ADDRESS_SAVE_BUTTON );
-			fillElement( MobileNamesConstants.ADDRESS_PHONE_TEXT , addressVO.getAddressPhone());
+			fillElement( NamesMobileElements.ADDRESS_NAME_TEXT , addressVO.getAddressName() );
+			generalBusinessTest.scrollUntilShowElement( GeneralConstants.SCROLL_UP , NamesMobileElements.ADDRESS_SAVE_BUTTON );
+			fillElement( NamesMobileElements.ADDRESS_PHONE_TEXT , addressVO.getAddressPhone());
 		} 
 	}
 	
 	public void removeAddress( AddressVO addressVO ) {
 		logger.info("Eliminando direccion");
-		if( elementExist( MobileNamesConstants.ADDRESS_DETAIL_DELETE ) ) {
-			List<MobileElement> deletes = findElements( MobileNamesConstants.ADDRESS_DETAIL_DELETE );
+		if( elementExist( NamesMobileElements.ADDRESS_DETAIL_DELETE ) ) {
+			List<MobileElement> deletes = findElements( NamesMobileElements.ADDRESS_DETAIL_DELETE );
 			numAddress = deletes.size();
 			tapOnElement( deletes.get( numAddress - 1 ) );
-			waitVisibility( MobileNamesConstants.ADDRESS_DIALOG_DELETE );
-			tapOnElement( MobileNamesConstants.ADDRESS_DIALOG_DELETE );
+			waitVisibility( NamesMobileElements.ADDRESS_DIALOG_DELETE );
+			tapOnElement( NamesMobileElements.ADDRESS_DIALOG_DELETE );
 		} else {
 			randomAddressName( addressVO );
 			addNewDirection(addressVO);
 			selectAsMainAddress(false);
 			saveDirection();
-			validateAddressAsFavorite(false, addressVO.getAddressName());
+			validateAddress(false, AppMessages.ADD_ADDRESS);
 			removeAddress(addressVO);
 		}
 	}
 	
 	public void validateRemoveAddress() {
-		generalBusinessTest.validateMessage();
-		List<MobileElement> deletes = findElements( MobileNamesConstants.ADDRESS_DETAIL_DELETE );
-		Assert.assertTrue( deletes.size() < numAddress );
+		generalBusinessTest.validatePopUpMessages( AppMessages.REMOVE_ADDRESS );
 	}
 	
 	public void validateOrderPage() {
-		if( elementExist( MobileNamesConstants.ORDER_EMPTY_CONT ) ) {
-			generalBusinessTest.validateElement( MobileNamesConstants.ORDER_EMPTY_ICON );
-			generalBusinessTest.validateElement( MobileNamesConstants.ORDER_EMPTY_BUTTON );
-		} else if( elementExist( MobileNamesConstants.ORDER_ORDER_LIST ) ) {
-			List<MobileElement> orders = findElements( MobileNamesConstants.ORDER_ORDER_CONT);
+		if( elementExist( NamesMobileElements.ORDER_EMPTY_CONT ) ) {
+			generalBusinessTest.validateElement( NamesMobileElements.ORDER_EMPTY_ICON );
+			generalBusinessTest.validateElement( NamesMobileElements.ORDER_EMPTY_BUTTON );
+		} else if( elementExist( NamesMobileElements.ORDER_ORDER_LIST ) ) {
+			List<MobileElement> orders = findElements( NamesMobileElements.ORDER_ORDER_CONT);
 			Assert.assertTrue( orders.size() > 0 );
 		}
 	}
 	
 	public String[] orderDetail() {
-		waitVisibility( MobileNamesConstants.ORDER_ORDER_CONT );
-		String orderNumber[] = { getText( MobileNamesConstants.ORDER_ORDER_NUMBER ), 
-				getText( MobileNamesConstants.ORDER_ORDER_DATE )};
-		tapOnElement( MobileNamesConstants.ORDER_ORDER_DETAIL_LINK );
+		waitVisibility( NamesMobileElements.ORDER_ORDER_CONT );
+		String orderNumber[] = { getText( NamesMobileElements.ORDER_ORDER_NUMBER ), 
+				getText( NamesMobileElements.ORDER_ORDER_DATE )};
+		tapOnElement( NamesMobileElements.ORDER_ORDER_DETAIL_LINK );
 		return orderNumber;
 	}
 	
 	public void validateOrderDetail( String[] orderNumber ) {
-		String orderDetailNumber = getText( MobileNamesConstants.ORDER_DETAIL_ORDER_NUMBER );
-		String orderDetailDate = getText( MobileNamesConstants.ORDER_DETAIL_ORDER_DATE );
+		String orderDetailNumber = getText( NamesMobileElements.ORDER_DETAIL_ORDER_NUMBER );
+		String orderDetailDate = getText( NamesMobileElements.ORDER_DETAIL_ORDER_DATE );
 		Assert.assertTrue( orderDetailNumber.equals( orderNumber[0] ) );
 		Assert.assertTrue( orderDetailDate.contains( orderNumber[1] ) );
-		generalBusinessTest.validateElement( MobileNamesConstants.ORDER_DETAIL_ORDER_LIST );
-		generalBusinessTest.validateElement( MobileNamesConstants.ORDER_DETAIL_ORDER_PRICE );
+		generalBusinessTest.validateElement( NamesMobileElements.ORDER_DETAIL_ORDER_LIST );
+		generalBusinessTest.validateElement( NamesMobileElements.ORDER_DETAIL_ORDER_PRICE );
 	}
 	
 	public void manualBill( String ticketCode ) {
-		waitVisibility( MobileNamesConstants.GETBILL_SCAN_CONT );
-		tapOnElement( MobileNamesConstants.GETBILL_MANUAL_CODE );
-		fillElement( MobileNamesConstants.GETBILL_SCAN_MANUAL_TICKET_NUMBER , ticketCode);
-		tapOnElement( MobileNamesConstants.GETBILL_SCAN_MANUAL_BUTTON );
+		waitVisibility( NamesMobileElements.GETBILL_SCAN_CONT );
+		tapOnElement( NamesMobileElements.GETBILL_MANUAL_CODE );
+		fillElement( NamesMobileElements.GETBILL_SCAN_MANUAL_TICKET_NUMBER , ticketCode);
+		tapOnElement( NamesMobileElements.GETBILL_SCAN_MANUAL_BUTTON );
 	}
 	
 	public void validateTerms(int elementNum) {
-		MobileElement menuTerm = findElement( MobileNamesConstants.LIST_TERMS );
-		List<MobileElement> terms = findSubElements( menuTerm, MobileNamesConstants.LIST_TERM_ELEMENT );
+		MobileElement menuTerm = findElement( NamesMobileElements.LIST_TERMS );
+		List<MobileElement> terms = findSubElements( menuTerm, NamesMobileElements.LIST_TERM_ELEMENT );
 		Assert.assertEquals(elementNum, terms.size());
 		for( MobileElement element : terms) {
 			tapOnElement(element);
-			tapOnElement( MobileNamesConstants.BACK_BUTTON );
+			tapOnElement( NamesMobileElements.BACK_BUTTON );
 		}
 	}
 	
 	public void validateSupportPage() {
-		waitVisibility( MobileNamesConstants.SUPPORT_CALL_ICON );
-		generalBusinessTest.validateElement( MobileNamesConstants.SUPPORT_CALL_ICON );
-		generalBusinessTest.validateElement( MobileNamesConstants.SUPPORT_EMAIL_ICON );
+		waitVisibility( NamesMobileElements.SUPPORT_CALL_ICON );
+		generalBusinessTest.validateElement( NamesMobileElements.SUPPORT_CALL_ICON );
+		generalBusinessTest.validateElement( NamesMobileElements.SUPPORT_EMAIL_ICON );
 	}
 	
 	public void validateLogout( ) {
 		logger.info("Validando Login");
 		selectProfile();
 		selectMenu( MenuOptionsEnum.LOGIN.getMenu() );
-		Assert.assertTrue( elementExist(MobileNamesConstants.LOGIN_LOGIN_BUTTON) );
+		Assert.assertTrue( elementExist(NamesMobileElements.LOGIN_LOGIN_BUTTON) );
+	}
+	
+	public void validateLegalsPage( ) {
+		generalBusinessTest.selectLegalOption( LegalsEnum.TERMS );
+		generalBusinessTest.selectLegalOption( LegalsEnum.PRIVACITY );
+		List<MobileElement> terms = findElements( NamesMobileElements.LEGALS_ITEM );
+		Assert.assertEquals( ConfigConstants.APP_VERSION.toLowerCase() , getText( terms.get(2) ));
 	}
 	
 	private void randomAddressName( AddressVO addressVO ) {

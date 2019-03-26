@@ -6,12 +6,14 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.bodega.business.android.GeneralBusinessTest;
 import com.bodega.business.android.HomeBusinessTest;
 
 public class HomeTest {
 
 	public static final Logger logger = Logger.getLogger( HomeBusinessTest.class );
 	public static HomeBusinessTest home = new HomeBusinessTest();
+	public static GeneralBusinessTest general = new GeneralBusinessTest();
 	
 	@AfterClass
 	public static void shutDown() {
@@ -21,6 +23,7 @@ public class HomeTest {
 	@Before
 	public void initApp() {
 		home.closeAndroidDialog();
+		general.validateWelcomePage();
 	}
 	
 	@After
@@ -29,10 +32,9 @@ public class HomeTest {
 	}
 	
 	@Test
-	public void validate_home_page() {
-		home.initAsGuess();
+	public void CF005_validate_home_page() {
 		home.selectHomeOption();
-		home.validateElements();
+		home.validateHomePage();
 	}
 	
 }

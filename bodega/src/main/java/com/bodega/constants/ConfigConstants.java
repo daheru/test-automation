@@ -1,10 +1,10 @@
-package com.bodega.commons;
+package com.bodega.constants;
 
 import com.bodega.util.PropertiesValuesUtil;
 
-public final class PropertiesConstants {
+public final class ConfigConstants {
 	
-	private PropertiesConstants() {
+	private ConfigConstants() {
 		
 	}
 	
@@ -25,4 +25,6 @@ public final class PropertiesConstants {
 	public static final String AUTOMATION_NAME = PropertiesValuesUtil.getPropertyName("AUTOMATION_NAME");
 	
 	public static final String APP = PropertiesValuesUtil.getPropertyName("APP");
+	
+	public static final String APP_VERSION = PropertiesValuesUtil.getPropertyName("APP_VERSION");
 }

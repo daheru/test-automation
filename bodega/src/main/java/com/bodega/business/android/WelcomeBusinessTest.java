@@ -2,60 +2,38 @@ package com.bodega.business.android;
 
 import org.apache.log4j.Logger;
 
-import com.bodega.commons.MenuOptionsEnum;
-import com.bodega.commons.MobileNamesConstants;
-import com.bodega.commons.NavigationBarEnum;
+import com.bodega.constants.NamesMobileElements;
 import com.bodega.util.BaseDriver;
 
 public class WelcomeBusinessTest extends BaseDriver {
-	
-	public static final Logger logger = Logger.getLogger( WelcomeBusinessTest.class );
-	public GeneralBusinessTest general = new GeneralBusinessTest();
-	
-	public void initGuess() {
-		findElement( MobileNamesConstants.WELCOME_LINK_GUESS ).click();
-	}
-	
-	public void validateHome() {
-		waitVisibility( MobileNamesConstants.HOME_ITEM_BANNER );
-		waitVisibility( MobileNamesConstants.HOME_CARROUSEL );
-		general.validateElement( MobileNamesConstants.HOME_SEARCH_BAR );
-		general.validateElement( MobileNamesConstants.HOME_PROFILE );
-		general.validateElement( MobileNamesConstants.NAV_BAR );
-		general.validateElement( MobileNamesConstants.NAV_BAR_HOME );
-		general.validateElement( MobileNamesConstants.NAV_BAR_DEPARTMENTS );
-		general.validateElement( MobileNamesConstants.NAV_BAR_PROMOTIONS );
-		general.validateElement( MobileNamesConstants.NAV_BAR_CAR );
-		general.validateElement( MobileNamesConstants.HOME_ITEM_BANNER );
-		general.validateElement( MobileNamesConstants.HOME_CARROUSEL );
+
+	public static final Logger logger = Logger.getLogger(WelcomeBusinessTest.class);
+	public GeneralBusinessTest generalBusinessTest = new GeneralBusinessTest();
+	public LoginBusinessTest login = new LoginBusinessTest();
+
+	public void loginWelcomePage() {
+		logger.info("Tap en el boton Login");
+		tapOnElement(NamesMobileElements.WELCOME_LOGIN_BUTTON);
 	}
 
-	public void selectMenus() {
-		general.selectNavigationOption( NavigationBarEnum.HOME.getNavigation() );
-		general.selectNavigationOption( NavigationBarEnum.DEPARTMENTS.getNavigation() );
-		general.selectNavigationOption( NavigationBarEnum.PROMOTIONS.getNavigation() );
-		general.selectNavigationOption( NavigationBarEnum.CAR.getNavigation() );
-		general.goBack();
+	public void createAccountWelcomePage() {
+		logger.info("Tap en el boton Crear Cuenta");
+		tapOnElement(NamesMobileElements.WELCOME_CREATE_BUTTON);
 	}
-	
-	public void selectProfile() {
-		findElement( MobileNamesConstants.HOME_PROFILE ).click();
+
+	public void login(String email, String pass) {
+		login.login(email, pass);
 	}
-	
-	public void validateMenu() {
-		waitVisibility( MobileNamesConstants.HOME_ITEM_BANNER );
-		waitVisibility( MobileNamesConstants.HOME_CARROUSEL );
-		selectMenu( MenuOptionsEnum.LOGIN.getMenu() );
-		selectMenu( MenuOptionsEnum.CREATE_PROFILE.getMenu() );
-		selectMenu( MenuOptionsEnum.GET_BILL.getMenu() );
-		selectMenu( MenuOptionsEnum.SUPPORT.getMenu() );
-		selectMenu( MenuOptionsEnum.TERMS.getMenu() );
-		selectMenu( MenuOptionsEnum.LEGALS.getMenu() );
+
+	public void validateLogin(String email) {
+		login.validateLogin(email);
 	}
-	
-	private void selectMenu( String menu ) {
-		general.selectMenuOption( menu );
-		closeAndroidDialog();
-		general.goBack();
+
+	public void validateHomePage() {
+		login.validateHomePage();
+	}
+
+	public void initAsGuess() {
+		generalBusinessTest.initAsGuess();
 	}
 }

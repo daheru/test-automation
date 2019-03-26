@@ -2,8 +2,8 @@ package com.bodega.business.android;
 
 import org.apache.log4j.Logger;
 
-import com.bodega.commons.MobileNamesConstants;
-import com.bodega.commons.NavigationBarEnum;
+import com.bodega.constants.NamesMobileElements;
+import com.bodega.enums.NavigationBarEnum;
 import com.bodega.util.BaseDriver;
 
 public class HomeBusinessTest extends BaseDriver {
@@ -19,15 +19,19 @@ public class HomeBusinessTest extends BaseDriver {
 		generalBusinessTest.selectNavigationOption( NavigationBarEnum.HOME.getNavigation() );
 	}
 	
-	public void validateElements() {
-		generalBusinessTest.validateElement( MobileNamesConstants.HOME_SEARCH_BAR );
-		waitVisibility( MobileNamesConstants.HOME_ITEM_BANNER );
-		generalBusinessTest.validateElement( MobileNamesConstants.NAV_BAR );
-		generalBusinessTest.validateElement( MobileNamesConstants.NAV_BAR_HOME );
-		generalBusinessTest.validateElement( MobileNamesConstants.NAV_BAR_DEPARTMENTS );
-		generalBusinessTest.validateElement( MobileNamesConstants.NAV_BAR_PROMOTIONS );
-		generalBusinessTest.validateElement( MobileNamesConstants.NAV_BAR_CAR );
-		generalBusinessTest.validateElement( MobileNamesConstants.NAV_BAR_CAR_QUANTITY );
+	public void validateHomePage() {
+		logger.info("Validando Home Page");
+		generalBusinessTest.validateElement( NamesMobileElements.HOME_SEARCH_BAR );
+		waitVisibility( NamesMobileElements.HOME_ITEM_BANNER );
+		waitVisibility( NamesMobileElements.HOME_CARROUSEL );
+		generalBusinessTest.validateElement( NamesMobileElements.NAV_BAR );
+		generalBusinessTest.validateElement( NamesMobileElements.NAV_BAR_HOME );
+		generalBusinessTest.validateElement( NamesMobileElements.NAV_BAR_DEPARTMENTS );
+		generalBusinessTest.validateElement( NamesMobileElements.NAV_BAR_PROMOTIONS );
+		generalBusinessTest.validateElement( NamesMobileElements.NAV_BAR_CAR );
+		generalBusinessTest.validateElement( NamesMobileElements.NAV_BAR_CAR_QUANTITY );
+		generalBusinessTest.validateElement( NamesMobileElements.HOME_ITEM_BANNER );
+		generalBusinessTest.validateElement( NamesMobileElements.HOME_CARROUSEL );
 	}
 	
 	

@@ -2,7 +2,8 @@ package com.bodega.business.android;
 
 
 import org.apache.log4j.Logger;
-import com.bodega.commons.MenuOptionsEnum;
+
+import com.bodega.enums.MenuOptionsEnum;
 import com.bodega.util.BaseDriver;
 
 public class MyprofileBusinessTest extends BaseDriver  {

@@ -1,4 +1,4 @@
-package com.bodega.commons;
+package com.bodega.enums;
 
 public enum NavigationBarEnum {
 	
