@@ -50,6 +50,7 @@ public class MainTest {
 		main.login("emmanuel.dominguez@live.com.mx", "Edominguez#1234");
 		main.selectProfile();
 		main.selectMenu(MenuOptionsEnum.ADDRESS.getMenu());
+		main.selectAddAddress();
 		main.addNewDirection(addressVO);
 		main.selectAsMainAddress(true);
 		main.saveDirection();
@@ -65,6 +66,7 @@ public class MainTest {
 		main.login("emmanuel.dominguez@live.com.mx", "Edominguez#1234");
 		main.selectProfile();
 		main.selectMenu(MenuOptionsEnum.ADDRESS.getMenu());
+		main.selectAddAddress();
 		main.addNewDirection(addressVO);
 		main.selectAsMainAddress(false);
 		main.saveDirection();
@@ -82,6 +84,7 @@ public class MainTest {
 		main.login("emmanuel.dominguez@live.com.mx", "Edominguez#1234");
 		main.selectProfile();
 		main.selectMenu(MenuOptionsEnum.ADDRESS.getMenu());
+		main.selectAddAddress();
 		main.editAddress(addressVO);
 		main.saveDirection();
 		main.validateAddress(true, AppMessages.ADD_ADDRESS);
@@ -196,4 +199,18 @@ public class MainTest {
 		logger.info("Caso de prueba finalizado");
 	}
 
+	@Test
+	public void CF115_add_address_without_data() {
+		addressVO = new AddressVO();
+		logger.info("Iniciando caso de prueba: Add address without data");
+		main.selectProfile();
+		main.selectMenu(MenuOptionsEnum.LOGIN.getMenu());
+		main.login("emmanuel.dominguez@live.com.mx", "Edominguez#1234");
+		main.selectProfile();
+		main.selectMenu(MenuOptionsEnum.ADDRESS.getMenu());
+		main.selectAddAddress();
+		main.saveDirection();
+		main.validateAddressErrorMessages();
+	}
+	
 }

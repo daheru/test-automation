@@ -11,7 +11,6 @@ public class MyprofileBusinessTest extends BaseDriver {
 	public LoginBusinessTest login = new LoginBusinessTest();
 
 	public void login(String email, String pass) {
-		login.goToLogin();
 		login.login(email, pass);
 	}
 

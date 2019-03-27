@@ -37,10 +37,13 @@ public class MainBusinessTest extends BaseDriver {
 		generalBusinessTest.selectMenuOption( menuOption );
 	}
 	
-	public void addNewDirection( AddressVO addressVO ) {
-		waitVisibility( NamesMobileElements.ADDRESS_LIST );
+	public void selectAddAddress() {
 		logger.info("Tap en agrega direccion");
+		waitVisibility( NamesMobileElements.ADDRESS_LIST );
 		tapOnElement( NamesMobileElements.ADDRESS_ADD_BUTTON );
+	}
+	
+	public void addNewDirection( AddressVO addressVO ) {
 		logger.info("Ingresado datos");
 		randomAddressName( addressVO );
 		fillElement( NamesMobileElements.ADDRESS_NAME_TEXT , addressVO.getAddressName());
@@ -90,6 +93,7 @@ public class MainBusinessTest extends BaseDriver {
 	
 	public void saveDirection() {
 		logger.info("Tap en guardar direccion");
+		generalBusinessTest.scrollUntilShowElement( GeneralConstants.SCROLL_UP , NamesMobileElements.ADDRESS_SAVE_BUTTON );
 		tapOnElement( NamesMobileElements.ADDRESS_SAVE_BUTTON );
 	}
 	
@@ -198,5 +202,20 @@ public class MainBusinessTest extends BaseDriver {
 		Random generator = new Random();
 		String newAddress = addressVO.getAddressName() + " " + generator.nextInt(100);
 		addressVO.setAddressName(newAddress);
+	}
+	
+	public void validateErrorMessages(String message, String element) {
+		logger.info("Validando mensajes de error");
+		generalBusinessTest.validateFieldErrorMessage( message, element);
+	}
+	
+	public void validateAddressErrorMessages() {
+		generalBusinessTest.scrollUntilShowElement( GeneralConstants.SCROLL_DOWN , NamesMobileElements.ADDRESS_NAME_TEXT_CONT);
+		validateErrorMessages(AppMessages.EMPTY_FIELD, NamesMobileElements.ADDRESS_NAME_TEXT_CONT);
+		validateErrorMessages(AppMessages.EMPTY_FIELD, NamesMobileElements.ADDRESS_STREET_TEXT_CONT);
+		validateErrorMessages(AppMessages.EMPTY_FIELD, NamesMobileElements.ADDRESS_OUT_NUMBER_CONT);
+		generalBusinessTest.scrollUntilShowElement( GeneralConstants.SCROLL_UP , NamesMobileElements.ADDRESS_SAVE_BUTTON);
+		validateErrorMessages(AppMessages.EMPTY_FIELD, NamesMobileElements.ADDRESS_ZIP_CODE_CONT);
+		validateErrorMessages(AppMessages.EMPTY_FIELD, NamesMobileElements.ADDRESS_PHONE_TEXT_CONT);
 	}
 }

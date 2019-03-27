@@ -7,6 +7,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import com.bodega.business.android.GeneralBusinessTest;
 import com.bodega.business.android.MyprofileBusinessTest;
 import com.bodega.enums.MenuOptionsEnum;
 
@@ -14,6 +15,7 @@ public class MyprofileTest {
 
 	public static final Logger logger = Logger.getLogger(MyprofileBusinessTest.class);
 	public static MyprofileBusinessTest myprofile = new MyprofileBusinessTest();
+	public static GeneralBusinessTest general = new GeneralBusinessTest();
 
 	@BeforeClass
 	public static void init() {
@@ -28,7 +30,7 @@ public class MyprofileTest {
 	@Before
 	public void intapp() {
 		myprofile.closeAndroidDialog();
-
+		general.validateWelcomePage();
 	}
 
 	@After
@@ -38,8 +40,10 @@ public class MyprofileTest {
 	}
 
 	@Test
-	public void edit_myprofile() {
+	public void CF009_edit_myprofile() {
 		logger.info("Iniciando caso de prueba: Update my profile data");
+		myprofile.selectProfile();
+		myprofile.selectMenu(MenuOptionsEnum.LOGIN.getMenu());
 		myprofile.login("emmanuel.dominguez@axity.com", "Edominguez#1234");
 		myprofile.selectProfile();
 		myprofile.selectMenu(MenuOptionsEnum.PROFILE.getMenu());
@@ -49,8 +53,10 @@ public class MyprofileTest {
 	
 	
 	@Test
-	public void edit_mypassword() {
+	public void CF010_edit_mypassword() {
 		logger.info("Iniciando caso de prueba: PassWord my profile data");
+		myprofile.selectProfile();
+		myprofile.selectMenu(MenuOptionsEnum.LOGIN.getMenu());
 		myprofile.login("emmanuel.dominguez@axity.com", "Edominguez#1234");
 		myprofile.selectProfile();
 		myprofile.selectMenu(MenuOptionsEnum.PROFILE.getMenu());
@@ -59,17 +65,22 @@ public class MyprofileTest {
 	}
 
 	@Test
-	public void edit_phone () {
+	public void CF011_edit_phone () {
 		logger.info("Iniciando caso de prueba: Phone my profile data");
+		myprofile.selectProfile();
+		myprofile.selectMenu(MenuOptionsEnum.LOGIN.getMenu());
 		myprofile.login("emmanuel.dominguez@axity.com", "Edominguez#1234");
 		myprofile.selectProfile();
 		myprofile.selectMenu(MenuOptionsEnum.PROFILE.getMenu());
 		myprofile.editPhone("5573137390", "5556136545"); 
 		myprofile.savePhone(); 
 	}
+	
 	@Test
-	public void edit_phone_secondary () {
+	public void CF011_edit_phone_secondary () {
 		logger.info("Iniciando caso de prueba: Phone_secundary my profile data");
+		myprofile.selectProfile();
+		myprofile.selectMenu(MenuOptionsEnum.LOGIN.getMenu());
 		myprofile.login("emmanuel.dominguez@axity.com", "Edominguez#1234");
 		myprofile.selectProfile();
 		myprofile.selectMenu(MenuOptionsEnum.PROFILE.getMenu());

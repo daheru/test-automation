@@ -45,6 +45,8 @@ public final class NamesMobileElements {
 	public static final String LOGIN_FORGOT_PASS_LINK = PropertiesValuesUtil.getPropertyName("LOGIN_FORGOT_PASS_LINK");
 	public static final String LOGIN_LOGIN_BUTTON = PropertiesValuesUtil.getPropertyName("LOGIN_LOGIN_BUTTON");
 	public static final String LOGIN_CREATE_LINK = PropertiesValuesUtil.getPropertyName("LOGIN_CREATE_LINK");
+	public static final String LOGIN_EMAIL_CONT = PropertiesValuesUtil.getPropertyName("LOGIN_EMAIL_CONT");
+	public static final String LOGIN_PASS_CONT = PropertiesValuesUtil.getPropertyName("LOGIN_PASS_CONT");
 	
 	public static final String REG_NAME_TEXT = PropertiesValuesUtil.getPropertyName("REG_NAME_TEXT");
 	public static final String REG_LAST_NAME_TEXT = PropertiesValuesUtil.getPropertyName("REG_LAST_NAME_TEXT");
@@ -58,16 +60,24 @@ public final class NamesMobileElements {
 	
 	public static final String ADDRESS_LIST = PropertiesValuesUtil.getPropertyName("ADDRESS_LIST");
 	public static final String ADDRESS_ADD_BUTTON = PropertiesValuesUtil.getPropertyName("ADDRESS_ADD_BUTTON");
+	public static final String ADDRESS_NAME_TEXT_CONT = PropertiesValuesUtil.getPropertyName("ADDRESS_NAME_TEXT_CONT");
 	public static final String ADDRESS_NAME_TEXT = PropertiesValuesUtil.getPropertyName("ADDRESS_NAME_TEXT");
+	public static final String ADDRESS_USER_NAME_CONT = PropertiesValuesUtil.getPropertyName("ADDRESS_USER_NAME_CONT");
 	public static final String ADDRESS_USER_NAME = PropertiesValuesUtil.getPropertyName("ADDRESS_USER_NAME");
+	public static final String ADDRESS_USER_LAST_NAME_CONT = PropertiesValuesUtil.getPropertyName("ADDRESS_USER_LAST_NAME_CONT");
 	public static final String ADDRESS_USER_LAST_NAME = PropertiesValuesUtil.getPropertyName("ADDRESS_USER_LAST_NAME");
+	public static final String ADDRESS_STREET_TEXT_CONT = PropertiesValuesUtil.getPropertyName("ADDRESS_STREET_TEXT_CONT");
 	public static final String ADDRESS_STREET_TEXT = PropertiesValuesUtil.getPropertyName("ADDRESS_STREET_TEXT");
+	public static final String ADDRESS_OUT_NUMBER_CONT = PropertiesValuesUtil.getPropertyName("ADDRESS_OUT_NUMBER_CONT");
 	public static final String ADDRESS_OUT_NUMBER = PropertiesValuesUtil.getPropertyName("ADDRESS_OUT_NUMBER");
+	public static final String ADDRESS_INNER_NUMBER_CONT = PropertiesValuesUtil.getPropertyName("ADDRESS_INNER_NUMBER_CONT");
 	public static final String ADDRESS_INNER_NUMBER = PropertiesValuesUtil.getPropertyName("ADDRESS_INNER_NUMBER");
+	public static final String ADDRESS_ZIP_CODE_CONT = PropertiesValuesUtil.getPropertyName("ADDRESS_ZIP_CODE_CONT");
 	public static final String ADDRESS_ZIP_CODE = PropertiesValuesUtil.getPropertyName("ADDRESS_ZIP_CODE");
 	public static final String ADDRESS_REFERENCES_ONE = PropertiesValuesUtil.getPropertyName("ADDRESS_REFERENCES_ONE");
 	public static final String ADDRESS_REFERENCES_TWO = PropertiesValuesUtil.getPropertyName("ADDRESS_REFERENCES_TWO");
 	public static final String ADDRESS_PHONE_TYPE = PropertiesValuesUtil.getPropertyName("ADDRESS_PHONE_TYPE");
+	public static final String ADDRESS_PHONE_TEXT_CONT = PropertiesValuesUtil.getPropertyName("ADDRESS_PHONE_TEXT_CONT");
 	public static final String ADDRESS_PHONE_TEXT = PropertiesValuesUtil.getPropertyName("ADDRESS_PHONE_TEXT");
 	public static final String ADDRESS_MAIN_ADDRESS_CHECK = PropertiesValuesUtil.getPropertyName("ADDRESS_MAIN_ADDRESS_CHECK");
 	public static final String ADDRESS_SAVE_BUTTON = PropertiesValuesUtil.getPropertyName("ADDRESS_SAVE_BUTTON");
@@ -117,23 +127,23 @@ public final class NamesMobileElements {
 	public static final String MYPROFILE_USER_NAME = PropertiesValuesUtil.getPropertyName ("MYPROFILE_USER_NAME");
 	public static final String MYPROFILE_USER_LAST_NAME = PropertiesValuesUtil.getPropertyName ("MYPROFILE_USER_LAST_NAME");
 	public static final String MYPROFILE_USER_BIRTHDATE = PropertiesValuesUtil.getPropertyName ("MYPROFILE_USER_BIRTHDATE");
-	 public static final String MYPROFILE_BUTTON_WOMAN = PropertiesValuesUtil.getPropertyName ("MYPROFILE_BUTTON_WOMAN");
-	 public static final String MYPROFILE_BUTTON_MAN = PropertiesValuesUtil.getPropertyName ("MYPROFILE_BUTTON_MAN");
-	 public static final String MYPROFILE_CHECKBOX_PROFILE = PropertiesValuesUtil.getPropertyName ("MYPROFILE_CHECKBOX_PROFILE");
-	 public static final String MYPROFILE_BUTTON_PROFILE_SAVE = PropertiesValuesUtil.getPropertyName ("MYPROFILE_BUTTON_PROFILE_SAVE");
-	 public static final String MYPROFILE_OLD_PASSWORD = PropertiesValuesUtil.getPropertyName ("MYPROFILE_OLD_PASSWORD");
-	 public static final String MYPROFILE_OLD_CON_PASSWORD = PropertiesValuesUtil.getPropertyName ("MYPROFILE_OLD_CON_PASSWORD");
-	 public static final String MYPROFILE_OLD_PASSWORD_EYE = PropertiesValuesUtil.getPropertyName ("MYPROFILE_OLD_PASSWORD_EYE");
-	 public static final String MYPROFILE_NEW_PASSWORD = PropertiesValuesUtil.getPropertyName ("MYPROFILE_NEW_PASSWORD");
-	 public static final String MYPROFILE_NEW_CON_PASSWORD = PropertiesValuesUtil.getPropertyName ("MYPROFILE_NEW_CON_PASSWORD");
-	 public static final String MYPROFILE_NEW_PASSWORD_EYE = PropertiesValuesUtil.getPropertyName ("MYPROFILE_NEW_PASSWORD_EYE");
-	 public static final String MYPROFILE_PHONE_PRIMARY = PropertiesValuesUtil.getPropertyName ("MYPROFILE_PHONE_PRIMARY");
-	 public static final String MYPROFILE_PHONE_SECONDARY = PropertiesValuesUtil.getPropertyName ("MYPROFILE_PHONE_SECONDARY");
-	 public static final String MYPROFILE_PHONE_SECONDARY_EXT = PropertiesValuesUtil.getPropertyName ("MYPROFILE_PHONE_SECONDARY_EXT");
-	 public static final String MYPROFILE_BUTTON_PHONE_SAVE = PropertiesValuesUtil.getPropertyName ("MYPROFILE_BUTTON_PHONE_SAVE");
-	 public static final String MYPROFILE_ADD_PHONE = PropertiesValuesUtil.getPropertyName ("MYPROFILE_ADD_PHONE");
-	 public static final String MYPROFILE_BUTTON_PHONE_MOVIL = PropertiesValuesUtil.getPropertyName ("MYPROFILE_BUTTON_PHONE_MOVIL");
-	 public static final String MYPROFILE_BUTTON_PHONE_FIJO = PropertiesValuesUtil.getPropertyName ("MYPROFILE_BUTTON_PHONE_FIJO");
-	 public static final String MYPROFILE_BUTTON_PHONE_FIJO_LIS = PropertiesValuesUtil.getPropertyName ("MYPROFILE_BUTTON_PHONE_FIJO_LIS");
+	public static final String MYPROFILE_BUTTON_WOMAN = PropertiesValuesUtil.getPropertyName ("MYPROFILE_BUTTON_WOMAN");
+	public static final String MYPROFILE_BUTTON_MAN = PropertiesValuesUtil.getPropertyName ("MYPROFILE_BUTTON_MAN");
+	public static final String MYPROFILE_CHECKBOX_PROFILE = PropertiesValuesUtil.getPropertyName ("MYPROFILE_CHECKBOX_PROFILE");
+	public static final String MYPROFILE_BUTTON_PROFILE_SAVE = PropertiesValuesUtil.getPropertyName ("MYPROFILE_BUTTON_PROFILE_SAVE");
+	public static final String MYPROFILE_OLD_PASSWORD = PropertiesValuesUtil.getPropertyName ("MYPROFILE_OLD_PASSWORD");
+	public static final String MYPROFILE_OLD_CON_PASSWORD = PropertiesValuesUtil.getPropertyName ("MYPROFILE_OLD_CON_PASSWORD");
+	public static final String MYPROFILE_OLD_PASSWORD_EYE = PropertiesValuesUtil.getPropertyName ("MYPROFILE_OLD_PASSWORD_EYE");
+	public static final String MYPROFILE_NEW_PASSWORD = PropertiesValuesUtil.getPropertyName ("MYPROFILE_NEW_PASSWORD");
+	public static final String MYPROFILE_NEW_CON_PASSWORD = PropertiesValuesUtil.getPropertyName ("MYPROFILE_NEW_CON_PASSWORD");
+	public static final String MYPROFILE_NEW_PASSWORD_EYE = PropertiesValuesUtil.getPropertyName ("MYPROFILE_NEW_PASSWORD_EYE");
+	public static final String MYPROFILE_PHONE_PRIMARY = PropertiesValuesUtil.getPropertyName ("MYPROFILE_PHONE_PRIMARY");
+	public static final String MYPROFILE_PHONE_SECONDARY = PropertiesValuesUtil.getPropertyName ("MYPROFILE_PHONE_SECONDARY");
+	public static final String MYPROFILE_PHONE_SECONDARY_EXT = PropertiesValuesUtil.getPropertyName ("MYPROFILE_PHONE_SECONDARY_EXT");
+	public static final String MYPROFILE_BUTTON_PHONE_SAVE = PropertiesValuesUtil.getPropertyName ("MYPROFILE_BUTTON_PHONE_SAVE");
+	public static final String MYPROFILE_ADD_PHONE = PropertiesValuesUtil.getPropertyName ("MYPROFILE_ADD_PHONE");
+	public static final String MYPROFILE_BUTTON_PHONE_MOVIL = PropertiesValuesUtil.getPropertyName ("MYPROFILE_BUTTON_PHONE_MOVIL");
+	public static final String MYPROFILE_BUTTON_PHONE_FIJO = PropertiesValuesUtil.getPropertyName ("MYPROFILE_BUTTON_PHONE_FIJO");
+	public static final String MYPROFILE_BUTTON_PHONE_FIJO_LIS = PropertiesValuesUtil.getPropertyName ("MYPROFILE_BUTTON_PHONE_FIJO_LIS");
 	
 }

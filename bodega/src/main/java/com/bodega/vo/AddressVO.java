@@ -33,6 +33,10 @@ public class AddressVO {
 		this.addressPhone = addressPhone;
 	}
 
+	public AddressVO() {
+		
+	}
+	
 	public String getAddressName() {
 		return addressName;
 	}

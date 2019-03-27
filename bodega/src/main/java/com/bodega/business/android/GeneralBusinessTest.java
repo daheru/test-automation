@@ -66,9 +66,12 @@ public class GeneralBusinessTest extends BaseDriver {
 	}
 	
 	public void validateFieldErrorMessage(String errorAppMessage, String fieldCont) {
-		MobileElement errorMessage = findSubElements(findElement(fieldCont), NamesMobileElements.ERROR_TEXT_FIELD)
-				.get(0);
-		Assert.assertEquals(errorAppMessage.toLowerCase(), getText(errorMessage).toLowerCase());
+		List<MobileElement> errors = findSubElements(findElement(fieldCont), NamesMobileElements.ERROR_TEXT_FIELD);
+		if( errors.size() > 0 ) {
+			MobileElement errorMessage = findSubElements(findElement(fieldCont), NamesMobileElements.ERROR_TEXT_FIELD)
+					.get(0);
+			Assert.assertEquals(errorAppMessage.toLowerCase(), getText(errorMessage));
+		}
 	}
 	
 	public void validateElement( String fieldName ) {
@@ -89,11 +92,6 @@ public class GeneralBusinessTest extends BaseDriver {
 				tapDown();
 			}
 		}
-	}
-	
-	public void validateErrorMessages( ) {
-		List<MobileElement> errorMessages = findElements( NamesMobileElements.TEXT_INPUT_ERROR );
-		Assert.assertTrue( errorMessages.size() > 0 );
 	}
 	
 	public void selectProfile() {

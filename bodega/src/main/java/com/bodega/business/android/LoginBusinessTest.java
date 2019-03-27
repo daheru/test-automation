@@ -75,9 +75,13 @@ public class LoginBusinessTest extends BaseDriver {
 		generalBusinessTest.validatePopUpMessages( AppMessages.PASSWORD_RECOVERY );
 	}
 	
-	public void validateErrorMessage() {
+	public void validateErrorMessages(String message, String element) {
 		logger.info("Validando mensajes de error");
-		generalBusinessTest.validateErrorMessages();
+		generalBusinessTest.validateFieldErrorMessage( message, element);
+	}
+	
+	public void validatePopUpMessage( String message ) {
+		generalBusinessTest.validatePopUpMessages( message );
 	}
 	
 	public void validateHomePage() {
