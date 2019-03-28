@@ -87,4 +87,15 @@ public class MyprofileTest {
 		myprofile.editPhone_Secundary("5573137385"); 
 		myprofile.savePhone_Secundary();
 	}
+	
+	@Test
+	public void edit_phone2 () {
+		logger.info("Iniciando caso de prueba: Phone my profile data");
+		myprofile.login("emmanuel.dominguez@axity.com", "Edominguez#1235");
+		myprofile.selectProfile();
+		myprofile.selectMenu(MenuOptionsEnum.PROFILE.getMenu());
+		myprofile.editPhone2("5573137390", "5556136545", "456"); 
+		myprofile.savePhone2(); 
+	}
+	
 }

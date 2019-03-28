@@ -1,8 +1,11 @@
 package com.bodega.business.android;
+import java.util.List;
+
 import org.apache.log4j.Logger;
 
-import com.bodega.base.BaseDriver;
 import com.bodega.constants.NamesMobileElements;
+
+import io.appium.java_client.MobileElement;
 
 public class MyprofileBusinessTest extends BaseDriver {
 
@@ -85,4 +88,19 @@ public class MyprofileBusinessTest extends BaseDriver {
 		tapOnElement(NamesMobileElements.MYPROFILE_BUTTON_PHONE_SAVE);
 	}
 	
+	public void editPhone2( String Phoneprimary, String Phonesecundary, String ext) {
+		tapOnElement( NamesMobileElements.MYPROFILE_EDIT_PHONE );
+		waitVisibility( NamesMobileElements.MYPROFILE_PHONE_PRIMARY );
+		fillElement( NamesMobileElements.MYPROFILE_PHONE_PRIMARY , Phoneprimary);
+		tapOnElement( NamesMobileElements.MYPROFILE_ADD_PHONE );
+	    tapOnElement( NamesMobileElements.MYPROFILE_PHONE_SECONDARY );
+		tapOnElement( NamesMobileElements.MYPROFILE_BUTTON_PHONE_FIJO );	
+		fillElement( NamesMobileElements.MYPROFILE_PHONE_SECONDARY , Phonesecundary);
+		fillElement( NamesMobileElements.MYPROFILE_PHONE_SECONDARY_EXT , ext);
+		hideKeyboard();
+	}
+	
+	public void savePhone2() {
+		tapOnElement(NamesMobileElements.MYPROFILE_BUTTON_PHONE_SAVE);
+	}
 }
