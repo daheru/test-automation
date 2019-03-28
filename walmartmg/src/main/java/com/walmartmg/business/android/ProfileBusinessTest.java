@@ -6,7 +6,7 @@ import com.walmartmg.constants.GeneralConstants;
 import com.walmartmg.constants.NamesMobileElements;
 import com.walmartmg.enums.MenuOptionsEnum;
 import com.walmartmg.enums.NavigationBarEnum;
-import com.walmartmg.enums.TermsEnum;
+import com.walmartmg.enums.MenusEnum;
 import com.walmartmg.util.BaseDriver;
 
 public class ProfileBusinessTest extends BaseDriver {
@@ -62,16 +62,16 @@ public class ProfileBusinessTest extends BaseDriver {
 	}
 	
 	public void validateTermsPage() {
-		generalBusinessTest.selectTermsOption( TermsEnum.RETURNS );
-		generalBusinessTest.selectTermsOption( TermsEnum.DELIVERY );
-		generalBusinessTest.selectTermsOption( TermsEnum.PAYMENTS );
-		generalBusinessTest.selectTermsOption( TermsEnum.ORDERS );
-		generalBusinessTest.selectTermsOption( TermsEnum.ACCOUNT );
-		generalBusinessTest.selectTermsOption( TermsEnum.FAQ );
-		generalBusinessTest.selectTermsOption( TermsEnum.SECURITY );
-		generalBusinessTest.selectTermsOption( TermsEnum.MARKETPLACE );
-		generalBusinessTest.selectTermsOption( TermsEnum.BILLING );
-		generalBusinessTest.selectTermsOption( TermsEnum.PROMOTIONS );
+		generalBusinessTest.valitateMenuAndSubMenus( MenusEnum.TERMS_RETURNS );
+		generalBusinessTest.valitateMenuAndSubMenus( MenusEnum.TERMS_DELIVERY );
+		generalBusinessTest.valitateMenuAndSubMenus( MenusEnum.TERMS_PAYMENTS );
+		generalBusinessTest.valitateMenuAndSubMenus( MenusEnum.TERMS_ORDERS );
+		generalBusinessTest.valitateMenuAndSubMenus( MenusEnum.TERMS_ACCOUNT );
+		generalBusinessTest.valitateMenuAndSubMenus( MenusEnum.TERMS_FAQ );
+		generalBusinessTest.valitateMenuAndSubMenus( MenusEnum.TERMS_SECURITY );
+		generalBusinessTest.valitateMenuAndSubMenus( MenusEnum.TERMS_MARKETPLACE );
+		generalBusinessTest.valitateMenuAndSubMenus( MenusEnum.TERMS_BILLING );
+		generalBusinessTest.valitateMenuAndSubMenus( MenusEnum.TERMS_PROMOTIONS );
 	}
 	
 }

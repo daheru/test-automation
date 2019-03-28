@@ -9,7 +9,7 @@ import com.walmartmg.constants.GeneralConstants;
 import com.walmartmg.constants.NamesMobileElements;
 import com.walmartmg.constants.ConfigConstants;
 import com.walmartmg.enums.NavigationBarEnum;
-import com.walmartmg.enums.TermsEnum;
+import com.walmartmg.enums.MenusEnum;
 import com.walmartmg.util.BaseDriver;
 
 import io.appium.java_client.MobileElement;
@@ -38,6 +38,7 @@ public class GeneralBusinessTest extends BaseDriver {
 		logger.info("Seleccionando la opcion: " + menuOptionEnum);
 		waitVisibility(NamesMobileElements.NAV_BAR);
 		List<MobileElement> menuList = findElements(NamesMobileElements.MENU_NAME);
+		Assert.assertTrue("El elemento móvil no existe", menuList.size() > 0);
 		boolean clicMenu = false;
 		int exit = 0;
 		do {
@@ -53,10 +54,7 @@ public class GeneralBusinessTest extends BaseDriver {
 				menuList = findElements(NamesMobileElements.MENU_NAME);
 				exit++;
 			}
-			if( exit > 10 ) {
-				clicMenu = true;
-				Assert.assertTrue(Boolean.FALSE);
-			}
+			validateMenuExist(exit);
 		} while (!clicMenu);
 	}
 
@@ -82,9 +80,11 @@ public class GeneralBusinessTest extends BaseDriver {
 	}
 
 	public void validateFieldErrorMessage(String errorAppMessage, String fieldCont) {
-		MobileElement errorMessage = findSubElements(findElement(fieldCont), NamesMobileElements.ERROR_TEXT_FIELD)
-				.get(0);
-		Assert.assertEquals(errorAppMessage.toLowerCase(), getText(errorMessage).toLowerCase());
+		List<MobileElement> errors = findSubElements(findElement(fieldCont), NamesMobileElements.ERROR_TEXT_FIELD);
+		if (errors.size() > 0) {
+			Assert.assertTrue("Los mensajes no coinciden", errorAppMessage.toLowerCase().equals(getText(errors.get(0))));
+		}
+		Assert.assertTrue(Boolean.FALSE);
 	}
 
 	public void validateElement(String fieldName) {
@@ -96,18 +96,17 @@ public class GeneralBusinessTest extends BaseDriver {
 	}
 
 	public void validatePopUpMessages(String message) {
-		try {
-			List<MobileElement> messageElement = findElements(NamesMobileElements.WARNING_TEXT_MESSAGE);
-			if (messageElement.size() > 0) {
-				Assert.assertEquals(message.toLowerCase(), getText(messageElement.get(0)).toLowerCase());
-			}
-		} catch (Exception e) {
-			logger.info("Unreachable message");
+		List<MobileElement> messageElement = findElements(NamesMobileElements.WARNING_TEXT_MESSAGE);
+		if (messageElement.size() > 0) {
+			Assert.assertTrue("Los mensajes no coinciden",
+					message.toLowerCase().equals(getText(messageElement.get(0))));
+		} else {
+			logger.info("Mensaje inalcanzable");
 		}
 	}
 
-	public void selectTermsOption(TermsEnum termEnum) {
-		logger.info("Seleccionando la opcion: " + termEnum.getTerm());
+	public void valitateMenuAndSubMenus(MenusEnum menusEnum) {
+		logger.info("Seleccionando la opcion: " + menusEnum.getMenu());
 
 		List<MobileElement> terms = findElements(NamesMobileElements.TERMS_ITEM);
 		boolean clicMenu = false;
@@ -115,9 +114,9 @@ public class GeneralBusinessTest extends BaseDriver {
 		do {
 			for (int i = 0; i < terms.size(); i++) {
 				if (terms.get(i).getAttribute(ConfigConstants.ATTRIBUTE_TEXT).toLowerCase()
-						.contains(termEnum.getTerm().toLowerCase())) {
+						.contains(menusEnum.getMenu().toLowerCase())) {
 					terms.get(i).click();
-					validateSubTerm(termEnum.getSubTerm());
+					validateSubTerm(menusEnum.getSubMenu());
 					clicMenu = true;
 					terms.get(i).click();
 					break;
@@ -153,5 +152,11 @@ public class GeneralBusinessTest extends BaseDriver {
 			}
 		}
 		Assert.assertEquals(subTermsEnum.length, index);
+	}
+	
+	private void validateMenuExist(int exit) {
+		if (exit > 15) {
+			Assert.assertTrue("El elemento móvil no existe", Boolean.FALSE);
+		}
 	}
 }

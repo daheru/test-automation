@@ -60,7 +60,7 @@ public class LoginTest {
     }
 	
 	@Test
-	public void CP049_login_invalida_pass() {
+	public void CP049_login_invalid_pass() {
 		login.selectProfileOption();
 		login.selectMenu(MenuOptionsEnum.LOGIN.getMenu());
 		login.login("dj_fran_@hotmail.es", "123");
