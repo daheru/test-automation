@@ -71,6 +71,10 @@ public class BaseDriver {
 		}
 	}
 	
+	public void tapOnElement(MobileElement element) {
+        element.click();
+    }
+	
 	public void fillElement( String element, String text ) {
 		if( element.startsWith( GeneralConstants.SLASH ) ) {
 			driver.getKeyboard();
@@ -108,6 +112,14 @@ public class BaseDriver {
 		}
 		return false;
 	}
+	
+	public String getText(String element) {
+        return findElement(element).getAttribute(ConfigConstants.ATTRIBUTE_TEXT).toLowerCase();
+    }
+
+    public String getText(MobileElement element) {
+        return element.getAttribute(ConfigConstants.ATTRIBUTE_TEXT).toLowerCase();
+    }
 	
 	public void tapUp( ) {
 		actions.press(PointOption.point(width, startPoint)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(2000))).moveTo(PointOption.point(width, endPoint));
@@ -153,15 +165,15 @@ public class BaseDriver {
 
 	private void initAndroid() {
 		// Inicializar caracteristicas de Android
-		caps.setCapability(PropertiesConstants.APP_PACKAGE, PropertiesConstants.APP_PACKAGE_VALUE);
-		caps.setCapability(PropertiesConstants.APP_ACTIVITY, PropertiesConstants.APP_ACTIVITY_VALUE);
-		caps.setCapability(MobileCapabilityType.AUTOMATION_NAME, PropertiesConstants.AUTOMATION_NAME);
-		caps.setCapability(PropertiesConstants.NO_RESET, PropertiesConstants.NO_RESET_VALUE);
+		caps.setCapability(ConfigConstants.APP_PACKAGE, ConfigConstants.APP_PACKAGE_VALUE);
+		caps.setCapability(ConfigConstants.APP_ACTIVITY, ConfigConstants.APP_ACTIVITY_VALUE);
+		caps.setCapability(MobileCapabilityType.AUTOMATION_NAME, ConfigConstants.AUTOMATION_NAME);
+		caps.setCapability(ConfigConstants.NO_RESET, ConfigConstants.NO_RESET_VALUE);
 	}
 
 	private void initIOS() {
 		// Inicializar caracteristicas de IOS
-		caps.setCapability(MobileCapabilityType.APP, PropertiesConstants.APP);
+		caps.setCapability(MobileCapabilityType.APP, ConfigConstants.APP);
 	}
 
 	private void initPropsWindow() {

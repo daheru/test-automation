@@ -1,14 +1,11 @@
 package com.walmartmg.iOS;
 
 
-import org.junit.Assert;
-
 import com.walmartmg.business.android.GeneralBusinessTest;
-import com.walmartmg.commons.MenuOptionsEnum;
-import com.walmartmg.commons.MobileNamesConstants;
-import com.walmartmg.commons.NavigationBarEnum;
+import com.walmartmg.constants.NamesMobileElements;
+import com.walmartmg.enums.MenuOptionsEnum;
+import com.walmartmg.enums.NavigationBarEnum;
 import com.walmartmg.util.BaseDriver;
-import com.walmartmg.util.PropertiesValuesUtil;
 	
 
 public class TermsyConditionsBusinessTest   extends BaseDriver{
@@ -27,75 +24,75 @@ public class TermsyConditionsBusinessTest   extends BaseDriver{
 	
 //devoluciones 
 	public void cond() {
-		tapOnElement(MobileNamesConstants.Returns);
-		general.validateElement(MobileNamesConstants.How_to_make_return);
-		general.validateElement(MobileNamesConstants.Warranty);
-		general.validateElement(MobileNamesConstants.Canceld);
-		tapOnElement(MobileNamesConstants.Returns);
+		tapOnElement(NamesMobileElements.Returns);
+		general.validateElement(NamesMobileElements.How_to_make_return);
+		general.validateElement(NamesMobileElements.Warranty);
+		general.validateElement(NamesMobileElements.Canceld);
+		tapOnElement(NamesMobileElements.Returns);
 		
 //precio /promociones
-		tapOnElement(MobileNamesConstants.Precio_promociones);
-		 general.validateElement(MobileNamesConstants.precios_bajos);
-	      general.validateElement(MobileNamesConstants.articulos);
-	      general.validateElement(MobileNamesConstants.ComprasGRanel);
-		  general.validateElement(MobileNamesConstants.Limitacionesdeinventario);
-		  general.validateElement(MobileNamesConstants.Inf_precios_contenidos);
-		  tapOnElement(MobileNamesConstants.Precio_promociones);
+		tapOnElement(NamesMobileElements.Precio_promociones);
+		 general.validateElement(NamesMobileElements.precios_bajos);
+	      general.validateElement(NamesMobileElements.articulos);
+	      general.validateElement(NamesMobileElements.ComprasGRanel);
+		  general.validateElement(NamesMobileElements.Limitacionesdeinventario);
+		  general.validateElement(NamesMobileElements.Inf_precios_contenidos);
+		  tapOnElement(NamesMobileElements.Precio_promociones);
 	}
 //compras
 	public void cond2() { 
-		tapOnElement(MobileNamesConstants.Billing);
-		general.validateElement(MobileNamesConstants.invoicing);
-		tapOnElement(MobileNamesConstants.Billing);
+		tapOnElement(NamesMobileElements.Billing);
+		general.validateElement(NamesMobileElements.invoicing);
+		tapOnElement(NamesMobileElements.Billing);
 // Marketplace
-		tapOnElement(MobileNamesConstants.MArketplace);
-		general.validateElement(MobileNamesConstants.MArketplace);
-		tapOnElement(MobileNamesConstants.MArketplace);
+		tapOnElement(NamesMobileElements.MArketplace);
+		general.validateElement(NamesMobileElements.MArketplace);
+		tapOnElement(NamesMobileElements.MArketplace);
 			
 	}
 //envios 
 	public void cond3() {
-		    tapOnElement(MobileNamesConstants.Shipping);
-			general.validateElement(MobileNamesConstants.costo);
-			general.validateElement(MobileNamesConstants.entrega);
-			general.validateElement(MobileNamesConstants.Horario);
-		    tapOnElement(MobileNamesConstants.Shipping);
+		    tapOnElement(NamesMobileElements.Shipping);
+			general.validateElement(NamesMobileElements.costo);
+			general.validateElement(NamesMobileElements.entrega);
+			general.validateElement(NamesMobileElements.Horario);
+		    tapOnElement(NamesMobileElements.Shipping);
 		    //seguridad
-		    tapOnElement(MobileNamesConstants.Seguridad_Privacidad);
-		    general.validateElement(MobileNamesConstants.politica);
-			general.validateElement(MobileNamesConstants.term);
-		    tapOnElement(MobileNamesConstants.Seguridad_Privacidad);
+		    tapOnElement(NamesMobileElements.Seguridad_Privacidad);
+		    general.validateElement(NamesMobileElements.politica);
+			general.validateElement(NamesMobileElements.term);
+		    tapOnElement(NamesMobileElements.Seguridad_Privacidad);
 		
 	}		
 	
 ///pagos
 	public void   cond4() {
-	      tapOnElement(MobileNamesConstants.Pagos);
-       	  general.validateElement(MobileNamesConstants.formas);
-	      general.validateElement(MobileNamesConstants.tarjetaWallet);
-	      general.validateElement(MobileNamesConstants.threD);
-		  general.validateElement(MobileNamesConstants.Paypal);
-		  general.validateElement(MobileNamesConstants.BBVA);
-		  general.validateElement(MobileNamesConstants.CITI);
-		 general.validateElement(MobileNamesConstants.Tarjeta);
-	      tapOnElement(MobileNamesConstants.Pagos);
+	      tapOnElement(NamesMobileElements.Pagos);
+       	  general.validateElement(NamesMobileElements.formas);
+	      general.validateElement(NamesMobileElements.tarjetaWallet);
+	      general.validateElement(NamesMobileElements.threD);
+		  general.validateElement(NamesMobileElements.Paypal);
+		  general.validateElement(NamesMobileElements.BBVA);
+		  general.validateElement(NamesMobileElements.CITI);
+		 general.validateElement(NamesMobileElements.Tarjeta);
+	      tapOnElement(NamesMobileElements.Pagos);
 
  ///preguntas frecunetes
-		   tapOnElement(MobileNamesConstants.Question); 
-		   general.validateElement(MobileNamesConstants.Question);
-		   tapOnElement(MobileNamesConstants.Question); 
+		   tapOnElement(NamesMobileElements.Question); 
+		   general.validateElement(NamesMobileElements.Question);
+		   tapOnElement(NamesMobileElements.Question); 
 //Tucuenta
-		   tapOnElement(MobileNamesConstants.Tucuenta); 
-		   general.validateElement(MobileNamesConstants.pregunta1);
-		   general.validateElement(MobileNamesConstants.pregunta2);
-		   general.validateElement(MobileNamesConstants.pregunta3);
-		   general.validateElement(MobileNamesConstants.pregunta4);
-		   general.validateElement(MobileNamesConstants.pregunta4);
-		   tapOnElement(MobileNamesConstants.Tucuenta); 
+		   tapOnElement(NamesMobileElements.Tucuenta); 
+		   general.validateElement(NamesMobileElements.pregunta1);
+		   general.validateElement(NamesMobileElements.pregunta2);
+		   general.validateElement(NamesMobileElements.pregunta3);
+		   general.validateElement(NamesMobileElements.pregunta4);
+		   general.validateElement(NamesMobileElements.pregunta4);
+		   tapOnElement(NamesMobileElements.Tucuenta); 
 // tus pedidos 
-		   tapOnElement(MobileNamesConstants.TusPedidos); 
-		   general.validateElement(MobileNamesConstants.comprar);
-		   tapOnElement(MobileNamesConstants.TusPedidos); 
+		   tapOnElement(NamesMobileElements.TusPedidos); 
+		   general.validateElement(NamesMobileElements.comprar);
+		   tapOnElement(NamesMobileElements.TusPedidos); 
 
 		   
 
