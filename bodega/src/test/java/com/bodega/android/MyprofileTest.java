@@ -51,7 +51,6 @@ public class MyprofileTest {
 		myprofile.saveProfile();
 	}
 	
-	
 	@Test
 	public void CF010_edit_mypassword() {
 		logger.info("Iniciando caso de prueba: PassWord my profile data");

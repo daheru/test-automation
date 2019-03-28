@@ -50,7 +50,6 @@ public class LoginBusinessTest extends BaseDriver {
 		generalBusinessTest.selectMenuOption( MenuOptionsEnum.PROFILE.getMenu() );
 		MobileElement profileEmail = findElement( NamesMobileElements.PROFILE_EMAIL );
 		Assert.assertEquals( profileEmail.getAttribute( ConfigConstants.ATTRIBUTE_TEXT ) , email);
-		
 	}
 	
 	public void selectCreateAccount() {

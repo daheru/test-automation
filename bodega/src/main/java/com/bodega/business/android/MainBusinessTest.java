@@ -7,11 +7,11 @@ import org.apache.log4j.Logger;
 import org.junit.Assert;
 
 import com.bodega.constants.AppMessages;
+import com.bodega.constants.ConfigConstants;
 import com.bodega.constants.GeneralConstants;
 import com.bodega.constants.NamesMobileElements;
-import com.bodega.constants.ConfigConstants;
-import com.bodega.enums.LegalsEnum;
 import com.bodega.enums.MenuOptionsEnum;
+import com.bodega.enums.MenusEnum;
 import com.bodega.util.BaseDriver;
 import com.bodega.vo.AddressVO;
 
@@ -192,8 +192,8 @@ public class MainBusinessTest extends BaseDriver {
 	}
 	
 	public void validateLegalsPage( ) {
-		generalBusinessTest.selectLegalOption( LegalsEnum.TERMS );
-		generalBusinessTest.selectLegalOption( LegalsEnum.PRIVACITY );
+		generalBusinessTest.valitateMenuAndSubMenus( MenusEnum.LEGALS_TERMS );
+		generalBusinessTest.valitateMenuAndSubMenus( MenusEnum.LEGALS_PRIVACITY );
 		List<MobileElement> terms = findElements( NamesMobileElements.LEGALS_ITEM );
 		Assert.assertEquals( ConfigConstants.APP_VERSION.toLowerCase() , getText( terms.get(2) ));
 	}
