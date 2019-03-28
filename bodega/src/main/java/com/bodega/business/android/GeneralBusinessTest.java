@@ -19,7 +19,7 @@ public class GeneralBusinessTest extends BaseDriver {
 	private static final Logger logger = Logger.getLogger(GeneralBusinessTest.class.getName());
 
 	public void selectNavigationOption(int navOption) {
-		waitVisibility(NamesMobileElements.NAV_BAR);
+		waitElementVisibility(NamesMobileElements.NAV_BAR);
 		MobileElement navigationElement = null;
 		if (navOption == NavigationBarEnum.HOME.getNavigation()) {
 			logger.info(" Seleccionando menu home");
@@ -40,7 +40,7 @@ public class GeneralBusinessTest extends BaseDriver {
 	public void selectMenuOption(String menuOptionEnum) {
 		logger.info("Seleccionando la opcion: " + menuOptionEnum);
 		List<MobileElement> menuList = findElements(NamesMobileElements.MENU_NAME);
-		Assert.assertTrue("El elemento móvil no existe", menuList.size() > 0);
+		assertTrue(menuList.size() > 0);
 		boolean clicMenu = false;
 		int exit = 0;
 		do {
@@ -72,13 +72,15 @@ public class GeneralBusinessTest extends BaseDriver {
 	public void validateFieldErrorMessage(String errorAppMessage, String fieldCont) {
 		List<MobileElement> errors = findSubElements(findElement(fieldCont), NamesMobileElements.ERROR_TEXT_FIELD);
 		if (errors.size() > 0) {
-			Assert.assertTrue("Los mensajes no coinciden", errorAppMessage.toLowerCase().equals(getText(errors.get(0))));
+			assertEquals(errorAppMessage.toLowerCase(), getElementText(errors.get(0)));
+		} else {
+			logger.info("No se encontraron mensajes de error");
+			Assert.fail();
 		}
-		Assert.assertTrue(Boolean.FALSE);
 	}
 
 	public void validateElement(String fieldName) {
-		Assert.assertTrue(elementExist(fieldName));
+		assertTrue(elementExist(fieldName));
 	}
 
 	public void goBack() {
@@ -108,8 +110,7 @@ public class GeneralBusinessTest extends BaseDriver {
 	public void validatePopUpMessages(String message) {
 		List<MobileElement> messageElement = findElements(NamesMobileElements.WARNING_TEXT_MESSAGE);
 		if (messageElement.size() > 0) {
-			Assert.assertTrue("Los mensajes no coinciden",
-					message.toLowerCase().equals(getText(messageElement.get(0))));
+			assertTrue(message.toLowerCase().equals(getElementText(messageElement.get(0))));
 		} else {
 			logger.info("Mensaje inalcanzable");
 		}
@@ -164,7 +165,7 @@ public class GeneralBusinessTest extends BaseDriver {
 				exit++;
 			}
 		}
-		Assert.assertEquals(subTermsEnum.length, index);
+		assertEquals(subTermsEnum.length, index);
 	}
 
 	private void validateMenuExist(int exit) {

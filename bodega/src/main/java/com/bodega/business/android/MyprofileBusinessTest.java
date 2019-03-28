@@ -25,7 +25,7 @@ public class MyprofileBusinessTest extends BaseDriver {
 	
 	public void editProfile( String name, String lastName, String birthday, String sex ) {
 		tapOnElement( NamesMobileElements.MYPROFILE_EDIT_PROFILE );
-		waitVisibility( NamesMobileElements.MYPROFILE_USER_NAME );
+		waitElementVisibility( NamesMobileElements.MYPROFILE_USER_NAME );
 		fillElement( NamesMobileElements.MYPROFILE_USER_NAME , name);
 		fillElement( NamesMobileElements.MYPROFILE_USER_LAST_NAME , lastName);
 		tapOnElement( NamesMobileElements.MYPROFILE_USER_BIRTHDATE );
@@ -45,7 +45,7 @@ public class MyprofileBusinessTest extends BaseDriver {
 	
 	public void editPassword( String oldpass, String newpass ) {
 		tapOnElement( NamesMobileElements.MYPROFILE_EDIT_PASSWORD );
-		waitVisibility( NamesMobileElements.MYPROFILE_OLD_PASSWORD );
+		waitElementVisibility( NamesMobileElements.MYPROFILE_OLD_PASSWORD );
 		tapOnElement( NamesMobileElements.MYPROFILE_OLD_CON_PASSWORD );
 		fillElement( NamesMobileElements.MYPROFILE_OLD_PASSWORD , oldpass);
 		tapOnElement( NamesMobileElements.MYPROFILE_NEW_CON_PASSWORD );
@@ -58,7 +58,7 @@ public class MyprofileBusinessTest extends BaseDriver {
 	}
 	public void editPhone( String Phoneprimary, String Phonesecundary) {
 		tapOnElement( NamesMobileElements.MYPROFILE_EDIT_PHONE );
-		waitVisibility( NamesMobileElements.MYPROFILE_PHONE_PRIMARY );
+		waitElementVisibility( NamesMobileElements.MYPROFILE_PHONE_PRIMARY );
 		fillElement( NamesMobileElements.MYPROFILE_PHONE_PRIMARY , Phoneprimary);
 		tapOnElement( NamesMobileElements.MYPROFILE_ADD_PHONE );
 	//	tapOnElement( NamesMobileElements.MYPROFILE_BUTTON_PHONE_FIJO_LIS );
@@ -75,7 +75,7 @@ public class MyprofileBusinessTest extends BaseDriver {
 	
 	public void editPhone_Secundary( String Phonesecundary) {
 		tapOnElement( NamesMobileElements.MYPROFILE_EDIT_PHONE );
-		waitVisibility( NamesMobileElements.MYPROFILE_PHONE_PRIMARY );
+		waitElementVisibility( NamesMobileElements.MYPROFILE_PHONE_PRIMARY );
 		tapOnElement( NamesMobileElements.MYPROFILE_ADD_PHONE );
 		fillElement( NamesMobileElements.MYPROFILE_PHONE_SECONDARY , Phonesecundary);
 		hideKeyboard();

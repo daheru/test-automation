@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import org.apache.log4j.Logger;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Dimension;
 import org.openqa.selenium.WebElement;
@@ -14,9 +15,9 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import com.bodega.constants.ConfigConstants;
 import com.bodega.constants.GeneralConstants;
 import com.bodega.constants.NamesMobileElements;
-import com.bodega.constants.ConfigConstants;
 
 import io.appium.java_client.AppiumDriver;
 import io.appium.java_client.MobileElement;
@@ -57,29 +58,32 @@ public class BaseDriver {
 	}
 
 	public MobileElement findElement(String element) {
+		List<MobileElement> mobileElement = null;
 		if (element.startsWith(GeneralConstants.SLASH)) {
-			return driver.findElement(By.xpath(element));
+			mobileElement = driver.findElements(By.xpath(element));
+		} else {
+			mobileElement = driver.findElements(By.id(element));
 		}
-		return driver.findElement(By.id(element));
+		return mobileElement.size() > 0 ? mobileElement.get(0) : null;
 	}
 
 	public void tapOnElement(String element) {
-		if (element.startsWith(GeneralConstants.SLASH)) {
-			driver.findElement(By.xpath(element)).click();
-		} else {
-			driver.findElement(By.id(element)).click();
+		MobileElement tapElement = findElement(element);
+		if (tapElement != null) {
+			tapElement.click();
 		}
 	}
 
 	public void tapOnElement(MobileElement element) {
-		element.click();
+		if (element != null) {
+			element.click();
+		}
 	}
 
 	public void fillElement(String element, String text) {
-		if (element.startsWith(GeneralConstants.SLASH)) {
-			driver.findElement(By.xpath(element)).sendKeys(text);
-		} else {
-			driver.findElement(By.id(element)).sendKeys(text);
+		MobileElement textboxElement = findElement(element);
+		if (textboxElement != null) {
+			textboxElement.sendKeys(text);
 		}
 	}
 
@@ -97,7 +101,7 @@ public class BaseDriver {
 		return driver.findElements(By.id(element));
 	}
 
-	public WebElement waitVisibility(String element) {
+	public WebElement waitElementVisibility(String element) {
 		if (element.startsWith(GeneralConstants.SLASH)) {
 			return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(element)));
 		}
@@ -105,19 +109,20 @@ public class BaseDriver {
 	}
 
 	public boolean elementExist(String element) {
-		List<MobileElement> elements = findElements(element);
-		if (elements.size() > 0) {
-			return true;
+		MobileElement elements = findElement(element);
+		if (elements == null) {
+			return false;
 		}
-		return false;
+		return true;
 	}
 
-	public String getText(String element) {
-		return findElement(element).getAttribute(ConfigConstants.ATTRIBUTE_TEXT).toLowerCase();
+	public String getElementText(String element) {
+		MobileElement textboxElement = findElement(element);
+		return textboxElement != null ? textboxElement.getAttribute(ConfigConstants.ATTRIBUTE_TEXT).toLowerCase() : "";
 	}
 
-	public String getText(MobileElement element) {
-		return element.getAttribute(ConfigConstants.ATTRIBUTE_TEXT).toLowerCase();
+	public String getElementText(MobileElement element) {
+		return element != null ? element.getAttribute(ConfigConstants.ATTRIBUTE_TEXT).toLowerCase() : "";
 	}
 
 	public void tapUp() {
@@ -167,6 +172,36 @@ public class BaseDriver {
 		}
 	}
 
+	public void assertEquals(String expected, String actual) {
+		try {
+			Assert.assertEquals(expected, actual);
+		} catch (AssertionError error) {
+			logger.info(error.getMessage());
+			logger.info("--Caso de prueba finalizado");
+			Assert.fail();
+		}
+	}
+
+	public void assertEquals(int expected, int actual) {
+		try {
+			Assert.assertEquals(expected, actual);
+		} catch (AssertionError error) {
+			logger.info(error.getMessage());
+			logger.info("--Caso de prueba finalizado");
+			Assert.fail();
+		}
+	}
+	
+	public void assertTrue(boolean condition) {
+		try {
+			Assert.assertTrue(condition);
+		} catch (AssertionError error) {
+			logger.info(error.getMessage());
+			logger.info("--Caso de prueba finalizado");
+			Assert.fail();
+		}
+	}
+
 	private void initAndroid() {
 		caps.setCapability(ConfigConstants.APP_PACKAGE, ConfigConstants.APP_PACKAGE_VALUE);
 		caps.setCapability(ConfigConstants.APP_ACTIVITY, ConfigConstants.APP_ACTIVITY_VALUE);
@@ -182,9 +217,9 @@ public class BaseDriver {
 		if (size == null) {
 			size = driver.manage().window().getSize();
 		}
-		width = (int)(size.width * 0.03);
-		startPoint = (int)(size.getHeight() * 0.5);
-		endPoint = (int)(size.getHeight() * 0.3);
+		width = (int) (size.width * 0.03);
+		startPoint = (int) (size.getHeight() * 0.5);
+		endPoint = (int) (size.getHeight() * 0.3);
 	}
 
 	private void initDriver() {

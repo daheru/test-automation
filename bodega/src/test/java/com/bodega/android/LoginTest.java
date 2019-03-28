@@ -66,12 +66,12 @@ public class LoginTest {
 
 	@Test
 	public void CF109_login_wrong_email() {
-		logger.info("Iniciando caso de prueba: Login wrong email");
+		logger.info("--Iniciando caso de prueba: Login wrong email");
 		login.selectProfile();
 		login.selectMenuOption(MenuOptionsEnum.LOGIN.getMenu());
 		login.login("wrongemail.com", "12345678");
 		login.validateErrorMessages(AppMessages.INVALID_EMAIL , NamesMobileElements.LOGIN_EMAIL_CONT);
-		logger.info("Caso de prueba finalizado");
+		logger.info("--Caso de prueba finalizado");
 	}
 	
 	@Test

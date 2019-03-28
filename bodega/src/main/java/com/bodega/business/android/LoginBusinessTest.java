@@ -1,11 +1,9 @@
 package com.bodega.business.android;
 
 import org.apache.log4j.Logger;
-import org.junit.Assert;
 
 import com.bodega.constants.AppMessages;
 import com.bodega.constants.NamesMobileElements;
-import com.bodega.constants.ConfigConstants;
 import com.bodega.enums.MenuOptionsEnum;
 import com.bodega.util.BaseDriver;
 
@@ -32,7 +30,7 @@ public class LoginBusinessTest extends BaseDriver {
 	public void goToLogin() {
 		logger.info("Tap en Login");
 		generalBusinessTest.initAsGuess();
-		waitVisibility( NamesMobileElements.HOME_PROFILE );
+		waitElementVisibility( NamesMobileElements.HOME_PROFILE );
 		generalBusinessTest.selectProfile();
 		generalBusinessTest.selectMenuOption( MenuOptionsEnum.LOGIN.getMenu() );
 	}
@@ -49,7 +47,7 @@ public class LoginBusinessTest extends BaseDriver {
 		generalBusinessTest.selectProfile();
 		generalBusinessTest.selectMenuOption( MenuOptionsEnum.PROFILE.getMenu() );
 		MobileElement profileEmail = findElement( NamesMobileElements.PROFILE_EMAIL );
-		Assert.assertEquals( profileEmail.getAttribute( ConfigConstants.ATTRIBUTE_TEXT ) , email);
+	    assertEquals( getElementText(profileEmail) , email);
 	}
 	
 	public void selectCreateAccount() {

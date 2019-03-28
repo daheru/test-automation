@@ -22,8 +22,8 @@ public class HomeBusinessTest extends BaseDriver {
 	public void validateHomePage() {
 		logger.info("Validando Home Page");
 		generalBusinessTest.validateElement( NamesMobileElements.HOME_SEARCH_BAR );
-		waitVisibility( NamesMobileElements.HOME_ITEM_BANNER );
-		waitVisibility( NamesMobileElements.HOME_CARROUSEL );
+		waitElementVisibility( NamesMobileElements.HOME_ITEM_BANNER );
+		waitElementVisibility( NamesMobileElements.HOME_CARROUSEL );
 		generalBusinessTest.validateElement( NamesMobileElements.NAV_BAR );
 		generalBusinessTest.validateElement( NamesMobileElements.NAV_BAR_HOME );
 		generalBusinessTest.validateElement( NamesMobileElements.NAV_BAR_DEPARTMENTS );
