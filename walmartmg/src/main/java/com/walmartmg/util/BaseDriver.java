@@ -42,7 +42,7 @@ public class BaseDriver {
 
 	public BaseDriver() {
 		if (driver == null) {
-			logger.info("Inicializando...");
+			logger.info("Inicializar la configuracion de Appium Drive...");
 			// Inicializar la configuracion de Appium Driver
 			caps = new DesiredCapabilities();
 			caps.setCapability(MobileCapabilityType.DEVICE_NAME, ConfigConstants.DEVICE_NAME);

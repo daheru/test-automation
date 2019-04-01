@@ -25,14 +25,14 @@ public class ProfileBusinessTest extends BaseDriver {
 
 	// 7 crear cuenta de usuario nuevo
 	public void Accounts() {
-		fillElement(NamesMobileElements.Profile_Name, "Maziel");
-		fillElement(NamesMobileElements.Profile_Last_Name, "Chopin");
-		fillElement(NamesMobileElements.Profile_Mail, "cruz88994443@hotmail.com");// cambiar los digitos
-		fillElement(NamesMobileElements.Profile_Password, "080714javier");
+		fillElement(NamesMobileElements.PROFILE_NAME, "Maziel");
+		fillElement(NamesMobileElements.PROFILE_LAST_NAME, "Chopin");
+		fillElement(NamesMobileElements.PROFILE_MAIL, "cruz88994443@hotmail.com");// cambiar los digitos
+		fillElement(NamesMobileElements.PROFILE_PASSWORD, "080714javier");
 		waitVisibility(NamesMobileElements.SHOW_PASS);
 		tapOnElement(NamesMobileElements.SHOW_PASS);
-		tapOnElement(NamesMobileElements.Profile_AcceptTerms);
-		tapOnElement(NamesMobileElements.Profile_Button);
+		tapOnElement(NamesMobileElements.PROFILE_ACCEPTTERMS);
+		tapOnElement(NamesMobileElements.PROFILE_BUTTON);
 
 	}
 
@@ -49,36 +49,37 @@ public class ProfileBusinessTest extends BaseDriver {
 
 	// mensaje de error
 	public void menssage() {
-		fillElement(NamesMobileElements.Profile_Name, "112341234");
-		fillElement(NamesMobileElements.Profile_Last_Name, "Chopin");
-		fillElement(NamesMobileElements.Profile_Mail, "hfiejier@.com");
-		fillElement(NamesMobileElements.Profile_Password, "080714_javier");
+		fillElement(NamesMobileElements.PROFILE_NAME, "112341234");
+		fillElement(NamesMobileElements.PROFILE_LAST_NAME, "Chopin");
+		fillElement(NamesMobileElements.PROFILE_MAIL, "hfiejier@.com");
+		fillElement(NamesMobileElements.PROFILE_PASSWORD, "080714_javier");
 		waitVisibility(NamesMobileElements.SHOW_PASS);
 		tapOnElement(NamesMobileElements.SHOW_PASS);
-		tapOnElement(NamesMobileElements.Profile_AcceptTerms);
-		tapOnElement(NamesMobileElements.Profile_Button);
+		tapOnElement(NamesMobileElements.PROFILE_ACCEPTTERMS);
+		tapOnElement(NamesMobileElements.PROFILE_BUTTON);
 
 	}
 
 	// cuenta exietente
 	public void exit() {
-		fillElement(NamesMobileElements.Profile_Name, "Maziel");
-		fillElement(NamesMobileElements.Profile_Last_Name, "Chopin");
-		fillElement(NamesMobileElements.Profile_Mail, "cruz88994333@hotmail.com");
-		fillElement(NamesMobileElements.Profile_Password, "080714javier");
+		fillElement(NamesMobileElements.PROFILE_NAME, "Maziel");
+		fillElement(NamesMobileElements.PROFILE_LAST_NAME, "Chopin");
+		fillElement(NamesMobileElements.PROFILE_MAIL, "cruz88994333@hotmail.com");
+		fillElement(NamesMobileElements.PROFILE_PASSWORD, "080714javier");
 		waitVisibility(NamesMobileElements.SHOW_PASS);
 		tapOnElement(NamesMobileElements.SHOW_PASS);
-		tapOnElement(NamesMobileElements.Profile_AcceptTerms);
-		tapOnElement(NamesMobileElements.Profile_Button);
+		tapOnElement(NamesMobileElements.PROFILE_ACCEPTTERMS);
+		tapOnElement(NamesMobileElements.PROFILE_BUTTON);
+		
 
 	}
 
 	// validacion de cuenta duplicada
 	public void Va() {
 		// general.validateElement(NamesMobileElements.Profile_menssage);
-		String massageOKa = getText(NamesMobileElements.Profile_menssage);
+		String massageOKa = getText(NamesMobileElements.PROFILE_MENSAGGE);
 		Assert.assertEquals("Ya existe un usuario registrado con este correo electrónico".toLowerCase(),
 				massageOKa.toLowerCase());
-		tapOnElement(NamesMobileElements.BUTTON_MINOR);
+		tapOnElement(NamesMobileElements.PROFILE_BUTTON);
 	}
 }

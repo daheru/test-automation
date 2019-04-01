@@ -22,9 +22,10 @@ public class TermsBusinessTest extends BaseDriver {
 
 	public void Validate() {
 		general.validateElement(NamesMobileElements.LEGAL);
-		general.validateElement(NamesMobileElements.Version);
-		tapOnElement(NamesMobileElements.Privacy_notice1);
-		general.validateElement(NamesMobileElements.Privacy_notice2);
+		general.validateElement(NamesMobileElements.VERSION);
+		tapOnElement(NamesMobileElements.PRICAVY_NOTICE1);
+	
+		general.validateElement(NamesMobileElements.PRIVACY_NOTICE2);
 		// general.validateElement(NamesMobileElements.Privacy_notice2);
 
 	}

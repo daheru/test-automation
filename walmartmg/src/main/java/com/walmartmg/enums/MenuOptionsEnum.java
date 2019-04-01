@@ -13,6 +13,12 @@ public enum MenuOptionsEnum {
 	LEGALS("legales"),
 	LOGOUT("cerrar");
 	
+	
+	
+	
+	
+	
+	
 	private String menu;
 	
 	MenuOptionsEnum(String menu) {

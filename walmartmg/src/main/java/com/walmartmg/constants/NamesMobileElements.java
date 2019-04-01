@@ -37,18 +37,18 @@ public final class NamesMobileElements {
 	public static final String SHOW_PASS = PropertiesValuesUtil.getPropertyName("SHOW_PASS");
 	public static final String MENSSAGE_USERNOTEXIST = PropertiesValuesUtil.getPropertyName("MENSSAGE_USERNOTEXIST");
 
-	public static final String Profile_Name = PropertiesValuesUtil.getPropertyName("Profile_Name");
-	public static final String Profile_Last_Name = PropertiesValuesUtil.getPropertyName("Profile_Last_Name");
-	public static final String Profile_Mail = PropertiesValuesUtil.getPropertyName("Profile_Mail");
-	public static final String Profile_Password = PropertiesValuesUtil.getPropertyName("Profile_Password");
-	public static final String Profile_show_pass2 = PropertiesValuesUtil.getPropertyName("Profile_Accept_terms_conditions");
-	public static final String Profile_AcceptTerms = PropertiesValuesUtil.getPropertyName("Profile_AcceptTerms");
-	public static final String Profile_Link_terms_conditions = PropertiesValuesUtil.getPropertyName("Profile_Link_terms_conditions");
-	public static final String Profile_Log_in = PropertiesValuesUtil.getPropertyName("Profile_Log_in");
-	public static final String Profile_Button = PropertiesValuesUtil.getPropertyName("Profile_Button");
-	public static final String Profile_menssage = PropertiesValuesUtil.getPropertyName("Profile_menssage");
+	public static final String PROFILE_NAME = PropertiesValuesUtil.getPropertyName("PROFILE_NAME");
+	public static final String PROFILE_LAST_NAME = PropertiesValuesUtil.getPropertyName("PROFILE_LAST_NAME");
+	public static final String PROFILE_MAIL = PropertiesValuesUtil.getPropertyName("PROFILE_MAIL");
+	public static final String PROFILE_PASSWORD = PropertiesValuesUtil.getPropertyName("PROFILE_PASSWORD");
+	public static final String PROFILE_SHOW_PASS2 = PropertiesValuesUtil.getPropertyName("PROFILE_SHOW_PASS2");
+	public static final String PROFILE_ACCEPTTERMS = PropertiesValuesUtil.getPropertyName("PROFILE_ACCEPTTERMS");
+	public static final String PROFILE_LINK_TERMS = PropertiesValuesUtil.getPropertyName("PROFILE_LINK_TERMS");
+	public static final String PROFILE_LOG_IN = PropertiesValuesUtil.getPropertyName("PROFILE_LOG_IN");
+	public static final String PROFILE_BUTTON = PropertiesValuesUtil.getPropertyName("PROFILE_BUTTON");
+	public static final String PROFILE_MENSAGGE = PropertiesValuesUtil.getPropertyName("PROFILE_MENSAGGE");
 	public static final String BUTTON_MINOR = PropertiesValuesUtil.getPropertyName("BUTTON_MINOR");
-	public static final String Profile_back_button = PropertiesValuesUtil.getPropertyName("Profile_back_button");
+	public static final String PROFILE_BACK_BUTTON = PropertiesValuesUtil.getPropertyName("PROFILE_BACK_BUTTON");
 
 	public static final String BUTTON_HELP = PropertiesValuesUtil.getPropertyName("BUTTON_HELP");
 	public static final String HELPICONO = PropertiesValuesUtil.getPropertyName("HELPICONO");
@@ -61,66 +61,112 @@ public final class NamesMobileElements {
 	public static final String HELP_TEXT_MAIL = PropertiesValuesUtil.getPropertyName("HELP_TEXT_MAIL");
 
 	public static final String LEGAL = PropertiesValuesUtil.getPropertyName("LEGAL");
-	public static final String Privacy_notice1 = PropertiesValuesUtil.getPropertyName("Privacy_notice1");
-	public static final String Privacy_notice2 = PropertiesValuesUtil.getPropertyName("Privacy_notice2");
-	public static final String Version = PropertiesValuesUtil.getPropertyName("Version");
+	public static final String PRICAVY_NOTICE1 = PropertiesValuesUtil.getPropertyName("PRICAVY_NOTICE1");
+	public static final String PRIVACY_NOTICE2 = PropertiesValuesUtil.getPropertyName("PRIVACY_NOTICE2");
+	public static final String VERSION = PropertiesValuesUtil.getPropertyName("VERSION");
 
-	public static final String Terms = PropertiesValuesUtil.getPropertyName("Terms");
+	public static final String TERMS = PropertiesValuesUtil.getPropertyName("TERMS");
 
-	public static final String Returns = PropertiesValuesUtil.getPropertyName("Returns");
-	public static final String How_to_make_return = PropertiesValuesUtil.getPropertyName("How_to_make_return");
-	public static final String Warranty = PropertiesValuesUtil.getPropertyName("Warranty");
-	public static final String Canceld = PropertiesValuesUtil.getPropertyName("Canceld");
+	public static final String RET= PropertiesValuesUtil.getPropertyName("RET");
+	public static final String HOW = PropertiesValuesUtil.getPropertyName("HOW");
+	public static final String WAR = PropertiesValuesUtil.getPropertyName("WAR");
+	public static final String CAN = PropertiesValuesUtil.getPropertyName("CAN");
 
-	public static final String Shipping = PropertiesValuesUtil.getPropertyName("Shipping");
-	public static final String costo = PropertiesValuesUtil.getPropertyName("costo");
-	public static final String entrega = PropertiesValuesUtil.getPropertyName("entrega");
-	public static final String Horario = PropertiesValuesUtil.getPropertyName("Horario");
+	public static final String SHIPPING = PropertiesValuesUtil.getPropertyName("SHIPPING");
+	public static final String COSTO = PropertiesValuesUtil.getPropertyName("COSTO");
+	public static final String ENTREGA = PropertiesValuesUtil.getPropertyName("ENTREGA");
+	public static final String HORARIO = PropertiesValuesUtil.getPropertyName("HORARIO");
 
-	public static final String Billing = PropertiesValuesUtil.getPropertyName("Billing");
-	public static final String invoicing = PropertiesValuesUtil.getPropertyName("invoicing");
+	public static final String BILLING = PropertiesValuesUtil.getPropertyName("BILLING");
+	public static final String INVOICING = PropertiesValuesUtil.getPropertyName("INVOICING");
 
-	public static final String MArketplace = PropertiesValuesUtil.getPropertyName("MArketplace");
+	public static final String MARKETPALCE = PropertiesValuesUtil.getPropertyName("MARKETPALCE");
 
-	public static final String Pagos = PropertiesValuesUtil.getPropertyName("Pagos");
-	public static final String formas = PropertiesValuesUtil.getPropertyName("formas");
-	public static final String pagoseguro = PropertiesValuesUtil.getPropertyName("pagoseguro");
-	public static final String tarjetaWallet = PropertiesValuesUtil.getPropertyName("tarjetaWallet");
-	public static final String threD = PropertiesValuesUtil.getPropertyName("threD");
-	public static final String Paypal = PropertiesValuesUtil.getPropertyName("Paypal");
+	public static final String PAGOS = PropertiesValuesUtil.getPropertyName("PAGOS");
+	public static final String FORMAS = PropertiesValuesUtil.getPropertyName("FORMAS");
+	public static final String PAGO_SEGURO = PropertiesValuesUtil.getPropertyName("PAGO_SEGURO");
+	public static final String TARJETAWALLET = PropertiesValuesUtil.getPropertyName("TARJETAWALLET");
+	public static final String THRED = PropertiesValuesUtil.getPropertyName("THRED");
+	public static final String PAYPAL = PropertiesValuesUtil.getPropertyName("PAYPAL");
 	public static final String BBVA = PropertiesValuesUtil.getPropertyName("BBVA");
 	public static final String CITI = PropertiesValuesUtil.getPropertyName("CITI");
-	public static final String Tarjeta = PropertiesValuesUtil.getPropertyName("Tarjeta");
+	public static final String TARJETA = PropertiesValuesUtil.getPropertyName("TARJETA");
 
-	public static final String Precio_promociones = PropertiesValuesUtil.getPropertyName("Precio_promociones");
-	public static final String precios_bajos = PropertiesValuesUtil.getPropertyName("precios_bajos");
-	public static final String articulos = PropertiesValuesUtil.getPropertyName("articulos");
-	public static final String ComprasGRanel = PropertiesValuesUtil.getPropertyName("ComprasGRanel");
-	public static final String Limitacionesdeinventario = PropertiesValuesUtil.getPropertyName("Limitacionesdeinventario");
-	public static final String Inf_precios_contenidos = PropertiesValuesUtil.getPropertyName("Inf_precios_contenidos");
+	public static final String PRECIO = PropertiesValuesUtil.getPropertyName("PRECIO");
+	public static final String PRECIO_BAJOS = PropertiesValuesUtil.getPropertyName("PRECIO_BAJOS");
+	public static final String ARTICULOS = PropertiesValuesUtil.getPropertyName("ARTICULOS");
+	public static final String COMPRASGRANEL = PropertiesValuesUtil.getPropertyName("COMPRASGRANEL");
+	public static final String LINVENTARIO = PropertiesValuesUtil.getPropertyName("LINVENTARIO");
+	public static final String INF_CONTENIDOS = PropertiesValuesUtil.getPropertyName("INF_CONTENIDOS");
 
-	public static final String Question = PropertiesValuesUtil.getPropertyName("Question");
+	public static final String QUESTION = PropertiesValuesUtil.getPropertyName("QUESTION");
 
-	public static final String Seguridad_Privacidad = PropertiesValuesUtil.getPropertyName("Seguridad_Privacidad");
-	public static final String politica = PropertiesValuesUtil.getPropertyName("politica");
-	public static final String term = PropertiesValuesUtil.getPropertyName("term");
+	public static final String SEGURIDAD_PRIVACIDAD = PropertiesValuesUtil.getPropertyName("SEGURIDAD_PRIVACIDAD");
+	public static final String POLITICA = PropertiesValuesUtil.getPropertyName("POLITICA");
+	public static final String TERM = PropertiesValuesUtil.getPropertyName("TERM");
 
-	public static final String Tucuenta = PropertiesValuesUtil.getPropertyName("Tucuenta");
-	public static final String pregunta1 = PropertiesValuesUtil.getPropertyName("pregunta1");
-	public static final String pregunta2 = PropertiesValuesUtil.getPropertyName("pregunta2");
-	public static final String pregunta3 = PropertiesValuesUtil.getPropertyName("pregunta3");
-	public static final String pregunta4 = PropertiesValuesUtil.getPropertyName("pregunta4");
-	public static final String pregunta5 = PropertiesValuesUtil.getPropertyName("pregunta5");
+	public static final String TUCUENTA = PropertiesValuesUtil.getPropertyName("TUCUENTA");
+	public static final String P1 = PropertiesValuesUtil.getPropertyName("P1");
+	public static final String P2 = PropertiesValuesUtil.getPropertyName("P1");
+	public static final String P3 = PropertiesValuesUtil.getPropertyName("P3");
+	public static final String P4 = PropertiesValuesUtil.getPropertyName("P4");
+	public static final String P5 = PropertiesValuesUtil.getPropertyName("P5");
 
-	public static final String TusPedidos = PropertiesValuesUtil.getPropertyName("TusPedidos");
-	public static final String comprar = PropertiesValuesUtil.getPropertyName("comprar");
-	public static final String invitado = PropertiesValuesUtil.getPropertyName("invitado");
-	public static final String reviapedido = PropertiesValuesUtil.getPropertyName("reviapedido");
-	public static final String pedido = PropertiesValuesUtil.getPropertyName("pedido");
-	public static final String envio = PropertiesValuesUtil.getPropertyName("envio");
-	public static final String tuspedidos = PropertiesValuesUtil.getPropertyName("tuspedidos");
-	public static final String histpedido = PropertiesValuesUtil.getPropertyName("histpedido");
+	public static final String TUSPEDIDOS = PropertiesValuesUtil.getPropertyName("TUSPEDIDOS");
+	public static final String COMPRAR = PropertiesValuesUtil.getPropertyName("COMPRAR");
+	public static final String INVITADO = PropertiesValuesUtil.getPropertyName("INVITADO");
+	public static final String REVIAPEDIDO = PropertiesValuesUtil.getPropertyName("REVIAPEDIDO");
+	public static final String PEDIDO = PropertiesValuesUtil.getPropertyName("PEDIDO");
+	public static final String ENVIO = PropertiesValuesUtil.getPropertyName("ENVIO");
+	public static final String RASPEIDOS = PropertiesValuesUtil.getPropertyName("RASPEIDOS");
+	public static final String HISTPEIDOS = PropertiesValuesUtil.getPropertyName("HISTPEIDOS");
 
+	public static final String BUSCADOR = PropertiesValuesUtil.getPropertyName("BUSCADOR");
+	public static final String COMPRAS = PropertiesValuesUtil.getPropertyName("COMPRAS");
+	public static final String OFERTAS_RELAMPAGO = PropertiesValuesUtil.getPropertyName("OFERTAS_RELAMPAGO");
+    public static final String ELEMENTO_OFER1 = PropertiesValuesUtil.getPropertyName("ELEMENTO_OFER1");
+	public static final String CANCELAR = PropertiesValuesUtil.getPropertyName("CANCELAR");
+	public static final String CLOSED = PropertiesValuesUtil.getPropertyName("CLOSED");
+	public static final String BUSCADOR_0 = PropertiesValuesUtil.getPropertyName("BUSCADOR_0");
+	public static final String BUTTON_ADD_CAR = PropertiesValuesUtil.getPropertyName("BOTTON_ADD_CAR");
+	public static final String NOT_ARTICULO = PropertiesValuesUtil.getPropertyName("NOT_ARTICULO");
+	public static final String PRODT = PropertiesValuesUtil.getPropertyName("PRODT");
+	public static final String OF1 = PropertiesValuesUtil.getPropertyName("OF1");
+	public static final String OF2 = PropertiesValuesUtil.getPropertyName("OF2");
+	public static final String OF3 = PropertiesValuesUtil.getPropertyName("OF3");
+	public static final String OF4 = PropertiesValuesUtil.getPropertyName("OF4");
+	public static final String OF5 = PropertiesValuesUtil.getPropertyName("OF5");
+	public static final String AGREGAR_COMPRA = PropertiesValuesUtil.getPropertyName("AGREGAR_COMPRA");
+	public static final String PRODUCT_AGREGADO = PropertiesValuesUtil.getPropertyName("PRODUCT_AGREGADO");
+	public static final String AGREGAR_MAS_PRODUCTOS = PropertiesValuesUtil.getPropertyName("AGREGAR_MAS_PRODUCTOS");
+	public static final String AGREGAR_MAS_PRODUCTOS2 = PropertiesValuesUtil.getPropertyName("AGREGAR_MAS_PRODUCTOS2");
+
+	
+
+
+
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	/////// ANDROID
 
 	public static final String NAME_FIELD = PropertiesValuesUtil.getPropertyName("NAME_FIELD");

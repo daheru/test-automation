@@ -18,8 +18,8 @@ public static TermsyConditionsBusinessTest  Condition = new TermsyConditionsBusi
 		Condition.selectMenu();
 		Condition.cond();
 		Condition.cond2();
-	     Condition.cond3();
-		Condition.cond4();
+	    Condition.cond3();
+	    Condition.cond4();
 		
 		
 	}
