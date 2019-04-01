@@ -151,13 +151,14 @@ public class MenuBusinessTest extends BaseDriver {
 	}
 
 	public void validateOrderPage() {
-		if (elementExist(NamesMobileElements.ORDER_EMPTY_CONT)) {
-			waitElementVisibility(NamesMobileElements.ORDER_EMPTY_ICON);
-			waitElementVisibility(NamesMobileElements.ORDER_EMPTY_BUTTON);
-		} else if (elementExist(NamesMobileElements.ORDER_ORDER_LIST)) {
-			List<MobileElement> orders = findElements(NamesMobileElements.ORDER_ORDER_CONT);
-			assertTrue("El elemento no existe", orders.size() > 0);
-		}
+		List<MobileElement> orders = findElements(NamesMobileElements.ORDER_ORDER_CONT);
+		assertTrue("El elemento no existe", orders.size() > 0);
+		logger.info("Página válida");
+	}
+
+	public void validateEmptyOrderPage() {
+		waitElementVisibility(NamesMobileElements.ORDER_EMPTY_ICON);
+		waitElementVisibility(NamesMobileElements.ORDER_EMPTY_BUTTON);
 		logger.info("Página válida");
 	}
 
@@ -227,12 +228,7 @@ public class MenuBusinessTest extends BaseDriver {
 		addressVO.setAddressName(newAddress);
 	}
 
-	public void validateErrorMessages(String message, String element) {
-		generalBusinessTest.validateFieldErrorMessage(message, element);
-		logger.info("Validando mensajes de error");
-	}
-
-	public void validateAddressErrorMessages() {
+	public void validateAddressEmptyMessages() {
 		scrollUntilShowElement(GeneralConstants.SCROLL_DOWN, NamesMobileElements.ADDRESS_NAME_TEXT_CONT);
 		validateErrorMessages(AppMessages.EMPTY_FIELD, NamesMobileElements.ADDRESS_NAME_TEXT_CONT);
 		validateErrorMessages(AppMessages.EMPTY_FIELD, NamesMobileElements.ADDRESS_STREET_TEXT_CONT);
@@ -241,5 +237,18 @@ public class MenuBusinessTest extends BaseDriver {
 		validateErrorMessages(AppMessages.EMPTY_FIELD, NamesMobileElements.ADDRESS_ZIP_CODE_CONT);
 		validateErrorMessages(AppMessages.EMPTY_FIELD, NamesMobileElements.ADDRESS_PHONE_TEXT_CONT);
 		logger.info("Mensajes de error válidos");
+	}
+	
+	public void validateAddressInvalidMessages() {
+		scrollUntilShowElement(GeneralConstants.SCROLL_DOWN, NamesMobileElements.ADDRESS_NAME_TEXT_CONT);
+		validateErrorMessages(AppMessages.INVALID_DATA_TEXT_FIELD, NamesMobileElements.ADDRESS_NAME_TEXT_CONT);
+		validateErrorMessages(AppMessages.INVALID_DATA_TEXT_FIELD, NamesMobileElements.ADDRESS_USER_NAME_CONT);
+		validateErrorMessages(AppMessages.INVALID_DATA_TEXT_FIELD, NamesMobileElements.ADDRESS_USER_LAST_NAME_CONT);
+		validateErrorMessages(AppMessages.EMPTY_FIELD, NamesMobileElements.ADDRESS_STREET_TEXT_CONT);
+		logger.info("Mensajes de error válidos");
+	}
+	
+	private void validateErrorMessages(String message, String element) {
+		generalBusinessTest.validateFieldErrorMessage(message, element);
 	}
 }

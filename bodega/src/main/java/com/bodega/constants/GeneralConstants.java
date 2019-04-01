@@ -16,5 +16,7 @@ public final class GeneralConstants {
 	public static final String CHECKED = "checked";
 	public static final String TEST_EMAIL = "correo_test@correo.com";
 	public static final String TEST_PASS = "Juan#123";
+	public static final String TEST_EMPTY_EMAIL = "correo_test_empty@correo.com";
+	public static final String TEST_EMPTY_PASS = "Pablo#123";
 	
 }

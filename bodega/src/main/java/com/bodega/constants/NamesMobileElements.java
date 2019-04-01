@@ -89,6 +89,8 @@ public final class NamesMobileElements {
 	public static final String ADDRESS_DETAIL_DELETE = PropertiesValuesUtil.getPropertyName("ADDRESS_DETAIL_DELETE");
 	public static final String ADDRESS_DIALOG_DELETE = PropertiesValuesUtil.getPropertyName("ADDRESS_DIALOG_DELETE");
 	public static final String ADDRESS_DIALOG_CANCEL = PropertiesValuesUtil.getPropertyName("ADDRESS_DIALOG_CANCEL");
+	public static final String ADDRESS_EMPTY_PAGE = PropertiesValuesUtil.getPropertyName("ADDRESS_EMPTY_PAGE");
+	public static final String ADDRESS_EMPTY_ICON = PropertiesValuesUtil.getPropertyName("ADDRESS_EMPTY_ICON");
 	
 	public static final String ORDER_EMPTY_CONT = PropertiesValuesUtil.getPropertyName("ORDER_EMPTY_CONT");
 	public static final String ORDER_EMPTY_ICON = PropertiesValuesUtil.getPropertyName("ORDER_EMPTY_ICON");

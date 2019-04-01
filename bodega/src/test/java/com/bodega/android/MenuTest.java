@@ -73,7 +73,7 @@ public class MenuTest {
 		main.validateAddress(addressVO, AppMessages.ADD_ADDRESS);
 		logger.info("Caso de prueba finalizado");
 	}
-
+	
 	@Test
 	public void CF013_edit_main_address() {
 		logger.info("Iniciando caso de prueba: Edit Address");
@@ -121,8 +121,6 @@ public class MenuTest {
 	@Test
 	public void CF016_view_order_detail() {
 		logger.info("Iniciando caso de prueba: View order detail");
-		// juan@correo.com 12345678
-		// emmanuel.dominguez@live.com.mx Edominguez#1234
 		main.selectProfile();
 		main.selectMenu(MenuOptionsEnum.LOGIN.getMenu());
 		main.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
@@ -210,7 +208,71 @@ public class MenuTest {
 		main.selectMenu(MenuOptionsEnum.ADDRESS.getMenu());
 		main.selectAddAddress();
 		main.saveDirection();
-		main.validateAddressErrorMessages();
+		main.validateAddressEmptyMessages();
 	}
 	
+	@Test
+	public void CF000_validate_empty_address_page() {
+		logger.info("Iniciando caso de prueba: validate empty address page");
+		main.selectProfile();
+		main.selectMenu(MenuOptionsEnum.LOGIN.getMenu());
+		main.login(GeneralConstants.TEST_EMPTY_EMAIL, GeneralConstants.TEST_EMPTY_PASS);
+		main.selectProfile();
+		main.selectMenu(MenuOptionsEnum.ADDRESS.getMenu());
+		main.selectAddAddress();
+		addressVO.setMainAddress(false);
+		main.addNewDirection(addressVO);
+		main.saveDirection();
+		main.validateAddress(addressVO, AppMessages.ADD_ADDRESS);
+		logger.info("Caso de prueba finalizado");
+	}
+	
+	@Test
+	public void CF000_view_orders_empty_page() {
+		logger.info("Iniciando caso de prueba: View orders empty page");
+		main.selectProfile();
+		main.selectMenu(MenuOptionsEnum.LOGIN.getMenu());
+		main.login(GeneralConstants.TEST_EMPTY_EMAIL, GeneralConstants.TEST_EMPTY_PASS);
+		main.selectProfile();
+		main.selectMenu(MenuOptionsEnum.ORDERS.getMenu());
+		main.validateEmptyOrderPage();
+		logger.info("Caso de prueba finalizado");
+	}
+	
+	@Test
+	public void CF000_add_address_invalid_data() {
+		logger.info("Iniciando caso de prueba: Add address invalid data");
+		addressVO.setAddressName("$Mi Direccion-#");
+		addressVO.setAddressUserName("&Ju/an(");
+		addressVO.setAddressUserLastName("P=e)r$e!z");
+		addressVO.setAddressStreet("%Mi calle#");
+		main.selectProfile();
+		main.selectMenu(MenuOptionsEnum.LOGIN.getMenu());
+		main.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
+		main.selectProfile();
+		main.selectMenu(MenuOptionsEnum.ADDRESS.getMenu());
+		main.selectAddAddress();
+		main.addNewDirection(addressVO);
+		main.saveDirection();
+		main.validateAddressInvalidMessages();
+		logger.info("Caso de prueba finalizado");
+	}
+	
+	@Test
+	public void CF000_edit_address_invalid_data() {
+		logger.info("Iniciando caso de prueba: Edit address invalid data");
+		addressVO.setAddressName("$Mi Direccion-#");
+		addressVO.setAddressUserName("&Ju/an(");
+		addressVO.setAddressUserLastName("P=e)r$e!z");
+		addressVO.setAddressStreet("%Mi calle#");
+		main.selectProfile();
+		main.selectMenu(MenuOptionsEnum.LOGIN.getMenu());
+		main.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
+		main.selectProfile();
+		main.selectMenu(MenuOptionsEnum.ADDRESS.getMenu());
+		main.editAddress(addressVO);
+		main.saveDirection();
+		main.validateAddressInvalidMessages();
+		logger.info("Caso de prueba finalizado");
+	}
 }
