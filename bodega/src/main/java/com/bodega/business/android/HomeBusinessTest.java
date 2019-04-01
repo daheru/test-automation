@@ -20,19 +20,17 @@ public class HomeBusinessTest extends BaseDriver {
 	}
 	
 	public void validateHomePage() {
-		logger.info("Validando Home Page");
-		generalBusinessTest.validateElement( NamesMobileElements.HOME_SEARCH_BAR );
+		waitElementVisibility( NamesMobileElements.HOME_SEARCH_BAR );
 		waitElementVisibility( NamesMobileElements.HOME_ITEM_BANNER );
 		waitElementVisibility( NamesMobileElements.HOME_CARROUSEL );
-		generalBusinessTest.validateElement( NamesMobileElements.NAV_BAR );
-		generalBusinessTest.validateElement( NamesMobileElements.NAV_BAR_HOME );
-		generalBusinessTest.validateElement( NamesMobileElements.NAV_BAR_DEPARTMENTS );
-		generalBusinessTest.validateElement( NamesMobileElements.NAV_BAR_PROMOTIONS );
-		generalBusinessTest.validateElement( NamesMobileElements.NAV_BAR_CAR );
-		generalBusinessTest.validateElement( NamesMobileElements.NAV_BAR_CAR_QUANTITY );
-		generalBusinessTest.validateElement( NamesMobileElements.HOME_ITEM_BANNER );
-		generalBusinessTest.validateElement( NamesMobileElements.HOME_CARROUSEL );
+		waitElementVisibility( NamesMobileElements.NAV_BAR );
+		waitElementVisibility( NamesMobileElements.NAV_BAR_HOME );
+		waitElementVisibility( NamesMobileElements.NAV_BAR_DEPARTMENTS );
+		waitElementVisibility( NamesMobileElements.NAV_BAR_PROMOTIONS );
+		waitElementVisibility( NamesMobileElements.NAV_BAR_CAR );
+		waitElementVisibility( NamesMobileElements.NAV_BAR_CAR_QUANTITY );
+		waitElementVisibility( NamesMobileElements.HOME_ITEM_BANNER );
+		waitElementVisibility( NamesMobileElements.HOME_CARROUSEL );
+		logger.info("Validando Home Page");
 	}
-	
-	
 }

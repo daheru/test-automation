@@ -38,9 +38,9 @@ public class GeneralBusinessTest extends BaseDriver {
 	}
 
 	public void selectMenuOption(String menuOptionEnum) {
-		logger.info("Seleccionando la opcion: " + menuOptionEnum);
+		waitElementVisibility(NamesMobileElements.MENU_NAME);
 		List<MobileElement> menuList = findElements(NamesMobileElements.MENU_NAME);
-		assertTrue(menuList.size() > 0);
+		assertTrue("El elemento no existe", menuList.size() > 0);
 		boolean clicMenu = false;
 		int exit = 0;
 		do {
@@ -58,15 +58,16 @@ public class GeneralBusinessTest extends BaseDriver {
 			}
 			validateMenuExist(exit);
 		} while (!clicMenu);
+		logger.info("Seleccionando la opcion: " + menuOptionEnum);
 	}
 
 	public void scrollScreen(int scrollType) {
-		logger.info("Realizando Scroll");
 		if (GeneralConstants.SCROLL_UP == scrollType) {
 			tapUp();
 		} else {
 			tapDown();
 		}
+		logger.info("Realizando Scroll");
 	}
 
 	public void validateFieldErrorMessage(String errorAppMessage, String fieldCont) {
@@ -79,38 +80,26 @@ public class GeneralBusinessTest extends BaseDriver {
 		}
 	}
 
-	public void validateElement(String fieldName) {
-		assertTrue(elementExist(fieldName));
-	}
-
 	public void goBack() {
 		tapOnElement(NamesMobileElements.BACK_BUTTON);
-	}
-
-	public void scrollUntilShowElement(int scrollType, String element) {
-		if (GeneralConstants.SCROLL_UP == scrollType) {
-			while (findElements(element).size() == 0) {
-				tapUp();
-			}
-		} else {
-			while (findElements(element).size() == 0) {
-				tapDown();
-			}
-		}
+		logger.info("Tap en regresar");
 	}
 
 	public void selectProfile() {
+		waitElementVisibility(NamesMobileElements.HOME_PROFILE);
 		tapOnElement(NamesMobileElements.HOME_PROFILE);
+		logger.info("Tap en perfil");
 	}
 
 	public void initAsGuess() {
+		waitElementVisibility(NamesMobileElements.WELCOME_LINK_GUESS);
 		tapOnElement(NamesMobileElements.WELCOME_LINK_GUESS);
 	}
 
 	public void validatePopUpMessages(String message) {
-		List<MobileElement> messageElement = findElements(NamesMobileElements.WARNING_TEXT_MESSAGE);
+		List<MobileElement> messageElement = findElements(NamesMobileElements.POPUP_TEXT_MESSAGE);
 		if (messageElement.size() > 0) {
-			assertTrue(message.toLowerCase().equals(getElementText(messageElement.get(0))));
+			assertEquals(message.toLowerCase(), getElementText(messageElement.get(0)));
 		} else {
 			logger.info("Mensaje inalcanzable");
 		}
@@ -123,7 +112,6 @@ public class GeneralBusinessTest extends BaseDriver {
 	}
 
 	public void valitateMenuAndSubMenus(MenusEnum menusEnum) {
-		logger.info("Seleccionando la opcion: " + menusEnum.getMenu());
 		List<MobileElement> terms = findElements(NamesMobileElements.LEGALS_ITEM);
 		Assert.assertTrue("El elemento móvil no existe", terms.size() > 0);
 		boolean clicMenu = false;
@@ -146,6 +134,7 @@ public class GeneralBusinessTest extends BaseDriver {
 			}
 			validateMenuExist(exit);
 		} while (!clicMenu);
+		logger.info("Seleccionando la opcion: " + menusEnum.getMenu());
 	}
 
 	private void validateSubTerm(String[] subTermsEnum) {
@@ -170,7 +159,7 @@ public class GeneralBusinessTest extends BaseDriver {
 
 	private void validateMenuExist(int exit) {
 		if (exit > 15) {
-			Assert.assertTrue("El elemento móvil no existe", Boolean.FALSE);
+			assertTrue("El elemento móvil no existe", Boolean.FALSE);
 		}
 	}
 }

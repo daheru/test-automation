@@ -25,8 +25,8 @@ public class WelcomeBusinessTest extends BaseDriver {
 		login.login(email, pass);
 	}
 
-	public void validateLogin(String email) {
-		login.validateLogin(email);
+	public void validateLogin() {
+		login.validateLogin();
 	}
 
 	public void validateHomePage() {

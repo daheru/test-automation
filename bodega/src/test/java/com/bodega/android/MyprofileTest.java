@@ -9,6 +9,7 @@ import org.junit.Test;
 
 import com.bodega.business.android.GeneralBusinessTest;
 import com.bodega.business.android.MyprofileBusinessTest;
+import com.bodega.constants.GeneralConstants;
 import com.bodega.enums.MenuOptionsEnum;
 
 public class MyprofileTest {
@@ -44,7 +45,7 @@ public class MyprofileTest {
 		logger.info("Iniciando caso de prueba: Update my profile data");
 		myprofile.selectProfile();
 		myprofile.selectMenu(MenuOptionsEnum.LOGIN.getMenu());
-		myprofile.login("emmanuel.dominguez@axity.com", "Edominguez#1234");
+		myprofile.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
 		myprofile.selectProfile();
 		myprofile.selectMenu(MenuOptionsEnum.PROFILE.getMenu());
 		myprofile.editProfile("Ramiro", "Duarte", "01011995", "H");
@@ -56,7 +57,7 @@ public class MyprofileTest {
 		logger.info("Iniciando caso de prueba: PassWord my profile data");
 		myprofile.selectProfile();
 		myprofile.selectMenu(MenuOptionsEnum.LOGIN.getMenu());
-		myprofile.login("emmanuel.dominguez@axity.com", "Edominguez#1234");
+		myprofile.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
 		myprofile.selectProfile();
 		myprofile.selectMenu(MenuOptionsEnum.PROFILE.getMenu());
 		myprofile.editPassword("Edominguez#1234", "Edominguez#1235");
@@ -68,7 +69,7 @@ public class MyprofileTest {
 		logger.info("Iniciando caso de prueba: Phone my profile data");
 		myprofile.selectProfile();
 		myprofile.selectMenu(MenuOptionsEnum.LOGIN.getMenu());
-		myprofile.login("emmanuel.dominguez@axity.com", "Edominguez#1234");
+		myprofile.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
 		myprofile.selectProfile();
 		myprofile.selectMenu(MenuOptionsEnum.PROFILE.getMenu());
 		myprofile.editPhone("5573137390", "5556136545"); 
@@ -80,11 +81,10 @@ public class MyprofileTest {
 		logger.info("Iniciando caso de prueba: Phone_secundary my profile data");
 		myprofile.selectProfile();
 		myprofile.selectMenu(MenuOptionsEnum.LOGIN.getMenu());
-		myprofile.login("emmanuel.dominguez@axity.com", "Edominguez#1234");
+		myprofile.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
 		myprofile.selectProfile();
 		myprofile.selectMenu(MenuOptionsEnum.PROFILE.getMenu());
 		myprofile.editPhone_Secundary("5573137385"); 
 		myprofile.savePhone_Secundary();
 	}
-	
 }

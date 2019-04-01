@@ -8,22 +8,23 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import com.bodega.business.android.GeneralBusinessTest;
-import com.bodega.business.android.MainBusinessTest;
+import com.bodega.business.android.MenuBusinessTest;
 import com.bodega.constants.AppMessages;
+import com.bodega.constants.GeneralConstants;
 import com.bodega.enums.MenuOptionsEnum;
 import com.bodega.vo.AddressVO;
 
-public class MainTest {
+public class MenuTest {
 
-	public static final Logger logger = Logger.getLogger(MainTest.class);
-	public static MainBusinessTest main = new MainBusinessTest();
+	public static final Logger logger = Logger.getLogger(MenuTest.class);
+	public static MenuBusinessTest main = new MenuBusinessTest();
 	public static GeneralBusinessTest general = new GeneralBusinessTest();
 	public static AddressVO addressVO;
 
 	@BeforeClass
 	public static void init() {
-		addressVO = new AddressVO("Direccion ", "Juan", "Perez", "Av Rodolfo Gaona 46", "456", "", "11200",
-				"Lomas Hermosa", "Entre walmart", "Plaza Toreo", "Fijo", "5555555555");
+		addressVO = new AddressVO("Mi direccion ", "Juan", "Perez", "Av Rodolfo Gaona 46", "456", "", "11200",
+				"Lomas de Sotelo", "Entre calle 1 y calle 2", "Plaza Toreo", "Movil", "5555555555", true);
 	}
 
 	@AfterClass
@@ -47,14 +48,13 @@ public class MainTest {
 		logger.info("Iniciando caso de prueba: New Adress As Favorite");
 		main.selectProfile();
 		main.selectMenu(MenuOptionsEnum.LOGIN.getMenu());
-		main.login("emmanuel.dominguez@live.com.mx", "Edominguez#1234");
+		main.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
 		main.selectProfile();
 		main.selectMenu(MenuOptionsEnum.ADDRESS.getMenu());
 		main.selectAddAddress();
 		main.addNewDirection(addressVO);
-		main.selectAsMainAddress(true);
 		main.saveDirection();
-		main.validateAddress(false, AppMessages.ADD_ADDRESS);
+		main.validateAddress(addressVO, AppMessages.ADD_ADDRESS);
 		logger.info("Caso de prueba finalizado");
 	}
 
@@ -63,14 +63,14 @@ public class MainTest {
 		logger.info("Iniciando caso de prueba: New Adress As Favorite");
 		main.selectProfile();
 		main.selectMenu(MenuOptionsEnum.LOGIN.getMenu());
-		main.login("emmanuel.dominguez@live.com.mx", "Edominguez#1234");
+		main.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
 		main.selectProfile();
 		main.selectMenu(MenuOptionsEnum.ADDRESS.getMenu());
 		main.selectAddAddress();
+		addressVO.setMainAddress(false);
 		main.addNewDirection(addressVO);
-		main.selectAsMainAddress(false);
 		main.saveDirection();
-		main.validateAddress(false, AppMessages.ADD_ADDRESS);
+		main.validateAddress(addressVO, AppMessages.ADD_ADDRESS);
 		logger.info("Caso de prueba finalizado");
 	}
 
@@ -81,13 +81,13 @@ public class MainTest {
 		addressVO.setAddressPhone("5512345678");
 		main.selectProfile();
 		main.selectMenu(MenuOptionsEnum.LOGIN.getMenu());
-		main.login("emmanuel.dominguez@live.com.mx", "Edominguez#1234");
+		main.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
 		main.selectProfile();
 		main.selectMenu(MenuOptionsEnum.ADDRESS.getMenu());
-		main.selectAddAddress();
+		addressVO.setMainAddress(true);
 		main.editAddress(addressVO);
 		main.saveDirection();
-		main.validateAddress(true, AppMessages.ADD_ADDRESS);
+		main.validateAddress(addressVO, AppMessages.EDIT_ADDRESS);
 		logger.info("Caso de prueba finalizado");
 	}
 
@@ -96,7 +96,7 @@ public class MainTest {
 		logger.info("Iniciando caso de prueba: Remove address");
 		main.selectProfile();
 		main.selectMenu(MenuOptionsEnum.LOGIN.getMenu());
-		main.login("emmanuel.dominguez@live.com.mx", "Edominguez#1234");
+		main.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
 		main.selectProfile();
 		main.selectMenu(MenuOptionsEnum.ADDRESS.getMenu());
 		main.removeAddress(addressVO);
@@ -111,7 +111,7 @@ public class MainTest {
 		// emmanuel.dominguez@live.com.mx Edominguez#1234
 		main.selectProfile();
 		main.selectMenu(MenuOptionsEnum.LOGIN.getMenu());
-		main.login("juan@correo.com", "12345678");
+		main.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
 		main.selectProfile();
 		main.selectMenu(MenuOptionsEnum.ORDERS.getMenu());
 		main.validateOrderPage();
@@ -125,7 +125,7 @@ public class MainTest {
 		// emmanuel.dominguez@live.com.mx Edominguez#1234
 		main.selectProfile();
 		main.selectMenu(MenuOptionsEnum.LOGIN.getMenu());
-		main.login("emmanuel.dominguez@live.com.mx", "Edominguez#1234");
+		main.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
 		main.selectProfile();
 		main.selectMenu(MenuOptionsEnum.ORDERS.getMenu());
 		String orderNumber[] = main.orderDetail();
@@ -138,7 +138,7 @@ public class MainTest {
 		logger.info("Iniciando caso de prueba: View notifications");
 		main.selectProfile();
 		main.selectMenu(MenuOptionsEnum.LOGIN.getMenu());
-		main.login("emmanuel.dominguez@live.com.mx", "Edominguez#1234");
+		main.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
 		main.selectProfile();
 		main.selectMenu(MenuOptionsEnum.NOTIFICATIONS.getMenu());
 		logger.info("Caso de prueba finalizado");
@@ -149,7 +149,7 @@ public class MainTest {
 		logger.info("Iniciando caso de prueba: Scan manually ticket");
 		main.selectProfile();
 		main.selectMenu(MenuOptionsEnum.LOGIN.getMenu());
-		main.login("emmanuel.dominguez@live.com.mx", "Edominguez#1234");
+		main.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
 		main.selectProfile();
 		main.selectMenu(MenuOptionsEnum.GET_BILL.getMenu());
 		main.closeAndroidDialog();
@@ -162,7 +162,7 @@ public class MainTest {
 		logger.info("Iniciando caso de prueba: Validate Support Page");
 		main.selectProfile();
 		main.selectMenu(MenuOptionsEnum.LOGIN.getMenu());
-		main.login("emmanuel.dominguez@live.com.mx", "Edominguez#1234");
+		main.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
 		main.selectProfile();
 		main.selectMenu(MenuOptionsEnum.SUPPORT.getMenu());
 		main.validateSupportPage();
@@ -192,7 +192,7 @@ public class MainTest {
 		logger.info("Iniciando caso de prueba: Logout success");
 		main.selectProfile();
 		main.selectMenu(MenuOptionsEnum.LOGIN.getMenu());
-		main.login("emmanuel.dominguez@live.com.mx", "Edominguez#1234");
+		main.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
 		main.selectProfile();
 		main.selectMenu(MenuOptionsEnum.LOGOUT.getMenu());
 		main.validateLogout();
@@ -205,7 +205,7 @@ public class MainTest {
 		logger.info("Iniciando caso de prueba: Add address without data");
 		main.selectProfile();
 		main.selectMenu(MenuOptionsEnum.LOGIN.getMenu());
-		main.login("emmanuel.dominguez@live.com.mx", "Edominguez#1234");
+		main.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
 		main.selectProfile();
 		main.selectMenu(MenuOptionsEnum.ADDRESS.getMenu());
 		main.selectAddAddress();

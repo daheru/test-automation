@@ -31,8 +31,7 @@ public final class NamesMobileElements {
 	public static final String HOME_CARROUSEL = PropertiesValuesUtil.getPropertyName("HOME_CARROUSEL");
 	
 	public static final String BACK_BUTTON = PropertiesValuesUtil.getPropertyName("BACK_BUTTON");
-	public static final String WARNING_MESSAGE_TEXT = PropertiesValuesUtil.getPropertyName("WARNING_MESSAGE_TEXT");
-	public static final String WARNING_TEXT_MESSAGE = PropertiesValuesUtil.getPropertyName("WARNING_TEXT_MESSAGE");
+	public static final String POPUP_TEXT_MESSAGE = PropertiesValuesUtil.getPropertyName("POPUP_TEXT_MESSAGE");
 	public static final String TEXT_INPUT_ERROR = PropertiesValuesUtil.getPropertyName("TEXT_INPUT_ERROR");
 	public static final String ERROR_TEXT_FIELD = PropertiesValuesUtil.getPropertyName("ERROR_TEXT_FIELD");
 	public static final String COMBO_OPTIONS = PropertiesValuesUtil.getPropertyName("COMBO_OPTIONS");
@@ -145,5 +144,29 @@ public final class NamesMobileElements {
 	public static final String MYPROFILE_BUTTON_PHONE_MOVIL = PropertiesValuesUtil.getPropertyName ("MYPROFILE_BUTTON_PHONE_MOVIL");
 	public static final String MYPROFILE_BUTTON_PHONE_FIJO = PropertiesValuesUtil.getPropertyName ("MYPROFILE_BUTTON_PHONE_FIJO");
 	public static final String MYPROFILE_BUTTON_PHONE_FIJO_LIS = PropertiesValuesUtil.getPropertyName ("MYPROFILE_BUTTON_PHONE_FIJO_LIS");
+	
+	public static final String SEARCH_PRODUCT_LIST = PropertiesValuesUtil.getPropertyName ("SEARCH_PRODUCT_LIST");
+	public static final String SEARCH_FILTER_BUTTON = PropertiesValuesUtil.getPropertyName ("SEARCH_FILTER_BUTTON");
+	public static final String SEARCH_PRODUCT_NAME = PropertiesValuesUtil.getPropertyName ("SEARCH_PRODUCT_NAME");
+	public static final String SEARCH_PRODUCT_PRICE = PropertiesValuesUtil.getPropertyName ("SEARCH_PRODUCT_PRICE");
+	public static final String SEARCH_NO_PRODUCT_LABEL = PropertiesValuesUtil.getPropertyName ("SEARCH_NO_PRODUCT_LABEL");
+	public static final String SEARCH_NO_PRODUCT_ICON = PropertiesValuesUtil.getPropertyName ("SEARCH_NO_PRODUCT_ICON");
+	
+	public static final String DEPARTMENT_DEPARTMENT_LIST = PropertiesValuesUtil.getPropertyName ("DEPARTMENT_DEPARTMENT_LIST");
+	public static final String DEPARTMENT_ITEM_IMAGE = PropertiesValuesUtil.getPropertyName ("DEPARTMENT_ITEM_IMAGE");
+	public static final String DEPARTMENT_ITEM_TEXT = PropertiesValuesUtil.getPropertyName ("DEPARTMENT_ITEM_TEXT");
+	public static final String DEPARTMENT_CAT_LIST = PropertiesValuesUtil.getPropertyName ("DEPARTMENT_CAT_LIST");
+	public static final String DEPARTMENT_CAT_ITEM = PropertiesValuesUtil.getPropertyName ("DEPARTMENT_CAT_ITEM");
+	
+	public static final String FILTER_A_TO_Z = PropertiesValuesUtil.getPropertyName ("FILTER_A_TO_Z");
+	public static final String FILTER_Z_TO_A = PropertiesValuesUtil.getPropertyName ("FILTER_Z_TO_A");
+	public static final String FILTER_MINNOR_PRICE = PropertiesValuesUtil.getPropertyName ("FILTER_MINNOR_PRICE");
+	public static final String FILTER_HIGHER_PRICE = PropertiesValuesUtil.getPropertyName ("FILTER_HIGHER_PRICE");
+	public static final String FILTER_POPULAR_BUTTON = PropertiesValuesUtil.getPropertyName ("FILTER_POPULAR_BUTTON");
+	public static final String FILTER_PRICE_RANGE = PropertiesValuesUtil.getPropertyName ("FILTER_PRICE_RANGE");
+	public static final String FILTER_LIST_CATEGORY = PropertiesValuesUtil.getPropertyName ("FILTER_LIST_CATEGORY");
+	public static final String FILTER_LIST_ITEM = PropertiesValuesUtil.getPropertyName ("FILTER_LIST_ITEM");
+	public static final String FILTER_ITEM_CHECK = PropertiesValuesUtil.getPropertyName ("FILTER_ITEM_CHECK");
+	public static final String FILTER_APPLY_BUTTON = PropertiesValuesUtil.getPropertyName ("FILTER_APPLY_BUTTON");
 	
 }

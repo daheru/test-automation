@@ -14,10 +14,12 @@ public class AddressVO {
 	private String addressReferenceTwo;
 	private String addressPhoneOption;
 	private String addressPhone;
+	private boolean isMainAddress;
 
 	public AddressVO(String addressName, String addressUserName, String addressUserLastName, String addressStreet,
 			String addressOutNumber, String addressInnerNumber, String addressZipcode, String addressNeighbornhood,
-			String addressReferenceOne, String addressReferenceTwo, String addressPhoneOption, String addressPhone) {
+			String addressReferenceOne, String addressReferenceTwo, String addressPhoneOption, String addressPhone,
+			boolean isMainAddress) {
 		super();
 		this.addressName = addressName;
 		this.addressUserName = addressUserName;
@@ -31,6 +33,7 @@ public class AddressVO {
 		this.addressReferenceTwo = addressReferenceTwo;
 		this.addressPhoneOption = addressPhoneOption;
 		this.addressPhone = addressPhone;
+		this.isMainAddress = isMainAddress;
 	}
 
 	public AddressVO() {
@@ -132,4 +135,13 @@ public class AddressVO {
 	public void setAddressPhone(String addressPhone) {
 		this.addressPhone = addressPhone;
 	}
+
+	public boolean isMainAddress() {
+		return isMainAddress;
+	}
+
+	public void setMainAddress(boolean isMainAddress) {
+		this.isMainAddress = isMainAddress;
+	}
+	
 }

@@ -14,6 +14,12 @@ public class LoginBusinessTest extends BaseDriver {
 	private static final Logger logger = Logger.getLogger( LoginBusinessTest.class );
 	public GeneralBusinessTest generalBusinessTest = new GeneralBusinessTest();
 	public HomeBusinessTest homePage = new HomeBusinessTest();
+	private String email = "";
+	private String password = "";
+	
+	public LoginBusinessTest() {
+		cleanData();
+	}
 	
 	public void selectProfile() {
 		generalBusinessTest.selectProfile();
@@ -28,53 +34,73 @@ public class LoginBusinessTest extends BaseDriver {
 	}
 	
 	public void goToLogin() {
-		logger.info("Tap en Login");
 		generalBusinessTest.initAsGuess();
 		waitElementVisibility( NamesMobileElements.HOME_PROFILE );
 		generalBusinessTest.selectProfile();
 		generalBusinessTest.selectMenuOption( MenuOptionsEnum.LOGIN.getMenu() );
+		logger.info("Tap en Login");
 	}
 	
 	public void login( String email, String pass ) {
-		logger.info("Escribiendo email y password");
+		this.email = email;
+		this.password = pass;
 		fillElement( NamesMobileElements.LOGIN_EMAIL_TEXT , email);
 		fillElement( NamesMobileElements.LOGIN_PASS_TEXT , pass);
 		tapOnElement( NamesMobileElements.LOGIN_LOGIN_BUTTON );
+		logger.info("Escribiendo email y password");
 	}
 	
-	public void validateLogin(String email) {
-		logger.info("Validando login");
+	public void fillPassword( String pass ) {
+		this.password = pass;
+		fillElement( NamesMobileElements.LOGIN_PASS_TEXT , pass);
+		logger.info("Escribiendo password");
+	}
+	
+	public void validateLogin( ) {
 		generalBusinessTest.selectProfile();
 		generalBusinessTest.selectMenuOption( MenuOptionsEnum.PROFILE.getMenu() );
 		MobileElement profileEmail = findElement( NamesMobileElements.PROFILE_EMAIL );
 	    assertEquals( getElementText(profileEmail) , email);
+	    cleanData();
+	    logger.info("Login válido");
 	}
 	
 	public void selectCreateAccount() {
-		logger.info("Tap en Registrarse");
 		tapOnElement( NamesMobileElements.LOGIN_CREATE_LINK );
+		logger.info("Tap en Registrarse");
 	}
 	
 	public void createAccount( String name, String lastName, String email, String pass ) {
-		logger.info("Escribiendo nombre, apellido, correo y password");
 		fillElement( NamesMobileElements.REG_NAME_TEXT , name);
 		fillElement( NamesMobileElements.REG_LAST_NAME_TEXT, lastName );
 		fillElement( NamesMobileElements.REG_EMAIL_TEXT, email );
 		fillElement( NamesMobileElements.REG_PASS_TEXT, pass );
-		//tapOnElement( MobileNamesConstants.REG_CREATE_BUTTON );
+		//tapOnElement( NamesMobileElements.REG_CREATE_BUTTON );
+		logger.info("Escribiendo nombre, apellido, correo y password");
+	}
+	
+	public void validateRegisterPage() {
+		waitElementVisibility(NamesMobileElements.REG_NAME_TEXT);
+		waitElementVisibility(NamesMobileElements.REG_LAST_NAME_TEXT);
+		waitElementVisibility(NamesMobileElements.REG_EMAIL_TEXT);
+		waitElementVisibility(NamesMobileElements.REG_PASS_TEXT);
+		waitElementVisibility(NamesMobileElements.REG_PUBLICY_CHECK);
+		waitElementVisibility(NamesMobileElements.REG_TERMS_LINK);
+		waitElementVisibility(NamesMobileElements.REG_CREATE_BUTTON);
+		logger.info("Página válida");
 	}
 	
 	public void selectPassRecovery(String email) {
-		logger.info("Escribiendo correo");
 		fillElement( NamesMobileElements.LOGIN_EMAIL_TEXT, email );
-		logger.info("Tap en Olvidaste tu contraseña");
+		logger.info("Escribiendo correo");
 		tapOnElement( NamesMobileElements.LOGIN_FORGOT_PASS_LINK );
+		logger.info("Tap en Olvidaste tu contraseña");
 		generalBusinessTest.validatePopUpMessages( AppMessages.PASSWORD_RECOVERY );
 	}
 	
 	public void validateErrorMessages(String message, String element) {
-		logger.info("Validando mensajes de error");
 		generalBusinessTest.validateFieldErrorMessage( message, element);
+		logger.info("Mensajes de error válidos");
 	}
 	
 	public void validatePopUpMessage( String message ) {
@@ -83,6 +109,22 @@ public class LoginBusinessTest extends BaseDriver {
 	
 	public void validateHomePage() {
 		homePage.validateHomePage();
+		logger.info("Página válida");
 	}
 	
+	public void selectShowPassword() {
+		tapOnElement( NamesMobileElements.LOGIN_SHOW_PASS_BUTTON );
+		logger.info("Tap en mostrar password");
+	}
+	
+	public void validatePassword() {
+		assertEquals(password, getElementText(NamesMobileElements.LOGIN_PASS_TEXT));
+		logger.info("Password valido");
+		cleanData();
+	}
+	
+	private void cleanData() {
+		email = "";
+	    password = "";
+	}
 }

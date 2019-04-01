@@ -14,5 +14,7 @@ public final class GeneralConstants {
 	public static final String SLASH = "/";
 	public static final String ERROR = "error";
 	public static final String CHECKED = "checked";
+	public static final String TEST_EMAIL = "correo_test@correo.com";
+	public static final String TEST_PASS = "Juan#123";
 	
 }

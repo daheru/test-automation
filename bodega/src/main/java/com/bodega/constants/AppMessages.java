@@ -14,4 +14,7 @@ public class AppMessages {
 	public static final String INVALID_EMAIL = PropertiesValuesUtil.getPropertyName("INVALID_EMAIL");
 	public static final String UNEXPECTED_ERROR = PropertiesValuesUtil.getPropertyName("UNEXPECTED_ERROR");
 	public static final String EMPTY_FIELD = PropertiesValuesUtil.getPropertyName("EMPTY_FIELD");
+	public static final String EDIT_ADDRESS = PropertiesValuesUtil.getPropertyName("EDIT_ADDRESS");
+	public static final String UNEXIST_EMAIL = PropertiesValuesUtil.getPropertyName("UNEXIST_EMAIL");
+	public static final String WRONG_LOGIN_DATA = PropertiesValuesUtil.getPropertyName("WRONG_LOGIN_DATA");
 }

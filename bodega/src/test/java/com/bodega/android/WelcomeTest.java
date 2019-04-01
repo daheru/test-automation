@@ -7,6 +7,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.bodega.business.android.WelcomeBusinessTest;
+import com.bodega.constants.GeneralConstants;
 
 public class WelcomeTest {
 	
@@ -32,8 +33,8 @@ public class WelcomeTest {
 	public void CF001_login_first_time() {
 		logger.info("Iniciando caso de prueba: Login first time");
 		welcome.loginWelcomePage();
-		welcome.login("emmanuel.dominguez@live.com.mx", "Edominguez#1234");
-		welcome.validateLogin("emmanuel.dominguez@live.com.mx");
+		welcome.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
+		welcome.validateLogin();
 		logger.info("Caso de prueba finalizado");
 	}
 	
