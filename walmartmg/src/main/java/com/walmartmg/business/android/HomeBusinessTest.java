@@ -3,7 +3,6 @@ package com.walmartmg.business.android;
 import java.util.List;
 
 import org.apache.log4j.Logger;
-import org.junit.Assert;
 
 import com.walmartmg.constants.AppMessages;
 import com.walmartmg.constants.GeneralConstants;
@@ -24,7 +23,7 @@ public class HomeBusinessTest extends BaseDriver {
 	
 	public void validateElements() {
 		generalBusinessTest.validateElement( NamesMobileElements.HOME_CAR );
-		waitVisibility( NamesMobileElements.HOME_OFFERS_FILTER );
+		waitElementVisibility( NamesMobileElements.HOME_OFFERS_FILTER );
 		generalBusinessTest.validateElement( NamesMobileElements.HOME_OFFERS_FILTER );
 		generalBusinessTest.scrollUntilShowElement( GeneralConstants.SCROLL_UP , NamesMobileElements.HOME_PRODUCT_LIST);
 		generalBusinessTest.validateElement( NamesMobileElements.HOME_PRODUCT_LIST );
@@ -36,27 +35,27 @@ public class HomeBusinessTest extends BaseDriver {
 	}
 	
 	public void searchProduct(String product) {
-		waitVisibility( NamesMobileElements.HOME_OFFERS_FILTER );
+		waitElementVisibility( NamesMobileElements.HOME_OFFERS_FILTER );
 		tapOnElement( NamesMobileElements.HOME_SEARCH_BUTTON );
 		fillElement( NamesMobileElements.HOME_SEARCH_FIELD, product + "\\n");
 	}
 	
 	public void validateSearch() {
-		waitVisibility( NamesMobileElements.SEARCH_RESULT_LIST );
+		waitElementVisibility( NamesMobileElements.SEARCH_RESULT_LIST );
 		MobileElement productContainter = findElement( NamesMobileElements.SEARCH_RESULT_LIST );
 		List<MobileElement> products = findSubElements(productContainter, NamesMobileElements.SEARCH_RESULT_ELEMENT);
-		Assert.assertTrue( products.size() > 0 );
+		assertTrue( "El elemento no existe", products.size() > 0 );
 	}
 	
 	public void validateInvalidSearch() {
-		waitVisibility( NamesMobileElements.SEARCH_WITHOUT_RESULT );
+		waitElementVisibility( NamesMobileElements.SEARCH_WITHOUT_RESULT );
 		generalBusinessTest.validateElement( NamesMobileElements.SEARCH_WITHOUT_RESULT_HEADER );
 		generalBusinessTest.validateElement( NamesMobileElements.SEARCH_WITHOUT_RESULT_ICON );
 		generalBusinessTest.validateElement( NamesMobileElements.SEARCH_WITHOUT_RESULT_BOTTOM );		
 	}
 	
 	public void scanProduct() {
-		waitVisibility( NamesMobileElements.HOME_OFFERS_FILTER );
+		waitElementVisibility( NamesMobileElements.HOME_OFFERS_FILTER );
 		tapOnElement( NamesMobileElements.HOME_SCAN );
 	}
 	
@@ -64,38 +63,38 @@ public class HomeBusinessTest extends BaseDriver {
 		if( elementExist( NamesMobileElements.ANDROID_DIALOG_CONT ) ) {
 			tapOnElement( NamesMobileElements.ANDROID_NATIVE_ALLOW );
 		}
-		waitVisibility( NamesMobileElements.SCAN_CONTAINER );
+		waitElementVisibility( NamesMobileElements.SCAN_CONTAINER );
 		generalBusinessTest.validateElement( NamesMobileElements.SCAN_TITLE );
 		generalBusinessTest.validateElement( NamesMobileElements.SCAN_MESSAGE );
 		generalBusinessTest.validateElement( NamesMobileElements.SCAN_BOX );
 	}
 	
 	public void selectCar() {
-		waitVisibility( NamesMobileElements.HOME_OFFERS_FILTER );
+		waitElementVisibility( NamesMobileElements.HOME_OFFERS_FILTER );
 		tapOnElement( NamesMobileElements.HOME_CAR );
 	}
 	
 	public void validateEmptyCar() {
-		waitVisibility( NamesMobileElements.HOME_EMPTY_CAR );
+		waitElementVisibility( NamesMobileElements.HOME_EMPTY_CAR );
 		generalBusinessTest.validateElement( NamesMobileElements.HOME_EMPTY_CAR_ICON );
 		generalBusinessTest.validateElement( NamesMobileElements.HOME_EMPTY_CAR_BUTTON );
 	}
 	
 	public void validateStartingBuy() {
-		waitVisibility( NamesMobileElements.HOME_EMPTY_CAR );
+		waitElementVisibility( NamesMobileElements.HOME_EMPTY_CAR );
 		tapOnElement( NamesMobileElements.HOME_EMPTY_CAR_BUTTON );
 		validateElements();
 	}
 	
 	public void selectProduct( ) {
-		waitVisibility( NamesMobileElements.HOME_OFFERS_FILTER );
+		waitElementVisibility( NamesMobileElements.HOME_OFFERS_FILTER );
 		generalBusinessTest.scrollUntilShowElement( GeneralConstants.SCROLL_UP , NamesMobileElements.HOME_PRODUCT_LIST);
 		List<MobileElement> products = findElements( NamesMobileElements.HOME_PRODUCT_CONTAINER );
 		tapOnElement( products.get(0) );
 	}
 	
 	public void validateProduct() {
-		waitVisibility( NamesMobileElements.PRODUCT_CONTAINER );
+		waitElementVisibility( NamesMobileElements.PRODUCT_CONTAINER );
 		generalBusinessTest.validateElement( NamesMobileElements.PRODUCT_TITLE );
 		generalBusinessTest.scrollUntilShowElement( GeneralConstants.SCROLL_UP, NamesMobileElements.PRODUCT_IMAGE );
 		generalBusinessTest.validateElement( NamesMobileElements.PRODUCT_IMAGE );
@@ -120,11 +119,11 @@ public class HomeBusinessTest extends BaseDriver {
 	
 	public void validateCar( int numProducts ) {
 		selectCar();
-		waitVisibility( NamesMobileElements.CAR_CONTAINER );
+		waitElementVisibility( NamesMobileElements.CAR_CONTAINER );
 		MobileElement productContainer = findElement( NamesMobileElements.CAR_CONTAINER );
 		List<MobileElement> products = findSubElements( productContainer, NamesMobileElements.CAR_ITEM );
-		waitVisibility( NamesMobileElements.CAR_BUY_BUTTON );
-		Assert.assertEquals(numProducts, products.size());
+		waitElementVisibility( NamesMobileElements.CAR_BUY_BUTTON );
+		assertEquals(numProducts, products.size());
 	}
 	
 	public void goBack() {
@@ -143,7 +142,7 @@ public class HomeBusinessTest extends BaseDriver {
 	public void validateBuy() {
 		generalBusinessTest.findElement( NamesMobileElements.CAR_BUY_BUTTON );
 		tapOnElement( NamesMobileElements.CAR_BUY_BUTTON );
-		waitVisibility( NamesMobileElements.LOGIN_BUTTON );
+		waitElementVisibility( NamesMobileElements.LOGIN_BUTTON );
 	}
 
 }

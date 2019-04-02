@@ -32,12 +32,12 @@ public class ProfileBusinessTest extends BaseDriver {
 	}
 	
 	public void validateCallUs() {
-		waitVisibility( NamesMobileElements.HELP_CALL_BUTTON );
+		waitElementVisibility( NamesMobileElements.HELP_CALL_BUTTON );
 		tapOnElement( NamesMobileElements.HELP_CALL_BUTTON );
 	}
 
 	public void validateWriteUs() {
-		waitVisibility( NamesMobileElements.HELP_EMAIL_BUTTON );
+		waitElementVisibility( NamesMobileElements.HELP_EMAIL_BUTTON );
 		tapOnElement( NamesMobileElements.HELP_EMAIL_BUTTON );
 	}
 	

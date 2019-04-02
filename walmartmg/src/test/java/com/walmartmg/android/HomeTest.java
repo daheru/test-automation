@@ -12,7 +12,7 @@ public class HomeTest {
 	
 	@AfterClass
 	public static void tearDown(){
-		home.desconectarDriver();
+		home.driverDisconect();
 	}	
 	
 	@Before

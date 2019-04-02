@@ -12,7 +12,7 @@ public class AccountTest {
 	
 	@AfterClass
 	public static void tearDown(){
-		account.desconectarDriver();
+		account.driverDisconect();
 	}	
 	
 	@Before

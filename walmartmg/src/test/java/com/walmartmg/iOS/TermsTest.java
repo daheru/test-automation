@@ -6,31 +6,19 @@ import org.junit.Test;
 public class TermsTest {
 
 	public static TermsBusinessTest Terms = new TermsBusinessTest();
-    
+
 	@AfterClass
-	public static void tearDown(){
-		 Terms.desconectarDriver();
-		 
+	public static void tearDown() {
+		Terms.driverDisconect();
+
 	}
-	 	@Test // validacion de  LEGALES
-	 public void Creat() {
-	 	    Terms.selectProfile();
-	 		Terms.selectMenu();
-	        Terms. Validate();
-	      
-		
+
+	@Test // validacion de LEGALES
+	public void Creat() {
+		Terms.selectProfile();
+		Terms.selectMenu();
+		Terms.Validate();
+
 	}
-	
-
-
-
-
-
-
-
-
 
 }
-
-
-	

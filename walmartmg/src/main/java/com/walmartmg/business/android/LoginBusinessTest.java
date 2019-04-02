@@ -1,7 +1,6 @@
 package com.walmartmg.business.android;
 
 import org.apache.log4j.Logger;
-import org.junit.Assert;
 
 import com.walmartmg.constants.AppMessages;
 import com.walmartmg.constants.NamesMobileElements;
@@ -26,7 +25,7 @@ public class LoginBusinessTest extends BaseDriver {
 	}
 
 	public void validateLoginPage() {
-		waitVisibility(NamesMobileElements.LOGIN_BUTTON);
+		waitElementVisibility(NamesMobileElements.LOGIN_BUTTON);
 		generalBusinessTest.validateElement(NamesMobileElements.LOGIN_BUTTON);
 		generalBusinessTest.validateElement(NamesMobileElements.LOGIN_EMAIL);
 		generalBusinessTest.validateElement(NamesMobileElements.LOGIN_FORGOT_PASS);
@@ -48,7 +47,7 @@ public class LoginBusinessTest extends BaseDriver {
 		logger.info("Validando Login");
 		generalBusinessTest.selectMenuOption( MenuOptionsEnum.PROFILE.getMenu() );
 		MobileElement userEmail = findElement( NamesMobileElements.USER_EMAIL );
-		Assert.assertEquals(email, userEmail.getAttribute( ConfigConstants.ATTRIBUTE_TEXT ));
+		assertEquals(email, userEmail.getAttribute( ConfigConstants.ATTRIBUTE_TEXT ));
 	}
 	
 	private void validateLoginErrors( String email, String password ) {
@@ -65,7 +64,7 @@ public class LoginBusinessTest extends BaseDriver {
 		logger.info("Ingresando password");
 		passField.sendKeys(password);
 		tapOnElement( NamesMobileElements.LOGIN_SHOW_PASS );
-		Assert.assertEquals( Boolean.FALSE.toString(), passField.getAttribute("password") );
+		assertEquals( Boolean.FALSE.toString(), passField.getAttribute("password") );
 	}
 	
 	public void forgotPassWithoutEmail(  ) {
@@ -81,8 +80,7 @@ public class LoginBusinessTest extends BaseDriver {
 	
 	public void createAccount(  ) {
 		tapOnElement( NamesMobileElements.LOGIN_REGISTER_BUTTON );
-		waitVisibility( NamesMobileElements.ACCOUNT_CREATE_BUTTON );
-		MobileElement createButton = findElement( NamesMobileElements.ACCOUNT_CREATE_BUTTON );
-		Assert.assertNotNull( createButton );
+		waitElementVisibility( NamesMobileElements.ACCOUNT_CREATE_BUTTON );
+		assertTrue( "El elemnto no existe", elementExist(NamesMobileElements.ACCOUNT_CREATE_BUTTON) );
 	}
 }

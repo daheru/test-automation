@@ -13,7 +13,7 @@ public class ProfileTest {
 
 	@AfterClass
 	public static void tearnDown() {
-		profile.desconectarDriver();
+		profile.driverDisconect();
 	}
 
 	@Before

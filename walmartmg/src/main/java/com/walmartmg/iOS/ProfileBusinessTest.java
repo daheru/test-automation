@@ -29,7 +29,7 @@ public class ProfileBusinessTest extends BaseDriver {
 		fillElement(NamesMobileElements.PROFILE_LAST_NAME, "Chopin");
 		fillElement(NamesMobileElements.PROFILE_MAIL, "cruz88994443@hotmail.com");// cambiar los digitos
 		fillElement(NamesMobileElements.PROFILE_PASSWORD, "080714javier");
-		waitVisibility(NamesMobileElements.SHOW_PASS);
+		waitElementVisibility(NamesMobileElements.SHOW_PASS);
 		tapOnElement(NamesMobileElements.SHOW_PASS);
 		tapOnElement(NamesMobileElements.PROFILE_ACCEPTTERMS);
 		tapOnElement(NamesMobileElements.PROFILE_BUTTON);
@@ -53,11 +53,10 @@ public class ProfileBusinessTest extends BaseDriver {
 		fillElement(NamesMobileElements.PROFILE_LAST_NAME, "Chopin");
 		fillElement(NamesMobileElements.PROFILE_MAIL, "hfiejier@.com");
 		fillElement(NamesMobileElements.PROFILE_PASSWORD, "080714_javier");
-		waitVisibility(NamesMobileElements.SHOW_PASS);
+		waitElementVisibility(NamesMobileElements.SHOW_PASS);
 		tapOnElement(NamesMobileElements.SHOW_PASS);
 		tapOnElement(NamesMobileElements.PROFILE_ACCEPTTERMS);
 		tapOnElement(NamesMobileElements.PROFILE_BUTTON);
-
 	}
 
 	// cuenta exietente
@@ -66,18 +65,16 @@ public class ProfileBusinessTest extends BaseDriver {
 		fillElement(NamesMobileElements.PROFILE_LAST_NAME, "Chopin");
 		fillElement(NamesMobileElements.PROFILE_MAIL, "cruz88994333@hotmail.com");
 		fillElement(NamesMobileElements.PROFILE_PASSWORD, "080714javier");
-		waitVisibility(NamesMobileElements.SHOW_PASS);
+		waitElementVisibility(NamesMobileElements.SHOW_PASS);
 		tapOnElement(NamesMobileElements.SHOW_PASS);
 		tapOnElement(NamesMobileElements.PROFILE_ACCEPTTERMS);
 		tapOnElement(NamesMobileElements.PROFILE_BUTTON);
-		
-
 	}
 
 	// validacion de cuenta duplicada
 	public void Va() {
 		// general.validateElement(NamesMobileElements.Profile_menssage);
-		String massageOKa = getText(NamesMobileElements.PROFILE_MENSAGGE);
+		String massageOKa = getElementText(NamesMobileElements.PROFILE_MENSAGGE);
 		Assert.assertEquals("Ya existe un usuario registrado con este correo electrónico".toLowerCase(),
 				massageOKa.toLowerCase());
 		tapOnElement(NamesMobileElements.PROFILE_BUTTON);

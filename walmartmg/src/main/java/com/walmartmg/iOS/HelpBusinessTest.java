@@ -25,16 +25,16 @@ public class HelpBusinessTest  extends BaseDriver{
 	public void helpPage(){
 		
 	
-	   String massageOK = getText(NamesMobileElements.HELP);	
+	   String massageOK = getElementText(NamesMobileElements.HELP);	
 		Assert.assertEquals("¿Necesitas ayuda?".toLowerCase(), massageOK.toLowerCase());
 	  
-		String massageOK1 = getText(NamesMobileElements.HELP_TEL);	
+		String massageOK1 = getElementText(NamesMobileElements.HELP_TEL);	
 		Assert.assertEquals("Llama al 01 800 925 6278".toLowerCase(), massageOK1.toLowerCase());
 		
-		String massageOK2 = getText(NamesMobileElements.HELP_TEXT_LLAMANOS);	
+		String massageOK2 = getElementText(NamesMobileElements.HELP_TEXT_LLAMANOS);	
 		Assert.assertEquals("Llámanos".toLowerCase(), massageOK2.toLowerCase());
 		
-		String massageOK3 = getText(NamesMobileElements.HELP_TEXT_MAIL);	
+		String massageOK3 = getElementText(NamesMobileElements.HELP_TEXT_MAIL);	
 		Assert.assertEquals("Escríbenos".toLowerCase(), massageOK3.toLowerCase());
 	}
 }

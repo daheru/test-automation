@@ -176,6 +176,7 @@ public final class NamesMobileElements {
 	public static final String REGISTER_BUTTON = PropertiesValuesUtil.getPropertyName("REGISTER_BUTTON");
 	public static final String USER_EMAIL = PropertiesValuesUtil.getPropertyName("USER_EMAIL");
 
+	public static final String POPUP_TEXT_MESSAGE = PropertiesValuesUtil.getPropertyName("POPUP_TEXT_MESSAGE");
 	public static final String WARNING_MESSAGE = PropertiesValuesUtil.getPropertyName("WARNING_MESSAGE");
 	public static final String WARNING_TEXT_MESSAGE = PropertiesValuesUtil.getPropertyName("WARNING_TEXT_MESSAGE");
 	public static final String BACK_BUTTON = PropertiesValuesUtil.getPropertyName("BACK_BUTTON");

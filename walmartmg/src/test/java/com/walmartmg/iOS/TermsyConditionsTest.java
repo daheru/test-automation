@@ -9,7 +9,7 @@ public static TermsyConditionsBusinessTest  Condition = new TermsyConditionsBusi
     
 	@AfterClass
 	public static void tearDown(){
-		 Condition.desconectarDriver();
+		 Condition.driverDisconect();
 
 }
 	@Test

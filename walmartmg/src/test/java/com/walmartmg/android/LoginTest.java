@@ -14,7 +14,7 @@ public class LoginTest {
 	
 	@AfterClass
 	public static void tearnDown() {
-		login.desconectarDriver();
+		login.driverDisconect();
 	}
 
 	@Before
