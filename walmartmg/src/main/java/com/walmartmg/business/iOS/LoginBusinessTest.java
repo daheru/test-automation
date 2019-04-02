@@ -1,5 +1,5 @@
 
-package com.walmartmg.iOS;
+package com.walmartmg.business.iOS;
 
 import org.junit.Assert;
 

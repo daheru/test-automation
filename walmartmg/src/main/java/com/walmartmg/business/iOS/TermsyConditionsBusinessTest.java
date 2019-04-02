@@ -1,4 +1,4 @@
-package com.walmartmg.iOS;
+package com.walmartmg.business.iOS;
 
 
 import com.walmartmg.business.android.GeneralBusinessTest;

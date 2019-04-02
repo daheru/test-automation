@@ -3,6 +3,8 @@ package com.walmartmg.iOS;
 import org.junit.AfterClass;
 import org.junit.Test;
 
+import com.walmartmg.business.iOS.HelpBusinessTest;
+
 public class HelpTest {
 	public static HelpBusinessTest help = new HelpBusinessTest();
 
