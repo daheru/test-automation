@@ -15,7 +15,7 @@ import com.bodega.enums.NavigationBarEnum;
 public class SearchTest {
 	
 	private static final Logger logger = Logger.getLogger(SearchTest.class);
-	public static SearchBusinessTest search = new SearchBusinessTest();
+	private static SearchBusinessTest search = new SearchBusinessTest();
 	
 	@AfterClass
 	public static void shutDown() {
