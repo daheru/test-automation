@@ -12,8 +12,8 @@ import io.appium.java_client.MobileElement;
 public class LoginBusinessTest extends BaseDriver {
 	
 	private static final Logger logger = Logger.getLogger( LoginBusinessTest.class );
-	public GeneralBusinessTest generalBusinessTest = new GeneralBusinessTest();
-	public HomeBusinessTest homePage = new HomeBusinessTest();
+	private GeneralBusinessTest generalBusinessTest = new GeneralBusinessTest();
+	private HomeBusinessTest homePage = new HomeBusinessTest();
 	private String email = "";
 	private String password = "";
 	

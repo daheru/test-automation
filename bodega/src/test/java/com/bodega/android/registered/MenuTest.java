@@ -1,4 +1,4 @@
-package com.bodega.android;
+package com.bodega.android.registered;
 
 import org.apache.log4j.Logger;
 import org.junit.After;
@@ -23,8 +23,7 @@ public class MenuTest {
 
 	@BeforeClass
 	public static void init() {
-		addressVO = new AddressVO("Mi direccion ", "Juan", "Perez", "Av Rodolfo Gaona 46", "456", "", "11200",
-				"Lomas de Sotelo", "Entre calle 1 y calle 2", "Plaza Toreo", "Movil", "5555555555", true);
+		addressVO = main.initAddressVO();
 	}
 
 	@AfterClass
@@ -46,6 +45,7 @@ public class MenuTest {
 	@Test
 	public void CF012_add_new_address_as_favorite() {
 		logger.info("Iniciando caso de prueba: New Adress As Favorite");
+		addressVO = main.initAddressVO();
 		main.selectProfile();
 		main.selectMenu(MenuOptionsEnum.LOGIN.getMenu());
 		main.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
@@ -61,6 +61,7 @@ public class MenuTest {
 	@Test
 	public void CF012_add_new_address() {
 		logger.info("Iniciando caso de prueba: New Adress As Favorite");
+		addressVO = main.initAddressVO();
 		main.selectProfile();
 		main.selectMenu(MenuOptionsEnum.LOGIN.getMenu());
 		main.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
@@ -77,6 +78,7 @@ public class MenuTest {
 	@Test
 	public void CF013_edit_main_address() {
 		logger.info("Iniciando caso de prueba: Edit Address");
+		addressVO = main.initAddressVO();
 		addressVO.setAddressName("Mi direccion");
 		addressVO.setAddressPhone("5512345678");
 		main.selectProfile();
@@ -171,6 +173,9 @@ public class MenuTest {
 	public void CF025_CF029_validate_terms_page() {
 		logger.info("Iniciando caso de prueba: Validate Terms Page");
 		main.selectProfile();
+		main.selectMenu(MenuOptionsEnum.LOGIN.getMenu());
+		main.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
+		main.selectProfile();
 		main.selectMenu(MenuOptionsEnum.TERMS.getMenu());
 		main.validateTerms(5);
 		logger.info("Caso de prueba finalizado");
@@ -179,6 +184,9 @@ public class MenuTest {
 	@Test
 	public void CF030_CF035_validate_legals_page() {
 		logger.info("Iniciando caso de prueba: Validate Legals Page");
+		main.selectProfile();
+		main.selectMenu(MenuOptionsEnum.LOGIN.getMenu());
+		main.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
 		main.selectProfile();
 		main.selectMenu(MenuOptionsEnum.LEGALS.getMenu());
 		main.validateLegalsPage();

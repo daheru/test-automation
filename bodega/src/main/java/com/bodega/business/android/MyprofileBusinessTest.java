@@ -6,9 +6,9 @@ import com.bodega.util.BaseDriver;
 
 public class MyprofileBusinessTest extends BaseDriver {
 
-	public static final Logger logger = Logger.getLogger(MenuBusinessTest.class);
-	public GeneralBusinessTest generalBusinessTest = new GeneralBusinessTest();
-	public LoginBusinessTest login = new LoginBusinessTest();
+	private static final Logger logger = Logger.getLogger(MenuBusinessTest.class);
+	private GeneralBusinessTest generalBusinessTest = new GeneralBusinessTest();
+	private LoginBusinessTest login = new LoginBusinessTest();
 
 	public void login(String email, String pass) {
 		login.login(email, pass);

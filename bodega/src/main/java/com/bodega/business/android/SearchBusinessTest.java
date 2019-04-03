@@ -12,10 +12,10 @@ import io.appium.java_client.MobileElement;
 
 public class SearchBusinessTest extends BaseDriver {
 
-	public static final Logger logger = Logger.getLogger(SearchBusinessTest.class);
-	public GeneralBusinessTest generalBusinessTest = new GeneralBusinessTest();
-	public LoginBusinessTest login = new LoginBusinessTest();
-	public String filterSelected = "";
+	private static final Logger logger = Logger.getLogger(SearchBusinessTest.class);
+	private GeneralBusinessTest generalBusinessTest = new GeneralBusinessTest();
+	private LoginBusinessTest login = new LoginBusinessTest();
+	private String filterSelected = "";
 
 	public void validateWelcomePage() {
 		generalBusinessTest.validateWelcomePage();
@@ -73,34 +73,21 @@ public class SearchBusinessTest extends BaseDriver {
 	}
 	
 	public void searchProduct(String product) {
+		logger.info("Buscando producto");
 		waitElementVisibility(NamesMobileElements.HOME_ITEM_BANNER);
 		tapOnElement(NamesMobileElements.HOME_SEARCH_BAR);
 		fillElement(NamesMobileElements.HOME_SEARCH_BAR, product);
 		searchOnAndroid();
-		logger.info("Buscando producto");
-	}
-
-	public void selectDepartment() {
-		waitElementVisibility(NamesMobileElements.DEPARTMENT_DEPARTMENT_LIST);
-		List<MobileElement> departments = findElements(NamesMobileElements.DEPARTMENT_ITEM_TEXT);
-		tapOnElement(departments.get(0));
-		logger.info("Seleccionado Departamento");
-	}
-
-	public void selectCategory() {
-		waitElementVisibility(NamesMobileElements.DEPARTMENT_CAT_LIST);
-		List<MobileElement> categoties = findElements(NamesMobileElements.DEPARTMENT_CAT_ITEM);
-		tapOnElement(categoties.get(0));
-		logger.info("Seleccionado Categoria");
 	}
 
 	public void tapOnFilter() {
+		logger.info("Seleccionado Filtro");
 		waitElementVisibility(NamesMobileElements.SEARCH_PRODUCT_LIST);
 		tapOnElement(NamesMobileElements.SEARCH_FILTER_BUTTON);
-		logger.info("Seleccionado Filtro");
 	}
 
 	public void selectFilter(String... filters) {
+		logger.info("Aplicando filtros");
 		waitElementVisibility( NamesMobileElements.FILTER_LIST_CATEGORY);
 		for (String filter : filters) {
 			if (filterSelected.isEmpty()) {
@@ -108,16 +95,16 @@ public class SearchBusinessTest extends BaseDriver {
 			}
 			tapOnElement(filter);
 		}
-		logger.info("Aplicando filtros");
 	}
 
 	public void applyFilter() {
+		logger.info("Buscando productos");
 		waitElementVisibility(NamesMobileElements.FILTER_APPLY_BUTTON);
 		tapOnElement(NamesMobileElements.FILTER_APPLY_BUTTON);
-		logger.info("Buscando productos");
 	}
 	
 	public void selectSubCategory() {
+		logger.info("Seleccionando sub categoria");
 		waitElementVisibility( NamesMobileElements.FILTER_LIST_CATEGORY);
 		List<MobileElement> categories = findElements( NamesMobileElements.FILTER_LIST_ITEM );
 		tapOnElement( categories.get(0) );

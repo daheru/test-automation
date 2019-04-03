@@ -1,4 +1,4 @@
-package com.bodega.android;
+package com.bodega.android.registered;
 
 import org.apache.log4j.Logger;
 import org.junit.After;

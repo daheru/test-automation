@@ -7,9 +7,9 @@ import com.bodega.util.BaseDriver;
 
 public class WelcomeBusinessTest extends BaseDriver {
 
-	public static final Logger logger = Logger.getLogger(WelcomeBusinessTest.class);
-	public GeneralBusinessTest generalBusinessTest = new GeneralBusinessTest();
-	public LoginBusinessTest login = new LoginBusinessTest();
+	private static final Logger logger = Logger.getLogger(WelcomeBusinessTest.class);
+	private GeneralBusinessTest generalBusinessTest = new GeneralBusinessTest();
+	private LoginBusinessTest login = new LoginBusinessTest();
 
 	public void loginWelcomePage() {
 		logger.info("Tap en el boton Login");

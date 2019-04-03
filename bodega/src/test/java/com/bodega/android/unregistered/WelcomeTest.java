@@ -1,4 +1,4 @@
-package com.bodega.android;
+package com.bodega.android.unregistered;
 
 import org.apache.log4j.Logger;
 import org.junit.After;
@@ -6,6 +6,7 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.bodega.android.registered.LoginTest;
 import com.bodega.business.android.WelcomeBusinessTest;
 import com.bodega.constants.GeneralConstants;
 

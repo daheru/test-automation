@@ -81,6 +81,7 @@ public class GeneralBusinessTest extends BaseDriver {
 	}
 
 	public void goBack() {
+		waitElementVisibility(NamesMobileElements.BACK_BUTTON);
 		tapOnElement(NamesMobileElements.BACK_BUTTON);
 		logger.info("Tap en regresar");
 	}

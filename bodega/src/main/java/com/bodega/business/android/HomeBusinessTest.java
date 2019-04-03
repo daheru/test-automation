@@ -8,8 +8,8 @@ import com.bodega.util.BaseDriver;
 
 public class HomeBusinessTest extends BaseDriver {
 
-	public static final Logger logger = Logger.getLogger( HomeBusinessTest.class );
-	public GeneralBusinessTest generalBusinessTest = new GeneralBusinessTest();
+	private static final Logger logger = Logger.getLogger( HomeBusinessTest.class );
+	private GeneralBusinessTest generalBusinessTest = new GeneralBusinessTest();
 	
 	public void initAsGuess() {
 		generalBusinessTest.initAsGuess();

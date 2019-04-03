@@ -18,5 +18,8 @@ public class AppMessages {
 	public static final String UNEXIST_EMAIL = PropertiesValuesUtil.getPropertyName("UNEXIST_EMAIL");
 	public static final String WRONG_LOGIN_DATA = PropertiesValuesUtil.getPropertyName("WRONG_LOGIN_DATA");
 	public static final String INVALID_DATA_TEXT_FIELD = PropertiesValuesUtil.getPropertyName("INVALID_DATA_TEXT_FIELD");
+	public static final String ADD_PRODUCT = PropertiesValuesUtil.getPropertyName("ADD_PRODUCT");
+	public static final String CAR_UPDATE = PropertiesValuesUtil.getPropertyName("CAR_UPDATE");
+	public static final String SPECIAL_PRODUCT_VALIDATION = PropertiesValuesUtil.getPropertyName("SPECIAL_PRODUCT_VALIDATION");
 	
 }

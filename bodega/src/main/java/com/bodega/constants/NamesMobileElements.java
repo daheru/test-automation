@@ -29,12 +29,14 @@ public final class NamesMobileElements {
 	public static final String HOME_PROFILE = PropertiesValuesUtil.getPropertyName("HOME_PROFILE");
 	public static final String HOME_ITEM_BANNER = PropertiesValuesUtil.getPropertyName("HOME_ITEM_BANNER");
 	public static final String HOME_CARROUSEL = PropertiesValuesUtil.getPropertyName("HOME_CARROUSEL");
+	public static final String HOME_SHOW_ALL = PropertiesValuesUtil.getPropertyName("HOME_SHOW_ALL");
 	
 	public static final String BACK_BUTTON = PropertiesValuesUtil.getPropertyName("BACK_BUTTON");
 	public static final String POPUP_TEXT_MESSAGE = PropertiesValuesUtil.getPropertyName("POPUP_TEXT_MESSAGE");
 	public static final String TEXT_INPUT_ERROR = PropertiesValuesUtil.getPropertyName("TEXT_INPUT_ERROR");
 	public static final String ERROR_TEXT_FIELD = PropertiesValuesUtil.getPropertyName("ERROR_TEXT_FIELD");
 	public static final String COMBO_OPTIONS = PropertiesValuesUtil.getPropertyName("COMBO_OPTIONS");
+	public static final String CAR_BUTTON = PropertiesValuesUtil.getPropertyName("CAR_BUTTON");
 	
 	public static final String MENU_NAME = PropertiesValuesUtil.getPropertyName("MENU_NAME");
 	
@@ -149,6 +151,7 @@ public final class NamesMobileElements {
 	
 	public static final String SEARCH_PRODUCT_LIST = PropertiesValuesUtil.getPropertyName ("SEARCH_PRODUCT_LIST");
 	public static final String SEARCH_FILTER_BUTTON = PropertiesValuesUtil.getPropertyName ("SEARCH_FILTER_BUTTON");
+	public static final String SEARCH_PRODUCT_ICON = PropertiesValuesUtil.getPropertyName ("SEARCH_PRODUCT_ICON");
 	public static final String SEARCH_PRODUCT_NAME = PropertiesValuesUtil.getPropertyName ("SEARCH_PRODUCT_NAME");
 	public static final String SEARCH_PRODUCT_PRICE = PropertiesValuesUtil.getPropertyName ("SEARCH_PRODUCT_PRICE");
 	public static final String SEARCH_NO_PRODUCT_LABEL = PropertiesValuesUtil.getPropertyName ("SEARCH_NO_PRODUCT_LABEL");
@@ -171,4 +174,20 @@ public final class NamesMobileElements {
 	public static final String FILTER_ITEM_CHECK = PropertiesValuesUtil.getPropertyName ("FILTER_ITEM_CHECK");
 	public static final String FILTER_APPLY_BUTTON = PropertiesValuesUtil.getPropertyName ("FILTER_APPLY_BUTTON");
 	
+	public static final String PRODUCT_DETAIL_CONT = PropertiesValuesUtil.getPropertyName ("PRODUCT_DETAIL_CONT");
+	public static final String PRODUCT_DETAIL_NAME = PropertiesValuesUtil.getPropertyName ("PRODUCT_DETAIL_NAME");
+	public static final String PRODUCT_DETAIL_ICON = PropertiesValuesUtil.getPropertyName ("PRODUCT_DETAIL_ICON");
+	public static final String PRODUCT_DETAIL_PRICE = PropertiesValuesUtil.getPropertyName ("PRODUCT_DETAIL_PRICE");
+	public static final String PRODUCT_DETAIL_SELLER = PropertiesValuesUtil.getPropertyName ("PRODUCT_DETAIL_SELLER");
+	public static final String PRODUCT_DETAIL_UPC = PropertiesValuesUtil.getPropertyName ("PRODUCT_DETAIL_UPC");
+	public static final String PRODUCT_ADD_BUTTON = PropertiesValuesUtil.getPropertyName ("PRODUCT_ADD_BUTTON");
+	public static final String PRODUCT_PLUS_BUTTON = PropertiesValuesUtil.getPropertyName ("PRODUCT_PLUS_BUTTON");
+	public static final String PRODUCT_MINUS_BUTTON = PropertiesValuesUtil.getPropertyName ("PRODUCT_MINUS_BUTTON");
+	
+	public static final String CAR_EMPTY_CAR = PropertiesValuesUtil.getPropertyName ("CAR_EMPTY_CAR");
+	public static final String CAR_PRODUCT_LIST = PropertiesValuesUtil.getPropertyName ("CAR_PRODUCT_LIST");
+	public static final String CAR_PRODUCT_ITEM = PropertiesValuesUtil.getPropertyName ("CAR_PRODUCT_ITEM");
+	public static final String CAR_PRODUCT_DELETE = PropertiesValuesUtil.getPropertyName ("CAR_PRODUCT_DELETE");
+	public static final String CAR_DIALOG_DELETE = PropertiesValuesUtil.getPropertyName ("CAR_DIALOG_DELETE");
+	public static final String CAR_DIALOG_SAVE = PropertiesValuesUtil.getPropertyName ("CAR_DIALOG_SAVE");
 }

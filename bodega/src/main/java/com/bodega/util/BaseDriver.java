@@ -175,9 +175,9 @@ public class BaseDriver {
 		try {
 			Assert.assertEquals(expected, actual);
 		} catch (AssertionError error) {
-			logger.info(error.getMessage());
-			logger.info("--Caso de prueba finalizado");
-			Assert.fail();
+			logger.error(error.getMessage());
+			logger.error("Caso de prueba finalizado");
+			Assert.fail("Caso de prueba finalizado con errores");
 		}
 	}
 
@@ -185,9 +185,9 @@ public class BaseDriver {
 		try {
 			Assert.assertEquals(expected, actual);
 		} catch (AssertionError error) {
-			logger.info(error.getMessage());
-			logger.info("--Caso de prueba finalizado");
-			Assert.fail();
+			logger.error(error.getMessage());
+			logger.error("Caso de prueba finalizado con errores");
+			Assert.fail("Caso de prueba finalizado con errores");
 		}
 	}
 	
@@ -195,9 +195,9 @@ public class BaseDriver {
 		try {
 			Assert.assertTrue(condition);
 		} catch (AssertionError err) {
-			logger.info(error);
-			logger.info("--Caso de prueba finalizado");
-			Assert.fail();
+			logger.error(error);
+			logger.error("Caso de prueba finalizado");
+			Assert.fail("Caso de prueba finalizado con errores");
 		}
 	}
 
@@ -217,11 +217,11 @@ public class BaseDriver {
 	
 	public void scrollUntilShowElement(int scrollType, String element) {
 		if (GeneralConstants.SCROLL_UP == scrollType) {
-			while (findElements(element).size() == 0) {
+			while (!elementExist(element)) {
 				tapUp();
 			}
 		} else {
-			while (findElements(element).size() == 0) {
+			while (!elementExist(element)) {
 				tapDown();
 			}
 		}

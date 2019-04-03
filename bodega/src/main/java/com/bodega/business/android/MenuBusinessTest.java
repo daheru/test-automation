@@ -18,10 +18,15 @@ import io.appium.java_client.MobileElement;
 
 public class MenuBusinessTest extends BaseDriver {
 
-	public static final Logger logger = Logger.getLogger(MenuBusinessTest.class);
-	public GeneralBusinessTest generalBusinessTest = new GeneralBusinessTest();
-	public LoginBusinessTest login = new LoginBusinessTest();
-	public static int numAddress = 0;
+	private static final Logger logger = Logger.getLogger(MenuBusinessTest.class);
+	private GeneralBusinessTest generalBusinessTest = new GeneralBusinessTest();
+	private LoginBusinessTest login = new LoginBusinessTest();
+	private static int numAddress = 0;
+
+	public AddressVO initAddressVO() {
+		return new AddressVO("Mi direccion ", "Juan", "Perez", "Av Rodolfo Gaona 46", "456", "", "11200",
+				"Lomas de Sotelo", "Entre calle 1 y calle 2", "Plaza Toreo", "Movil", "5555555555", true);
+	}
 
 	public void login(String email, String pass) {
 		login.login(email, pass);
@@ -238,7 +243,7 @@ public class MenuBusinessTest extends BaseDriver {
 		validateErrorMessages(AppMessages.EMPTY_FIELD, NamesMobileElements.ADDRESS_PHONE_TEXT_CONT);
 		logger.info("Mensajes de error válidos");
 	}
-	
+
 	public void validateAddressInvalidMessages() {
 		scrollUntilShowElement(GeneralConstants.SCROLL_DOWN, NamesMobileElements.ADDRESS_NAME_TEXT_CONT);
 		validateErrorMessages(AppMessages.INVALID_DATA_TEXT_FIELD, NamesMobileElements.ADDRESS_NAME_TEXT_CONT);
@@ -247,7 +252,7 @@ public class MenuBusinessTest extends BaseDriver {
 		validateErrorMessages(AppMessages.EMPTY_FIELD, NamesMobileElements.ADDRESS_STREET_TEXT_CONT);
 		logger.info("Mensajes de error válidos");
 	}
-	
+
 	private void validateErrorMessages(String message, String element) {
 		generalBusinessTest.validateFieldErrorMessage(message, element);
 	}
