@@ -91,10 +91,12 @@ public class MyprofileTest {
 	@Test
 	public void edit_phone2 () {
 		logger.info("Iniciando caso de prueba: Phone my profile data");
+		myprofile.selectProfile();
+		myprofile.selectMenu(MenuOptionsEnum.LOGIN.getMenu());
 		myprofile.login("emmanuel.dominguez@axity.com", "Edominguez#1235");
 		myprofile.selectProfile();
 		myprofile.selectMenu(MenuOptionsEnum.PROFILE.getMenu());
-		myprofile.editPhone2("5573137390", "5556136545", "456"); 
+		myprofile.editPhone2("5573137380", "5576136545", "456"); 
 		myprofile.savePhone2(); 
 	}
 	

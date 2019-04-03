@@ -39,7 +39,7 @@ public class Product_Detail {
 	public void CF037_ProductDetail() {
 		logger.info("Iniciando caso de prueba: Product Detail");
 		productdetail.login("emmanuel.dominguez@axity.com", "Edominguez#1234");
-	//	productdetail.ProductDetail("0085369903394");
+	//	productdetail.ProductDetail("00085369975649");
 		productdetail.saveProfile();
 	}
 }

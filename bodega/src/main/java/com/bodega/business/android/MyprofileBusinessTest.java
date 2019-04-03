@@ -1,11 +1,7 @@
 package com.bodega.business.android;
-import java.util.List;
-
 import org.apache.log4j.Logger;
 
 import com.bodega.constants.NamesMobileElements;
-
-import io.appium.java_client.MobileElement;
 
 public class MyprofileBusinessTest extends BaseDriver {
 
@@ -90,7 +86,7 @@ public class MyprofileBusinessTest extends BaseDriver {
 	
 	public void editPhone2( String Phoneprimary, String Phonesecundary, String ext) {
 		tapOnElement( NamesMobileElements.MYPROFILE_EDIT_PHONE );
-		waitVisibility( NamesMobileElements.MYPROFILE_PHONE_PRIMARY );
+		waitElementVisibility( NamesMobileElements.MYPROFILE_PHONE_PRIMARY );
 		fillElement( NamesMobileElements.MYPROFILE_PHONE_PRIMARY , Phoneprimary);
 		tapOnElement( NamesMobileElements.MYPROFILE_ADD_PHONE );
 	    tapOnElement( NamesMobileElements.MYPROFILE_PHONE_SECONDARY );
