@@ -15,6 +15,7 @@ public final class ConfigConstants {
 	public static final String PLATFORM_NAME = PropertiesValuesUtil.getPropertyName("PLATFORM_NAME");
 	public static final String PLATFORM_VERSION = PropertiesValuesUtil.getPropertyName("PLATFORM_VERSION");
 	public static final String ATTRIBUTE_TEXT = PropertiesValuesUtil.getPropertyName("ATTRIBUTE_TEXT");
+	public static final String APP_VERSION = PropertiesValuesUtil.getPropertyName("APP_VERSION");
 	
 	public static final String APP_PACKAGE = PropertiesValuesUtil.getPropertyName("APP_PACKAGE");
 	public static final String APP_PACKAGE_VALUE = PropertiesValuesUtil.getPropertyName("APP_PACKAGE_VALUE");

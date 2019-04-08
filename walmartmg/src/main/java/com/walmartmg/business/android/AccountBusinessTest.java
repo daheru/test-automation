@@ -5,12 +5,12 @@ import java.util.List;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
 
+import com.walmartmg.base.BaseDriver;
 import com.walmartmg.constants.AppMessages;
 import com.walmartmg.constants.GeneralConstants;
 import com.walmartmg.constants.NamesMobileElements;
-import com.walmartmg.enums.MenuOptionsEnum;
+import com.walmartmg.enums.ProfileMenuEnum;
 import com.walmartmg.enums.NavigationBarEnum;
-import com.walmartmg.util.BaseDriver;
 
 import io.appium.java_client.MobileElement;
 
@@ -24,18 +24,18 @@ public class AccountBusinessTest extends BaseDriver {
 	}
 	
 	public void selectCreateAccount() {
-		generalBusinessTest.selectMenuOption( MenuOptionsEnum.CREATE_PROFILE.getMenu() );
+		generalBusinessTest.selectProfileMenu( ProfileMenuEnum.CREATE_PROFILE.getMenu() );
 	}
 	
 	public void validateElements() {
-		generalBusinessTest.validateElement( NamesMobileElements.ACCOUNT_NAME_CONT );
-		generalBusinessTest.validateElement( NamesMobileElements.ACCOUNT_LASTNAME_CONT );
-		generalBusinessTest.validateElement( NamesMobileElements.ACCOUNT_EMAIL_CONT );
-		generalBusinessTest.validateElement( NamesMobileElements.ACCOUNT_PASS_CONT );
-		generalBusinessTest.validateElement( NamesMobileElements.ACCOUNT_SHOW_PASS );
-		generalBusinessTest.validateElement( NamesMobileElements.ACCOUNT_TERMS_LINK );
-		generalBusinessTest.validateElement( NamesMobileElements.ACCOUNT_CREATE_BUTTON );
-		generalBusinessTest.validateElement( NamesMobileElements.ACCOUNT_LOGIN_LINK );
+		waitElementVisibility( NamesMobileElements.ACCOUNT_NAME_CONT );
+		waitElementVisibility( NamesMobileElements.ACCOUNT_LASTNAME_CONT );
+		waitElementVisibility( NamesMobileElements.ACCOUNT_EMAIL_CONT );
+		waitElementVisibility( NamesMobileElements.ACCOUNT_PASS_CONT );
+		waitElementVisibility( NamesMobileElements.ACCOUNT_SHOW_PASS );
+		waitElementVisibility( NamesMobileElements.ACCOUNT_TERMS_LINK );
+		waitElementVisibility( NamesMobileElements.ACCOUNT_CREATE_BUTTON );
+		waitElementVisibility( NamesMobileElements.ACCOUNT_LOGIN_LINK );
 	}
 	
 	public void createAccount( String name, String lastname, String email, String pass ) {
@@ -68,7 +68,7 @@ public class AccountBusinessTest extends BaseDriver {
 	public void validateCreateAccount() {
 		generalBusinessTest.validatePopUpMessages( AppMessages.CREATE_ACCOUNT_SUCCESS );
 		selectProfileOption();
-		generalBusinessTest.selectMenuOption( MenuOptionsEnum.PROFILE.getMenu() );
+		generalBusinessTest.selectProfileMenu( ProfileMenuEnum.PROFILE.getMenu() );
 	}
 	
 	public void showPassword( String password ) {

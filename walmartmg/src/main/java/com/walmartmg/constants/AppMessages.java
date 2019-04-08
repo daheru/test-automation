@@ -10,6 +10,7 @@ public class AppMessages {
 	
 	public static final String ADD_PRODUCT = PropertiesValuesUtil.getPropertyName("ADD_PRODUCT");
 	public static final String DELETE_PRODUCT = PropertiesValuesUtil.getPropertyName("DELETE_PRODUCT");
+	public static final String UPDATE_PRODUCT = PropertiesValuesUtil.getPropertyName("UPDATE_PRODUCT");
 	public static final String UNEXPECTED_ERROR = PropertiesValuesUtil.getPropertyName("UNEXPECTED_ERROR");
 	public static final String NO_EMAIL = PropertiesValuesUtil.getPropertyName("NO_EMAIL");
 	public static final String NO_PASS = PropertiesValuesUtil.getPropertyName("NO_PASS");

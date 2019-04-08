@@ -1,77 +1,89 @@
 package com.walmartmg.business.android;
 
+import java.util.List;
+
 import org.apache.log4j.Logger;
 
+import com.walmartmg.base.BaseDriver;
+import com.walmartmg.constants.ConfigConstants;
 import com.walmartmg.constants.GeneralConstants;
 import com.walmartmg.constants.NamesMobileElements;
-import com.walmartmg.enums.MenuOptionsEnum;
-import com.walmartmg.enums.NavigationBarEnum;
 import com.walmartmg.enums.MenusEnum;
-import com.walmartmg.util.BaseDriver;
+import com.walmartmg.enums.NavigationBarEnum;
+import com.walmartmg.enums.ProfileMenuEnum;
+
+import io.appium.java_client.MobileElement;
 
 public class ProfileBusinessTest extends BaseDriver {
-	
+
 	public static final Logger logger = Logger.getLogger(ProfileBusinessTest.class);
 	public GeneralBusinessTest generalBusinessTest = new GeneralBusinessTest();
-	
-	public void selectProfileOption() {
-		generalBusinessTest.selectNavigationOption( NavigationBarEnum.PROFILE.getNavigation() );
+
+	public void selectProfile() {
+		generalBusinessTest.selectNavigationOption(NavigationBarEnum.PROFILE.getNavigation());
 	}
-	
-	public void selectMenu( String menu ) {
-		generalBusinessTest.selectMenuOption( menu );
+
+	public void selectMenu(String menu) {
+		generalBusinessTest.selectProfileMenu(menu);
 	}
-	
+
 	public void validateHelpPage() {
-		generalBusinessTest.validateElement( NamesMobileElements.HELP_TITLE );
-		generalBusinessTest.validateElement( NamesMobileElements.HELP_ICON );
+		waitElementVisibility(NamesMobileElements.HELP_TITLE);
+		waitElementVisibility(NamesMobileElements.HELP_ICON);
 		generalBusinessTest.scrollUntilShowElement(GeneralConstants.SCROLL_UP, NamesMobileElements.HELP_EMAIL_BUTTON);
-		generalBusinessTest.validateElement( NamesMobileElements.HELP_PHONE );
-		generalBusinessTest.validateElement( NamesMobileElements.HELP_EMAIL_BUTTON );
-		generalBusinessTest.validateElement( NamesMobileElements.HELP_CALL_BUTTON );	
+		waitElementVisibility(NamesMobileElements.HELP_PHONE);
+		waitElementVisibility(NamesMobileElements.HELP_EMAIL_BUTTON);
+		waitElementVisibility(NamesMobileElements.HELP_CALL_BUTTON);
 	}
-	
+
 	public void validateCallUs() {
-		waitElementVisibility( NamesMobileElements.HELP_CALL_BUTTON );
-		tapOnElement( NamesMobileElements.HELP_CALL_BUTTON );
+		waitElementVisibility(NamesMobileElements.HELP_CALL_BUTTON);
+		tapOnElement(NamesMobileElements.HELP_CALL_BUTTON);
 	}
 
 	public void validateWriteUs() {
-		waitElementVisibility( NamesMobileElements.HELP_EMAIL_BUTTON );
-		tapOnElement( NamesMobileElements.HELP_EMAIL_BUTTON );
+		waitElementVisibility(NamesMobileElements.HELP_EMAIL_BUTTON);
+		tapOnElement(NamesMobileElements.HELP_EMAIL_BUTTON);
 	}
-	
+
 	public void validateMenu(boolean isLogged) {
-		if( isLogged ) {
-			
+		if (isLogged) {
+
 		} else {
-			generalBusinessTest.selectMenuOption( MenuOptionsEnum.LOGIN.getMenu() );
+			generalBusinessTest.selectProfileMenu(ProfileMenuEnum.LOGIN.getMenu());
 			generalBusinessTest.goBack();
-			generalBusinessTest.selectMenuOption( MenuOptionsEnum.CREATE_PROFILE.getMenu() );
+			generalBusinessTest.selectProfileMenu(ProfileMenuEnum.CREATE_PROFILE.getMenu());
 			generalBusinessTest.goBack();
-			generalBusinessTest.selectMenuOption( MenuOptionsEnum.GET_BILL.getMenu() );
+			generalBusinessTest.selectProfileMenu(ProfileMenuEnum.GET_BILL.getMenu());
 			closeAndroidDialog();
 			generalBusinessTest.goBack();
-			generalBusinessTest.selectMenuOption( MenuOptionsEnum.SUPPORT.getMenu() );
+			generalBusinessTest.selectProfileMenu(ProfileMenuEnum.SUPPORT.getMenu());
 			generalBusinessTest.goBack();
-			generalBusinessTest.selectMenuOption( MenuOptionsEnum.TERMS.getMenu() );
+			generalBusinessTest.selectProfileMenu(ProfileMenuEnum.TERMS.getMenu());
 			generalBusinessTest.goBack();
-			generalBusinessTest.selectMenuOption( MenuOptionsEnum.LEGALS.getMenu() );
+			generalBusinessTest.selectProfileMenu(ProfileMenuEnum.LEGALS.getMenu());
 			generalBusinessTest.goBack();
 		}
 	}
-	
+
 	public void validateTermsPage() {
-		generalBusinessTest.valitateMenuAndSubMenus( MenusEnum.TERMS_RETURNS );
-		generalBusinessTest.valitateMenuAndSubMenus( MenusEnum.TERMS_DELIVERY );
-		generalBusinessTest.valitateMenuAndSubMenus( MenusEnum.TERMS_PAYMENTS );
-		generalBusinessTest.valitateMenuAndSubMenus( MenusEnum.TERMS_ORDERS );
-		generalBusinessTest.valitateMenuAndSubMenus( MenusEnum.TERMS_ACCOUNT );
-		generalBusinessTest.valitateMenuAndSubMenus( MenusEnum.TERMS_FAQ );
-		generalBusinessTest.valitateMenuAndSubMenus( MenusEnum.TERMS_SECURITY );
-		generalBusinessTest.valitateMenuAndSubMenus( MenusEnum.TERMS_MARKETPLACE );
-		generalBusinessTest.valitateMenuAndSubMenus( MenusEnum.TERMS_BILLING );
-		generalBusinessTest.valitateMenuAndSubMenus( MenusEnum.TERMS_PROMOTIONS );
+		generalBusinessTest.valitateDropDownMenu(MenusEnum.TERMS_RETURNS);
+		generalBusinessTest.valitateDropDownMenu(MenusEnum.TERMS_DELIVERY);
+		generalBusinessTest.valitateDropDownMenu(MenusEnum.TERMS_BILLING);
+		generalBusinessTest.valitateDropDownMenu(MenusEnum.TERMS_MARKETPLACE);
+		generalBusinessTest.valitateDropDownMenu(MenusEnum.TERMS_PAYMENTS);
+		generalBusinessTest.valitateDropDownMenu(MenusEnum.TERMS_PROMOTIONS);
+		generalBusinessTest.valitateDropDownMenu(MenusEnum.TERMS_FAQ);
+		generalBusinessTest.valitateDropDownMenu(MenusEnum.TERMS_SECURITY);
+		generalBusinessTest.valitateDropDownMenu(MenusEnum.TERMS_ACCOUNT);
+		generalBusinessTest.valitateDropDownMenu(MenusEnum.TERMS_ORDERS);
 	}
 	
+	public void validateLegalsPage() {
+		generalBusinessTest.valitateDropDownMenu(MenusEnum.LEGALS_TERMS);
+		generalBusinessTest.valitateDropDownMenu(MenusEnum.LEGALS_PRIVACITY);
+		List<MobileElement> terms = findElements(NamesMobileElements.LEGALS_ITEM);
+		assertEquals(ConfigConstants.APP_VERSION.toLowerCase(), getElementText(terms.get(2)));
+		logger.info("Página válida");
+	}
 }

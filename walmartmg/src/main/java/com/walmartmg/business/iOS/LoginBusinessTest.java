@@ -3,11 +3,11 @@ package com.walmartmg.business.iOS;
 
 import org.junit.Assert;
 
+import com.walmartmg.base.BaseDriver;
 import com.walmartmg.business.android.GeneralBusinessTest;
 import com.walmartmg.constants.NamesMobileElements;
-import com.walmartmg.enums.MenuOptionsEnum;
+import com.walmartmg.enums.ProfileMenuEnum;
 import com.walmartmg.enums.NavigationBarEnum;
-import com.walmartmg.util.BaseDriver;
 
 public class LoginBusinessTest extends BaseDriver {
 
@@ -19,7 +19,7 @@ public class LoginBusinessTest extends BaseDriver {
 	}
 
 	public void selectMenu() {
-		general.selectMenuOption(MenuOptionsEnum.LOGIN.getMenu());
+		general.selectProfileMenu(ProfileMenuEnum.LOGIN.getMenu());
 
 	}
 
@@ -35,7 +35,7 @@ public class LoginBusinessTest extends BaseDriver {
 //validacion mensaje_de_contraseña_correcta
 	public void validateLoginSuccessful() {
 		waitElementVisibility(NamesMobileElements.MENSSAGE_OK);
-		general.validateElement(NamesMobileElements.MENSSAGE_OK);
+		waitElementVisibility(NamesMobileElements.MENSSAGE_OK);
 
 	}
 
@@ -74,9 +74,9 @@ public class LoginBusinessTest extends BaseDriver {
 
 //validacion del mail 
 	public void Vmail() {
-		general.validateElement(NamesMobileElements.MENSSAGE_FAIL);
+		waitElementVisibility(NamesMobileElements.MENSSAGE_FAIL);
 		// tapOnElement(NamesMobileElements.BUTTON_FAIL);
-		general.validateElement(NamesMobileElements.BUTTON_FAIL);
+		waitElementVisibility(NamesMobileElements.BUTTON_FAIL);
 
 	}
 

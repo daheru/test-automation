@@ -1,6 +1,6 @@
 package com.walmartmg.enums;
 
-public enum MenuOptionsEnum {
+public enum ProfileMenuEnum {
 	
 	LOGIN("iniciar"),
 	CREATE_PROFILE("crear"),
@@ -13,15 +13,9 @@ public enum MenuOptionsEnum {
 	LEGALS("legales"),
 	LOGOUT("cerrar");
 	
-	
-	
-	
-	
-	
-	
 	private String menu;
 	
-	MenuOptionsEnum(String menu) {
+	ProfileMenuEnum(String menu) {
 		this.menu = menu;
 	}
 	

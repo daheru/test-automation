@@ -1,16 +1,19 @@
 package com.walmartmg.business.android;
 
+import java.util.ArrayList;
+import java.util.Iterator;
 import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.junit.Assert;
+import org.openqa.selenium.StaleElementReferenceException;
 
+import com.walmartmg.base.BaseDriver;
+import com.walmartmg.constants.ConfigConstants;
 import com.walmartmg.constants.GeneralConstants;
 import com.walmartmg.constants.NamesMobileElements;
-import com.walmartmg.constants.ConfigConstants;
-import com.walmartmg.enums.NavigationBarEnum;
 import com.walmartmg.enums.MenusEnum;
-import com.walmartmg.util.BaseDriver;
+import com.walmartmg.enums.NavigationBarEnum;
 
 import io.appium.java_client.MobileElement;
 
@@ -34,7 +37,7 @@ public class GeneralBusinessTest extends BaseDriver {
 		navigationElement.click();
 	}
 
-	public void selectMenuOption(String menuOptionEnum) {
+	public void selectProfileMenu(String menuOptionEnum) {
 		logger.info("Seleccionando la opcion: " + menuOptionEnum);
 		waitElementVisibility(NamesMobileElements.NAV_BAR);
 		List<MobileElement> menuList = findElements(NamesMobileElements.MENU_NAME);
@@ -67,18 +70,6 @@ public class GeneralBusinessTest extends BaseDriver {
 		}
 	}
 
-	public void scrollUntilShowElement(int scrollType, String element) {
-		if (GeneralConstants.SCROLL_UP == scrollType) {
-			while (findElements(element).size() == 0) {
-				tapUp();
-			}
-		} else {
-			while (findElements(element).size() == 0) {
-				tapDown();
-			}
-		}
-	}
-
 	public void validateFieldErrorMessage(String errorAppMessage, String fieldCont) {
 		List<MobileElement> errors = findSubElements(findElement(fieldCont), NamesMobileElements.ERROR_TEXT_FIELD);
 		if (errors.size() > 0) {
@@ -89,72 +80,81 @@ public class GeneralBusinessTest extends BaseDriver {
 		}
 	}
 
-	public void validateElement(String fieldName) {
-		assertTrue("El elemento no existe", elementExist(fieldName));
-	}
-
 	public void goBack() {
+		waitElementVisibility(NamesMobileElements.BACK_BUTTON);
 		tapOnElement(NamesMobileElements.BACK_BUTTON);
+		logger.info("Tap en regresar");
 	}
 
 	public void validatePopUpMessages(String message) {
-		List<MobileElement> messageElement = findElements(NamesMobileElements.POPUP_TEXT_MESSAGE);
-		if ( messageElement != null ) {
-			assertEquals(message.toLowerCase(), getElementText(messageElement.get(0)));
-		} else {
+		try {
+			List<MobileElement> messageElement = findElements(NamesMobileElements.POPUP_TEXT_MESSAGE);
+			if (messageElement.size() > 0) {
+				assertEquals(message.toLowerCase(), getElementText(messageElement.get(0)));
+			} else {
+				logger.info("Mensaje inalcanzable");
+			}
+		} catch (StaleElementReferenceException err) {
 			logger.info("Mensaje inalcanzable");
 		}
+
 	}
 
-	public void valitateMenuAndSubMenus(MenusEnum menusEnum) {
+	public void valitateDropDownMenu(MenusEnum menusEnum) {
 		logger.info("Seleccionando la opcion: " + menusEnum.getMenu());
-
-		List<MobileElement> terms = findElements(NamesMobileElements.TERMS_ITEM);
+		List<MobileElement> terms = new ArrayList<MobileElement>();
 		boolean clicMenu = false;
 		int exit = 0;
 		do {
-			for (int i = 0; i < terms.size(); i++) {
-				if (terms.get(i).getAttribute(ConfigConstants.ATTRIBUTE_TEXT).toLowerCase()
-						.contains(menusEnum.getMenu().toLowerCase())) {
-					terms.get(i).click();
-					validateSubTerm(menusEnum.getSubMenu());
+			terms = findElements(menusEnum.getElements()[0]);
+			Iterator<MobileElement> elements = terms.iterator();
+			while (elements.hasNext()) {
+				MobileElement element = elements.next();
+				if (getElementText(element).contains(menusEnum.getMenu().toLowerCase())) {
+					tapOnElement(element);
+					validateSubMenu(menusEnum.getSubMenu(), menusEnum.getElements()[1]);
 					clicMenu = true;
-					terms.get(i).click();
+					exit = 0;
 					break;
 				}
 			}
 			if (!clicMenu) {
 				scrollScreen(GeneralConstants.SCROLL_UP);
-				terms = findElements(NamesMobileElements.MENU_NAME);
-				exit++;
+				terms = findElements(menusEnum.getElements()[0]);
+				validateMenuExist(exit++);
 			}
-			validateMenuExist(exit);
 		} while (!clicMenu);
 	}
 
-	private void validateSubTerm(String[] subTermsEnum) {
-		List<MobileElement> subTerms = findElements(NamesMobileElements.TERMS_ITEM_CHILD);
-		int index = 0;
-		int exit = 0;
-		for (;index < subTermsEnum.length && exit < 10;) {
-			if (subTerms.get(index).getAttribute(ConfigConstants.ATTRIBUTE_TEXT).toLowerCase()
-					.contains(subTermsEnum[index].toLowerCase())) {
-				subTerms.get(index).click();
-				goBack();
-				index++;
-			} else {
-				scrollScreen(GeneralConstants.SCROLL_UP);
-				subTerms = findElements(NamesMobileElements.TERMS_ITEM_CHILD);
-				index=0;
-				exit++;
+	private void validateSubMenu(String[] subTermsEnum, String childItem) {
+		List<MobileElement> subTerms = new ArrayList<MobileElement>();
+		int indexEnum = 0, exit = 0;
+		boolean clicMenu = false;
+		do {
+			subTerms = findElements(childItem);
+			Iterator<MobileElement> iteratorElement = subTerms.iterator();
+			clicMenu = false;
+			while (iteratorElement.hasNext()) {
+				MobileElement element = iteratorElement.next();
+				if (getElementText(element).contains(subTermsEnum[indexEnum].toLowerCase())) {
+					logger.info("Seleccionando la opcion: " + subTermsEnum[indexEnum]);
+					tapOnElement(element);
+					clicMenu = true;
+					exit = 0;
+					goBack();
+					indexEnum ++;
+				}
 			}
-		}
-		Assert.assertEquals(subTermsEnum.length, index);
+			if( !clicMenu ) {
+				scrollScreen(GeneralConstants.SCROLL_UP);
+				validateMenuExist(exit++);
+			}
+		} while ( indexEnum < subTermsEnum.length );
 	}
-	
+
 	private void validateMenuExist(int exit) {
 		if (exit > 15) {
-			Assert.assertTrue("El elemento móvil no existe", Boolean.FALSE);
+			assertTrue("La opciones son incorrectas o no aparecen en pantalla", Boolean.FALSE);
 		}
 	}
 }

@@ -3,11 +3,11 @@ package com.walmartmg.business.iOS;
 
 import org.junit.Assert;
 
+import com.walmartmg.base.BaseDriver;
 import com.walmartmg.business.android.GeneralBusinessTest;
 import com.walmartmg.constants.NamesMobileElements;
-import com.walmartmg.enums.MenuOptionsEnum;
+import com.walmartmg.enums.ProfileMenuEnum;
 import com.walmartmg.enums.NavigationBarEnum;
-import com.walmartmg.util.BaseDriver;
 
 public class ProfileBusinessTest extends BaseDriver {
 
@@ -19,7 +19,7 @@ public class ProfileBusinessTest extends BaseDriver {
 	}
 
 	public void selectMenu() {
-		general.selectMenuOption(MenuOptionsEnum.CREATE_PROFILE.getMenu());
+		general.selectProfileMenu(ProfileMenuEnum.CREATE_PROFILE.getMenu());
 
 	}
 
@@ -39,7 +39,7 @@ public class ProfileBusinessTest extends BaseDriver {
 	// validacion de creacion de cuenta
 	public void vUser() {
 
-		general.validateElement(NamesMobileElements.MENSSAGE_OK);
+		waitElementVisibility(NamesMobileElements.MENSSAGE_OK);
 
 		// String massageOK = getText(NamesMobileElements.MENSSAGE_OK);
 		// Assert.assertTrue( massageOK.toLowerCase().contains("tu registro está

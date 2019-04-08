@@ -2,12 +2,12 @@ package com.walmartmg.business.android;
 
 import org.apache.log4j.Logger;
 
+import com.walmartmg.base.BaseDriver;
 import com.walmartmg.constants.AppMessages;
 import com.walmartmg.constants.NamesMobileElements;
 import com.walmartmg.constants.ConfigConstants;
-import com.walmartmg.enums.MenuOptionsEnum;
+import com.walmartmg.enums.ProfileMenuEnum;
 import com.walmartmg.enums.NavigationBarEnum;
-import com.walmartmg.util.BaseDriver;
 
 import io.appium.java_client.MobileElement;
 
@@ -20,16 +20,16 @@ public class LoginBusinessTest extends BaseDriver {
 		generalBusinessTest.selectNavigationOption(NavigationBarEnum.PROFILE.getNavigation());
 	}
 
-	public void selectMenu(String menu) {
-		generalBusinessTest.selectMenuOption(menu);
+	public void selectMenuLogin() {
+		generalBusinessTest.selectProfileMenu(ProfileMenuEnum.LOGIN.getMenu());
 	}
 
 	public void validateLoginPage() {
 		waitElementVisibility(NamesMobileElements.LOGIN_BUTTON);
-		generalBusinessTest.validateElement(NamesMobileElements.LOGIN_BUTTON);
-		generalBusinessTest.validateElement(NamesMobileElements.LOGIN_EMAIL);
-		generalBusinessTest.validateElement(NamesMobileElements.LOGIN_FORGOT_PASS);
-		generalBusinessTest.validateElement(NamesMobileElements.LOGIN_PASS);
+		waitElementVisibility(NamesMobileElements.LOGIN_BUTTON);
+		waitElementVisibility(NamesMobileElements.LOGIN_EMAIL);
+		waitElementVisibility(NamesMobileElements.LOGIN_FORGOT_PASS);
+		waitElementVisibility(NamesMobileElements.LOGIN_PASS);
 	}
 
 	public void login(String email, String password) {
@@ -38,49 +38,49 @@ public class LoginBusinessTest extends BaseDriver {
 		tapOnElement(NamesMobileElements.LOGIN_BUTTON);
 		validateLoginErrors(email, password);
 	}
-	
-	public void validatePopUpMessages( String message ) {
-		generalBusinessTest.validatePopUpMessages( message );
+
+	public void validatePopUpMessages(String message) {
+		generalBusinessTest.validatePopUpMessages(message);
 	}
-	
-	public void validateLogin( String email ) {
+
+	public void validateLogin(String email) {
 		logger.info("Validando Login");
-		generalBusinessTest.selectMenuOption( MenuOptionsEnum.PROFILE.getMenu() );
-		MobileElement userEmail = findElement( NamesMobileElements.USER_EMAIL );
-		assertEquals(email, userEmail.getAttribute( ConfigConstants.ATTRIBUTE_TEXT ));
+		generalBusinessTest.selectProfileMenu(ProfileMenuEnum.PROFILE.getMenu());
+		MobileElement userEmail = findElement(NamesMobileElements.USER_EMAIL);
+		assertEquals(email, userEmail.getAttribute(ConfigConstants.ATTRIBUTE_TEXT));
 	}
-	
-	private void validateLoginErrors( String email, String password ) {
+
+	private void validateLoginErrors(String email, String password) {
 		logger.info("Verificando mensajes de validacion");
-		if( email.isEmpty() ){
+		if (email.isEmpty()) {
 			generalBusinessTest.validateFieldErrorMessage(AppMessages.NO_EMAIL, NamesMobileElements.LOGIN_EMAIL_CONT);
-		} else if( password.isEmpty() ){
+		} else if (password.isEmpty()) {
 			generalBusinessTest.validateFieldErrorMessage(AppMessages.NO_PASS, NamesMobileElements.LOGIN_PASS_CONT);
 		}
 	}
-	
-	public void showPassword( String password ) {
-		MobileElement passField = findElement( NamesMobileElements.LOGIN_PASS );
+
+	public void showPassword(String password) {
+		MobileElement passField = findElement(NamesMobileElements.LOGIN_PASS);
 		logger.info("Ingresando password");
 		passField.sendKeys(password);
-		tapOnElement( NamesMobileElements.LOGIN_SHOW_PASS );
-		assertEquals( Boolean.FALSE.toString(), passField.getAttribute("password") );
+		tapOnElement(NamesMobileElements.LOGIN_SHOW_PASS);
+		assertEquals(Boolean.FALSE.toString(), passField.getAttribute("password"));
 	}
-	
-	public void forgotPassWithoutEmail(  ) {
-		tapOnElement( NamesMobileElements.LOGIN_FORGOT_PASS );
-		generalBusinessTest.validateFieldErrorMessage( AppMessages.NO_EMAIL, NamesMobileElements.LOGIN_EMAIL_CONT );
+
+	public void forgotPassWithoutEmail() {
+		tapOnElement(NamesMobileElements.LOGIN_FORGOT_PASS);
+		generalBusinessTest.validateFieldErrorMessage(AppMessages.NO_EMAIL, NamesMobileElements.LOGIN_EMAIL_CONT);
 	}
-	
-	public void forgotPass( String email ) {
+
+	public void forgotPass(String email) {
 		logger.info("Ingresando email");
 		fillElement(NamesMobileElements.LOGIN_EMAIL, email);
-		tapOnElement( NamesMobileElements.LOGIN_FORGOT_PASS );
+		tapOnElement(NamesMobileElements.LOGIN_FORGOT_PASS);
 	}
-	
-	public void createAccount(  ) {
-		tapOnElement( NamesMobileElements.LOGIN_REGISTER_BUTTON );
-		waitElementVisibility( NamesMobileElements.ACCOUNT_CREATE_BUTTON );
-		assertTrue( "El elemnto no existe", elementExist(NamesMobileElements.ACCOUNT_CREATE_BUTTON) );
+
+	public void createAccount() {
+		tapOnElement(NamesMobileElements.LOGIN_REGISTER_BUTTON);
+		waitElementVisibility(NamesMobileElements.ACCOUNT_CREATE_BUTTON);
+		assertTrue("El elemnto no existe", elementExist(NamesMobileElements.ACCOUNT_CREATE_BUTTON));
 	}
 }

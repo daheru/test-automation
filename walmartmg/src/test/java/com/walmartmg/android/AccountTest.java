@@ -22,14 +22,14 @@ public class AccountTest {
 	}
 	
 	@Test
-	public void CP016_create_account_validate_page() {
+	public void CP027_create_account_validate_page() {
 		account.selectProfileOption();
 		account.selectCreateAccount();
 		account.validateElements();
 	}
 	
 	@Test
-	public void CP017_create_account_without_data() {
+	public void CP028_create_account_without_data() {
 		account.selectProfileOption();
 		account.selectCreateAccount();
 		account.createAccount("","","","");
@@ -37,7 +37,7 @@ public class AccountTest {
 	}
 	
 	@Test
-	public void CP018_create_account_with_invalid_data() {
+	public void CP029_create_account_with_invalid_data() {
 		account.selectProfileOption();
 		account.selectCreateAccount();
 		account.createAccount("12345·$%","12344|@#","akakak.com@","123");
@@ -45,7 +45,7 @@ public class AccountTest {
 	}
 	
 	@Test
-	public void CP019_create_account_exist_email() {
+	public void CP030_create_account_exist_email() {
 		account.selectProfileOption();
 		account.selectCreateAccount();
 		account.createAccount("Juan","Lopez","dj_fran_@hotmail.es","12345678");
@@ -53,7 +53,7 @@ public class AccountTest {
 	}
 	
 	@Test
-	public void CP020_validate_terms() {
+	public void CP031_validate_terms() {
 		account.selectProfileOption();
 		account.selectCreateAccount();
 		account.tapTermsLink();
@@ -61,7 +61,7 @@ public class AccountTest {
 	}
 	
 	@Test
-	public void CP021_validate_login_link() {
+	public void CP032_validate_login_link() {
 		account.selectProfileOption();
 		account.selectCreateAccount();
 		account.tapLoginLink();
@@ -69,7 +69,7 @@ public class AccountTest {
 	}
 	
 	//@Test
-	public void CP022_create_account() {
+	public void CP033_create_account() {
 		account.selectProfileOption();
 		account.selectCreateAccount();
 		account.createAccount("Maria","Tester","test1@correo.com","Test#1234");

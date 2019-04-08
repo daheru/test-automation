@@ -2,11 +2,11 @@ package com.walmartmg.business.iOS;
 
 import org.junit.Assert;
 
+import com.walmartmg.base.BaseDriver;
 import com.walmartmg.business.android.GeneralBusinessTest;
 import com.walmartmg.constants.NamesMobileElements;
-import com.walmartmg.enums.MenuOptionsEnum;
+import com.walmartmg.enums.ProfileMenuEnum;
 import com.walmartmg.enums.NavigationBarEnum;
-import com.walmartmg.util.BaseDriver;
 
 
 public class HelpBusinessTest  extends BaseDriver{
@@ -17,7 +17,7 @@ public class HelpBusinessTest  extends BaseDriver{
 		
 	}
 	public void selectMenu() {
-		general.selectMenuOption(MenuOptionsEnum.SUPPORT.getMenu());
+		general.selectProfileMenu(ProfileMenuEnum.SUPPORT.getMenu());
 		
 	}
 	

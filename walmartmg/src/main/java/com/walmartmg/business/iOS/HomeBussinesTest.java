@@ -1,8 +1,8 @@
 package com.walmartmg.business.iOS;
 
+import com.walmartmg.base.BaseDriver;
 import com.walmartmg.business.android.GeneralBusinessTest;
 import com.walmartmg.constants.NamesMobileElements;
-import com.walmartmg.util.BaseDriver;
 
 public class HomeBussinesTest extends BaseDriver {
 
@@ -20,16 +20,16 @@ public class HomeBussinesTest extends BaseDriver {
 		tapOnElement(NamesMobileElements.BUSCADOR);
 		waitElementVisibility(NamesMobileElements.CANCELAR);
 		tapOnElement(NamesMobileElements.CANCELAR);
-		general.validateElement(NamesMobileElements.BUSCADOR);
+		waitElementVisibility(NamesMobileElements.BUSCADOR);
 		// VALIDACION DE CARITOCOMPRAS
 		tapOnElement(NamesMobileElements.COMPRAS);
 		waitElementVisibility(NamesMobileElements.CLOSED);
 		tapOnElement(NamesMobileElements.CLOSED);
-		general.validateElement(NamesMobileElements.COMPRAS);
+		waitElementVisibility(NamesMobileElements.COMPRAS);
 		// VALIDACIO DE OFERTAS RELAMPAGO Y UN ELEMENTO
-		general.validateElement(NamesMobileElements.OFERTAS_RELAMPAGO);
+		waitElementVisibility(NamesMobileElements.OFERTAS_RELAMPAGO);
 		tapOnElement(NamesMobileElements.ELEMENTO_OFER1);
-		general.validateElement(NamesMobileElements.ELEMENTO_OFER1);
+		waitElementVisibility(NamesMobileElements.ELEMENTO_OFER1);
 
 	}
 
@@ -58,7 +58,7 @@ public class HomeBussinesTest extends BaseDriver {
 		// agregar producto
 
 		tapOnElement(NamesMobileElements.OF1);
-		general.validateElement(NamesMobileElements.OF1);
+		waitElementVisibility(NamesMobileElements.OF1);
 		tapOnElement(NamesMobileElements.PRODT);
 		// se agrega producto de las ofertas relampago
 		tapOnElement(NamesMobileElements.AGREGAR_COMPRA);

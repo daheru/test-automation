@@ -1,148 +1,121 @@
 package com.walmartmg.business.android;
 
-import java.util.List;
-
 import org.apache.log4j.Logger;
 
-import com.walmartmg.constants.AppMessages;
+import com.walmartmg.base.BaseDriver;
 import com.walmartmg.constants.GeneralConstants;
 import com.walmartmg.constants.NamesMobileElements;
 import com.walmartmg.enums.NavigationBarEnum;
-import com.walmartmg.util.BaseDriver;
-
-import io.appium.java_client.MobileElement;
 
 public class HomeBusinessTest extends BaseDriver {
 
-	public static final Logger logger = Logger.getLogger(HomeBusinessTest.class);
-	public GeneralBusinessTest generalBusinessTest = new GeneralBusinessTest();
-	
+	private static final Logger logger = Logger.getLogger(HomeBusinessTest.class);
+	private GeneralBusinessTest generalBusinessTest = new GeneralBusinessTest();
+	private SearchBusinessTest search = new SearchBusinessTest();
+	private CarBusinessTest car = new CarBusinessTest();
+	private ProductBusinessTest product = new ProductBusinessTest();
+
 	public void selectHomeOption() {
-		generalBusinessTest.selectNavigationOption( NavigationBarEnum.HOME.getNavigation() );
+		generalBusinessTest.selectNavigationOption(NavigationBarEnum.HOME.getNavigation());
 	}
-	
+
 	public void validateElements() {
-		generalBusinessTest.validateElement( NamesMobileElements.HOME_CAR );
-		waitElementVisibility( NamesMobileElements.HOME_OFFERS_FILTER );
-		generalBusinessTest.validateElement( NamesMobileElements.HOME_OFFERS_FILTER );
-		generalBusinessTest.scrollUntilShowElement( GeneralConstants.SCROLL_UP , NamesMobileElements.HOME_PRODUCT_LIST);
-		generalBusinessTest.validateElement( NamesMobileElements.HOME_PRODUCT_LIST );
-		generalBusinessTest.validateElement( NamesMobileElements.HOME_SCAN );
-		generalBusinessTest.validateElement( NamesMobileElements.HOME_SEARCH_BUTTON );
-		generalBusinessTest.validateElement( NamesMobileElements.NAV_BAR_DEPARTMENTS );
-		generalBusinessTest.validateElement( NamesMobileElements.NAV_BAR_HOME );
-		generalBusinessTest.validateElement( NamesMobileElements.NAV_BAR_PROFILE );
+		logger.info("Validando página de home");
+		waitElementVisibility(NamesMobileElements.HOME_CAR);
+		waitElementVisibility(NamesMobileElements.HOME_OFFERS_FILTER);
+		waitElementVisibility(NamesMobileElements.HOME_OFFERS_FILTER);
+		scrollUntilShowElement(GeneralConstants.SCROLL_UP, NamesMobileElements.HOME_PRODUCT_LIST);
+		waitElementVisibility(NamesMobileElements.HOME_PRODUCT_LIST);
+		waitElementVisibility(NamesMobileElements.HOME_SCAN);
+		waitElementVisibility(NamesMobileElements.HOME_SEARCH_BUTTON);
+		waitElementVisibility(NamesMobileElements.NAV_BAR_DEPARTMENTS);
+		waitElementVisibility(NamesMobileElements.NAV_BAR_HOME);
+		waitElementVisibility(NamesMobileElements.NAV_BAR_PROFILE);
 	}
-	
+
 	public void searchProduct(String product) {
-		waitElementVisibility( NamesMobileElements.HOME_OFFERS_FILTER );
-		tapOnElement( NamesMobileElements.HOME_SEARCH_BUTTON );
-		fillElement( NamesMobileElements.HOME_SEARCH_FIELD, product + "\\n");
+		search.searchProduct(product);
 	}
-	
+
 	public void validateSearch() {
-		waitElementVisibility( NamesMobileElements.SEARCH_RESULT_LIST );
-		MobileElement productContainter = findElement( NamesMobileElements.SEARCH_RESULT_LIST );
-		List<MobileElement> products = findSubElements(productContainter, NamesMobileElements.SEARCH_RESULT_ELEMENT);
-		assertTrue( "El elemento no existe", products.size() > 0 );
+		search.validateSearch();
 	}
-	
-	public void validateInvalidSearch() {
-		waitElementVisibility( NamesMobileElements.SEARCH_WITHOUT_RESULT );
-		generalBusinessTest.validateElement( NamesMobileElements.SEARCH_WITHOUT_RESULT_HEADER );
-		generalBusinessTest.validateElement( NamesMobileElements.SEARCH_WITHOUT_RESULT_ICON );
-		generalBusinessTest.validateElement( NamesMobileElements.SEARCH_WITHOUT_RESULT_BOTTOM );		
+
+	public void validateEmptySearch() {
+		search.validateEmptySearch();
 	}
-	
+
 	public void scanProduct() {
-		waitElementVisibility( NamesMobileElements.HOME_OFFERS_FILTER );
-		tapOnElement( NamesMobileElements.HOME_SCAN );
+		logger.info("Escaneando producto");
+		waitElementVisibility(NamesMobileElements.HOME_OFFERS_FILTER);
+		tapOnElement(NamesMobileElements.HOME_SCAN);
 	}
-	
+
 	public void validateScanPage() {
-		if( elementExist( NamesMobileElements.ANDROID_DIALOG_CONT ) ) {
-			tapOnElement( NamesMobileElements.ANDROID_NATIVE_ALLOW );
+		logger.info("Validando página del scaner");
+		if (elementExist(NamesMobileElements.ANDROID_DIALOG_CONT)) {
+			tapOnElement(NamesMobileElements.ANDROID_NATIVE_ALLOW);
 		}
-		waitElementVisibility( NamesMobileElements.SCAN_CONTAINER );
-		generalBusinessTest.validateElement( NamesMobileElements.SCAN_TITLE );
-		generalBusinessTest.validateElement( NamesMobileElements.SCAN_MESSAGE );
-		generalBusinessTest.validateElement( NamesMobileElements.SCAN_BOX );
+		waitElementVisibility(NamesMobileElements.SCAN_CONTAINER);
+		waitElementVisibility(NamesMobileElements.SCAN_TITLE);
+		waitElementVisibility(NamesMobileElements.SCAN_MESSAGE);
+		waitElementVisibility(NamesMobileElements.SCAN_BOX);
 	}
-	
+
 	public void selectCar() {
-		waitElementVisibility( NamesMobileElements.HOME_OFFERS_FILTER );
-		tapOnElement( NamesMobileElements.HOME_CAR );
+		car.selectCar();
 	}
-	
+
 	public void validateEmptyCar() {
-		waitElementVisibility( NamesMobileElements.HOME_EMPTY_CAR );
-		generalBusinessTest.validateElement( NamesMobileElements.HOME_EMPTY_CAR_ICON );
-		generalBusinessTest.validateElement( NamesMobileElements.HOME_EMPTY_CAR_BUTTON );
+		car.validateEmptyCar();
 	}
-	
+
 	public void validateStartingBuy() {
-		waitElementVisibility( NamesMobileElements.HOME_EMPTY_CAR );
-		tapOnElement( NamesMobileElements.HOME_EMPTY_CAR_BUTTON );
+		logger.info("Validando empezar a comprar");
+		waitElementVisibility(NamesMobileElements.CAR_EMPTY_CAR);
+		tapOnElement(NamesMobileElements.CAR_EMPTY_CAR_BUTTON);
 		validateElements();
 	}
-	
-	public void selectProduct( ) {
-		waitElementVisibility( NamesMobileElements.HOME_OFFERS_FILTER );
-		generalBusinessTest.scrollUntilShowElement( GeneralConstants.SCROLL_UP , NamesMobileElements.HOME_PRODUCT_LIST);
-		List<MobileElement> products = findElements( NamesMobileElements.HOME_PRODUCT_CONTAINER );
-		tapOnElement( products.get(0) );
+
+	public void selectProduct() {
+		product.selectHomeProduct();
 	}
-	
+
 	public void validateProduct() {
-		waitElementVisibility( NamesMobileElements.PRODUCT_CONTAINER );
-		generalBusinessTest.validateElement( NamesMobileElements.PRODUCT_TITLE );
-		generalBusinessTest.scrollUntilShowElement( GeneralConstants.SCROLL_UP, NamesMobileElements.PRODUCT_IMAGE );
-		generalBusinessTest.validateElement( NamesMobileElements.PRODUCT_IMAGE );
-		generalBusinessTest.scrollUntilShowElement( GeneralConstants.SCROLL_UP, NamesMobileElements.PRODUCT_DESC );
-		generalBusinessTest.validateElement( NamesMobileElements.PRODUCT_PRICE );
-		generalBusinessTest.validateElement( NamesMobileElements.PRODUCT_SELL_BY );
-		generalBusinessTest.validateElement( NamesMobileElements.PRODUCT_UPC );
-		generalBusinessTest.validateElement( NamesMobileElements.PRODUCT_ADD );
-		generalBusinessTest.validateElement( NamesMobileElements.PRODUCT_PROMO );
-		generalBusinessTest.validateElement( NamesMobileElements.PRODUCT_DESC );
+		product.validateProduct();
 	}
-	
+
 	public void addProduct() {
-		generalBusinessTest.scrollUntilShowElement( GeneralConstants.SCROLL_DOWN, NamesMobileElements.PRODUCT_TITLE );
-		tapOnElement( NamesMobileElements.PRODUCT_ADD );
-		validatePopUpMessages( AppMessages.ADD_PRODUCT );
+		product.addProduct();
 	}
-	
-	public void validatePopUpMessages( String message ) {
-		generalBusinessTest.validatePopUpMessages( message );
+
+	public void validatePopUpMessages(String message) {
+		generalBusinessTest.validatePopUpMessages(message);
 	}
-	
-	public void validateCar( int numProducts ) {
-		selectCar();
-		waitElementVisibility( NamesMobileElements.CAR_CONTAINER );
-		MobileElement productContainer = findElement( NamesMobileElements.CAR_CONTAINER );
-		List<MobileElement> products = findSubElements( productContainer, NamesMobileElements.CAR_ITEM );
-		waitElementVisibility( NamesMobileElements.CAR_BUY_BUTTON );
-		assertEquals(numProducts, products.size());
+
+	public void validateCar() {
+		car.validateCar();
 	}
-	
+
 	public void goBack() {
 		generalBusinessTest.goBack();
 	}
-	
+
 	public void deleteProduct() {
-		MobileElement productContainer = findElement( NamesMobileElements.CAR_CONTAINER );
-		List<MobileElement> products = findSubElements( productContainer, NamesMobileElements.CAR_DELETE_ITEM );
-		products.get(0).click();
-		MobileElement deleteDialog = findElement( NamesMobileElements.CAR_DELETE_DIALOG );
-		findSubElements( deleteDialog, NamesMobileElements.CAR_CONFIRM_BUTTON ).get(0).click();
-		validatePopUpMessages( AppMessages.DELETE_PRODUCT );
+		car.deleteProduct();
 	}
-	
+
+	public void cancelDeleteProduct() {
+		car.cancelDeleteProduct();
+		car.validateCar();
+	}
+
+	public void removeProduct() {
+		product.removeProduct();
+	}
+
 	public void validateBuy() {
-		generalBusinessTest.findElement( NamesMobileElements.CAR_BUY_BUTTON );
-		tapOnElement( NamesMobileElements.CAR_BUY_BUTTON );
-		waitElementVisibility( NamesMobileElements.LOGIN_BUTTON );
+		car.validateContinue();
 	}
 
 }

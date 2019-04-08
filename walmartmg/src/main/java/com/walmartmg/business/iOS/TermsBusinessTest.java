@@ -1,10 +1,10 @@
 package com.walmartmg.business.iOS;
 
+import com.walmartmg.base.BaseDriver;
 import com.walmartmg.business.android.GeneralBusinessTest;
 import com.walmartmg.constants.NamesMobileElements;
-import com.walmartmg.enums.MenuOptionsEnum;
+import com.walmartmg.enums.ProfileMenuEnum;
 import com.walmartmg.enums.NavigationBarEnum;
-import com.walmartmg.util.BaseDriver;
 
 public class TermsBusinessTest extends BaseDriver {
 
@@ -16,17 +16,17 @@ public class TermsBusinessTest extends BaseDriver {
 	}
 
 	public void selectMenu() {
-		general.selectMenuOption(MenuOptionsEnum.LEGALS.getMenu());
+		general.selectProfileMenu(ProfileMenuEnum.LEGALS.getMenu());
 
 	}
 
 	public void Validate() {
-		general.validateElement(NamesMobileElements.LEGAL);
-		general.validateElement(NamesMobileElements.VERSION);
+		waitElementVisibility(NamesMobileElements.LEGAL);
+		waitElementVisibility(NamesMobileElements.VERSION);
 		tapOnElement(NamesMobileElements.PRICAVY_NOTICE1);
 	
-		general.validateElement(NamesMobileElements.PRIVACY_NOTICE2);
-		// general.validateElement(NamesMobileElements.Privacy_notice2);
+		waitElementVisibility(NamesMobileElements.PRIVACY_NOTICE2);
+		// waitElementVisibility(NamesMobileElements.Privacy_notice2);
 
 	}
 

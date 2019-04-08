@@ -6,7 +6,6 @@ import org.junit.Test;
 
 import com.walmartmg.business.android.LoginBusinessTest;
 import com.walmartmg.constants.AppMessages;
-import com.walmartmg.enums.MenuOptionsEnum;
 
 public class LoginTest {
 
@@ -24,82 +23,82 @@ public class LoginTest {
 	}
 	
 	@Test
-	public void CP043_validate_login_page() {
+	public void CP018_validate_login_page() {
 		login.selectProfileOption();
-		login.selectMenu(MenuOptionsEnum.LOGIN.getMenu());
+		login.selectMenuLogin();
 		login.validateLoginPage();
 	}
 	
 	@Test
-	public void CP045_login_without_data() {
+	public void CP019_login_without_data() {
 		login.selectProfileOption();
-		login.selectMenu(MenuOptionsEnum.LOGIN.getMenu());
+		login.selectMenuLogin();
 		login.login("", "");
 	}
 	
 	@Test
-	public void CP046_login_wrong_email() {
+	public void CP020_login_wrong_email() {
 		login.selectProfileOption();
-		login.selectMenu(MenuOptionsEnum.LOGIN.getMenu());
+		login.selectMenuLogin();
 		login.login("dj_fran@hotmail.es", "12345678");
 		login.validatePopUpMessages( AppMessages.ACCOUNT_UNEXIST_EMAIL );
 	}
 	
 	@Test
-	public void CP047_login_without_pass() {
+	public void CP021_login_without_pass() {
 		login.selectProfileOption();
-		login.selectMenu(MenuOptionsEnum.LOGIN.getMenu());
+		login.selectMenuLogin();
 		login.login("dj_fran_@hotmail.es", "");
 	}
 	
 	@Test
-    public void CP048_login_without_email() {
+    public void CP022_login_without_email() {
 		login.selectProfileOption();
-		login.selectMenu(MenuOptionsEnum.LOGIN.getMenu());
+		login.selectMenuLogin();
 		login.login("", "080714regina");
     }
 	
 	@Test
-	public void CP049_login_invalid_pass() {
+	public void CP023_login_invalid_pass() {
 		login.selectProfileOption();
-		login.selectMenu(MenuOptionsEnum.LOGIN.getMenu());
+		login.selectMenuLogin();
 		login.login("dj_fran_@hotmail.es", "123");
 		login.validatePopUpMessages( AppMessages.UNEXPECTED_ERROR );
 	}
 	
 	@Test
-    public void CP050_login_success() {
+    public void CP026_login_success() {
 		login.selectProfileOption();
-		login.selectMenu(MenuOptionsEnum.LOGIN.getMenu());
+		login.selectMenuLogin();
 		login.login("dj_fran_@hotmail.es", "080714regina");
 		login.validateLogin("dj_fran_@hotmail.es");
     }
 	
 	@Test
-    public void showPassword() {
+    public void CP000_showPassword() {
 		login.selectProfileOption();
-		login.selectMenu(MenuOptionsEnum.LOGIN.getMenu());
+		login.selectMenuLogin();
 		login.showPassword("080714regina");
     }
     
     @Test
-    public void forgotPassword_success() {
+    public void CP024_forgotPassword_success() {
     	login.selectProfileOption();
-    	login.selectMenu(MenuOptionsEnum.LOGIN.getMenu());
+    	login.selectMenuLogin();
     	login.forgotPass("dj_fran@hotmail.es");
     }
     
     @Test
-    public void forgotPassword_without_email() {
+    public void CP000_forgotPassword_without_email() {
     	login.selectProfileOption();
-    	login.selectMenu(MenuOptionsEnum.LOGIN.getMenu());
+    	login.selectMenuLogin();
     	login.forgotPassWithoutEmail();
     }
     
     @Test
-    public void createAccount() {
+    public void CP025_createAccount() {
     	login.selectProfileOption();
-    	login.selectMenu(MenuOptionsEnum.LOGIN.getMenu());
+    	login.selectMenuLogin();
     	login.createAccount();
     }
 }
