@@ -4,7 +4,8 @@ import org.apache.log4j.Logger;
 import org.junit.AfterClass;
 import org.junit.Test;
 
-import com.walmartmg.business.android.LoginBusinessTest;
+import com.walmartmg.business.iOS.LoginBusinessTest;
+
 
 public class LoginTest {
 	private static final Logger logger = Logger.getLogger(LoginTest.class);

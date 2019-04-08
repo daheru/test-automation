@@ -7,8 +7,8 @@ import org.junit.Assert;
 import com.walmartmg.base.BaseDriver;
 import com.walmartmg.business.android.GeneralBusinessTest;
 import com.walmartmg.constants.NamesMobileElements;
-import com.walmartmg.enums.ProfileMenuEnum;
 import com.walmartmg.enums.NavigationBarEnum;
+import com.walmartmg.enums.ProfileMenuEnum;
 
 public class LoginBusinessTest extends BaseDriver {
 

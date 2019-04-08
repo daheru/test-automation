@@ -17,11 +17,11 @@ public class LoginBusinessTest extends BaseDriver {
 	private GeneralBusinessTest generalBusinessTest = new GeneralBusinessTest();
 	private String email;
 
-	public void selectProfile() {
+	public void selectProfileOption() {
 		generalBusinessTest.selectNavigationOption(NavigationBarEnum.PROFILE.getNavigation());
 	}
 
-	public void selectMenu() {
+	public void selectMenuLogin() {
 		generalBusinessTest.selectProfileMenu(ProfileMenuEnum.LOGIN.getMenu());
 	}
 
