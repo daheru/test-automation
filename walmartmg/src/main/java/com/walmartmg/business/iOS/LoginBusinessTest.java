@@ -4,14 +4,14 @@ package com.walmartmg.business.iOS;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
 
+import com.walmartmg.base.BaseDriver;
 import com.walmartmg.business.android.GeneralBusinessTest;
 import com.walmartmg.constants.NamesMobileElements;
-import com.walmartmg.enums.MenuOptionsEnum;
+import com.walmartmg.enums.ProfileMenuEnum;
 import com.walmartmg.enums.NavigationBarEnum;
-import com.walmartmg.util.BaseDriver;
 
 public class LoginBusinessTest extends BaseDriver {
-	
+
 	private static final Logger logger = Logger.getLogger(LoginBusinessTest.class);
 
 	public GeneralBusinessTest general = new GeneralBusinessTest();
@@ -22,30 +22,30 @@ public class LoginBusinessTest extends BaseDriver {
 	}
 
 	public void selectMenu() {
-		general.selectMenuOption(MenuOptionsEnum.LOGIN.getMenu());
+		general.selectProfileMenu(ProfileMenuEnum.LOGIN.getMenu());
 
 	}
 
 //contraseña_correcta 	
 	public void login(String email, String pass) {
-		
+
 		fillElement(NamesMobileElements.LOGIN_EMAIL, email);
 		fillElement(NamesMobileElements.LOGIN_PASS, pass);
-		waitVisibility(NamesMobileElements.SHOW_PASS);
+		waitElementVisibility(NamesMobileElements.SHOW_PASS);
 		tapOnElement(NamesMobileElements.SHOW_PASS);
 		tapOnElement(NamesMobileElements.LOGIN_BUTTON);
 	}
 
 //validacion mensaje_de_contraseña_correcta
 	public void validateLoginSuccessful() {
-		waitVisibility(NamesMobileElements.MENSSAGE_OK);
-		general.validateElement(NamesMobileElements.MENSSAGE_OK);
+		waitElementVisibility(NamesMobileElements.MENSSAGE_OK);
+		waitElementVisibility(NamesMobileElements.MENSSAGE_OK);
 
 	}
 
 	//// validacion Contraseña_incorrecta_mensaje_de_contraseña.
 	public void validateLoginfail() {
-		String massageFail = getText(NamesMobileElements.MENSSAGE_FAIL);
+		String massageFail = getElementText(NamesMobileElements.MENSSAGE_FAIL);
 		Assert.assertEquals("El correo o la contraseña no son correctos.".toLowerCase(), massageFail.toLowerCase());
 		tapOnElement(NamesMobileElements.BUTTON_FAIL);
 	}
@@ -54,7 +54,7 @@ public class LoginBusinessTest extends BaseDriver {
 	public void loginminor() {
 		fillElement(NamesMobileElements.LOGIN_EMAIL, "dj_fran_@hotmail.es");
 		fillElement(NamesMobileElements.LOGIN_PASS, "Regina");
-		waitVisibility(NamesMobileElements.SHOW_PASS);
+		waitElementVisibility(NamesMobileElements.SHOW_PASS);
 		tapOnElement(NamesMobileElements.SHOW_PASS);
 
 		tapOnElement(NamesMobileElements.LOGIN_BUTTON);
@@ -62,7 +62,7 @@ public class LoginBusinessTest extends BaseDriver {
 //validacion 	
 
 	public void validateMinor() {
-		String massageFail = getText(NamesMobileElements.MENSSAGE_MINOR);
+		String massageFail = getElementText(NamesMobileElements.MENSSAGE_MINOR);
 		Assert.assertEquals("Ocurrio un error, favor de intentar nuevamente".toLowerCase(), massageFail.toLowerCase());
 		tapOnElement(NamesMobileElements.BUTTON_FAIL);
 	}
@@ -78,14 +78,14 @@ public class LoginBusinessTest extends BaseDriver {
 
 //validacion del mail 
 	public void Vmail() {
-		general.validateElement(NamesMobileElements.MENSSAGE_FAIL);
+		waitElementVisibility(NamesMobileElements.MENSSAGE_FAIL);
 		// tapOnElement(NamesMobileElements.BUTTON_FAIL);
-		general.validateElement(NamesMobileElements.BUTTON_FAIL);
+		waitElementVisibility(NamesMobileElements.BUTTON_FAIL);
 
 	}
 
 	public void RegNotuser() {
-		String massageFail = getText(NamesMobileElements.MENSSAGE_USERNOTEXIST);
+		String massageFail = getElementText(NamesMobileElements.MENSSAGE_USERNOTEXIST);
 		Assert.assertEquals("Este usuario no está registrado. Regístrate ahora.".toLowerCase(),
 				massageFail.toLowerCase());
 		tapOnElement(NamesMobileElements.BUTTON_FAIL);

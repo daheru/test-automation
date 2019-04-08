@@ -16,11 +16,11 @@ public class LoginBusinessTest extends BaseDriver {
 	public static final Logger logger = Logger.getLogger(ProfileBusinessTest.class);
 	public GeneralBusinessTest generalBusinessTest = new GeneralBusinessTest();
 
-	public void selectProfileOption() {
+	public void selectProfile() {
 		generalBusinessTest.selectNavigationOption(NavigationBarEnum.PROFILE.getNavigation());
 	}
 
-	public void selectMenuLogin() {
+	public void selectMenu() {
 		generalBusinessTest.selectProfileMenu(ProfileMenuEnum.LOGIN.getMenu());
 	}
 

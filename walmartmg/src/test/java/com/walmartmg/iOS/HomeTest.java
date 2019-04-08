@@ -102,49 +102,6 @@ public class HomeTest {
 		home.selectMenu(NavigationBarEnum.HOME.getNavigation());
 		home.CP014Validate_Cart_Button();
 		logger.info("FINALIZANDO CASO DE PRUEBA ");
-		
-		
-
-	public static HomeBussinesTest home = new HomeBussinesTest();
 
 	}
-}
-
-	}
-
-	@Test
-	public void CP001() {
-		home.selectMenu(1);
-		home.validate();
-
-	}
-
-	@Test
-	public void CPOO2() {
-		home.selectMenu(1);
-		home.vaCp002();
-
-	}
-
-	@Test
-	public void CPOO3() {
-		home.selectMenu(1);
-		home.cp003();
-
-	}
-
-	@Test
-	public void CP007() {
-		home.selectMenu(1);
-		home.cp007();
-
-	}
-
-	@Test
-	public void CP008() {
-		home.selectMenu(1);
-		home.Cp008();
-
-	}
-
 }
