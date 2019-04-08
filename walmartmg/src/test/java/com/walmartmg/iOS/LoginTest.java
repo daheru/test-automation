@@ -1,11 +1,13 @@
 package com.walmartmg.iOS;
 
+import org.apache.log4j.Logger;
 import org.junit.AfterClass;
 import org.junit.Test;
 
-import com.walmartmg.business.iOS.LoginBusinessTest;
+import com.walmartmg.business.android.LoginBusinessTest;
 
 public class LoginTest {
+	private static final Logger logger = Logger.getLogger(LoginTest.class);
 
 	public static LoginBusinessTest login = new LoginBusinessTest();
 
@@ -16,12 +18,12 @@ public class LoginTest {
 
 	@Test // pass correcto Validar Crear cuenta //Crear cuenta/Correo existente
 	public void loginSuccessful() {
-
+		logger.info("INICIANDO CASO DE PRUEBA ");
 		login.selectProfile();
 		login.selectMenu();
 		login.login("dj_fran_@hotmail.es", "080714regina");
-		login.validateLoginSuccessful();
-
+		login.validateLoginSuccessful();	
+		logger.info("FINALIZANDO CASO DE PRUEBA ");
 	}
 
 	@Test // pasword incorrecto password incorrecto

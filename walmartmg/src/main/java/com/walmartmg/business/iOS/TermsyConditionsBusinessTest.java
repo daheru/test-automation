@@ -1,11 +1,11 @@
 package com.walmartmg.business.iOS;
 
 
-import com.walmartmg.base.BaseDriver;
 import com.walmartmg.business.android.GeneralBusinessTest;
 import com.walmartmg.constants.NamesMobileElements;
-import com.walmartmg.enums.ProfileMenuEnum;
+import com.walmartmg.enums.MenuOptionsEnum;
 import com.walmartmg.enums.NavigationBarEnum;
+import com.walmartmg.util.BaseDriver;
 	
 
 public class TermsyConditionsBusinessTest   extends BaseDriver{
@@ -17,88 +17,88 @@ public class TermsyConditionsBusinessTest   extends BaseDriver{
 		
 	}
 	public void selectMenu() {
-		general.selectProfileMenu(ProfileMenuEnum.TERMS.getMenu());
+		general.selectMenuOption(MenuOptionsEnum.TERMS.getMenu());
 		
 	}
 
 	
 //devoluciones 
 	public void cond() {
-		tapOnElement(NamesMobileElements.RET);
-		waitElementVisibility(NamesMobileElements.HOW);
-		waitElementVisibility(NamesMobileElements.WAR);
-		waitElementVisibility(NamesMobileElements.CAN);
-		tapOnElement(NamesMobileElements.RET);
+		tapOnElement(NamesMobileElements.PROFILE_RET);
+		general.validateElement(NamesMobileElements.PROFILE_HOW);
+		general.validateElement(NamesMobileElements.PROFILE_WAR);
+		general.validateElement(NamesMobileElements.PROFILE_CAN);
+		tapOnElement(NamesMobileElements.PROFILE_RET);
 		
 //precio /promociones
-		tapOnElement(NamesMobileElements.PRECIO);
-		 waitElementVisibility(NamesMobileElements.PRECIO_BAJOS);
-	      waitElementVisibility(NamesMobileElements.ARTICULOS);
-	      waitElementVisibility(NamesMobileElements.COMPRASGRANEL);
-		  waitElementVisibility(NamesMobileElements.LINVENTARIO);
-		  waitElementVisibility(NamesMobileElements.INF_CONTENIDOS);
-		  tapOnElement(NamesMobileElements.PRECIO);
+		tapOnElement(NamesMobileElements.PROFILE_PRECIO);
+		 general.validateElement(NamesMobileElements.PROFILE_PRECIO_BAJOS);
+	      general.validateElement(NamesMobileElements.PROFILE_ARTICULOS);
+	      general.validateElement(NamesMobileElements.PROFILE_COMPRASGRANEL);
+		  general.validateElement(NamesMobileElements.PROFILE_LINVENTARIO);
+		  general.validateElement(NamesMobileElements.PROFILE_INF_CONTENIDOS);
+		  tapOnElement(NamesMobileElements.PROFILE_PRECIO);
 	}
 //compras
 	public void cond2() { 
-		tapOnElement(NamesMobileElements.BILLING);
-		waitElementVisibility(NamesMobileElements.INVOICING);
-		tapOnElement(NamesMobileElements.BILLING);
+		tapOnElement(NamesMobileElements.PROFILE_BILLING);
+		general.validateElement(NamesMobileElements.PROFILE_INVOICING);
+		tapOnElement(NamesMobileElements.PROFILE_BILLING);
 // Marketplace
-		tapOnElement(NamesMobileElements.MARKETPALCE);
-		waitElementVisibility(NamesMobileElements.MARKETPALCE);
-		tapOnElement(NamesMobileElements.MARKETPALCE);
+		tapOnElement(NamesMobileElements.PROFILE_MARKETPALCE);
+		general.validateElement(NamesMobileElements.PROFILE_MARKETPALCE);
+		tapOnElement(NamesMobileElements.PROFILE_MARKETPALCE);
 			
 	}
 //envios 
 	public void cond3() {
-		    tapOnElement(NamesMobileElements.SHIPPING);
-			waitElementVisibility(NamesMobileElements.COSTO);
-			waitElementVisibility(NamesMobileElements.ENTREGA);
-			waitElementVisibility(NamesMobileElements.HORARIO);
-		    tapOnElement(NamesMobileElements.SHIPPING);
+		    tapOnElement(NamesMobileElements.PROFILE_SHIPPING);
+			general.validateElement(NamesMobileElements.PROFILE_COSTO);
+			general.validateElement(NamesMobileElements.PROFILE_ENTREGA);
+			general.validateElement(NamesMobileElements.PROFILE_HORARIO);
+		    tapOnElement(NamesMobileElements.PROFILE_SHIPPING);
 		    //seguridad
-		    tapOnElement(NamesMobileElements.SEGURIDAD_PRIVACIDAD);
-		    waitElementVisibility(NamesMobileElements.POLITICA);
-			waitElementVisibility(NamesMobileElements.TERM);
-		    tapOnElement(NamesMobileElements.SEGURIDAD_PRIVACIDAD);
+		    tapOnElement(NamesMobileElements.PROFILE_SEGURIDAD_PRIVACIDAD);
+		    general.validateElement(NamesMobileElements.PROFILE_POLITICA);
+			general.validateElement(NamesMobileElements.PROFILE_TERM);
+		    tapOnElement(NamesMobileElements.PROFILE_SEGURIDAD_PRIVACIDAD);
 		
 	}		
 	
 ///pagos
 	public void   cond4() {
-	      tapOnElement(NamesMobileElements.PAGOS);
-       	  waitElementVisibility(NamesMobileElements.FORMAS);
-	    //  waitElementVisibility(NamesMobileElements.PAGO_SEGURO);
-	      waitElementVisibility(NamesMobileElements.TARJETAWALLET);
-	      waitElementVisibility(NamesMobileElements.THRED);
-		  waitElementVisibility(NamesMobileElements.PAYPAL);
-		  waitElementVisibility(NamesMobileElements.BBVA);
-		  waitElementVisibility(NamesMobileElements.CITI);
-		 waitElementVisibility(NamesMobileElements.TARJETA);
-	      tapOnElement(NamesMobileElements.PAGOS);
+	      tapOnElement(NamesMobileElements.PROFILE_PAGOS);
+       	  general.validateElement(NamesMobileElements.PROFILE_FORMAS);
+	    //  general.validateElement(NamesMobileElements.PAGO_SEGURO);
+	      general.validateElement(NamesMobileElements.PROFILE_TARJETAWALLET);
+	      general.validateElement(NamesMobileElements.PROFILE_THRED);
+		  general.validateElement(NamesMobileElements.PROFILE_PAYPAL);
+		  general.validateElement(NamesMobileElements.PROFILE_BBVA);
+		  general.validateElement(NamesMobileElements.PROFILE_CITI);
+		 general.validateElement(NamesMobileElements.PROFILE_TARJETA);
+	      tapOnElement(NamesMobileElements.PROFILE_PAGOS);
 
  ///preguntas frecunetes
-		   tapOnElement(NamesMobileElements.QUESTION); 
-		   waitElementVisibility(NamesMobileElements.QUESTION);
-		   tapOnElement(NamesMobileElements.QUESTION); 
+		   tapOnElement(NamesMobileElements.PROFILE_QUESTION); 
+		   general.validateElement(NamesMobileElements.PROFILE_QUESTION);
+		   tapOnElement(NamesMobileElements.PROFILE_QUESTION); 
 //Tucuenta
-		   tapOnElement(NamesMobileElements.TUCUENTA); 
-		   waitElementVisibility(NamesMobileElements.P1);
-		   waitElementVisibility(NamesMobileElements.P2);
-		   waitElementVisibility(NamesMobileElements.P3);
-		   waitElementVisibility(NamesMobileElements.P4);
-		   waitElementVisibility(NamesMobileElements.P5);
-		   tapOnElement(NamesMobileElements.TUCUENTA); 
+		   tapOnElement(NamesMobileElements.PROFILE_TUCUENTA); 
+		   general.validateElement(NamesMobileElements.PROFILE_P1);
+		   general.validateElement(NamesMobileElements.PROFILE_P2);
+		   general.validateElement(NamesMobileElements.PROFILE_P3);
+		   general.validateElement(NamesMobileElements.PROFILE_P4);
+		   general.validateElement(NamesMobileElements.PROFILE_P5);
+		   tapOnElement(NamesMobileElements.PROFILE_TUCUENTA); 
 // tus pedidos 
-		   tapOnElement(NamesMobileElements.TUSPEDIDOS); 
-		   waitElementVisibility(NamesMobileElements.COMPRAR);
-		   waitElementVisibility(NamesMobileElements.INVITADO);
-		 waitElementVisibility(NamesMobileElements.PEDIDO);
-		  waitElementVisibility(NamesMobileElements.ENVIO);
-		 waitElementVisibility(NamesMobileElements.RASPEIDOS);
-		   waitElementVisibility(NamesMobileElements.HISTPEIDOS);
-		   tapOnElement(NamesMobileElements.TUSPEDIDOS); 
+		   tapOnElement(NamesMobileElements.PROFILE_TUSPEDIDOS); 
+		   general.validateElement(NamesMobileElements.PROFILE_COMPRAR);
+		   general.validateElement(NamesMobileElements.PROFILE_INVITADO);
+		 general.validateElement(NamesMobileElements.PROFILE_PEDIDO);
+		  general.validateElement(NamesMobileElements.PROFILE_ENVIO);
+		 general.validateElement(NamesMobileElements.PROFILE_RASPEIDOS);
+		   general.validateElement(NamesMobileElements.PROFILE_HISTPEIDOS);
+		   tapOnElement(NamesMobileElements.PROFILE_TUSPEDIDOS); 
 
 		   
 
