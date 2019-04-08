@@ -71,7 +71,7 @@ public class LoginTest {
 		login.selectProfileOption();
 		login.selectMenuLogin();
 		login.login("dj_fran_@hotmail.es", "080714regina");
-		login.validateLogin("dj_fran_@hotmail.es");
+		login.validateLogin();
     }
 	
 	@Test

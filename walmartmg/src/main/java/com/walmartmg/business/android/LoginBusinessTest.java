@@ -13,8 +13,9 @@ import io.appium.java_client.MobileElement;
 
 public class LoginBusinessTest extends BaseDriver {
 
-	public static final Logger logger = Logger.getLogger(ProfileBusinessTest.class);
-	public GeneralBusinessTest generalBusinessTest = new GeneralBusinessTest();
+	private static final Logger logger = Logger.getLogger(ProfileBusinessTest.class);
+	private GeneralBusinessTest generalBusinessTest = new GeneralBusinessTest();
+	private String email;
 
 	public void selectProfile() {
 		generalBusinessTest.selectNavigationOption(NavigationBarEnum.PROFILE.getNavigation());
@@ -33,6 +34,7 @@ public class LoginBusinessTest extends BaseDriver {
 	}
 
 	public void login(String email, String password) {
+		this.email = email;
 		fillElement(NamesMobileElements.LOGIN_EMAIL, email);
 		fillElement(NamesMobileElements.LOGIN_PASS, password);
 		tapOnElement(NamesMobileElements.LOGIN_BUTTON);
@@ -43,7 +45,7 @@ public class LoginBusinessTest extends BaseDriver {
 		generalBusinessTest.validatePopUpMessages(message);
 	}
 
-	public void validateLogin(String email) {
+	public void validateLogin() {
 		logger.info("Validando Login");
 		generalBusinessTest.selectProfileMenu(ProfileMenuEnum.PROFILE.getMenu());
 		MobileElement userEmail = findElement(NamesMobileElements.USER_EMAIL);
