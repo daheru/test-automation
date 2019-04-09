@@ -20,16 +20,16 @@ public class ProductBusinessTest extends BaseDriver {
 	
 	public void selectHomeProduct() {
 		logger.info("Seleccionando producto");
-		waitElementVisibility(NamesMobileElements.HOME_PRODUCT_LIST);
 		scrollUntilShowElement(GeneralConstants.SCROLL_UP, NamesMobileElements.HOME_PRODUCT_LIST);
+		waitElementVisibility(NamesMobileElements.HOME_PRODUCT_LIST);
 		List<MobileElement> products = findElements(NamesMobileElements.HOME_PRODUCT_CONTAINER);
 		tapOnElement(products.get(0));
 	}
 	
 	public void selectProduct() {
 		logger.info("Seleccionando producto");
-		waitElementVisibility(NamesMobileElements.SEARCH_RESULT_LIST);
 		scrollUntilShowElement(GeneralConstants.SCROLL_UP, NamesMobileElements.SEARCH_RESULT_LIST);
+		waitElementVisibility(NamesMobileElements.SEARCH_RESULT_LIST);
 		List<MobileElement> products = findElements(NamesMobileElements.SEARCH_RESULT_ELEMENT);
 		tapOnElement(products.get(0));
 	}

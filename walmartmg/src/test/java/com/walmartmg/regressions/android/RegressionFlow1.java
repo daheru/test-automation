@@ -54,7 +54,7 @@ public class RegressionFlow1 {
 		car.deleteProduct();
 		general.goBack();
 		car.selectCar();
-		car.validateContinue();
+		car.selectContinueBuying();
 		login.login("dj_fran_@hotmail.es", "080714");
 		login.login("dj_fran_@hotmail.es", "080714regina");
 	}	

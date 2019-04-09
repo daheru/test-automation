@@ -42,10 +42,13 @@ public class CarBusinessTest extends BaseDriver {
 	}
 	
 	public void validateContinue() {
-		logger.info("Continuar la compra");
+		logger.info("Validando elementos");
 		waitElementVisibility(NamesMobileElements.CAR_BUY_BUTTON);
+	}
+	
+	public void selectContinueBuying() {
+		logger.info("Continuar la compra");
 		tapOnElement(NamesMobileElements.CAR_BUY_BUTTON);
-		waitElementVisibility(NamesMobileElements.LOGIN_BUTTON);
 	}
 	
 	public void validateCar() {

@@ -89,7 +89,7 @@ public class GeneralBusinessTest extends BaseDriver {
 	public void validatePopUpMessages(String message) {
 		try {
 			List<MobileElement> messageElement = findElements(NamesMobileElements.POPUP_TEXT_MESSAGE);
-			if (messageElement.size() > 0) {
+			if (messageElement != null && messageElement.size() > 0) {
 				assertEquals(message.toLowerCase(), getElementText(messageElement.get(0)));
 			} else {
 				logger.info("Mensaje inalcanzable");
