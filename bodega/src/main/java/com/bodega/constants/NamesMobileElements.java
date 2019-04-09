@@ -183,11 +183,17 @@ public final class NamesMobileElements {
 	public static final String PRODUCT_ADD_BUTTON = PropertiesValuesUtil.getPropertyName ("PRODUCT_ADD_BUTTON");
 	public static final String PRODUCT_PLUS_BUTTON = PropertiesValuesUtil.getPropertyName ("PRODUCT_PLUS_BUTTON");
 	public static final String PRODUCT_MINUS_BUTTON = PropertiesValuesUtil.getPropertyName ("PRODUCT_MINUS_BUTTON");
+	public static final String PRODUCT_QUANTITY = PropertiesValuesUtil.getPropertyName ("PRODUCT_QUANTITY");
 	
 	public static final String CAR_EMPTY_CAR = PropertiesValuesUtil.getPropertyName ("CAR_EMPTY_CAR");
+	public static final String CAR_EMPTY_ICON = PropertiesValuesUtil.getPropertyName ("CAR_EMPTY_ICON");
+	public static final String CAR_EMPTY_BUTTON = PropertiesValuesUtil.getPropertyName ("CAR_EMPTY_BUTTON");
 	public static final String CAR_PRODUCT_LIST = PropertiesValuesUtil.getPropertyName ("CAR_PRODUCT_LIST");
 	public static final String CAR_PRODUCT_ITEM = PropertiesValuesUtil.getPropertyName ("CAR_PRODUCT_ITEM");
 	public static final String CAR_PRODUCT_DELETE = PropertiesValuesUtil.getPropertyName ("CAR_PRODUCT_DELETE");
-	public static final String CAR_DIALOG_DELETE = PropertiesValuesUtil.getPropertyName ("CAR_DIALOG_DELETE");
-	public static final String CAR_DIALOG_SAVE = PropertiesValuesUtil.getPropertyName ("CAR_DIALOG_SAVE");
+	public static final String CAR_DELETE_DIALOG = PropertiesValuesUtil.getPropertyName ("CAR_DELETE_DIALOG");
+	public static final String CAR_DIALOG_CONFIRM = PropertiesValuesUtil.getPropertyName ("CAR_DIALOG_CONFIRM");
+	public static final String CAR_DIALOG_CANCEL = PropertiesValuesUtil.getPropertyName ("CAR_DIALOG_CANCEL");
+	public static final String CAR_BUY_BUTTON = PropertiesValuesUtil.getPropertyName ("CAR_BUY_BUTTON");
+	
 }

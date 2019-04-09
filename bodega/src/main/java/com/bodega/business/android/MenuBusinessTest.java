@@ -5,13 +5,13 @@ import java.util.Random;
 
 import org.apache.log4j.Logger;
 
+import com.bodega.base.BaseDriver;
 import com.bodega.constants.AppMessages;
 import com.bodega.constants.ConfigConstants;
 import com.bodega.constants.GeneralConstants;
 import com.bodega.constants.NamesMobileElements;
 import com.bodega.enums.MenuOptionsEnum;
 import com.bodega.enums.MenusEnum;
-import com.bodega.util.BaseDriver;
 import com.bodega.vo.AddressVO;
 
 import io.appium.java_client.MobileElement;

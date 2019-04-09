@@ -4,8 +4,8 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
+import com.bodega.base.BaseDriver;
 import com.bodega.constants.NamesMobileElements;
-import com.bodega.util.BaseDriver;
 
 import io.appium.java_client.MobileElement;
 
@@ -52,14 +52,14 @@ public class DepartmentsBusinessTest extends BaseDriver {
 	public void selectDepartment() {
 		logger.info("Seleccionado Departamento");
 		waitElementVisibility(NamesMobileElements.DEPARTMENT_DEPARTMENT_LIST);
-		List<MobileElement> departments = findElements(NamesMobileElements.DEPARTMENT_ITEM_TEXT);
+		List<MobileElement> departments = findSubElements(NamesMobileElements.DEPARTMENT_DEPARTMENT_LIST, NamesMobileElements.DEPARTMENT_ITEM_TEXT);
 		tapOnElement(departments.get(0));
 	}
 
 	public void selectCategory() {
 		logger.info("Seleccionado Categoria");
 		waitElementVisibility(NamesMobileElements.DEPARTMENT_CAT_LIST);
-		List<MobileElement> categoties = findElements(NamesMobileElements.DEPARTMENT_CAT_ITEM);
+		List<MobileElement> categoties = findSubElements(NamesMobileElements.DEPARTMENT_CAT_LIST, NamesMobileElements.DEPARTMENT_CAT_ITEM);
 		tapOnElement(categoties.get(0));
 	}
 	

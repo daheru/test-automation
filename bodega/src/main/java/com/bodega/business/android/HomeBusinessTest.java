@@ -2,9 +2,9 @@ package com.bodega.business.android;
 
 import org.apache.log4j.Logger;
 
+import com.bodega.base.BaseDriver;
 import com.bodega.constants.NamesMobileElements;
 import com.bodega.enums.NavigationBarEnum;
-import com.bodega.util.BaseDriver;
 
 public class HomeBusinessTest extends BaseDriver {
 

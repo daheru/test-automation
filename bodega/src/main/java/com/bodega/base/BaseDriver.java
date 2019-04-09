@@ -1,10 +1,11 @@
-package com.bodega.util;
+package com.bodega.base;
 
 import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.Duration;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
@@ -16,6 +17,7 @@ import org.openqa.selenium.Dimension;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.remote.DesiredCapabilities;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import com.bodega.constants.ConfigConstants;
@@ -68,7 +70,35 @@ public class BaseDriver {
 		}
 		return mobileElement.size() > 0 ? mobileElement.get(0) : null;
 	}
+	
+	public List<MobileElement> findElements(String element) {
+		if (element.startsWith(GeneralConstants.SLASH)) {
+			return driver.findElementsByXPath(element);
+		}
+		return driver.findElementsById(element);
+	}
 
+	public List<MobileElement> findSubElements(MobileElement elementParent, String elementChild) {
+		if (elementChild.startsWith(GeneralConstants.SLASH)) {
+			return elementParent.findElements(By.xpath(elementChild));
+		}
+		return elementParent.findElements(By.id(elementChild));
+	}
+	
+	public List<MobileElement> findSubElements(String elementParent, String elementChild) {
+		MobileElement parent = findElement(elementParent);
+		return parent != null ? findSubElements(parent, elementChild) : new ArrayList<MobileElement>();
+	}
+	
+	public String getElementText(String element) {
+		MobileElement textboxElement = findElement(element);
+		return textboxElement != null ? textboxElement.getAttribute(ConfigConstants.ATTRIBUTE_TEXT).toLowerCase() : "";
+	}
+
+	public String getElementText(MobileElement element) {
+		return element != null ? element.getAttribute(ConfigConstants.ATTRIBUTE_TEXT).toLowerCase() : "";
+	}
+	
 	public void tapOnElement(String element) {
 		MobileElement tapElement = findElement(element);
 		if (tapElement != null) {
@@ -89,22 +119,19 @@ public class BaseDriver {
 		}
 	}
 
-	public List<MobileElement> findSubElements(MobileElement elementParent, String element) {
-		if (element.startsWith(GeneralConstants.SLASH)) {
-			return elementParent.findElements(By.xpath(element));
-		}
-		return elementParent.findElements(By.id(element));
-	}
-
-	public List<MobileElement> findElements(String element) {
-		if (element.startsWith(GeneralConstants.SLASH)) {
-			return driver.findElementsByXPath(element);
-		}
-		return driver.findElementsById(element);
-	}
-
 	public void waitElementVisibility(String element) {
-		assertTrue("El elemento no existe", elementExist(element));
+		boolean elementExist = false;
+		try {
+			if (element.startsWith(GeneralConstants.SLASH)) {
+				elementExist = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(element))) == null
+						|| false ? false : true;
+			} else {
+				elementExist = wait.until(ExpectedConditions.visibilityOfElementLocated(By.id(element))) == null
+						|| false ? false : true;
+			}
+		} finally {
+			assertTrue("El elemento no existe", elementExist);
+		}
 	}
 
 	public boolean elementExist(String element) {
@@ -113,15 +140,6 @@ public class BaseDriver {
 			return false;
 		}
 		return true;
-	}
-	
-	public String getElementText(String element) {
-		MobileElement textboxElement = findElement(element);
-		return textboxElement != null ? textboxElement.getAttribute(ConfigConstants.ATTRIBUTE_TEXT).toLowerCase() : "";
-	}
-
-	public String getElementText(MobileElement element) {
-		return element != null ? element.getAttribute(ConfigConstants.ATTRIBUTE_TEXT).toLowerCase() : "";
 	}
 
 	public void tapUp() {
@@ -190,7 +208,7 @@ public class BaseDriver {
 			Assert.fail("Caso de prueba finalizado con errores");
 		}
 	}
-	
+
 	public void assertTrue(String error, boolean condition) {
 		try {
 			Assert.assertTrue(condition);
@@ -204,9 +222,9 @@ public class BaseDriver {
 	public void searchOnAndroid() {
 		driver.executeScript("mobile: performEditorAction", ImmutableMap.of("action", "done"));
 	}
-	
+
 	public void takeScreenShot() {
-		File scrFile = ((TakesScreenshot)driver).getScreenshotAs(OutputType.FILE);
+		File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		try {
 			FileUtils.copyFile(scrFile, new File("C:\\Users\\vn0swlc\\Screenshot.jpg"));
 		} catch (IOException e) {
@@ -214,7 +232,7 @@ public class BaseDriver {
 			e.printStackTrace();
 		}
 	}
-	
+
 	public void scrollUntilShowElement(int scrollType, String element) {
 		if (GeneralConstants.SCROLL_UP == scrollType) {
 			while (!elementExist(element)) {
@@ -226,7 +244,7 @@ public class BaseDriver {
 			}
 		}
 	}
-	
+
 	private void initAndroid() {
 		caps.setCapability(ConfigConstants.APP_PACKAGE, ConfigConstants.APP_PACKAGE_VALUE);
 		caps.setCapability(ConfigConstants.APP_ACTIVITY, ConfigConstants.APP_ACTIVITY_VALUE);
@@ -256,7 +274,7 @@ public class BaseDriver {
 				initIOS();
 				driver = new IOSDriver<MobileElement>(new URL(ConfigConstants.APPIUM_URL_SERVER), caps);
 			}
-			driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+			driver.manage().timeouts().implicitlyWait(1, TimeUnit.SECONDS);
 		} catch (MalformedURLException e) {
 			logger.error(e.getMessage());
 		}

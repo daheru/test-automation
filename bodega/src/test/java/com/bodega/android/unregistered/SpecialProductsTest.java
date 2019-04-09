@@ -6,15 +6,13 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.bodega.business.android.SpecialProductsBusiness;
-import com.bodega.constants.GeneralConstants;
-import com.bodega.enums.MenuOptionsEnum;
+import com.bodega.business.android.SpecialProductBusinessTest;
 import com.bodega.enums.NavigationBarEnum;
 
 public class SpecialProductsTest {
 	
 	public static final Logger logger = Logger.getLogger(SpecialProductsTest.class);
-	public static SpecialProductsBusiness special = new SpecialProductsBusiness();
+	public static SpecialProductBusinessTest special = new SpecialProductBusinessTest();
 	
 	@AfterClass
 	public static void shutDown() {
@@ -54,7 +52,8 @@ public class SpecialProductsTest {
 		special.validateSearch();
 		special.selectProduct();
 		special.addProduct();
-		special.validateCar();
+		special.goBack();
+		special.goBack();
 		special.searchProduct("Celulares");
 		special.validateSearch();
 		special.selectProduct();
@@ -71,7 +70,8 @@ public class SpecialProductsTest {
 		special.validateSearch();
 		special.selectProduct();
 		special.addProduct();
-		special.validateCar();
+		special.goBack();
+		special.goBack();
 		special.searchProduct("Motocicleta");
 		special.validateSearch();
 		special.selectProduct();

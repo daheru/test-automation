@@ -4,9 +4,9 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
+import com.bodega.base.BaseDriver;
 import com.bodega.constants.NamesMobileElements;
 import com.bodega.enums.FiltersEnum;
-import com.bodega.util.BaseDriver;
 
 import io.appium.java_client.MobileElement;
 
@@ -74,7 +74,7 @@ public class SearchBusinessTest extends BaseDriver {
 	
 	public void searchProduct(String product) {
 		logger.info("Buscando producto");
-		waitElementVisibility(NamesMobileElements.HOME_ITEM_BANNER);
+		waitElementVisibility(NamesMobileElements.HOME_SEARCH_BAR);
 		tapOnElement(NamesMobileElements.HOME_SEARCH_BAR);
 		fillElement(NamesMobileElements.HOME_SEARCH_BAR, product);
 		searchOnAndroid();

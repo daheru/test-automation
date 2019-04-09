@@ -21,5 +21,7 @@ public class AppMessages {
 	public static final String ADD_PRODUCT = PropertiesValuesUtil.getPropertyName("ADD_PRODUCT");
 	public static final String CAR_UPDATE = PropertiesValuesUtil.getPropertyName("CAR_UPDATE");
 	public static final String SPECIAL_PRODUCT_VALIDATION = PropertiesValuesUtil.getPropertyName("SPECIAL_PRODUCT_VALIDATION");
-	
+	public static final String DELETE_PRODUCT = PropertiesValuesUtil.getPropertyName("DELETE_PRODUCT");
+	public static final String UPDATE_PRODUCT = PropertiesValuesUtil.getPropertyName("UPDATE_PRODUCT");
+	public static final String ACCOUNT_UNEXIST_EMAIL = PropertiesValuesUtil.getPropertyName("ACCOUNT_UNEXIST_EMAIL");	
 }

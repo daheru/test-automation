@@ -4,13 +4,14 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 import org.junit.Assert;
+import org.openqa.selenium.StaleElementReferenceException;
 
+import com.bodega.base.BaseDriver;
 import com.bodega.constants.ConfigConstants;
 import com.bodega.constants.GeneralConstants;
 import com.bodega.constants.NamesMobileElements;
 import com.bodega.enums.MenusEnum;
 import com.bodega.enums.NavigationBarEnum;
-import com.bodega.util.BaseDriver;
 
 import io.appium.java_client.MobileElement;
 
@@ -98,12 +99,17 @@ public class GeneralBusinessTest extends BaseDriver {
 	}
 
 	public void validatePopUpMessages(String message) {
-		List<MobileElement> messageElement = findElements(NamesMobileElements.POPUP_TEXT_MESSAGE);
-		if (messageElement.size() > 0) {
-			assertEquals(message.toLowerCase(), getElementText(messageElement.get(0)));
-		} else {
+		try {
+			List<MobileElement> messageElement = findElements(NamesMobileElements.POPUP_TEXT_MESSAGE);
+			if (messageElement != null && messageElement.size() > 0) {
+				assertEquals(message.toLowerCase(), getElementText(messageElement.get(0)));
+			} else {
+				logger.info("Mensaje inalcanzable");
+			}
+		} catch (StaleElementReferenceException err) {
 			logger.info("Mensaje inalcanzable");
 		}
+
 	}
 
 	public void validateWelcomePage() {
