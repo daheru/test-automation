@@ -309,6 +309,16 @@ public final class NamesMobileElements {
 	
 	public static final String LEGALS_ITEM = PropertiesValuesUtil.getPropertyName("LEGALS_ITEM");
 	public static final String LEGALS_ITEM_CHILD = PropertiesValuesUtil.getPropertyName("LEGALS_ITEM_CHILD");
+	
+	public static final String INVOICE_TITLE = PropertiesValuesUtil.getPropertyName("INVOICE_TITLE");
+	public static final String INVOICE_TEXT = PropertiesValuesUtil.getPropertyName("INVOICE_TEXT");
+	public static final String INVOICE_SCAN = PropertiesValuesUtil.getPropertyName("INVOICE_SCAN");
+	public static final String INVOICE_LINK = PropertiesValuesUtil.getPropertyName("INVOICE_LINK");
+	
+	public static final String INV_MANUAL_NUM_INVOICE = PropertiesValuesUtil.getPropertyName("INV_MANUAL_NUM_INVOICE");
+	public static final String INV_MANUAL_LINK_SCAN = PropertiesValuesUtil.getPropertyName("INV_MANUAL_LINK_SCAN");
+	public static final String INV_MANUAL_BUTTON = PropertiesValuesUtil.getPropertyName("INV_MANUAL_BUTTON");
+	public static final String INV_MANUAL_NUM_INVOICE_CONT = PropertiesValuesUtil.getPropertyName("INV_MANUAL_NUM_INVOICE_CONT");
 
 	public static final String DEP_LIST_CONT = PropertiesValuesUtil.getPropertyName("DEP_LIST_CONT");
 	public static final String DEP_ITEM = PropertiesValuesUtil.getPropertyName("DEP_ITEM");
