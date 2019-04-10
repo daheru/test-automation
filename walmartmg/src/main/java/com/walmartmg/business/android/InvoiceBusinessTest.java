@@ -2,11 +2,11 @@ package com.walmartmg.business.android;
 
 import org.apache.log4j.Logger;
 
+import com.walmartmg.base.BaseDriver;
 import com.walmartmg.constants.AppMessages;
 import com.walmartmg.constants.NamesMobileElements;
-import com.walmartmg.enums.MenuOptionsEnum;
+import com.walmartmg.enums.ProfileMenuEnum;
 import com.walmartmg.enums.NavigationBarEnum;
-import com.walmartmg.util.BaseDriver;
 
 public class InvoiceBusinessTest extends BaseDriver {
 	
@@ -19,7 +19,7 @@ public class InvoiceBusinessTest extends BaseDriver {
 	}
 	
 	public void selectRequestInvoice() {
-		generalBusinessTest.selectMenuOption( MenuOptionsEnum.GET_BILL.getMenu() );
+		generalBusinessTest.selectProfileMenu(ProfileMenuEnum.GET_BILL.getMenu() );
 	}
 	
 	

@@ -325,4 +325,19 @@ public final class NamesMobileElements {
 	public static final String DEP_ITEM_CHILD = PropertiesValuesUtil.getPropertyName("DEP_ITEM_CHILD");
 	public static final String DEP_ICON = PropertiesValuesUtil.getPropertyName("DEP_ICON");
 	public static final String DEP_FAMILY_CONT = PropertiesValuesUtil.getPropertyName("DEP_FAMILY_CONT");
+	
+	public static final String FILTERS_LINK = PropertiesValuesUtil.getPropertyName("FILTERS_LINK");
+	public static final String FILTERS_CONT = PropertiesValuesUtil.getPropertyName("FILTERS_CONT");
+	public static final String FILTERS_SORT_BY = PropertiesValuesUtil.getPropertyName("FILTERS_SORT_BY");
+	public static final String FILTERS_SORT_BY_AZ = PropertiesValuesUtil.getPropertyName("FILTERS_SORT_BY_AZ");
+	public static final String FILTERS_SORT_BY_ZA = PropertiesValuesUtil.getPropertyName("FILTERS_SORT_BY_ZA");
+	public static final String FILTERS_SORT_BY_GREATERTHAN = PropertiesValuesUtil.getPropertyName("FILTERS_SORT_BY_GREATERTHAN");
+	public static final String FILTERS_SORT_BY_LESSTHAN = PropertiesValuesUtil.getPropertyName("FILTERS_SORT_BY_LESSTHAN");
+	public static final String FILTERS_SORT_BY_POPULARITY = PropertiesValuesUtil.getPropertyName("FILTERS_SORT_BY_POPULARITY");
+	public static final String FILTERS_PRICE = PropertiesValuesUtil.getPropertyName("FILTERS_PRICE");
+	public static final String FILTERS_FILTER_BY = PropertiesValuesUtil.getPropertyName("FILTERS_FILTER_BY");
+	public static final String FILTERS_FILTER_BY_BRAND = PropertiesValuesUtil.getPropertyName("FILTERS_FILTER_BY_BRAND");
+	public static final String FILTERS_FILTER_BY_CHECK = PropertiesValuesUtil.getPropertyName("FILTERS_FILTER_BY_CHECK");
+	public static final String FILTERS_BUTTON = PropertiesValuesUtil.getPropertyName("FILTERS_BUTTON");
+	
 }
