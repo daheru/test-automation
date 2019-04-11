@@ -178,6 +178,17 @@ public class BaseDriver {
 		}
 	}
 
+	public void closeIOSDialog() {
+		driver.executeScript("mobile: alert", ImmutableMap.of("action", "accept", "buttonLabel", "Allow"));
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			logger.error(e.getMessage());
+		} finally {
+			driver.executeScript("mobile: alert", ImmutableMap.of("action", "accept", "buttonLabel", "Allow"));
+		}
+	}
+	
 	public void driverDisconect() {
 		try {
 			Thread.sleep(3000);
@@ -253,6 +264,8 @@ public class BaseDriver {
 	}
 
 	private void initIOS() {
+		caps.setCapability("locationServicesEnabled", true);
+		caps.setCapability("locationServicesAuthorized", true);
 		caps.setCapability(MobileCapabilityType.APP, ConfigConstants.APP);
 	}
 

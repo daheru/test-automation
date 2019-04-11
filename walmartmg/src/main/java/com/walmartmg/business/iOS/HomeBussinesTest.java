@@ -56,14 +56,14 @@ public class HomeBussinesTest extends BaseDriver {
 		waitElementVisibility(NamesMobileElements.HOME_BUSCADOR_0);
 	}
 
-	public void Cp007_Validate_Empty_cart() {
+	public void validate_Empty_cart() {
 		// validacion de carrito de compra Vacio
 		logger.info(" validacion del carrito de compra Vacio");
 		tapOnElement(NamesMobileElements.HOME_BUTTON_ADD_CAR);
 		waitElementVisibility(NamesMobileElements.HOME_NOT_ARTICULO);
 	}
 
-	public void Cp008_Validate_Lightning_Offer_Add_product() {
+	public void validate_Lightning_Offer_Add_product() {
 		// agregar producto
 		logger.info("  agregar producto de Ofertas relampago");
 		waitElementVisibility(NamesMobileElements.HOME_OF1);
@@ -73,22 +73,25 @@ public class HomeBussinesTest extends BaseDriver {
 		tapOnElement(NamesMobileElements.HOME_PRODT);
 		logger.info("se agrega producto de las ofertas relampag");
 		tapOnElement(NamesMobileElements.HOME_AGREGAR_COMPRA);
-		logger.info("/se valida el mensaje del producto agregado/");
+		logger.info("se ¡valida mensaje de agrego producto");
 		waitElementVisibility(NamesMobileElements.HOME_PRODUCT_AGREGADO);
-		logger.info("/se agrgega el mismo producto 2 veces/");
+		waitElementVisibility(NamesMobileElements.HOME_PRODUCT_AGREGADO);
+		logger.info("se agrega el mismo producto 2 veces");
 		tapOnElement(NamesMobileElements.HOME_AGREGAR_MAS_PRODUCTOS);
 		tapOnElement(NamesMobileElements.HOME_AGREGAR_MAS_PRODUCTOS);
+		logger.info(" se valida el  se gundo mensaje se actualizo el producto");
 		waitElementVisibility(NamesMobileElements.HOME_AGREGAR_MAS_PRODUCTOS2);
+		tapOnElement(NamesMobileElements.HOME_AGREGAR_MAS_PRODUCTOS);
+
 	}
 
-	public void Cp009Search_Add_Product(String producto) {
+	public void search_Add_Product(String producto) {
 		logger.info("Validacion de un producto valido");
 		waitElementVisibility(NamesMobileElements.HOME_BUSCADOR);
 		tapOnElement(NamesMobileElements.HOME_BUSCADOR);
 		fillElement(NamesMobileElements.HOME_BUSCADOR, producto + "\n");
 		logger.info("  selecciona prododucto producto");
-		waitElementVisibility(NamesMobileElements.HOME_SELECT_PRODUCTO);
-		tapOnElement(NamesMobileElements.HOME_SELECT_PRODUCTO);
+		tapOnElement(NamesMobileElements.HOME_SELECT);
 		logger.info("se agrega producto ");
 		tapOnElement(NamesMobileElements.HOME_AGREGAR_COMPRA);
 		// logger.info("/se valida el mensaje /");
@@ -97,7 +100,7 @@ public class HomeBussinesTest extends BaseDriver {
 
 	}
 
-	public void Cp011_Remove_product_from_() {
+	public void remove_product_from_() {
 		// agregar producto
 		logger.info(" Selecionar  x producto ");
 		waitElementVisibility(NamesMobileElements.HOME_OF1);
@@ -106,6 +109,7 @@ public class HomeBussinesTest extends BaseDriver {
 		logger.info("  selecciona  producto de interes ");
 		tapOnElement(NamesMobileElements.HOME_PRODT);
 		logger.info(" Agrega  producto al carrito de compras  ");
+		waitElementVisibility(NamesMobileElements.HOME_AGREGAR_COMPRA);
 		tapOnElement(NamesMobileElements.HOME_AGREGAR_COMPRA);
 		logger.info("/se valida el mensaje del producto agregado/");
 		waitElementVisibility(NamesMobileElements.HOME_PRODUCT_AGREGADO);
@@ -120,7 +124,7 @@ public class HomeBussinesTest extends BaseDriver {
 		tapOnElement(NamesMobileElements.HOME_AGREGAR_MENOS_PRODUCTOS);
 	}
 
-	public void Cp010_Increase_product_quantity_from() {
+	public void increase_product_quantity_from() {
 		// agregar producto
 		logger.info(" Selecionar  x producto ");
 		waitElementVisibility(NamesMobileElements.HOME_OF1);
@@ -137,27 +141,29 @@ public class HomeBussinesTest extends BaseDriver {
 		tapOnElement(NamesMobileElements.HOME_AGREGAR_MAS_PRODUCTOS);
 		waitElementVisibility(NamesMobileElements.HOME_AGREGAR_MAS_PRODUCTOS2);
 	}
-	
-	public void CP012_Validate_Cart_with_one_or_several_products_added() {
+
+	public void validate_Cart_with_one_or_several_products_added() {
 		logger.info("  selecciona  producto de interes ");
 		waitElementVisibility(NamesMobileElements.HOME_PRODT);
 		tapOnElement(NamesMobileElements.HOME_PRODT);
 		logger.info(" Agrega  producto al carrito de compras  ");
+		waitElementVisibility(NamesMobileElements.HOME_AGREGAR_COMPRA);
 		tapOnElement(NamesMobileElements.HOME_AGREGAR_COMPRA);
 		logger.info("/se valida el mensaje del producto agregado/");
 		waitElementVisibility(NamesMobileElements.HOME_PRODUCT_AGREGADO);
 		logger.info("/PRODUCTO AGREGADO AL  CARRITO DE COMPRAS /");
 		tapOnElement(NamesMobileElements.HOME_COMPRAS);
-		logger.info("/se valida  BOTTON DE ELIMINAR /");
+		logger.info("/se valida  BOTTON DE ELIMimar /");
 		waitElementVisibility(NamesMobileElements.HOME_BUTTON_ELIMINAR);
 		logger.info("/SE VALIDA EL TOTAL  DE LACOMPRA /");
-		waitElementVisibility(NamesMobileElements.HOME_SUB_TOTAL);	
+		waitElementVisibility(NamesMobileElements.HOME_SUB_TOTAL);
 		logger.info("/se valida el que aparezca el boton de continuar comprando /");
 		waitElementVisibility(NamesMobileElements.HOME_CONTINUAR_COMPRANDO);
 		logger.info("FINALIZANDO CASO DE PRUEBA ");
-		
+
 	}
-	public void CP013Validate_Cart_Remove_product() {
+
+	public void validate_Cart_Remove_product() {
 		logger.info("  selecciona  producto de interes ");
 		waitElementVisibility(NamesMobileElements.HOME_PRODT);
 		tapOnElement(NamesMobileElements.HOME_PRODT);
@@ -172,10 +178,11 @@ public class HomeBussinesTest extends BaseDriver {
 		waitElementVisibility(NamesMobileElements.HOME_BUTTON_ELIMINAR);
 		tapOnElement(NamesMobileElements.HOME_BUTTON_ELIMINAR);
 		logger.info("/se valida que no hay producto en el carrito de compras/");
-		waitElementVisibility(NamesMobileElements.HOME_IMAGEN_CARTARE_ARTICULES);	
-		
+		waitElementVisibility(NamesMobileElements.HOME_IMAGEN_CARTARE_ARTICULES);
+
 	}
-	public void CP014Validate_Cart_Button() {
+
+	public void validate_Cart_Button() {
 		logger.info("  selecciona  producto de interes ");
 		waitElementVisibility(NamesMobileElements.HOME_PRODT);
 		tapOnElement(NamesMobileElements.HOME_PRODT);
@@ -185,7 +192,7 @@ public class HomeBussinesTest extends BaseDriver {
 		waitElementVisibility(NamesMobileElements.HOME_PRODUCT_AGREGADO);
 		logger.info("/PRODUCTO AGREGADO AL  CARRITO DE COMPRAS /");
 		tapOnElement(NamesMobileElements.HOME_COMPRAS);
-		logger.info("/se valida el que aparezca el boton de continuar comprando /");
+		logger.info("/se valida el que aparezca el boton de continuar comprando y se da clicl en el  /");
 		waitElementVisibility(NamesMobileElements.HOME_CONTINUAR_COMPRANDO);
 		tapOnElement(NamesMobileElements.HOME_CONTINUAR_COMPRANDO);
 		logger.info("se valida que salga la pantalla el boton de iniciar sesion  ");

@@ -34,7 +34,7 @@
 			<properties>
 				<platform.name>IOS</platform.name>
 				<platform.version>12.10.4</platform.version>
-				<automation.name>XCUITEst</automation.name>
+				<automation.name>XCUITest</automation.name>
 				<text.attribute>name</text.attribute>
 			</properties>
 		</profile>
