@@ -10,10 +10,18 @@ import com.bodega.business.android.SearchBusinessTest;
 import com.bodega.enums.FiltersEnum;
 import com.bodega.enums.NavigationBarEnum;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Story;
+import io.qameta.allure.junit4.DisplayName;
+
+@Feature("Search Module - No session")
 public class SearchTest {
 
 	private static final Logger logger = Logger.getLogger(SearchTest.class);
-	public static SearchBusinessTest search = new SearchBusinessTest();
+	private static SearchBusinessTest search = new SearchBusinessTest();
 
 	@AfterClass
 	public static void shutDown() {
@@ -33,6 +41,10 @@ public class SearchTest {
 	}
 
 	@Test
+	@DisplayName("Search product")
+	@Severity(SeverityLevel.BLOCKER)
+	@Story("As a user I want to search a product")
+	@Description("Search product usign the search bar")
 	public void CF046_search_product() {
 		logger.info("Iniciando caso de prueba: Search product");
 		search.searchProduct("Celulares");
@@ -41,6 +53,10 @@ public class SearchTest {
 	}
 
 	@Test
+	@DisplayName("Search unexist product")
+	@Severity(SeverityLevel.BLOCKER)
+	@Story("As a user I want to search a product")
+	@Description("Search an unexist product usign the search bar")
 	public void CF000_search_unexist_product() {
 		logger.info("Iniciando caso de prueba: Search unexist product");
 		search.searchProduct("Pan");
@@ -49,6 +65,10 @@ public class SearchTest {
 	}
 
 	@Test
+	@DisplayName("Search product by A-Z filter")
+	@Severity(SeverityLevel.CRITICAL)
+	@Story("As a user I want to search a product")
+	@Description("Search product usign A-Z filter")
 	public void CF047_search_by_A_Z_filter() {
 		logger.info("Iniciando caso de prueba: Search by A-Z");
 		search.selectNavigation(NavigationBarEnum.DEPARTMENTS.getNavigation());
@@ -62,6 +82,10 @@ public class SearchTest {
 	}
 
 	@Test
+	@DisplayName("Search product by Z-A filter")
+	@Severity(SeverityLevel.CRITICAL)
+	@Story("As a user I want to search a product")
+	@Description("Search product usign Z-A filter")
 	public void CF048_search_by_Z_A_filter() {
 		logger.info("Iniciando caso de prueba: Search by Z-A");
 		search.selectNavigation(NavigationBarEnum.DEPARTMENTS.getNavigation());
@@ -75,6 +99,10 @@ public class SearchTest {
 	}
 
 	@Test
+	@DisplayName("Search product by minnor price filter")
+	@Severity(SeverityLevel.CRITICAL)
+	@Story("As a user I want to search a product")
+	@Description("Search product usign minnor price filter")
 	public void CF049_search_by_minnor_price_filter() {
 		logger.info("Iniciando caso de prueba: Search by minnor price");
 		search.selectNavigation(NavigationBarEnum.DEPARTMENTS.getNavigation());
@@ -88,6 +116,10 @@ public class SearchTest {
 	}
 
 	@Test
+	@DisplayName("Search product by higher price filter")
+	@Severity(SeverityLevel.CRITICAL)
+	@Story("As a user I want to search a product")
+	@Description("Search product usign higher price filter")
 	public void CF050_search_by_higher_price_filter() {
 		logger.info("Iniciando caso de prueba: Search by higher price");
 		search.selectNavigation(NavigationBarEnum.DEPARTMENTS.getNavigation());
@@ -101,6 +133,10 @@ public class SearchTest {
 	}
 
 	@Test
+	@DisplayName("Search product by popular filter")
+	@Severity(SeverityLevel.CRITICAL)
+	@Story("As a user I want to search a product")
+	@Description("Search product usign popular filter")
 	public void CF051_search_by_popular_filter() {
 		search.selectNavigation(NavigationBarEnum.DEPARTMENTS.getNavigation());
 		search.searchProduct("Computadora");
@@ -113,6 +149,10 @@ public class SearchTest {
 	}
 
 	@Test
+	@DisplayName("Search product by subcategory filter")
+	@Severity(SeverityLevel.CRITICAL)
+	@Story("As a user I want to search a product")
+	@Description("Search product usign subcategory filter")
 	public void CF000_search_by_subcategory_filter() {
 		search.selectNavigation(NavigationBarEnum.DEPARTMENTS.getNavigation());
 		search.searchProduct("Computadora");

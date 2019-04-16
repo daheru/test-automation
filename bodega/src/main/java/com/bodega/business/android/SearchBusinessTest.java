@@ -9,6 +9,7 @@ import com.bodega.constants.NamesMobileElements;
 import com.bodega.enums.FiltersEnum;
 
 import io.appium.java_client.MobileElement;
+import io.qameta.allure.Step;
 
 public class SearchBusinessTest extends BaseDriver {
 
@@ -37,6 +38,7 @@ public class SearchBusinessTest extends BaseDriver {
 		login.login(email, password);
 	}
 
+	@Step("Validate search")
 	public void validateSearch() {
 		waitElementVisibility(NamesMobileElements.SEARCH_PRODUCT_LIST);
 		if (!filterSelected.isEmpty()) {
@@ -67,11 +69,13 @@ public class SearchBusinessTest extends BaseDriver {
 		logger.info("Validando lista de productos");
 	}
 
+	@Step("Validate no results page")
 	public void validateNoResults() {
 		waitElementVisibility( NamesMobileElements.SEARCH_NO_PRODUCT_LABEL );
 		waitElementVisibility( NamesMobileElements.SEARCH_NO_PRODUCT_ICON );
 	}
 	
+	@Step("Search product {product}")
 	public void searchProduct(String product) {
 		logger.info("Buscando producto");
 		waitElementVisibility(NamesMobileElements.HOME_SEARCH_BAR);
@@ -80,12 +84,14 @@ public class SearchBusinessTest extends BaseDriver {
 		searchOnAndroid();
 	}
 
+	@Step("Tap on filter")
 	public void tapOnFilter() {
 		logger.info("Seleccionado Filtro");
 		waitElementVisibility(NamesMobileElements.SEARCH_PRODUCT_LIST);
 		tapOnElement(NamesMobileElements.SEARCH_FILTER_BUTTON);
 	}
 
+	@Step("Tap filter {filters}")
 	public void selectFilter(String... filters) {
 		logger.info("Aplicando filtros");
 		waitElementVisibility( NamesMobileElements.FILTER_LIST_CATEGORY);
@@ -97,12 +103,14 @@ public class SearchBusinessTest extends BaseDriver {
 		}
 	}
 
+	@Step("Apply filter")
 	public void applyFilter() {
 		logger.info("Buscando productos");
 		waitElementVisibility(NamesMobileElements.FILTER_APPLY_BUTTON);
 		tapOnElement(NamesMobileElements.FILTER_APPLY_BUTTON);
 	}
 	
+	@Step("Tap on subcategory")
 	public void selectSubCategory() {
 		logger.info("Seleccionando sub categoria");
 		waitElementVisibility( NamesMobileElements.FILTER_LIST_CATEGORY);

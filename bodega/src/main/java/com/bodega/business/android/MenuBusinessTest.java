@@ -10,7 +10,7 @@ import com.bodega.constants.AppMessages;
 import com.bodega.constants.ConfigConstants;
 import com.bodega.constants.GeneralConstants;
 import com.bodega.constants.NamesMobileElements;
-import com.bodega.enums.MenuOptionsEnum;
+import com.bodega.enums.ProfileMenuEnum;
 import com.bodega.enums.MenusEnum;
 import com.bodega.vo.AddressVO;
 
@@ -128,6 +128,8 @@ public class MenuBusinessTest extends BaseDriver {
 			fillElement(NamesMobileElements.ADDRESS_NAME_TEXT, addressVO.getAddressName());
 			scrollUntilShowElement(GeneralConstants.SCROLL_UP, NamesMobileElements.ADDRESS_SAVE_BUTTON);
 			fillElement(NamesMobileElements.ADDRESS_PHONE_TEXT, addressVO.getAddressPhone());
+		} else {
+			assertTrue("No hay direcciones que editar", Boolean.FALSE);
 		}
 		logger.info("Editando direccion");
 	}
@@ -214,7 +216,7 @@ public class MenuBusinessTest extends BaseDriver {
 
 	public void validateLogout() {
 		selectProfile();
-		selectMenu(MenuOptionsEnum.LOGIN.getMenu());
+		selectMenu(ProfileMenuEnum.LOGIN.getMenu());
 		assertTrue("El elemento no existe", elementExist(NamesMobileElements.LOGIN_LOGIN_BUTTON));
 		logger.info("Elemento válido");
 	}

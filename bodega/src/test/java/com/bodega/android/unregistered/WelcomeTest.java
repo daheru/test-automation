@@ -6,14 +6,21 @@ import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.bodega.android.registered.LoginTest;
 import com.bodega.business.android.WelcomeBusinessTest;
 import com.bodega.constants.GeneralConstants;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Story;
+import io.qameta.allure.junit4.DisplayName;
+
+@Feature("Welcome Module")
 public class WelcomeTest {
 	
-	private static final Logger logger = Logger.getLogger( LoginTest.class );
-	public static WelcomeBusinessTest welcome = new WelcomeBusinessTest();
+	private static final Logger logger = Logger.getLogger( WelcomeTest.class );
+	private static WelcomeBusinessTest welcome = new WelcomeBusinessTest();
 	
 	@AfterClass
 	public static void shutDown() {
@@ -31,6 +38,10 @@ public class WelcomeTest {
 	}
 	
 	@Test
+	@DisplayName("Login from Mama Lucha page")
+	@Severity(SeverityLevel.CRITICAL)
+	@Story("As a user I use the app first time")
+	@Description("Login in the app using login button")
 	public void CF001_login_first_time() {
 		logger.info("Iniciando caso de prueba: Login first time");
 		welcome.loginWelcomePage();
@@ -40,6 +51,10 @@ public class WelcomeTest {
 	}
 	
 	@Test
+	@DisplayName("Create account from Mama Lucha page")
+	@Severity(SeverityLevel.CRITICAL)
+	@Story("As a user I use the app first time")
+	@Description("Create an account in the app using create account button")
 	public void CF002_create_account_first_time() {
 		logger.info("Iniciando caso de prueba: Create account first time");
 		welcome.createAccountWelcomePage();
@@ -47,6 +62,10 @@ public class WelcomeTest {
 	}
 	
 	@Test
+	@DisplayName("Init as a guess")
+	@Severity(SeverityLevel.BLOCKER)
+	@Story("As a user I use the app first time")
+	@Description("Init as a guess in the app using Continuar como invitado link")
 	public void CF003_init_as_a_guess() {
 		logger.info("Iniciando caso de prueba: Iniciar como invitado");
 		welcome.initAsGuess();

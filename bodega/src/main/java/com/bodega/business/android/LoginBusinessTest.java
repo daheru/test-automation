@@ -5,34 +5,32 @@ import org.apache.log4j.Logger;
 import com.bodega.base.BaseDriver;
 import com.bodega.constants.AppMessages;
 import com.bodega.constants.NamesMobileElements;
-import com.bodega.enums.MenuOptionsEnum;
+import com.bodega.enums.ProfileMenuEnum;
 
 import io.appium.java_client.MobileElement;
+import io.qameta.allure.Step;
 
 public class LoginBusinessTest extends BaseDriver {
 
 	private static final Logger logger = Logger.getLogger(LoginBusinessTest.class);
 	private GeneralBusinessTest generalBusinessTest = new GeneralBusinessTest();
 	private HomeBusinessTest homePage = new HomeBusinessTest();
-	private String email = "";
-	private String password = "";
-
-	public LoginBusinessTest() {
-		cleanData();
-	}
+	private static String email = "";
+	private static String password = "";
 
 	public void selectProfile() {
 		generalBusinessTest.selectProfile();
 	}
 
 	public void selectLoginOption() {
-		generalBusinessTest.selectMenuOption(MenuOptionsEnum.LOGIN.getMenu());
+		generalBusinessTest.selectMenuOption(ProfileMenuEnum.LOGIN.getMenu());
 	}
 
 	public void initAsGuess() {
 		generalBusinessTest.initAsGuess();
 	}
 
+	@Step("User write email {email} and password {pass}")
 	public void login(String email, String pass) {
 		this.email = email;
 		this.password = pass;
@@ -42,26 +40,32 @@ public class LoginBusinessTest extends BaseDriver {
 		logger.info("Escribiendo email y password");
 	}
 
+	@Step("User write email password {pass}")
 	public void fillPassword(String pass) {
 		this.password = pass;
 		fillElement(NamesMobileElements.LOGIN_PASS_TEXT, pass);
 		logger.info("Escribiendo password");
 	}
 
+	@Step("Validate login")
 	public void validateLogin() {
 		generalBusinessTest.selectProfile();
-		generalBusinessTest.selectMenuOption(MenuOptionsEnum.PROFILE.getMenu());
+		generalBusinessTest.selectMenuOption(ProfileMenuEnum.PROFILE.getMenu());
+		waitElementVisibility(NamesMobileElements.PROFILE_EMAIL);
 		MobileElement profileEmail = findElement(NamesMobileElements.PROFILE_EMAIL);
+		logger.info("EMAIL: " + getElementText(profileEmail));
 		assertEquals(getElementText(profileEmail), email);
 		cleanData();
 		logger.info("Login válido");
 	}
 
+	@Step("Tap on create account")
 	public void selectCreateAccount() {
 		tapOnElement(NamesMobileElements.LOGIN_CREATE_LINK);
 		logger.info("Tap en Registrarse");
 	}
 
+	@Step("Create account with data: {name}, {lastName}, {email}, {pass}")
 	public void createAccount(String name, String lastName, String email, String pass) {
 		fillElement(NamesMobileElements.REG_NAME_TEXT, name);
 		fillElement(NamesMobileElements.REG_LAST_NAME_TEXT, lastName);
@@ -70,7 +74,8 @@ public class LoginBusinessTest extends BaseDriver {
 		// tapOnElement( NamesMobileElements.REG_CREATE_BUTTON );
 		logger.info("Escribiendo nombre, apellido, correo y password");
 	}
-
+	
+	@Step("Validate register page")
 	public void validateRegisterPage() {
 		waitElementVisibility(NamesMobileElements.REG_NAME_TEXT);
 		waitElementVisibility(NamesMobileElements.REG_LAST_NAME_TEXT);
@@ -82,6 +87,7 @@ public class LoginBusinessTest extends BaseDriver {
 		logger.info("Página válida");
 	}
 
+	@Step("Tap on ¿Olvidaste tu contraseña?")
 	public void selectPassRecovery(String email) {
 		fillElement(NamesMobileElements.LOGIN_EMAIL_TEXT, email);
 		logger.info("Escribiendo correo");
@@ -103,12 +109,14 @@ public class LoginBusinessTest extends BaseDriver {
 		homePage.validateHomePage();
 		logger.info("Página válida");
 	}
-
+	
+	@Step("Tap on show password")
 	public void selectShowPassword() {
 		tapOnElement(NamesMobileElements.LOGIN_SHOW_PASS_BUTTON);
 		logger.info("Tap en mostrar password");
 	}
 
+	@Step("Validate password")
 	public void validatePassword() {
 		assertEquals(password, getElementText(NamesMobileElements.LOGIN_PASS_TEXT));
 		logger.info("Password valido");

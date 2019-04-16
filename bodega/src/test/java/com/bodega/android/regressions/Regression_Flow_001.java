@@ -12,11 +12,18 @@ import com.bodega.business.android.GeneralBusinessTest;
 import com.bodega.business.android.LoginBusinessTest;
 import com.bodega.business.android.ProductBusinessTest;
 import com.bodega.business.android.SearchBusinessTest;
-import com.bodega.business.android.SpecialProductBusinessTest;
 import com.bodega.constants.AppMessages;
+import com.bodega.constants.GeneralConstants;
 import com.bodega.enums.FiltersEnum;
 import com.bodega.enums.NavigationBarEnum;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.junit4.DisplayName;
+
+@Feature("Regression Flows")
 public class Regression_Flow_001 {
 
 	private static final Logger logger = Logger.getLogger(Regression_Flow_001.class);
@@ -26,7 +33,6 @@ public class Regression_Flow_001 {
 	private SearchBusinessTest search = new SearchBusinessTest();
 	private DepartmentsBusinessTest departments = new DepartmentsBusinessTest();
 	private CarBusinessTest car = new CarBusinessTest();
-	private SpecialProductBusinessTest special = new SpecialProductBusinessTest();
 	
 	@AfterClass
 	public static void shutDown() {
@@ -46,6 +52,9 @@ public class Regression_Flow_001 {
 	}
 
 	@Test
+	@DisplayName("Regression Flow 1")
+	@Severity(SeverityLevel.CRITICAL)
+	@Description("Regression Flow using diffent functionality")
 	public void regresion_flow_001() {
 		logger.info("Iniciando prueba de regresion");
 		search.searchProduct("Videojuegos");
@@ -67,17 +76,11 @@ public class Regression_Flow_001 {
 		departments.applyFilter();
 		product.selectProduct();
 		product.addProduct();
-		//general.goBack();
-		//general.goBack();
-		//general.goBack();
-		//search.searchProduct("Motocicletas");
-		//product.selectProduct();
-		//special.validateSpecialProduct();
 		car.selectCar();
 		car.selectContinueBuying();
 		login.login("fake_mail@hotmail.es", "12345678");
 		login.validatePopUpMessage( AppMessages.ACCOUNT_UNEXIST_EMAIL );
-		login.login("correo_test@hotmail.es", "Juan#123");
+		login.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
 		logger.info("Prueba de regresion finalizada");
 	}
 }

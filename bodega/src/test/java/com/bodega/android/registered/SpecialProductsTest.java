@@ -8,9 +8,18 @@ import org.junit.Test;
 
 import com.bodega.business.android.SpecialProductBusinessTest;
 import com.bodega.constants.GeneralConstants;
-import com.bodega.enums.MenuOptionsEnum;
+import com.bodega.enums.ProfileMenuEnum;
+
+import io.qameta.allure.Description;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Story;
+import io.qameta.allure.junit4.DisplayName;
+
 import com.bodega.enums.NavigationBarEnum;
 
+@Feature("Speacial Product Module - Session")
 public class SpecialProductsTest {
 	
 	private static final Logger logger = Logger.getLogger(SpecialProductsTest.class);
@@ -33,10 +42,14 @@ public class SpecialProductsTest {
 	}
 	
 	@Test
+	@DisplayName("Add special product")
+	@Severity(SeverityLevel.BLOCKER)
+	@Story("As a user I want to add a special product to car")
+	@Description("Try to add a special product to car")
 	public void CF041_add_special_product() {
 		logger.info("===> Iniciando caso de prueba: Add special product");
 		special.selectProfile();
-		special.selectMenu( MenuOptionsEnum.LOGIN.getMenu() );
+		special.selectMenu( ProfileMenuEnum.LOGIN.getMenu() );
 		special.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
 		special.selectNavigation( NavigationBarEnum.CAR.getNavigation() );
 		special.deleteProducts();
@@ -49,10 +62,14 @@ public class SpecialProductsTest {
 	}
 	
 	@Test
+	@DisplayName("Add special product and normal product")
+	@Severity(SeverityLevel.BLOCKER)
+	@Story("As a user I want to add a special product and normal product to car")
+	@Description("Try to add a special product to car")
 	public void CF042_add_special_product_and_normal_product() {
 		logger.info("===> Iniciando caso de prueba: Add special product and normal product");
 		special.selectProfile();
-		special.selectMenu( MenuOptionsEnum.LOGIN.getMenu() );
+		special.selectMenu( ProfileMenuEnum.LOGIN.getMenu() );
 		special.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
 		special.selectNavigation( NavigationBarEnum.CAR.getNavigation() );
 		special.deleteProducts();
@@ -70,10 +87,14 @@ public class SpecialProductsTest {
 	}
 	
 	@Test
+	@DisplayName("Add normal product and special product")
+	@Severity(SeverityLevel.CRITICAL)
+	@Story("As a user I want to add a special product to car")
+	@Description("Try to add a normal product and special product to car")
 	public void CF043_add_normal_product_and_special_product() {
 		logger.info("===> Iniciando caso de prueba: Add normal product and special product");
 		special.selectProfile();
-		special.selectMenu( MenuOptionsEnum.LOGIN.getMenu() );
+		special.selectMenu( ProfileMenuEnum.LOGIN.getMenu() );
 		special.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
 		special.selectNavigation( NavigationBarEnum.CAR.getNavigation() );
 		special.deleteProducts();
@@ -91,10 +112,14 @@ public class SpecialProductsTest {
 	}
 	
 	@Test
+	@DisplayName("Add presale product")
+	@Severity(SeverityLevel.CRITICAL)
+	@Story("As a user I want to add a special product to car")
+	@Description("Try to add a presale product to car")
 	public void CF04r_add_presale_product() {
 		logger.info("===> Iniciando caso de prueba: Add presale product");
 		special.selectProfile();
-		special.selectMenu( MenuOptionsEnum.LOGIN.getMenu() );
+		special.selectMenu( ProfileMenuEnum.LOGIN.getMenu() );
 		special.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
 		special.selectNavigation( NavigationBarEnum.CAR.getNavigation() );
 		special.deleteProducts();

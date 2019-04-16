@@ -1,6 +1,6 @@
 package com.bodega.enums;
 
-public enum MenuOptionsEnum {
+public enum ProfileMenuEnum {
 	
 	LOGIN("iniciar"),
 	CREATE_PROFILE("crear"),
@@ -16,7 +16,7 @@ public enum MenuOptionsEnum {
 	
 	private String menu;
 	
-	MenuOptionsEnum(String menu) {
+	ProfileMenuEnum(String menu) {
 		this.menu = menu;
 	}
 	

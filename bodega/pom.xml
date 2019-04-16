@@ -17,19 +17,35 @@
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 		<maven.compiler.source>1.7</maven.compiler.source>
 		<maven.compiler.target>1.7</maven.compiler.target>
+		<!-- Alliure properties -->
+		<aspectj.version>1.8.10</aspectj.version>
 	</properties>
 
 	<profiles>
 		<profile>
 			<id>android</id>
 			<properties>
+				<device.name>Mobile_Test</device.name>
+				<device.udid>3300ce9aca6fb337</device.udid>
+				<platform.name>Android</platform.name>
+				<platform.version>9.0</platform.version>
+				<automation.name>UIAutomator2</automation.name>
 				<text.attribute>text</text.attribute>
+				<app.package>com.mx.walmart.bodega</app.package>
+				<app.activity>com.mx.walmart.bodega.SplashActivity</app.activity>
+				<app.version>Version 1.0.0</app.version>
 			</properties>
 		</profile>
 		<profile>
 			<id>ios</id>
 			<properties>
+				<device.name>IOS_Mobile_Test</device.name>
+				<device.udid>0000</device.udid>
+				<platform.name>IOS</platform.name>
+				<platform.version>12.10.4</platform.version>
+				<automation.name>XCUITEst</automation.name>
 				<text.attribute>name</text.attribute>
+				<app.version>1.0.0</app.version>
 			</properties>
 		</profile>
 	</profiles>
@@ -55,11 +71,28 @@
 			<version>7.0.0</version>
 		</dependency>
 
-		<!-- https://mvnrepository.com/artifact/log4j/log4j -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>1.7.25</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-log4j12</artifactId>
+			<version>1.7.25</version>
+		</dependency>
+
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
 			<version>1.2.17</version>
+		</dependency>
+
+		<dependency>
+			<groupId>io.qameta.allure</groupId>
+			<artifactId>allure-junit4</artifactId>
+			<version>2.9.0</version>
 		</dependency>
 	</dependencies>
 
@@ -70,5 +103,46 @@
 				<directory>src/main/resources</directory>
 			</resource>
 		</resources>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-surefire-plugin</artifactId>
+				<version>3.0.0-M3</version>
+				<configuration>
+					<reportVersion>2.7.0</reportVersion>
+					<systemPropertyVariables>
+						<allure.results.directory>${project.build.directory}/allure-results</allure.results.directory>
+						<allure.link.issue.pattern>https://example.org/browse/{}</allure.link.issue.pattern>
+						<allure.link.tms.pattern>https://example.org/browse/{}</allure.link.tms.pattern>
+					</systemPropertyVariables>
+					<testFailureIgnore>false</testFailureIgnore>
+					<argLine>
+						-javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+					</argLine>
+					<properties>
+						<property>
+							<name>listener</name>
+							<value>io.qameta.allure.junit4.AllureJunit4</value>
+						</property>
+					</properties>
+					<!-- Allure < 2.7.0 (default value): download from Bintray -->
+					<allureDownloadUrl>https://dl.bintray.com/qameta/generic/io/qameta/allure/allure/%s/allure-%s.zip</allureDownloadUrl>
+					<reportDirectory>allure-report</reportDirectory>
+				</configuration>
+				<dependencies>
+					<dependency>
+						<groupId>org.aspectj</groupId>
+						<artifactId>aspectjweaver</artifactId>
+						<version>${aspectj.version}</version>
+					</dependency>
+				</dependencies>
+			</plugin>
+			<plugin>
+				<groupId>io.qameta.allure</groupId>
+				<artifactId>allure-maven</artifactId>
+				<version>2.9</version>
+			</plugin>
+		</plugins>
 	</build>
+
 </project>

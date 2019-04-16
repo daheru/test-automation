@@ -10,8 +10,16 @@ import org.junit.Test;
 import com.bodega.business.android.GeneralBusinessTest;
 import com.bodega.business.android.MyprofileBusinessTest;
 import com.bodega.constants.GeneralConstants;
-import com.bodega.enums.MenuOptionsEnum;
+import com.bodega.enums.ProfileMenuEnum;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Story;
+import io.qameta.allure.junit4.DisplayName;
+
+@Feature("My Profile Module - Session")
 public class MyprofileTest {
 
 	public static final Logger logger = Logger.getLogger(MyprofileBusinessTest.class);
@@ -41,49 +49,65 @@ public class MyprofileTest {
 	}
 
 	@Test
+	@DisplayName("Edit my profile")
+	@Severity(SeverityLevel.BLOCKER)
+	@Story("As a user I want to manage my profile information")
+	@Description("Edit user´s profile information")
 	public void CF009_edit_myprofile() {
 		logger.info("Iniciando caso de prueba: Update my profile data");
 		myprofile.selectProfile();
-		myprofile.selectMenu(MenuOptionsEnum.LOGIN.getMenu());
+		myprofile.selectMenu(ProfileMenuEnum.LOGIN.getMenu());
 		myprofile.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
 		myprofile.selectProfile();
-		myprofile.selectMenu(MenuOptionsEnum.PROFILE.getMenu());
+		myprofile.selectMenu(ProfileMenuEnum.PROFILE.getMenu());
 		myprofile.editProfile("Ramiro", "Duarte", "01011995", "H");
 		myprofile.saveProfile();
 	}
 	
 	@Test
+	@DisplayName("Edit my password")
+	@Severity(SeverityLevel.BLOCKER)
+	@Story("As a user I want to manage my profile information")
+	@Description("Edit user´s password")
 	public void CF010_edit_mypassword() {
 		logger.info("Iniciando caso de prueba: PassWord my profile data");
 		myprofile.selectProfile();
-		myprofile.selectMenu(MenuOptionsEnum.LOGIN.getMenu());
+		myprofile.selectMenu(ProfileMenuEnum.LOGIN.getMenu());
 		myprofile.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
 		myprofile.selectProfile();
-		myprofile.selectMenu(MenuOptionsEnum.PROFILE.getMenu());
+		myprofile.selectMenu(ProfileMenuEnum.PROFILE.getMenu());
 		myprofile.editPassword("Edominguez#1234", "Edominguez#1235");
 		myprofile.savePassword();
 	}
 
 	@Test
+	@DisplayName("Edit phone")
+	@Severity(SeverityLevel.BLOCKER)
+	@Story("As a user I want to manage my profile information")
+	@Description("Edit user´s phone")
 	public void CF011_edit_phone () {
 		logger.info("Iniciando caso de prueba: Phone my profile data");
 		myprofile.selectProfile();
-		myprofile.selectMenu(MenuOptionsEnum.LOGIN.getMenu());
+		myprofile.selectMenu(ProfileMenuEnum.LOGIN.getMenu());
 		myprofile.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
 		myprofile.selectProfile();
-		myprofile.selectMenu(MenuOptionsEnum.PROFILE.getMenu());
+		myprofile.selectMenu(ProfileMenuEnum.PROFILE.getMenu());
 		myprofile.editPhone("5573137390", "5556136545"); 
 		myprofile.savePhone(); 
 	}
 	
 	@Test
+	@DisplayName("Edit secondaty phone")
+	@Severity(SeverityLevel.CRITICAL)
+	@Story("As a user I want to manage my profile information")
+	@Description("Edit user´s secondaty phone")
 	public void CF011_edit_phone_secondary () {
 		logger.info("Iniciando caso de prueba: Phone_secundary my profile data");
 		myprofile.selectProfile();
-		myprofile.selectMenu(MenuOptionsEnum.LOGIN.getMenu());
+		myprofile.selectMenu(ProfileMenuEnum.LOGIN.getMenu());
 		myprofile.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
 		myprofile.selectProfile();
-		myprofile.selectMenu(MenuOptionsEnum.PROFILE.getMenu());
+		myprofile.selectMenu(ProfileMenuEnum.PROFILE.getMenu());
 		myprofile.editPhone_Secundary("5573137385"); 
 		myprofile.savePhone_Secundary();
 	}

@@ -9,11 +9,19 @@ import org.junit.Test;
 import com.bodega.business.android.GeneralBusinessTest;
 import com.bodega.business.android.HomeBusinessTest;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Story;
+import io.qameta.allure.junit4.DisplayName;
+
+@Feature("Home Module - Session")
 public class HomeTest {
 
-	public static final Logger logger = Logger.getLogger( HomeBusinessTest.class );
-	public static HomeBusinessTest home = new HomeBusinessTest();
-	public static GeneralBusinessTest general = new GeneralBusinessTest();
+	private static final Logger logger = Logger.getLogger( HomeBusinessTest.class );
+	private static HomeBusinessTest home = new HomeBusinessTest();
+	private static GeneralBusinessTest general = new GeneralBusinessTest();
 	
 	@AfterClass
 	public static void shutDown() {
@@ -32,7 +40,12 @@ public class HomeTest {
 	}
 	
 	@Test
+	@DisplayName("Validate home page")
+	@Severity(SeverityLevel.CRITICAL)
+	@Story("As a user I want to see home page")
+	@Description("Validate that home page has all elements")
 	public void CF005_validate_home_page() {
+		logger.info("Validando home");
 		home.selectHomeOption();
 		home.validateHomePage();
 	}

@@ -14,7 +14,7 @@ public class SpecialProductBusinessTest extends BaseDriver {
 	private GeneralBusinessTest general = new GeneralBusinessTest();
 	private ProductBusinessTest product = new ProductBusinessTest();
 	private SearchBusinessTest search = new SearchBusinessTest();
-	private CarBusinessTest car = new CarBusinessTest();
+	private CarBusinessTest car = new CarBusinessTest();	
 
 	public void validateWelcomePage() {
 		general.validateWelcomePage();
@@ -56,6 +56,7 @@ public class SpecialProductBusinessTest extends BaseDriver {
 			waitElementVisibility(NamesMobileElements.CAR_DIALOG_CONFIRM);
 			tapOnElement(NamesMobileElements.CAR_DIALOG_CONFIRM);
 		}
+		cleanCar();
 		goBack();
 	}
 
@@ -71,11 +72,20 @@ public class SpecialProductBusinessTest extends BaseDriver {
 		car.validateCar();
 	}
 
+	public void validateSpecialProductCar() {
+		assertEquals(1, car.getUpcs().size());
+	}
+	
 	public void validateSpecialProduct() {
 		logger.info("Validando mensaje");
 		waitElementVisibility(NamesMobileElements.PRODUCT_DETAIL_CONT);
 		scrollUntilShowElement(GeneralConstants.SCROLL_UP, NamesMobileElements.PRODUCT_ADD_BUTTON);
 		tapOnElement(NamesMobileElements.PRODUCT_ADD_BUTTON);
 		general.validatePopUpMessages(AppMessages.SPECIAL_PRODUCT_VALIDATION);
+		validateSpecialProductCar();
+	}
+	
+	private void cleanCar() {
+		car.getUpcs().clear();
 	}
 }

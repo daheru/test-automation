@@ -14,11 +14,13 @@ import com.bodega.enums.MenusEnum;
 import com.bodega.enums.NavigationBarEnum;
 
 import io.appium.java_client.MobileElement;
+import io.qameta.allure.Step;
 
 public class GeneralBusinessTest extends BaseDriver {
 
 	private static final Logger logger = Logger.getLogger(GeneralBusinessTest.class.getName());
 
+	@Step("Tap on navigation option {navOption}")
 	public void selectNavigationOption(int navOption) {
 		waitElementVisibility(NamesMobileElements.NAV_BAR);
 		MobileElement navigationElement = null;
@@ -38,7 +40,9 @@ public class GeneralBusinessTest extends BaseDriver {
 		navigationElement.click();
 	}
 
+	@Step("Tap on menu option {menuOptionEnum}")
 	public void selectMenuOption(String menuOptionEnum) {
+		logger.info("Seleccionando la opcion: " + menuOptionEnum);
 		waitElementVisibility(NamesMobileElements.MENU_NAME);
 		List<MobileElement> menuList = findElements(NamesMobileElements.MENU_NAME);
 		assertTrue("El elemento no existe", menuList.size() > 0);
@@ -46,8 +50,8 @@ public class GeneralBusinessTest extends BaseDriver {
 		int exit = 0;
 		do {
 			for (MobileElement element : menuList) {
-				if (element.getAttribute(ConfigConstants.ATTRIBUTE_TEXT).toLowerCase().contains(menuOptionEnum)) {
-					element.click();
+				if (getElementText(element).contains(menuOptionEnum)) {
+					tapOnElement(element);
 					clicMenu = true;
 					break;
 				}
@@ -59,45 +63,50 @@ public class GeneralBusinessTest extends BaseDriver {
 			}
 			validateMenuExist(exit);
 		} while (!clicMenu);
-		logger.info("Seleccionando la opcion: " + menuOptionEnum);
 	}
 
+	@Step("Scroll screen")
 	public void scrollScreen(int scrollType) {
+		logger.info("Realizando Scroll");
 		if (GeneralConstants.SCROLL_UP == scrollType) {
 			tapUp();
 		} else {
 			tapDown();
 		}
-		logger.info("Realizando Scroll");
 	}
 
+	@Step("Validate error field messages")
 	public void validateFieldErrorMessage(String errorAppMessage, String fieldCont) {
 		List<MobileElement> errors = findSubElements(findElement(fieldCont), NamesMobileElements.ERROR_TEXT_FIELD);
 		if (errors.size() > 0) {
 			assertEquals(errorAppMessage.toLowerCase(), getElementText(errors.get(0)));
 		} else {
-			logger.info("No se encontraron mensajes de error");
+			logger.error("No se encontraron mensajes de error para: " + fieldCont);
 			Assert.fail();
 		}
 	}
 
+	@Step("Tap on Back")
 	public void goBack() {
+		logger.info("Seleccionando regresar");
 		waitElementVisibility(NamesMobileElements.BACK_BUTTON);
 		tapOnElement(NamesMobileElements.BACK_BUTTON);
-		logger.info("Tap en regresar");
 	}
 
+	@Step("Tap on profile option")
 	public void selectProfile() {
+		logger.info("Seleccionando perfil");
 		waitElementVisibility(NamesMobileElements.HOME_PROFILE);
 		tapOnElement(NamesMobileElements.HOME_PROFILE);
-		logger.info("Tap en perfil");
 	}
 
+	@Step("Tap on continuar como invitado")
 	public void initAsGuess() {
 		waitElementVisibility(NamesMobileElements.WELCOME_LINK_GUESS);
 		tapOnElement(NamesMobileElements.WELCOME_LINK_GUESS);
 	}
 
+	@Step("Validate popup message")
 	public void validatePopUpMessages(String message) {
 		try {
 			List<MobileElement> messageElement = findElements(NamesMobileElements.POPUP_TEXT_MESSAGE);
@@ -112,13 +121,17 @@ public class GeneralBusinessTest extends BaseDriver {
 
 	}
 
+	@Step("Validate Mama Lucha page")
 	public void validateWelcomePage() {
+		logger.info("Validando Welcome Page");
 		if (elementExist(NamesMobileElements.WELCOME_MAMA_LUCHA)) {
 			tapOnElement(NamesMobileElements.WELCOME_LINK_GUESS);
 		}
 	}
 
+	@Step("Validate menu and submenu")
 	public void valitateMenuAndSubMenus(MenusEnum menusEnum) {
+		logger.info("Seleccionando la opcion: " + menusEnum.getMenu());
 		List<MobileElement> terms = findElements(NamesMobileElements.LEGALS_ITEM);
 		Assert.assertTrue("El elemento móvil no existe", terms.size() > 0);
 		boolean clicMenu = false;
@@ -141,7 +154,6 @@ public class GeneralBusinessTest extends BaseDriver {
 			}
 			validateMenuExist(exit);
 		} while (!clicMenu);
-		logger.info("Seleccionando la opcion: " + menusEnum.getMenu());
 	}
 
 	private void validateSubTerm(String[] subTermsEnum) {

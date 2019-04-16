@@ -3,3 +3,5 @@ bodega/target/
 *.classpath
 *.project
 bodega/bin
+/bodega/.allure/*
+bodega/allure-results/*

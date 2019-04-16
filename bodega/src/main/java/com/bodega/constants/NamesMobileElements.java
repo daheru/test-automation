@@ -196,4 +196,15 @@ public final class NamesMobileElements {
 	public static final String CAR_DIALOG_CANCEL = PropertiesValuesUtil.getPropertyName ("CAR_DIALOG_CANCEL");
 	public static final String CAR_BUY_BUTTON = PropertiesValuesUtil.getPropertyName ("CAR_BUY_BUTTON");
 	
+	public static final String ACCOUNT_NAME_CONT = PropertiesValuesUtil.getPropertyName("ACCOUNT_NAME_CONT");
+	public static final String ACCOUNT_NAME_TEXT = PropertiesValuesUtil.getPropertyName("ACCOUNT_NAME_TEXT");
+	public static final String ACCOUNT_LASTNAME_CONT = PropertiesValuesUtil.getPropertyName("ACCOUNT_LASTNAME_CONT");
+	public static final String ACCOUNT_LASTNAME_TEXT = PropertiesValuesUtil.getPropertyName("ACCOUNT_LASTNAME_TEXT");
+	public static final String ACCOUNT_EMAIL_CONT = PropertiesValuesUtil.getPropertyName("ACCOUNT_EMAIL_CONT");
+	public static final String ACCOUNT_EMAIL_TEXT = PropertiesValuesUtil.getPropertyName("ACCOUNT_EMAIL_TEXT");
+	public static final String ACCOUNT_PASS_CONT = PropertiesValuesUtil.getPropertyName("ACCOUNT_PASS_CONT");
+	public static final String ACCOUNT_PASS_TEXT = PropertiesValuesUtil.getPropertyName("ACCOUNT_PASS_TEXT");
+	public static final String ACCOUNT_SHOW_PASS = PropertiesValuesUtil.getPropertyName("ACCOUNT_SHOW_PASS");
+	public static final String ACCOUNT_CREATE_BUTTON = PropertiesValuesUtil.getPropertyName("ACCOUNT_CREATE_BUTTON");
+	
 }

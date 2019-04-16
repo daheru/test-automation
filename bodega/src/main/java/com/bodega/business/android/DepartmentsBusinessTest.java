@@ -8,6 +8,7 @@ import com.bodega.base.BaseDriver;
 import com.bodega.constants.NamesMobileElements;
 
 import io.appium.java_client.MobileElement;
+import io.qameta.allure.Step;
 
 public class DepartmentsBusinessTest extends BaseDriver {
 
@@ -32,23 +33,31 @@ public class DepartmentsBusinessTest extends BaseDriver {
 		general.selectNavigationOption(option);
 	}
 
+	public void goBack() {
+		general.goBack();
+	}
+	
 	public void login(String email, String password) {
 		login.login(email, password);
 	}
 	
+	@Step("Validate product list")
 	public void validateProducts() {
 		waitElementVisibility(NamesMobileElements.SEARCH_PRODUCT_LIST);
 	}
 	
+	@Step("Validate department list")
 	public void validateDepartments() {
 		waitElementVisibility(NamesMobileElements.DEPARTMENT_DEPARTMENT_LIST);
 	}
 	
+	@Step("Tap on show all")
 	public void selectShowAll() {
 		waitElementVisibility( NamesMobileElements.HOME_SHOW_ALL );
 		tapOnElement( NamesMobileElements.HOME_SHOW_ALL );
 	}
 	
+	@Step("Tap on department")
 	public void selectDepartment() {
 		logger.info("Seleccionado Departamento");
 		waitElementVisibility(NamesMobileElements.DEPARTMENT_DEPARTMENT_LIST);
@@ -56,6 +65,7 @@ public class DepartmentsBusinessTest extends BaseDriver {
 		tapOnElement(departments.get(0));
 	}
 
+	@Step("Tap on category")
 	public void selectCategory() {
 		logger.info("Seleccionado Categoria");
 		waitElementVisibility(NamesMobileElements.DEPARTMENT_CAT_LIST);
