@@ -39,7 +39,7 @@ public class FiltersTest {
 		filters.selectDepartmentOption();
 		filters.selectDepartment();
 		filters.selectFamily();
-		filters.FilterOrderAZ();
+		filters.filterOrderAZ();
 	}
 	
 	@Test
@@ -48,7 +48,7 @@ public class FiltersTest {
 		filters.selectDepartmentOption();
 		filters.selectDepartment();
 		filters.selectFamily();
-		filters.FilterOrderZA();
+		filters.filterOrderZA();
 	}
 	
 	@Test
@@ -57,7 +57,7 @@ public class FiltersTest {
 		filters.selectDepartmentOption();
 		filters.selectDepartment();
 		filters.selectFamily();
-		filters.FilterSmallestToLargest();
+		filters.filterSmallestToLargest();
 	}
 	
 	@Test
@@ -66,7 +66,7 @@ public class FiltersTest {
 		filters.selectDepartmentOption();
 		filters.selectDepartment();
 		filters.selectFamily();
-		filters.FilterLargestToSmallest();
+		filters.filterLargestToSmallest();
 	}
 	
 	@Test
@@ -75,7 +75,7 @@ public class FiltersTest {
 		filters.selectDepartmentOption();
 		filters.selectDepartment();
 		filters.selectFamily();
-		filters.FilterPopularity();
+		filters.filterPopularity();
 	}
 	
 	@Test
@@ -84,6 +84,6 @@ public class FiltersTest {
 		filters.selectDepartmentOption();
 		filters.selectDepartment();
 		filters.selectFamily();
-		filters.FilterBy();
+		filters.filterBy();
 	}
 }

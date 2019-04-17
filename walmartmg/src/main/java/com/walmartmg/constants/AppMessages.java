@@ -24,5 +24,8 @@ public class AppMessages {
 	public static final String CREATE_ACCOUNT_SUCCESS = PropertiesValuesUtil.getPropertyName("CREATE_ACCOUNT_SUCCESS");
 	public static final String ACCOUNT_UNEXIST_EMAIL = PropertiesValuesUtil.getPropertyName("ACCOUNT_UNEXIST_EMAIL");
 	public static final String INVOICE_INVALID_CODE = PropertiesValuesUtil.getPropertyName("INVOICE_INVALID_CODE");
+	public static final String INVALID_AGE = PropertiesValuesUtil.getPropertyName("INVALID_AGE");
+	public static final String UPDATE_PERSONAL_DETAIL = PropertiesValuesUtil.getPropertyName("UPDATE_PERSONAL_DETAIL");
+	public static final String INVALID_DATA_PASSWORD = PropertiesValuesUtil.getPropertyName("INVALID_DATA_PASSWORD");
 	
 }

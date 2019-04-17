@@ -45,7 +45,7 @@ public class FiltersBusinessTest extends BaseDriver {
 		waitElementVisibility(NamesMobileElements.FILTERS_BUTTON);
 	}
 	
-	public void FilterOrderAZ() {
+	public void filterOrderAZ() {
 		logger.info("Selecciona link Filtar");
 		tapOnElement(NamesMobileElements.FILTERS_LINK);
 		logger.info("Selecciona ordenar por AZ");
@@ -54,7 +54,7 @@ public class FiltersBusinessTest extends BaseDriver {
 		tapOnElement(NamesMobileElements.FILTERS_BUTTON);
 	}
 	
-	public void FilterOrderZA() {
+	public void filterOrderZA() {
 		logger.info("Selecciona link Filtar");
 		tapOnElement(NamesMobileElements.FILTERS_LINK);
 		logger.info("Selecciona ordenar por ZA");
@@ -63,7 +63,7 @@ public class FiltersBusinessTest extends BaseDriver {
 		tapOnElement(NamesMobileElements.FILTERS_BUTTON);
 	}
 	
-	public void FilterSmallestToLargest() {
+	public void filterSmallestToLargest() {
 		logger.info("Selecciona link Filtar");
 		tapOnElement(NamesMobileElements.FILTERS_LINK);
 		logger.info("Selecciona ordenar por $ - $$");
@@ -72,7 +72,7 @@ public class FiltersBusinessTest extends BaseDriver {
 		tapOnElement(NamesMobileElements.FILTERS_BUTTON);
 	}
 	
-	public void FilterLargestToSmallest() {
+	public void filterLargestToSmallest() {
 		logger.info("Selecciona link Filtar");
 		tapOnElement(NamesMobileElements.FILTERS_LINK);
 		logger.info("Selecciona ordenar por $$ - $");
@@ -81,7 +81,7 @@ public class FiltersBusinessTest extends BaseDriver {
 		tapOnElement(NamesMobileElements.FILTERS_BUTTON);
 	}
 	
-	public void FilterPopularity() {
+	public void filterPopularity() {
 		logger.info("Selecciona link Filtar");
 		tapOnElement(NamesMobileElements.FILTERS_LINK);
 		logger.info("Selecciona ordenar por Popularidad");
@@ -90,7 +90,7 @@ public class FiltersBusinessTest extends BaseDriver {
 		tapOnElement(NamesMobileElements.FILTERS_BUTTON);
 	}
 	
-	public void FilterBy() {
+	public void filterBy() {
 		logger.info("Selecciona link Filtar");
 		tapOnElement(NamesMobileElements.FILTERS_LINK);
 		tapOnElement(NamesMobileElements.FILTERS_FILTER_BY);

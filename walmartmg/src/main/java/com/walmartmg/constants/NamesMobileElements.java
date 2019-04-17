@@ -371,7 +371,37 @@ public final class NamesMobileElements {
 	public static final String LOGIN_FORGOT_PASS = PropertiesValuesUtil.getPropertyName("LOGIN_FORGOT_PASS");
 	public static final String LOGIN_REGISTER_BUTTON = PropertiesValuesUtil.getPropertyName("LOGIN_REGISTER_BUTTON");
 	
-
+	public static final String MYPROFILE_PERSONAL_DETAILS_CONT = PropertiesValuesUtil.getPropertyName("MYPROFILE_PERSONAL_DETAILS_CONT");
+	public static final String MYPROFILE_PERSONAL_DETAILS_LINKEDIT = PropertiesValuesUtil.getPropertyName("MYPROFILE_PERSONAL_DETAILS_LINKEDIT");
+	public static final String MYPROFILE_LOGIN_DATA_CONT = PropertiesValuesUtil.getPropertyName("MYPROFILE_LOGIN_DATA_CONT");
+	public static final String MYPROFILE_LOGIN_DATA_LINKEDIT = PropertiesValuesUtil.getPropertyName("MYPROFILE_LOGIN_DATA_LINKEDIT");
+	public static final String MYPROFILE_PHONE_INFO_CONT = PropertiesValuesUtil.getPropertyName("MYPROFILE_PHONE_INFO_CONT");
+	public static final String MYPROFILE_PHONE_INFO_LINKEDIT = PropertiesValuesUtil.getPropertyName("MYPROFILE_PHONE_INFO_LINKEDIT");
 	
- 
+	public static final String PERSONAL_DETAILS_CONT = PropertiesValuesUtil.getPropertyName("PERSONAL_DETAILS_CONT");
+	public static final String PERSONAL_DETAILS_NAMELABEL = PropertiesValuesUtil.getPropertyName("PERSONAL_DETAILS_NAMELABEL");
+	public static final String PERSONAL_DETAILS_NAMEFIELD = PropertiesValuesUtil.getPropertyName("PERSONAL_DETAILS_NAMEFIELD");
+	public static final String PERSONAL_DETAILS_LASTNAMELABEL = PropertiesValuesUtil.getPropertyName("PERSONAL_DETAILS_LASTNAMELABEL");
+	public static final String PERSONAL_DETAILS_LASTNAMEFIELD = PropertiesValuesUtil.getPropertyName("PERSONAL_DETAILS_LASTNAMEFIELD");
+	public static final String PERSONAL_DETAILS_BIRTHDATELABEL = PropertiesValuesUtil.getPropertyName("PERSONAL_DETAILS_BIRTHDATELABEL");
+	public static final String PERSONAL_DETAILS_BIRTHDATEFIELD = PropertiesValuesUtil.getPropertyName("PERSONAL_DETAILS_BIRTHDATEFIELD");
+	public static final String PERSONAL_DETAILS_BTNUPDATE = PropertiesValuesUtil.getPropertyName("PERSONAL_DETAILS_BTNUPDATE");
+	
+	public static final String LOGON_DATA_CONT = PropertiesValuesUtil.getPropertyName("LOGON_DATA_CONT");
+	public static final String LOGON_DATA_EMAIL = PropertiesValuesUtil.getPropertyName("LOGON_DATA_EMAIL");
+	public static final String LOGON_DATA_CURRENT_PASSWORD = PropertiesValuesUtil.getPropertyName("LOGON_DATA_CURRENT_PASSWORD");
+	public static final String LOGON_DATA_NEW_PASSSWORD = PropertiesValuesUtil.getPropertyName("LOGON_DATA_NEW_PASSSWORD");
+	public static final String LOGON_DATA_BTNUPDATE = PropertiesValuesUtil.getPropertyName("LOGON_DATA_BTNUPDATE");
+	
+	public static final String PHONE_INFO_CONT = PropertiesValuesUtil.getPropertyName("PHONE_INFO_CONT");
+	public static final String PHONE_INFO_PRIMARY = PropertiesValuesUtil.getPropertyName("PHONE_INFO_PRIMARY");
+	public static final String PHONE_INFO_PRIMARY_FIELD = PropertiesValuesUtil.getPropertyName("PHONE_INFO_PRIMARY_FIELD");
+	public static final String PHONE_INFO_PRIMARY_EXT = PropertiesValuesUtil.getPropertyName("PHONE_INFO_PRIMARY_EXT");
+	public static final String PHONE_INFO_ADD_LINK = PropertiesValuesUtil.getPropertyName("PHONE_INFO_ADD_LINK");
+	public static final String PHONE_INFO_SECONDARY = PropertiesValuesUtil.getPropertyName("PHONE_INFO_SECONDARY");
+	public static final String PHONE_INFO_SECONDARY_FIELD = PropertiesValuesUtil.getPropertyName("PHONE_INFO_SECONDARY_FIELD");
+	public static final String PHONE_INFO_SECONDARY_EXT = PropertiesValuesUtil.getPropertyName("PHONE_INFO_SECONDARY_EXT");
+	public static final String PHONE_INFO_BTNUPDATE = PropertiesValuesUtil.getPropertyName("PHONE_INFO_BTNUPDATE");
+	public static final String PHONE_INFO_COMBO = PropertiesValuesUtil.getPropertyName("PHONE_INFO_COMBO");
+	
 }
