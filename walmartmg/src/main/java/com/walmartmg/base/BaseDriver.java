@@ -136,9 +136,7 @@ public class BaseDriver {
 		MobileElement textboxElement = findElement(element);
 		if (textboxElement != null) {
 			textboxElement.clear();
-			textboxElement.click();
-			textboxElement.sendKeys(text);
-			hideKeyboard();
+			textboxElement.sendKeys(text);	
 		}
 	}
 

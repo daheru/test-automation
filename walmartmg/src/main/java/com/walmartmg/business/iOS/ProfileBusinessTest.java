@@ -10,10 +10,13 @@ import com.walmartmg.enums.NavigationBarEnum;
 import com.walmartmg.enums.ProfileMenuEnum;
 
 public class ProfileBusinessTest extends BaseDriver {
+	
 	private static final Logger logger = Logger.getLogger(LoginBusinessTest.class);
 
 	public GeneralBusinessTest general = new GeneralBusinessTest();
 
+	
+	
 	public void selectProfile() {
 		general.selectNavigationOption(NavigationBarEnum.PROFILE);
 

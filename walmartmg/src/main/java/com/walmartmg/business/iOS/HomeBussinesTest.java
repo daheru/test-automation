@@ -205,5 +205,29 @@ public class HomeBussinesTest extends BaseDriver {
 		logger.info("se valida que Aparesca correo y password ");
 		waitElementVisibility(NamesMobileElements.LOGIN_BUTTON);
 	}
+	
+	public void Validate_secure_payment_screen(){
+		logger.info("  selecciona  producto de interes ");
+		waitElementVisibility(NamesMobileElements.HOME_PRODT);
+		tapOnElement(NamesMobileElements.HOME_PRODT);
+		logger.info(" Agrega  producto al carrito de compras  ");
+		tapOnElement(NamesMobileElements.HOME_AGREGAR_COMPRA);
+		logger.info("/se valida el mensaje del producto agregado/");
+		waitElementVisibility(NamesMobileElements.HOME_PRODUCT_AGREGADO);
+		logger.info("/PRODUCTO AGREGADO AL  CARRITO DE COMPRAS /");
+		tapOnElement(NamesMobileElements.HOME_COMPRAS);
+		logger.info("/se valida el que aparezca el boton de continuar comprando y se da clicl en el  /");
+		waitElementVisibility(NamesMobileElements.HOME_CONTINUAR_COMPRANDO);
+		tapOnElement(NamesMobileElements.HOME_CONTINUAR_COMPRANDO);
+		logger.info("se valida que salga la pantalla pago seguro  ");
+		waitElementVisibility(NamesMobileElements.SECURE_PAYMENT);
+		logger.info("se valida que salga la pantalla pago seguro  ");
+		waitElementVisibility(NamesMobileElements.SECURE_PAYMENT);
+		waitElementVisibility(NamesMobileElements.SECURE_PAYMENT);
+		logger.info("se valida que salga la pantalla pago seguro  ");
+		waitElementVisibility(NamesMobileElements.SECURE_PAYMENT);
+		
+	}	
+
 
 }

@@ -39,7 +39,7 @@ public class LoginBusinessTest extends BaseDriver {
 	}
 
 //validacion mensaje_de_contraseña_correcta
-	public void Validate_Login_In() {
+	public void validateLoginIn() {
 		logger.info("se visualiza el mensaje de password correcto  ");
 		waitElementVisibility(NamesMobileElements.LOGIN_MENSSAGE_OK);
 		waitElementVisibility(NamesMobileElements.LOGIN_MENSSAGE_OK);

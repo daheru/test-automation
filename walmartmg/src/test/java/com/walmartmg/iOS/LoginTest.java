@@ -106,7 +106,7 @@ public class LoginTest {
 		login.selectProfile();
 		login.selectMenu();
 		login.login("dj_fran_@hotmail.es", "080714regina");
-		login.Validate_Login_In();
+		login.validateLoginIn();
 		logger.info("FINALIZANDO CASO DE PRUEBA ");
 	}
 	

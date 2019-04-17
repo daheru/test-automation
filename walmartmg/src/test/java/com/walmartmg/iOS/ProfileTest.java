@@ -8,7 +8,9 @@ import org.junit.Test;
 import com.walmartmg.business.iOS.ProfileBusinessTest;
 
 public class ProfileTest {
+	
 	private static final Logger logger = Logger.getLogger(LoginTest.class);
+	
 	public static ProfileBusinessTest profile = new ProfileBusinessTest();
 
 	@AfterClass
@@ -21,9 +23,13 @@ public class ProfileTest {
 	public void init() {
 		profile.closeIOSDialog();
 	}
+	
+	
+	
+	
 
 	@Test
-	public void CP023_Validate_Create_account() {
+	public void CP082_Validate_screen() {
 		logger.info("INICIANDO CASO DE PRUEBA ");
 		profile.selectProfile();
 		profile.selectMenu();

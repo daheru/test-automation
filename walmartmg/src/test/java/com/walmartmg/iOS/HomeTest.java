@@ -119,4 +119,13 @@ public class HomeTest {
 		logger.info("FINALIZANDO CASO DE PRUEBA ");
 
 	}
+	
+	@Test
+	public void CP161validate_Secure_payment () {
+		logger.info("INICIANDO CASO DE PRUEBA ");
+		home.selectMenu(NavigationBarEnum.HOME.getNavigation());
+		home.Validate_secure_payment_screen();
+		logger.info("FINALIZANDO CASO DE PRUEBA ");
+	}
+	
 }
