@@ -267,7 +267,6 @@ public final class NamesMobileElements {
 	public static final String ACCOUNT_EMAIL_TEXT = PropertiesValuesUtil.getPropertyName("ACCOUNT_EMAIL_TEXT");
 	public static final String ACCOUNT_PASS_CONT = PropertiesValuesUtil.getPropertyName("ACCOUNT_PASS_CONT");
 	public static final String ACCOUNT_PASS_TEXT = PropertiesValuesUtil.getPropertyName("ACCOUNT_PASS_TEXT");
-
 	public static final String ACCOUNT_SHOW_PASS = PropertiesValuesUtil.getPropertyName("ACCOUNT_SHOW_PASS");
 	public static final String ACCOUNT_TERMS_LINK = PropertiesValuesUtil.getPropertyName("ACCOUNT_TERMS_LINK");
 	public static final String ACCOUNT_CREATE_BUTTON = PropertiesValuesUtil.getPropertyName("ACCOUNT_CREATE_BUTTON");
