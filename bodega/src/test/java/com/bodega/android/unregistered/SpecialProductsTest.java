@@ -7,7 +7,9 @@ import org.junit.Before;
 import org.junit.Test;
 
 import com.bodega.business.android.SpecialProductBusinessTest;
+import com.bodega.constants.GeneralConstants;
 import com.bodega.enums.NavigationBarEnum;
+import com.bodega.enums.ProfileMenuEnum;
 
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
@@ -116,4 +118,21 @@ public class SpecialProductsTest {
 		logger.info("Caso de prueba finalizado");
 	}
 
+	@Test
+	@DisplayName("Increase product")
+	@Severity(SeverityLevel.CRITICAL)
+	@Story("As a user I want to add a special product to car")
+	@Description("Try to add a presale product to car")
+	public void CF000_increase_product_from_car() {
+		special.selectNavigation(NavigationBarEnum.CAR.getNavigation());
+		special.deleteProducts();
+		special.searchProduct("Celular");
+		special.validateSearch();
+		special.selectProduct();
+		special.addProduct();
+		special.validateCar();
+		special.increaseProductFromCar(5);
+		special.goBack();
+		special.validateCar();
+	}
 }

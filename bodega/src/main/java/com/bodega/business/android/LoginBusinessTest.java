@@ -67,12 +67,12 @@ public class LoginBusinessTest extends BaseDriver {
 
 	@Step("Create account with data: {name}, {lastName}, {email}, {pass}")
 	public void createAccount(String name, String lastName, String email, String pass) {
+		logger.info("Escribiendo nombre, apellido, correo y password");
 		fillElement(NamesMobileElements.REG_NAME_TEXT, name);
 		fillElement(NamesMobileElements.REG_LAST_NAME_TEXT, lastName);
 		fillElement(NamesMobileElements.REG_EMAIL_TEXT, email);
 		fillElement(NamesMobileElements.REG_PASS_TEXT, pass);
-		// tapOnElement( NamesMobileElements.REG_CREATE_BUTTON );
-		logger.info("Escribiendo nombre, apellido, correo y password");
+		tapOnElement( NamesMobileElements.REG_CREATE_BUTTON );
 	}
 	
 	@Step("Validate register page")

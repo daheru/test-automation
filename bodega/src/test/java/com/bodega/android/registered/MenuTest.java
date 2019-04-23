@@ -23,7 +23,7 @@ import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Story;
 import io.qameta.allure.junit4.DisplayName;
 
-@Feature("Login Module - Session")
+@Feature("Menu Module - Session")
 public class MenuTest {
 	
 	@Rule public TestName name = new TestName();
@@ -39,20 +39,20 @@ public class MenuTest {
 
 	@AfterClass
 	public static void shutDown() {
-		main.driverDisconect();
+		general.driverDisconect();
 	}
 
 	@Before
 	public void initApp() {
-		main.closeAndroidDialog();
+		general.closeAndroidDialog();
 		general.validateWelcomePage();
 		logger.info("===> Iniciando caso de prueba: " + name.getMethodName());
 	}
 
 	@After
 	public void relauchApp() {
+		general.resetApp();
 		logger.info("Caso de prueba finalizado");
-		main.resetApp();
 	}
 
 	@Test
@@ -68,6 +68,7 @@ public class MenuTest {
 		main.selectProfile();
 		main.selectMenu(ProfileMenuEnum.ADDRESS.getMenu());
 		main.selectAddAddress();
+		addressVO.setMainAddress(true);
 		main.addNewDirection(addressVO);
 		main.saveDirection();
 		main.validateAddress(addressVO, AppMessages.ADD_ADDRESS);
@@ -79,7 +80,6 @@ public class MenuTest {
 	@Story("As a user I want to manage my address information")
 	@Description("Add new address whitout favorite option selected")
 	public void CF012_add_new_address() {
-		logger.info("Iniciando caso de prueba: New Adress");
 		addressVO = main.initAddressVO();
 		main.selectProfile();
 		main.selectMenu(ProfileMenuEnum.LOGIN.getMenu());
@@ -91,7 +91,6 @@ public class MenuTest {
 		main.addNewDirection(addressVO);
 		main.saveDirection();
 		main.validateAddress(addressVO, AppMessages.ADD_ADDRESS);
-		logger.info("Caso de prueba finalizado");
 	}
 	
 	@Test
@@ -100,7 +99,6 @@ public class MenuTest {
 	@Story("As a user I want to manage my address information")
 	@Description("Edit user's main address information")
 	public void CF013_edit_main_address() {
-		logger.info("Iniciando caso de prueba: Edit Address");
 		addressVO = main.initAddressVO();
 		addressVO.setAddressName("Mi direccion");
 		addressVO.setAddressPhone("5512345678");
@@ -113,7 +111,6 @@ public class MenuTest {
 		main.editAddress(addressVO);
 		main.saveDirection();
 		main.validateAddress(addressVO, AppMessages.EDIT_ADDRESS);
-		logger.info("Caso de prueba finalizado");
 	}
 
 	@Test
@@ -122,7 +119,6 @@ public class MenuTest {
 	@Story("As a user I want to manage my address information")
 	@Description("Delete an addrees from address page")
 	public void CF014_delete_address() {
-		logger.info("Iniciando caso de prueba: Remove address");
 		main.selectProfile();
 		main.selectMenu(ProfileMenuEnum.LOGIN.getMenu());
 		main.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
@@ -130,7 +126,6 @@ public class MenuTest {
 		main.selectMenu(ProfileMenuEnum.ADDRESS.getMenu());
 		main.removeAddress(addressVO);
 		main.validateRemoveAddress();
-		logger.info("Caso de prueba finalizado");
 	}
 
 	@Test
@@ -139,7 +134,6 @@ public class MenuTest {
 	@Story("As a user I want to see my orders")
 	@Description("Check that user's order appear")
 	public void CF015_view_orders() {
-		logger.info("Iniciando caso de prueba: View orders");
 		// juan@correo.com 12345678
 		// emmanuel.dominguez@live.com.mx Edominguez#1234
 		main.selectProfile();
@@ -148,7 +142,6 @@ public class MenuTest {
 		main.selectProfile();
 		main.selectMenu(ProfileMenuEnum.ORDERS.getMenu());
 		main.validateOrderPage();
-		logger.info("Caso de prueba finalizado");
 	}
 
 	@Test
@@ -157,7 +150,6 @@ public class MenuTest {
 	@Story("As a user I want to see my orders")
 	@Description("Show orders detail")
 	public void CF016_view_order_detail() {
-		logger.info("Iniciando caso de prueba: View order detail");
 		main.selectProfile();
 		main.selectMenu(ProfileMenuEnum.LOGIN.getMenu());
 		main.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
@@ -165,7 +157,6 @@ public class MenuTest {
 		main.selectMenu(ProfileMenuEnum.ORDERS.getMenu());
 		String orderNumber[] = main.orderDetail();
 		main.validateOrderDetail(orderNumber);
-		logger.info("Caso de prueba finalizado");
 	}
 
 	@Test
@@ -174,13 +165,11 @@ public class MenuTest {
 	@Story("As a user I want to see my notifications")
 	@Description("Show orders detail")
 	public void CF017_view_notifications() {
-		logger.info("Iniciando caso de prueba: View notifications");
 		main.selectProfile();
 		main.selectMenu(ProfileMenuEnum.LOGIN.getMenu());
 		main.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
 		main.selectProfile();
 		main.selectMenu(ProfileMenuEnum.NOTIFICATIONS.getMenu());
-		logger.info("Caso de prueba finalizado");
 	}
 
 	@Test
@@ -189,7 +178,6 @@ public class MenuTest {
 	@Story("As a user I want to scan my ticket")
 	@Description("Scan ticket introducing numbers manually")
 	public void CF019_scan_manually_ticket() {
-		logger.info("Iniciando caso de prueba: Scan manually ticket");
 		main.selectProfile();
 		main.selectMenu(ProfileMenuEnum.LOGIN.getMenu());
 		main.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
@@ -197,7 +185,6 @@ public class MenuTest {
 		main.selectMenu(ProfileMenuEnum.GET_BILL.getMenu());
 		main.closeAndroidDialog();
 		main.manualBill("36214691686686662445");
-		logger.info("Caso de prueba finalizado");
 	}
 
 	@Test
@@ -206,14 +193,12 @@ public class MenuTest {
 	@Story("As a user I want to use support page to ask for help or support")
 	@Description("Scan ticket introducing numbers manually")
 	public void CF023_CF024_validate_suppor_page() {
-		logger.info("Iniciando caso de prueba: Validate Support Page");
 		main.selectProfile();
 		main.selectMenu(ProfileMenuEnum.LOGIN.getMenu());
 		main.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
 		main.selectProfile();
 		main.selectMenu(ProfileMenuEnum.SUPPORT.getMenu());
 		main.validateSupportPage();
-		logger.info("Caso de prueba finalizado");
 	}
 
 	@Test
@@ -222,14 +207,12 @@ public class MenuTest {
 	@Story("As a user I want to check terms")
 	@Description("Check all terms on the page")
 	public void CF025_CF029_validate_terms_page() {
-		logger.info("Iniciando caso de prueba: Validate Terms Page");
 		main.selectProfile();
 		main.selectMenu(ProfileMenuEnum.LOGIN.getMenu());
 		main.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
 		main.selectProfile();
 		main.selectMenu(ProfileMenuEnum.TERMS.getMenu());
 		main.validateTerms(5);
-		logger.info("Caso de prueba finalizado");
 	}
 
 	@Test
@@ -238,14 +221,12 @@ public class MenuTest {
 	@Story("As a user I want to check support page to ")
 	@Description("Check all legals on the page")
 	public void CF030_CF035_validate_legals_page() {
-		logger.info("Iniciando caso de prueba: Validate Legals Page");
 		main.selectProfile();
 		main.selectMenu(ProfileMenuEnum.LOGIN.getMenu());
 		main.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
 		main.selectProfile();
 		main.selectMenu(ProfileMenuEnum.LEGALS.getMenu());
 		main.validateLegalsPage();
-		logger.info("Caso de prueba finalizado");
 	}
 	
 	@Test
@@ -254,14 +235,12 @@ public class MenuTest {
 	@Story("As a user I want to logout")
 	@Description("Use the logout button in the app")
 	public void CF306_logout() {
-		logger.info("Iniciando caso de prueba: Logout success");
 		main.selectProfile();
 		main.selectMenu(ProfileMenuEnum.LOGIN.getMenu());
 		main.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
 		main.selectProfile();
 		main.selectMenu(ProfileMenuEnum.LOGOUT.getMenu());
 		main.validateLogout();
-		logger.info("Caso de prueba finalizado");
 	}
 
 	@Test
@@ -271,7 +250,6 @@ public class MenuTest {
 	@Description("Trying create a new direction without data")
 	public void CF115_add_address_without_data() {
 		addressVO = new AddressVO();
-		logger.info("Iniciando caso de prueba: Add address without data");
 		main.selectProfile();
 		main.selectMenu(ProfileMenuEnum.LOGIN.getMenu());
 		main.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
@@ -288,18 +266,12 @@ public class MenuTest {
 	@Story("As a user I want to manage my address information")
 	@Description("See the address page without address'")
 	public void CF000_validate_empty_address_page() {
-		logger.info("Iniciando caso de prueba: validate empty address page");
 		main.selectProfile();
 		main.selectMenu(ProfileMenuEnum.LOGIN.getMenu());
 		main.login(GeneralConstants.TEST_EMPTY_EMAIL, GeneralConstants.TEST_EMPTY_PASS);
 		main.selectProfile();
 		main.selectMenu(ProfileMenuEnum.ADDRESS.getMenu());
-		main.selectAddAddress();
-		addressVO.setMainAddress(false);
-		main.addNewDirection(addressVO);
-		main.saveDirection();
-		main.validateAddress(addressVO, AppMessages.ADD_ADDRESS);
-		logger.info("Caso de prueba finalizado");
+		main.validateEmptyAddressPage();
 	}
 	
 	@Test
@@ -308,14 +280,12 @@ public class MenuTest {
 	@Story("As a user I want to see my orders")
 	@Description("See the orders page without orders")
 	public void CF000_view_orders_empty_page() {
-		logger.info("Iniciando caso de prueba: View orders empty page");
 		main.selectProfile();
 		main.selectMenu(ProfileMenuEnum.LOGIN.getMenu());
 		main.login(GeneralConstants.TEST_EMPTY_EMAIL, GeneralConstants.TEST_EMPTY_PASS);
 		main.selectProfile();
 		main.selectMenu(ProfileMenuEnum.ORDERS.getMenu());
 		main.validateEmptyOrderPage();
-		logger.info("Caso de prueba finalizado");
 	}
 	
 	@Test
@@ -324,7 +294,6 @@ public class MenuTest {
 	@Story("As a user I want to manage my address information")
 	@Description("Try to add a new address with invalid data")
 	public void CF000_add_address_invalid_data() {
-		logger.info("Iniciando caso de prueba: Add address invalid data");
 		addressVO.setAddressName("$Mi Direccion-#");
 		addressVO.setAddressUserName("&Ju/an(");
 		addressVO.setAddressUserLastName("P=e)r$e!z");
@@ -338,7 +307,6 @@ public class MenuTest {
 		main.addNewDirection(addressVO);
 		main.saveDirection();
 		main.validateAddressInvalidMessages();
-		logger.info("Caso de prueba finalizado");
 	}
 	
 	@Test
@@ -347,7 +315,6 @@ public class MenuTest {
 	@Story("As a user I want to manage my address information")
 	@Description("Try to edit an address with invalid data")
 	public void CF000_edit_address_invalid_data() {
-		logger.info("Iniciando caso de prueba: Edit address invalid data");
 		addressVO.setAddressName("$Mi Direccion-#");
 		addressVO.setAddressUserName("&Ju/an(");
 		addressVO.setAddressUserLastName("P=e)r$e!z");
@@ -360,6 +327,33 @@ public class MenuTest {
 		main.editAddress(addressVO);
 		main.saveDirection();
 		main.validateAddressInvalidMessages();
-		logger.info("Caso de prueba finalizado");
+	}
+	
+	@Test
+	@DisplayName("Select address as a favorite")
+	@Severity(SeverityLevel.NORMAL)
+	@Story("As a user I want to select an address as a favorite")
+	@Description("Select an address as a favorite")
+	public void CF000_select_address_as_favorite() {
+		main.selectProfile();
+		main.selectMenu(ProfileMenuEnum.LOGIN.getMenu());
+		main.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
+		main.selectProfile();
+		main.selectMenu(ProfileMenuEnum.ADDRESS.getMenu());
+		main.selectAsMainAddress();
+		main.validateFavoriteAddress();
+	}
+	
+	@Test
+	@DisplayName("Validate menu session")
+	@Severity(SeverityLevel.BLOCKER)
+	@Story("As a user I want to use my profile menu")
+	@Description("Validate that profile menu without session has all elements")
+	public void CF000_validate_menu_with_login() {
+		main.selectProfile();
+		main.selectMenu(ProfileMenuEnum.LOGIN.getMenu());
+		main.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
+		main.selectProfile();
+		main.validateMenu(true);
 	}
 }

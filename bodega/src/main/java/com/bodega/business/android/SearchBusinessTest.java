@@ -1,5 +1,6 @@
 package com.bodega.business.android;
 
+import java.text.Collator;
 import java.util.List;
 
 import org.apache.log4j.Logger;
@@ -16,7 +17,7 @@ public class SearchBusinessTest extends BaseDriver {
 	private static final Logger logger = Logger.getLogger(SearchBusinessTest.class);
 	private GeneralBusinessTest generalBusinessTest = new GeneralBusinessTest();
 	private LoginBusinessTest login = new LoginBusinessTest();
-	private String filterSelected = "";
+	private static String filterSelected = "";
 
 	public void validateWelcomePage() {
 		generalBusinessTest.validateWelcomePage();
@@ -40,41 +41,45 @@ public class SearchBusinessTest extends BaseDriver {
 
 	@Step("Validate search")
 	public void validateSearch() {
+		logger.info("Validando lista de productos");
 		waitElementVisibility(NamesMobileElements.SEARCH_PRODUCT_LIST);
 		if (!filterSelected.isEmpty()) {
 			List<MobileElement> productList;
+			Collator comparador = Collator.getInstance();
+			comparador.setStrength(Collator.PRIMARY);
 			float higherPrice = 0f;
 			float lowerPrice = 0f;
 			if (FiltersEnum.A_Z.getFilter().equals(filterSelected)) {
 				productList = findElements(NamesMobileElements.SEARCH_PRODUCT_NAME);
-				assertTrue("Los productos no estan ordenados", getElementText(productList.get(0))
-						.compareTo(getElementText(productList.get(productList.size() - 1))) < 0);
+				assertTrue("Los productos no estan ordenados", comparador.compare(getElementText(productList.get(0)),
+						getElementText(productList.get(productList.size() - 1))) < 0);
 			} else if (FiltersEnum.Z_A.getFilter().equals(filterSelected)) {
 				productList = findElements(NamesMobileElements.SEARCH_PRODUCT_NAME);
-				assertTrue("Los productos no estan ordenados", getElementText(productList.get(0))
-						.compareTo(getElementText(productList.get(productList.size() - 1))) > 0);
+				assertTrue("Los productos no estan ordenados", comparador.compare(getElementText(productList.get(0)),
+						getElementText(productList.get(productList.size() - 1))) > 0);
 			} else if (FiltersEnum.HIGHER_PRICE.getFilter().equals(filterSelected)) {
 				productList = findElements(NamesMobileElements.SEARCH_PRODUCT_PRICE);
 				higherPrice = Float.parseFloat(getElementText(productList.get(0)).replaceAll("[^\\d.]", ""));
-				lowerPrice = Float.parseFloat(getElementText(productList.get(productList.size() - 1)).replaceAll("[^\\d.]", ""));
+				lowerPrice = Float
+						.parseFloat(getElementText(productList.get(productList.size() - 1)).replaceAll("[^\\d.]", ""));
 				assertTrue("Los productos no estan ordenados", higherPrice >= lowerPrice);
 			} else if (FiltersEnum.MINNOR_PRICE.getFilter().equals(filterSelected)) {
 				productList = findElements(NamesMobileElements.SEARCH_PRODUCT_PRICE);
-				higherPrice = Float.parseFloat(getElementText(productList.get(productList.size() - 1)).replaceAll("[^\\d.]", ""));
+				higherPrice = Float
+						.parseFloat(getElementText(productList.get(productList.size() - 1)).replaceAll("[^\\d.]", ""));
 				lowerPrice = Float.parseFloat(getElementText(productList.get(0)).replaceAll("[^\\d.]", ""));
 				assertTrue("Los productos no estan ordenados", higherPrice >= lowerPrice);
 			}
 		}
 		filterSelected = "";
-		logger.info("Validando lista de productos");
 	}
 
 	@Step("Validate no results page")
 	public void validateNoResults() {
-		waitElementVisibility( NamesMobileElements.SEARCH_NO_PRODUCT_LABEL );
-		waitElementVisibility( NamesMobileElements.SEARCH_NO_PRODUCT_ICON );
+		waitElementVisibility(NamesMobileElements.SEARCH_NO_PRODUCT_LABEL);
+		waitElementVisibility(NamesMobileElements.SEARCH_NO_PRODUCT_ICON);
 	}
-	
+
 	@Step("Search product {product}")
 	public void searchProduct(String product) {
 		logger.info("Buscando producto");
@@ -94,7 +99,7 @@ public class SearchBusinessTest extends BaseDriver {
 	@Step("Tap filter {filters}")
 	public void selectFilter(String... filters) {
 		logger.info("Aplicando filtros");
-		waitElementVisibility( NamesMobileElements.FILTER_LIST_CATEGORY);
+		waitElementVisibility(NamesMobileElements.FILTER_LIST_CATEGORY);
 		for (String filter : filters) {
 			if (filterSelected.isEmpty()) {
 				filterSelected = filter;
@@ -109,15 +114,15 @@ public class SearchBusinessTest extends BaseDriver {
 		waitElementVisibility(NamesMobileElements.FILTER_APPLY_BUTTON);
 		tapOnElement(NamesMobileElements.FILTER_APPLY_BUTTON);
 	}
-	
+
 	@Step("Tap on subcategory")
 	public void selectSubCategory() {
 		logger.info("Seleccionando sub categoria");
-		waitElementVisibility( NamesMobileElements.FILTER_LIST_CATEGORY);
-		List<MobileElement> categories = findElements( NamesMobileElements.FILTER_LIST_ITEM );
-		tapOnElement( categories.get(0) );
-		waitElementVisibility( NamesMobileElements.FILTER_ITEM_CHECK);
-		List<MobileElement> subCategories = findElements( NamesMobileElements.FILTER_ITEM_CHECK );
-		tapOnElement( subCategories.get(0) );
+		waitElementVisibility(NamesMobileElements.FILTER_LIST_CATEGORY);
+		List<MobileElement> categories = findElements(NamesMobileElements.FILTER_LIST_ITEM);
+		tapOnElement(categories.get(0));
+		waitElementVisibility(NamesMobileElements.FILTER_ITEM_CHECK);
+		List<MobileElement> subCategories = findElements(NamesMobileElements.FILTER_ITEM_CHECK);
+		tapOnElement(subCategories.get(0));
 	}
 }

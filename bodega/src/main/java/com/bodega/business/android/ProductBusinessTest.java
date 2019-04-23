@@ -36,8 +36,10 @@ public class ProductBusinessTest extends BaseDriver {
 			tapOnElement(NamesMobileElements.PRODUCT_ADD_BUTTON);
 			general.validatePopUpMessages(AppMessages.ADD_PRODUCT);
 		}
-		String mobileUpc = getElementText(NamesMobileElements.PRODUCT_DETAIL_UPC);
-		increaseProduct(mobileUpc);
+		waitElementVisibility(NamesMobileElements.PRODUCT_DETAIL_CONT);
+		MobileElement parentElement = findElement(NamesMobileElements.PRODUCT_DETAIL_CONT);
+		String productName = getElementText(findSubElement(parentElement, NamesMobileElements.PRODUCT_DETAIL_NAME));
+		increaseProduct(productName);
 	}
 
 	public void removeProduct() {
@@ -54,7 +56,14 @@ public class ProductBusinessTest extends BaseDriver {
 			}
 			tapOnElement(NamesMobileElements.PRODUCT_MINUS_BUTTON);
 			general.validatePopUpMessages(errorMessage);
-			car.getUpcs().remove(getElementText(NamesMobileElements.PRODUCT_DETAIL_UPC));
+			waitElementVisibility(NamesMobileElements.PRODUCT_DETAIL_CONT);
+			MobileElement parentElement = findElement(NamesMobileElements.PRODUCT_DETAIL_CONT);
+			String productName = getElementText(findSubElement(parentElement, NamesMobileElements.PRODUCT_DETAIL_NAME));
+			if( car.getUpcs().get(productName) == 1 ) {
+				car.getUpcs().remove(productName);
+			} else {
+				car.getUpcs().replace(productName, car.getUpcs().get(productName) - 1);
+			}
 		}
 	}
 	
@@ -66,11 +75,11 @@ public class ProductBusinessTest extends BaseDriver {
 		general.validatePopUpMessages(AppMessages.SPECIAL_PRODUCT_VALIDATION);
 	}
 	
-	private void increaseProduct(String mobileUpc) {
-		if (car.getUpcs().get(mobileUpc) == null) {
-			car.getUpcs().put(mobileUpc, 1);
+	public void increaseProduct(String productName) {
+		if (car.getUpcs().get(productName) == null) {
+			car.getUpcs().put(productName, 1);
 		} else {
-			car.getUpcs().put(mobileUpc, car.getUpcs().get(mobileUpc) + 1);
+			car.getUpcs().put(productName, car.getUpcs().get(productName) + 1);
 		}
 	}
 

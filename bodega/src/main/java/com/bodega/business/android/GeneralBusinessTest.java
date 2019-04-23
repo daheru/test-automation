@@ -2,6 +2,7 @@ package com.bodega.business.android;
 
 import java.util.List;
 
+import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.StaleElementReferenceException;
@@ -75,14 +76,14 @@ public class GeneralBusinessTest extends BaseDriver {
 		}
 	}
 
-	@Step("Validate error field messages")
+	@Step("Validate error field messages {errorAppMessage} for {fieldCont}")
 	public void validateFieldErrorMessage(String errorAppMessage, String fieldCont) {
 		List<MobileElement> errors = findSubElements(findElement(fieldCont), NamesMobileElements.ERROR_TEXT_FIELD);
 		if (errors.size() > 0) {
 			assertEquals(errorAppMessage.toLowerCase(), getElementText(errors.get(0)));
 		} else {
 			logger.error("No se encontraron mensajes de error para: " + fieldCont);
-			Assert.fail();
+			Assert.fail("No se encontraron mensajes de error para: " + fieldCont);
 		}
 	}
 
@@ -106,7 +107,7 @@ public class GeneralBusinessTest extends BaseDriver {
 		tapOnElement(NamesMobileElements.WELCOME_LINK_GUESS);
 	}
 
-	@Step("Validate popup message")
+	@Step("Validate popup message {message}")
 	public void validatePopUpMessages(String message) {
 		try {
 			List<MobileElement> messageElement = findElements(NamesMobileElements.POPUP_TEXT_MESSAGE);
@@ -156,6 +157,11 @@ public class GeneralBusinessTest extends BaseDriver {
 		} while (!clicMenu);
 	}
 
+	@Step("Random name")
+	public String randomString(int length, boolean useLetters, boolean useNumbers) {
+	    return RandomStringUtils.random(length, useLetters, useNumbers);
+	}
+	
 	private void validateSubTerm(String[] subTermsEnum) {
 		List<MobileElement> subTerms = findElements(NamesMobileElements.LEGALS_SUB_ITEM);
 		int index = 0;

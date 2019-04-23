@@ -160,4 +160,16 @@ public class DepartmentsTest {
 		departments.validateSearch();
 		logger.info("Caso de prueba finalizado");
 	}
+	
+	@Test
+	@DisplayName("Valida tool bar title")
+	@Severity(SeverityLevel.NORMAL)
+	@Story("As a user I want to choice a filter to sort the product list")
+	@Description("Validate that title in toolbar is the same than department filter")
+	public void CF000_validate_tool_bar_title() {
+		departments.selectNavigation(NavigationBarEnum.DEPARTMENTS.getNavigation());
+		departments.selectDepartment();
+		departments.selectCategory();
+		departments.validateTitleToolbar();
+	}
 }

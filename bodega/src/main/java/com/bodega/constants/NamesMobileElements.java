@@ -30,6 +30,7 @@ public final class NamesMobileElements {
 	public static final String HOME_ITEM_BANNER = PropertiesValuesUtil.getPropertyName("HOME_ITEM_BANNER");
 	public static final String HOME_CARROUSEL = PropertiesValuesUtil.getPropertyName("HOME_CARROUSEL");
 	public static final String HOME_SHOW_ALL = PropertiesValuesUtil.getPropertyName("HOME_SHOW_ALL");
+	public static final String HOME_PRODUCT_ICON = PropertiesValuesUtil.getPropertyName("HOME_PRODUCT_ICON");
 	
 	public static final String BACK_BUTTON = PropertiesValuesUtil.getPropertyName("BACK_BUTTON");
 	public static final String POPUP_TEXT_MESSAGE = PropertiesValuesUtil.getPropertyName("POPUP_TEXT_MESSAGE");
@@ -93,6 +94,7 @@ public final class NamesMobileElements {
 	public static final String ADDRESS_DIALOG_CANCEL = PropertiesValuesUtil.getPropertyName("ADDRESS_DIALOG_CANCEL");
 	public static final String ADDRESS_EMPTY_PAGE = PropertiesValuesUtil.getPropertyName("ADDRESS_EMPTY_PAGE");
 	public static final String ADDRESS_EMPTY_ICON = PropertiesValuesUtil.getPropertyName("ADDRESS_EMPTY_ICON");
+	public static final String ADDRESS_ICON_FAV = PropertiesValuesUtil.getPropertyName("ADDRESS_ICON_FAV");
 	
 	public static final String ORDER_EMPTY_CONT = PropertiesValuesUtil.getPropertyName("ORDER_EMPTY_CONT");
 	public static final String ORDER_EMPTY_ICON = PropertiesValuesUtil.getPropertyName("ORDER_EMPTY_ICON");
@@ -162,6 +164,8 @@ public final class NamesMobileElements {
 	public static final String DEPARTMENT_ITEM_TEXT = PropertiesValuesUtil.getPropertyName ("DEPARTMENT_ITEM_TEXT");
 	public static final String DEPARTMENT_CAT_LIST = PropertiesValuesUtil.getPropertyName ("DEPARTMENT_CAT_LIST");
 	public static final String DEPARTMENT_CAT_ITEM = PropertiesValuesUtil.getPropertyName ("DEPARTMENT_CAT_ITEM");
+	public static final String DEPARTMENT_TITLE_TOOLBAR = PropertiesValuesUtil.getPropertyName ("DEPARTMENT_TITLE_TOOLBAR");
+	public static final String DEPARTMENT_TITLE_FILTER = PropertiesValuesUtil.getPropertyName ("DEPARTMENT_TITLE_FILTER");
 	
 	public static final String FILTER_A_TO_Z = PropertiesValuesUtil.getPropertyName ("FILTER_A_TO_Z");
 	public static final String FILTER_Z_TO_A = PropertiesValuesUtil.getPropertyName ("FILTER_Z_TO_A");
@@ -195,6 +199,8 @@ public final class NamesMobileElements {
 	public static final String CAR_DIALOG_CONFIRM = PropertiesValuesUtil.getPropertyName ("CAR_DIALOG_CONFIRM");
 	public static final String CAR_DIALOG_CANCEL = PropertiesValuesUtil.getPropertyName ("CAR_DIALOG_CANCEL");
 	public static final String CAR_BUY_BUTTON = PropertiesValuesUtil.getPropertyName ("CAR_BUY_BUTTON");
+	public static final String CAR_PRODUCT_NAME = PropertiesValuesUtil.getPropertyName ("CAR_PRODUCT_NAME");
+	public static final String CAR_SPINNER = PropertiesValuesUtil.getPropertyName ("CAR_SPINNER");
 	
 	public static final String ACCOUNT_NAME_CONT = PropertiesValuesUtil.getPropertyName("ACCOUNT_NAME_CONT");
 	public static final String ACCOUNT_NAME_TEXT = PropertiesValuesUtil.getPropertyName("ACCOUNT_NAME_TEXT");

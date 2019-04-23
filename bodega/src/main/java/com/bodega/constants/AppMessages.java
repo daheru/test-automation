@@ -30,4 +30,5 @@ public class AppMessages {
 	public static final String INVALID_ACCOUNT_PASS = PropertiesValuesUtil.getPropertyName("INVALID_ACCOUNT_PASS");
 	public static final String ACCOUNT_EXIST_EMAIL = PropertiesValuesUtil.getPropertyName("ACCOUNT_EXIST_EMAIL");
 	public static final String CREATE_ACCOUNT_SUCCESS = PropertiesValuesUtil.getPropertyName("CREATE_ACCOUNT_SUCCESS");
+	public static final String ADDRESS_FAV_ICON = PropertiesValuesUtil.getPropertyName("ADDRESS_FAV_ICON");
 }

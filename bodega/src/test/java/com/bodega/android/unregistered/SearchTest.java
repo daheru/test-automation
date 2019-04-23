@@ -92,7 +92,7 @@ public class SearchTest {
 		search.searchProduct("Computadora");
 		search.validateSearch();
 		search.tapOnFilter();
-		search.selectFilter(FiltersEnum.MINNOR_PRICE.getFilter());
+		search.selectFilter(FiltersEnum.Z_A.getFilter());
 		search.applyFilter();
 		search.validateSearch();
 		logger.info("Caso de prueba finalizado");

@@ -5,7 +5,9 @@ import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.TestName;
 
 import com.bodega.business.android.GeneralBusinessTest;
 import com.bodega.business.android.MyprofileBusinessTest;
@@ -22,6 +24,8 @@ import io.qameta.allure.junit4.DisplayName;
 @Feature("My Profile Module - Session")
 public class MyprofileTest {
 
+	@Rule
+	public TestName name = new TestName();
 	public static final Logger logger = Logger.getLogger(MyprofileBusinessTest.class);
 	public static MyprofileBusinessTest myprofile = new MyprofileBusinessTest();
 	public static GeneralBusinessTest general = new GeneralBusinessTest();
@@ -40,12 +44,13 @@ public class MyprofileTest {
 	public void intapp() {
 		myprofile.closeAndroidDialog();
 		general.validateWelcomePage();
+		logger.info("===> Iniciando caso de prueba: " + name.getMethodName());
 	}
 
 	@After
 	public void reinicio() {
 		myprofile.resetApp();
-
+		logger.info("Caso de prueba finalizado");
 	}
 
 	@Test
@@ -54,7 +59,6 @@ public class MyprofileTest {
 	@Story("As a user I want to manage my profile information")
 	@Description("Edit user´s profile information")
 	public void CF009_edit_myprofile() {
-		logger.info("Iniciando caso de prueba: Update my profile data");
 		myprofile.selectProfile();
 		myprofile.selectMenu(ProfileMenuEnum.LOGIN.getMenu());
 		myprofile.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
@@ -63,14 +67,13 @@ public class MyprofileTest {
 		myprofile.editProfile("Ramiro", "Duarte", "01011995", "H");
 		myprofile.saveProfile();
 	}
-	
+
 	@Test
 	@DisplayName("Edit my password")
 	@Severity(SeverityLevel.BLOCKER)
 	@Story("As a user I want to manage my profile information")
 	@Description("Edit user´s password")
 	public void CF010_edit_mypassword() {
-		logger.info("Iniciando caso de prueba: PassWord my profile data");
 		myprofile.selectProfile();
 		myprofile.selectMenu(ProfileMenuEnum.LOGIN.getMenu());
 		myprofile.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
@@ -85,30 +88,28 @@ public class MyprofileTest {
 	@Severity(SeverityLevel.BLOCKER)
 	@Story("As a user I want to manage my profile information")
 	@Description("Edit user´s phone")
-	public void CF011_edit_phone () {
-		logger.info("Iniciando caso de prueba: Phone my profile data");
+	public void CF011_edit_phone() {
 		myprofile.selectProfile();
 		myprofile.selectMenu(ProfileMenuEnum.LOGIN.getMenu());
 		myprofile.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
 		myprofile.selectProfile();
 		myprofile.selectMenu(ProfileMenuEnum.PROFILE.getMenu());
-		myprofile.editPhone("5573137390", "5556136545"); 
-		myprofile.savePhone(); 
+		myprofile.editPhone("5573137390", "5556136545");
+		myprofile.savePhone();
 	}
-	
+
 	@Test
 	@DisplayName("Edit secondaty phone")
 	@Severity(SeverityLevel.CRITICAL)
 	@Story("As a user I want to manage my profile information")
 	@Description("Edit user´s secondaty phone")
-	public void CF011_edit_phone_secondary () {
-		logger.info("Iniciando caso de prueba: Phone_secundary my profile data");
+	public void CF011_edit_phone_secondary() {
 		myprofile.selectProfile();
 		myprofile.selectMenu(ProfileMenuEnum.LOGIN.getMenu());
 		myprofile.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
 		myprofile.selectProfile();
 		myprofile.selectMenu(ProfileMenuEnum.PROFILE.getMenu());
-		myprofile.editPhone_Secundary("5573137385"); 
+		myprofile.editPhone_Secundary("5573137385");
 		myprofile.savePhone_Secundary();
 	}
 	

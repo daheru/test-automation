@@ -1,11 +1,16 @@
 package com.bodega.business.android;
 
+import java.util.List;
+
 import org.apache.log4j.Logger;
 
 import com.bodega.base.BaseDriver;
 import com.bodega.constants.AppMessages;
 import com.bodega.constants.GeneralConstants;
 import com.bodega.constants.NamesMobileElements;
+
+import io.appium.java_client.MobileElement;
+import io.qameta.allure.Step;
 
 public class SpecialProductBusinessTest extends BaseDriver {
 
@@ -48,16 +53,9 @@ public class SpecialProductBusinessTest extends BaseDriver {
 		general.goBack();
 	}
 
+	@Step("Delete product")
 	public void deleteProducts() {
-		logger.info("Eliminando productos");
-		while (!elementExist(NamesMobileElements.CAR_EMPTY_CAR)
-				&& elementExist(NamesMobileElements.CAR_PRODUCT_DELETE)) {
-			tapOnElement(NamesMobileElements.CAR_PRODUCT_DELETE);
-			waitElementVisibility(NamesMobileElements.CAR_DIALOG_CONFIRM);
-			tapOnElement(NamesMobileElements.CAR_DIALOG_CONFIRM);
-		}
-		cleanCar();
-		goBack();
+		car.deleteProducts();
 	}
 
 	public void selectProduct() {
@@ -69,13 +67,16 @@ public class SpecialProductBusinessTest extends BaseDriver {
 	}
 
 	public void validateCar() {
+		car.selectCar();
 		car.validateCar();
 	}
 
+	@Step("Validate special product car")
 	public void validateSpecialProductCar() {
 		assertEquals(1, car.getUpcs().size());
 	}
 	
+	@Step("Validate special product")
 	public void validateSpecialProduct() {
 		logger.info("Validando mensaje");
 		waitElementVisibility(NamesMobileElements.PRODUCT_DETAIL_CONT);
@@ -85,7 +86,20 @@ public class SpecialProductBusinessTest extends BaseDriver {
 		validateSpecialProductCar();
 	}
 	
-	private void cleanCar() {
-		car.getUpcs().clear();
+	@Step("Increase product quantity")
+	public void increaseProductFromCar(int quantity) {
+		tapOnElement(NamesMobileElements.CAR_SPINNER);
+		List<MobileElement> comboValues = findElements(NamesMobileElements.COMBO_OPTIONS);
+		for (MobileElement comboValue : comboValues) {
+			if (getElementText(comboValue).toLowerCase().contains(String.valueOf(quantity))) {
+				comboValue.click();
+				break;
+			}
+		}
+		general.validatePopUpMessages(AppMessages.CAR_UPDATE);
+		waitElementVisibility(NamesMobileElements.CAR_PRODUCT_ITEM);
+		MobileElement parentElement = findElement(NamesMobileElements.CAR_PRODUCT_ITEM);
+		String productName = getElementText(findSubElement(parentElement, NamesMobileElements.CAR_PRODUCT_NAME));
+		car.getUpcs().put(productName, quantity);
 	}
 }

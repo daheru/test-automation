@@ -18,7 +18,7 @@ import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Story;
 import io.qameta.allure.junit4.DisplayName;
 
-@Feature("Login Module - No session")
+@Feature("Menu Module - No session")
 public class MenuTest {
 
 	private static final Logger logger = Logger.getLogger(MenuTest.class);
@@ -98,4 +98,13 @@ public class MenuTest {
 		logger.info("Caso de prueba finalizado");
 	}
 	
+	@Test
+	@DisplayName("Validate menu no session")
+	@Severity(SeverityLevel.BLOCKER)
+	@Story("As a user I want to use my profile menu")
+	@Description("Validate that profile menu without session has all elements")
+	public void CF000_validate_menu_without_login() {
+		main.selectProfile();
+		main.validateMenu(false);
+	}
 }

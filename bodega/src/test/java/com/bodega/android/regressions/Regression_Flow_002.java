@@ -9,13 +9,11 @@ import org.junit.Test;
 import com.bodega.business.android.CarBusinessTest;
 import com.bodega.business.android.DepartmentsBusinessTest;
 import com.bodega.business.android.GeneralBusinessTest;
+import com.bodega.business.android.HomeBusinessTest;
 import com.bodega.business.android.LoginBusinessTest;
+import com.bodega.business.android.MenuBusinessTest;
 import com.bodega.business.android.ProductBusinessTest;
-import com.bodega.business.android.SearchBusinessTest;
-import com.bodega.constants.AppMessages;
-import com.bodega.constants.GeneralConstants;
-import com.bodega.enums.FiltersEnum;
-import com.bodega.enums.NavigationBarEnum;
+import com.bodega.vo.AddressVO;
 
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
@@ -24,19 +22,23 @@ import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.junit4.DisplayName;
 
 @Feature("Regression Flows")
-public class Regression_Flow_001 {
+public class Regression_Flow_002 {
 
-	private static final Logger logger = Logger.getLogger(Regression_Flow_001.class);
+	private static final Logger logger = Logger.getLogger(Regression_Flow_002.class);
 	private static GeneralBusinessTest general = new GeneralBusinessTest();
 	private LoginBusinessTest login = new LoginBusinessTest();
 	private ProductBusinessTest product = new ProductBusinessTest();
-	private SearchBusinessTest search = new SearchBusinessTest();
 	private DepartmentsBusinessTest departments = new DepartmentsBusinessTest();
 	private CarBusinessTest car = new CarBusinessTest();
-	
+	private HomeBusinessTest home = new HomeBusinessTest();
+	private MenuBusinessTest menu = new MenuBusinessTest();
+	private static AddressVO address;
+
 	@AfterClass
 	public static void shutDown() {
 		general.driverDisconect();
+		address = new AddressVO("Mi direccion ", "Maria", "Tester", "Av Rodolfo Gaona 46", "456", "", "11200",
+				"Lomas de Sotelo", "Entre calle 1 y calle 2", "Plaza Toreo", "Movil", "5555555555", true);
 	}
 
 	@Before
@@ -55,32 +57,30 @@ public class Regression_Flow_001 {
 	@DisplayName("Regression Flow 1")
 	@Severity(SeverityLevel.CRITICAL)
 	@Description("Regression Flow using diffent functionality")
-	public void regresion_flow_001() {
+	public void regresion_flow_002() {
 		logger.info("Iniciando prueba de regresion");
-		search.searchProduct("Videojuegos");
-		search.validateNoResults();
+		home.tapOnBanner();
+		product.selectProduct();
+		product.addProduct();
 		general.goBack();
-		search.searchProduct("xbox");
-		search.validateSearch();
+		general.goBack();
+		general.tapUp();
+		general.tapUp();
+		departments.selectShowAll();
 		product.selectProduct();
 		product.addProduct();
 		product.addProduct();
 		product.removeProduct();
-		general.goBack();
-		general.goBack();
-		departments.selectNavigation(NavigationBarEnum.DEPARTMENTS.getNavigation());
-		departments.selectDepartment();
-		departments.selectCategory();
-		departments.tapOnFilter();
-		departments.selectFilter( FiltersEnum.MINNOR_PRICE.getFilter() );
-		departments.applyFilter();
-		product.selectProduct();
-		product.addProduct();
+		car.selectCar();
 		car.validateCar();
 		car.selectContinueBuying();
-		login.login("fake_mail@hotmail.es", "12345678");
-		login.validatePopUpMessage( AppMessages.ACCOUNT_UNEXIST_EMAIL );
-		login.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
+		String email = general.randomString(10, true, true);
+		String pass = general.randomString(8, true, true);
+		login.selectCreateAccount();
+		login.createAccount("Maria", "Tester", email + "@correo.com", pass);
+		car.validateCar();
+		car.selectContinueBuying();
+		menu.addNewDirection(address);
 		logger.info("Prueba de regresion finalizada");
 	}
 }

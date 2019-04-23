@@ -33,7 +33,7 @@
 				<text.attribute>text</text.attribute>
 				<app.package>com.mx.walmart.bodega</app.package>
 				<app.activity>com.mx.walmart.bodega.SplashActivity</app.activity>
-				<app.version>Version 1.0.0</app.version>
+				<app.version>Versi\u00f3n 2.0.5 (72)</app.version>
 			</properties>
 		</profile>
 		<profile>

@@ -16,6 +16,7 @@ public class DepartmentsBusinessTest extends BaseDriver {
 	private GeneralBusinessTest general = new GeneralBusinessTest();
 	private LoginBusinessTest login = new LoginBusinessTest();
 	private SearchBusinessTest search = new SearchBusinessTest();
+	private HomeBusinessTest home = new HomeBusinessTest();
 	
 	public void validateWelcomePage() {
 		general.validateWelcomePage();
@@ -39,6 +40,10 @@ public class DepartmentsBusinessTest extends BaseDriver {
 	
 	public void login(String email, String password) {
 		login.login(email, password);
+	}
+	
+	public void validateHome() {
+		home.validateHomePage();
 	}
 	
 	@Step("Validate product list")
@@ -87,5 +92,13 @@ public class DepartmentsBusinessTest extends BaseDriver {
 	
 	public void validateSearch() {
 		search.validateSearch();
+	}
+	
+	public void validateTitleToolbar() {
+		waitElementVisibility( NamesMobileElements.DEPARTMENT_TITLE_TOOLBAR );
+		MobileElement titleToolbar = findElement( NamesMobileElements.DEPARTMENT_TITLE_TOOLBAR );
+		MobileElement titleFilter = findElementByClass( NamesMobileElements.DEPARTMENT_TITLE_FILTER );
+		String titleFilterText = getAttribute(titleFilter, "content-desc");
+		assertEquals(getElementText(titleToolbar), titleFilterText);
 	}
 }

@@ -9,7 +9,6 @@ import org.apache.log4j.Logger;
 
 import com.bodega.base.BaseDriver;
 import com.bodega.constants.AppMessages;
-import com.bodega.constants.GeneralConstants;
 import com.bodega.constants.NamesMobileElements;
 
 import io.appium.java_client.MobileElement;
@@ -52,27 +51,24 @@ public class CarBusinessTest extends BaseDriver {
 	}
 	
 	public void validateCar() {
-		selectCar();
 		logger.info("Validando carrito");
 		if (upcs.isEmpty()) {
 			validateEmptyCar();
 		} else {
+			boolean validCar = true;
 			waitElementVisibility(NamesMobileElements.CAR_PRODUCT_LIST);
 			MobileElement productContainer = findElement(NamesMobileElements.CAR_PRODUCT_LIST);
 			List<MobileElement> products = findSubElements(productContainer, NamesMobileElements.CAR_PRODUCT_ITEM);
 			Iterator<MobileElement> iteratorProducts = products.iterator();
 			while (iteratorProducts.hasNext()) {
-				tapOnElement(iteratorProducts.next());
-				scrollUntilShowElement(GeneralConstants.SCROLL_UP, NamesMobileElements.PRODUCT_DETAIL_UPC);
-				String productInCar = getElementText(NamesMobileElements.PRODUCT_DETAIL_UPC);
-				if (upcs.containsKey(productInCar)) {
-					upcs.remove(productInCar);
+				MobileElement productName = findSubElement(iteratorProducts.next(), NamesMobileElements.CAR_PRODUCT_NAME);
+				if (!upcs.containsKey(getElementText(productName))) {
+					validCar = false;
+					break;
 				}
-				generalBusinessTest.goBack();
 			}
-			assertTrue("Los productos no estan en el carrito", upcs.isEmpty());
+			assertTrue("Los productos no estan en el carrito", validCar);
 		}
-		upcs = new HashMap<String, Integer>();
 	}
 	
 	public Map<String, Integer> getUpcs(){
@@ -83,19 +79,39 @@ public class CarBusinessTest extends BaseDriver {
 		logger.info("Eliminando producto");
 		MobileElement productContainer = findElement(NamesMobileElements.CAR_PRODUCT_LIST);
 		List<MobileElement> products = findSubElements(productContainer, NamesMobileElements.CAR_PRODUCT_DELETE);
+		List<MobileElement> productName = findSubElements(productContainer, NamesMobileElements.CAR_PRODUCT_NAME);
+		assertTrue("El producto no existe", products.size() > 0);
+		assertTrue("El producto no existe", products.size() > 0);
 		products.get(0).click();
 		waitElementVisibility(NamesMobileElements.CAR_DELETE_DIALOG);
 		tapOnElement(NamesMobileElements.CAR_DIALOG_CONFIRM);
 		generalBusinessTest.validatePopUpMessages(AppMessages.DELETE_PRODUCT);
-		upcs.clear();
+		upcs.remove(getElementText(productName.get(0)));
 	}
 	
 	public void cancelDeleteProduct() {
 		logger.info("Canelando eliminación");
 		MobileElement productContainer = findElement(NamesMobileElements.CAR_PRODUCT_LIST);
+		assertTrue("El elemento no existe", productContainer != null);
 		List<MobileElement> products = findSubElements(productContainer, NamesMobileElements.CAR_PRODUCT_DELETE);
 		products.get(0).click();
 		waitElementVisibility(NamesMobileElements.CAR_DELETE_DIALOG);
 		tapOnElement(NamesMobileElements.CAR_DIALOG_CANCEL);
+	}
+	
+	public void deleteProducts() {
+		logger.info("Eliminando productos");
+		while (!elementExist(NamesMobileElements.CAR_EMPTY_CAR)
+				&& elementExist(NamesMobileElements.CAR_PRODUCT_DELETE)) {
+			tapOnElement(NamesMobileElements.CAR_PRODUCT_DELETE);
+			waitElementVisibility(NamesMobileElements.CAR_DIALOG_CONFIRM);
+			tapOnElement(NamesMobileElements.CAR_DIALOG_CONFIRM);
+		}
+		cleanCar();
+		generalBusinessTest.goBack();
+	}
+	
+	private void cleanCar() {
+		upcs.clear();
 	}
 }
