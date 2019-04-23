@@ -60,10 +60,10 @@ public class MyprofileTest {
 	@Description("Edit user´s profile information")
 	public void CF009_edit_myprofile() {
 		myprofile.selectProfile();
-		myprofile.selectMenu(ProfileMenuEnum.LOGIN.getMenu());
+		myprofile.selectMenu(ProfileMenuEnum.LOGIN);
 		myprofile.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
 		myprofile.selectProfile();
-		myprofile.selectMenu(ProfileMenuEnum.PROFILE.getMenu());
+		myprofile.selectMenu(ProfileMenuEnum.PROFILE);
 		myprofile.editProfile("Ramiro", "Duarte", "01011995", "H");
 		myprofile.saveProfile();
 	}
@@ -75,10 +75,10 @@ public class MyprofileTest {
 	@Description("Edit user´s password")
 	public void CF010_edit_mypassword() {
 		myprofile.selectProfile();
-		myprofile.selectMenu(ProfileMenuEnum.LOGIN.getMenu());
+		myprofile.selectMenu(ProfileMenuEnum.LOGIN);
 		myprofile.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
 		myprofile.selectProfile();
-		myprofile.selectMenu(ProfileMenuEnum.PROFILE.getMenu());
+		myprofile.selectMenu(ProfileMenuEnum.PROFILE);
 		myprofile.editPassword("Edominguez#1234", "Edominguez#1235");
 		myprofile.savePassword();
 	}
@@ -90,10 +90,10 @@ public class MyprofileTest {
 	@Description("Edit user´s phone")
 	public void CF011_edit_phone() {
 		myprofile.selectProfile();
-		myprofile.selectMenu(ProfileMenuEnum.LOGIN.getMenu());
+		myprofile.selectMenu(ProfileMenuEnum.LOGIN);
 		myprofile.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
 		myprofile.selectProfile();
-		myprofile.selectMenu(ProfileMenuEnum.PROFILE.getMenu());
+		myprofile.selectMenu(ProfileMenuEnum.PROFILE);
 		myprofile.editPhone("5573137390", "5556136545");
 		myprofile.savePhone();
 	}
@@ -105,10 +105,10 @@ public class MyprofileTest {
 	@Description("Edit user´s secondaty phone")
 	public void CF011_edit_phone_secondary() {
 		myprofile.selectProfile();
-		myprofile.selectMenu(ProfileMenuEnum.LOGIN.getMenu());
+		myprofile.selectMenu(ProfileMenuEnum.LOGIN);
 		myprofile.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
 		myprofile.selectProfile();
-		myprofile.selectMenu(ProfileMenuEnum.PROFILE.getMenu());
+		myprofile.selectMenu(ProfileMenuEnum.PROFILE);
 		myprofile.editPhone_Secundary("5573137385");
 		myprofile.savePhone_Secundary();
 	}
@@ -117,10 +117,10 @@ public class MyprofileTest {
 	public void edit_phone2() {
 		logger.info("Iniciando caso de prueba: Phone my profile data");
 		myprofile.selectProfile();
-		myprofile.selectMenu(ProfileMenuEnum.LOGIN.getMenu());
+		myprofile.selectMenu(ProfileMenuEnum.LOGIN);
 		myprofile.login("emmanuel.dominguez@axity.com", "Edominguez#1235");
 		myprofile.selectProfile();
-		myprofile.selectMenu(ProfileMenuEnum.PROFILE.getMenu());
+		myprofile.selectMenu(ProfileMenuEnum.PROFILE);
 		myprofile.editPhone2("5573137380", "5576136545", "456");
 		myprofile.savePhone2();
 	}

@@ -68,7 +68,7 @@ public class Regression_Flow_001 {
 		product.removeProduct();
 		general.goBack();
 		general.goBack();
-		departments.selectNavigation(NavigationBarEnum.DEPARTMENTS.getNavigation());
+		departments.selectNavigation(NavigationBarEnum.DEPARTMENTS);
 		departments.selectDepartment();
 		departments.selectCategory();
 		departments.tapOnFilter();

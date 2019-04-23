@@ -37,7 +37,7 @@ public class MenuBusinessTest extends BaseDriver {
 		generalBusinessTest.selectProfile();
 	}
 
-	public void selectMenu(String menuOption) {
+	public void selectMenu(ProfileMenuEnum menuOption) {
 		generalBusinessTest.selectMenuOption(menuOption);
 	}
 
@@ -246,7 +246,7 @@ public class MenuBusinessTest extends BaseDriver {
 	@Step("Validate logout")
 	public void validateLogout() {
 		selectProfile();
-		selectMenu(ProfileMenuEnum.LOGIN.getMenu());
+		selectMenu(ProfileMenuEnum.LOGIN);
 		assertTrue("El elemento no existe", elementExist(NamesMobileElements.LOGIN_LOGIN_BUTTON));
 		logger.info("Elemento válido");
 	}
@@ -306,30 +306,30 @@ public class MenuBusinessTest extends BaseDriver {
 	@Step("Validate profile menu")
 	public void validateMenu(boolean isLogged) {
 		if (isLogged) {
-			generalBusinessTest.selectMenuOption(ProfileMenuEnum.PROFILE.getMenu());
+			generalBusinessTest.selectMenuOption(ProfileMenuEnum.PROFILE);
 			generalBusinessTest.goBack();
-			generalBusinessTest.selectMenuOption(ProfileMenuEnum.ADDRESS.getMenu());
+			generalBusinessTest.selectMenuOption(ProfileMenuEnum.ADDRESS);
 			generalBusinessTest.goBack();
-			generalBusinessTest.selectMenuOption(ProfileMenuEnum.ORDERS.getMenu());
+			generalBusinessTest.selectMenuOption(ProfileMenuEnum.ORDERS);
 			generalBusinessTest.goBack();
-			generalBusinessTest.selectMenuOption(ProfileMenuEnum.NOTIFICATIONS.getMenu());
+			generalBusinessTest.selectMenuOption(ProfileMenuEnum.NOTIFICATIONS);
 		} else {
-			generalBusinessTest.selectMenuOption(ProfileMenuEnum.LOGIN.getMenu());
+			generalBusinessTest.selectMenuOption(ProfileMenuEnum.LOGIN);
 			generalBusinessTest.goBack();
-			generalBusinessTest.selectMenuOption(ProfileMenuEnum.CREATE_PROFILE.getMenu());
+			generalBusinessTest.selectMenuOption(ProfileMenuEnum.CREATE_PROFILE);
 			generalBusinessTest.goBack();
 		}
-		generalBusinessTest.selectMenuOption(ProfileMenuEnum.GET_BILL.getMenu());
+		generalBusinessTest.selectMenuOption(ProfileMenuEnum.GET_BILL);
 		closeAndroidDialog();
 		generalBusinessTest.goBack();
-		generalBusinessTest.selectMenuOption(ProfileMenuEnum.SUPPORT.getMenu());
+		generalBusinessTest.selectMenuOption(ProfileMenuEnum.SUPPORT);
 		generalBusinessTest.goBack();
-		generalBusinessTest.selectMenuOption(ProfileMenuEnum.TERMS.getMenu());
+		generalBusinessTest.selectMenuOption(ProfileMenuEnum.TERMS);
 		generalBusinessTest.goBack();
-		generalBusinessTest.selectMenuOption(ProfileMenuEnum.LEGALS.getMenu());
+		generalBusinessTest.selectMenuOption(ProfileMenuEnum.LEGALS);
 		generalBusinessTest.goBack();
 		if (isLogged) {
-			generalBusinessTest.selectMenuOption(ProfileMenuEnum.LOGOUT.getMenu());
+			generalBusinessTest.selectMenuOption(ProfileMenuEnum.LOGOUT);
 		}
 	}
 

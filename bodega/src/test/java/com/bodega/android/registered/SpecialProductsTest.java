@@ -54,9 +54,9 @@ public class SpecialProductsTest {
 	@Description("Try to add a special product to car")
 	public void CF041_add_special_product() {
 		special.selectProfile();
-		special.selectMenu(ProfileMenuEnum.LOGIN.getMenu());
+		special.selectMenu(ProfileMenuEnum.LOGIN);
 		special.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
-		special.selectNavigation(NavigationBarEnum.CAR.getNavigation());
+		special.selectNavigation(NavigationBarEnum.CAR);
 		special.deleteProducts();
 		special.searchProduct("Motocicletas");
 		special.validateSearch();
@@ -72,9 +72,9 @@ public class SpecialProductsTest {
 	@Description("Try to add a special product to car")
 	public void CF042_add_special_product_and_normal_product() {
 		special.selectProfile();
-		special.selectMenu(ProfileMenuEnum.LOGIN.getMenu());
+		special.selectMenu(ProfileMenuEnum.LOGIN);
 		special.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
-		special.selectNavigation(NavigationBarEnum.CAR.getNavigation());
+		special.selectNavigation(NavigationBarEnum.CAR);
 		special.deleteProducts();
 		special.searchProduct("Motocicletas");
 		special.validateSearch();
@@ -95,9 +95,9 @@ public class SpecialProductsTest {
 	@Description("Try to add a normal product and special product to car")
 	public void CF043_add_normal_product_and_special_product() {
 		special.selectProfile();
-		special.selectMenu(ProfileMenuEnum.LOGIN.getMenu());
+		special.selectMenu(ProfileMenuEnum.LOGIN);
 		special.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
-		special.selectNavigation(NavigationBarEnum.CAR.getNavigation());
+		special.selectNavigation(NavigationBarEnum.CAR);
 		special.deleteProducts();
 		special.searchProduct("Celular");
 		special.validateSearch();
@@ -118,9 +118,9 @@ public class SpecialProductsTest {
 	@Description("Try to add a presale product to car")
 	public void CF04r_add_presale_product() {
 		special.selectProfile();
-		special.selectMenu(ProfileMenuEnum.LOGIN.getMenu());
+		special.selectMenu(ProfileMenuEnum.LOGIN);
 		special.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
-		special.selectNavigation(NavigationBarEnum.CAR.getNavigation());
+		special.selectNavigation(NavigationBarEnum.CAR);
 		special.deleteProducts();
 		special.searchProduct("Preventa");
 		special.validateSearch();
@@ -136,9 +136,9 @@ public class SpecialProductsTest {
 	@Description("Try to add a presale product to car")
 	public void CF000_increase_product_from_car() {
 		special.selectProfile();
-		special.selectMenu(ProfileMenuEnum.LOGIN.getMenu());
+		special.selectMenu(ProfileMenuEnum.LOGIN);
 		special.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
-		special.selectNavigation(NavigationBarEnum.CAR.getNavigation());
+		special.selectNavigation(NavigationBarEnum.CAR);
 		special.deleteProducts();
 		special.searchProduct("Celular");
 		special.validateSearch();

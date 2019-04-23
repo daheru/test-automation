@@ -3,6 +3,7 @@ import org.apache.log4j.Logger;
 
 import com.bodega.base.BaseDriver;
 import com.bodega.constants.NamesMobileElements;
+import com.bodega.enums.ProfileMenuEnum;
 
 public class MyprofileBusinessTest extends BaseDriver {
 
@@ -19,7 +20,7 @@ public class MyprofileBusinessTest extends BaseDriver {
 		generalBusinessTest.selectProfile();
 	}
 
-	public void selectMenu(String menu) {
+	public void selectMenu(ProfileMenuEnum menu) {
 		generalBusinessTest.selectMenuOption(menu);
 	}
 	

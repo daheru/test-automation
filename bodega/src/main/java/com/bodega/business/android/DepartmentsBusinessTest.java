@@ -6,6 +6,8 @@ import org.apache.log4j.Logger;
 
 import com.bodega.base.BaseDriver;
 import com.bodega.constants.NamesMobileElements;
+import com.bodega.enums.NavigationBarEnum;
+import com.bodega.enums.ProfileMenuEnum;
 
 import io.appium.java_client.MobileElement;
 import io.qameta.allure.Step;
@@ -26,11 +28,11 @@ public class DepartmentsBusinessTest extends BaseDriver {
 		general.selectProfile();
 	}
 
-	public void selectMenu(String menu) {
+	public void selectMenu(ProfileMenuEnum menu) {
 		general.selectMenuOption(menu);
 	}
 
-	public void selectNavigation(int option) {
+	public void selectNavigation(NavigationBarEnum option) {
 		general.selectNavigationOption(option);
 	}
 

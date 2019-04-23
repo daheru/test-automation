@@ -56,7 +56,7 @@ public class SearchTest {
 	@Description("Search product usign the search bar")
 	public void CF058_search_product() {
 		search.selectProfile();
-		search.selectMenu(ProfileMenuEnum.LOGIN.getMenu());
+		search.selectMenu(ProfileMenuEnum.LOGIN);
 		search.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
 		search.searchProduct("Celulares");
 		search.validateSearch();
@@ -69,7 +69,7 @@ public class SearchTest {
 	@Description("Search an unexist product usign the search bar")
 	public void CF000_search_unexist_product() {
 		search.selectProfile();
-		search.selectMenu(ProfileMenuEnum.LOGIN.getMenu());
+		search.selectMenu(ProfileMenuEnum.LOGIN);
 		search.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
 		search.searchProduct("Pan");
 		search.validateNoResults();
@@ -82,7 +82,7 @@ public class SearchTest {
 	@Description("Search product usign A-Z filter")
 	public void CF059_search_by_A_Z_filter() {
 		search.selectProfile();
-		search.selectMenu(ProfileMenuEnum.LOGIN.getMenu());
+		search.selectMenu(ProfileMenuEnum.LOGIN);
 		search.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
 		search.searchProduct("Refrigerador");
 		search.validateSearch();
@@ -99,9 +99,9 @@ public class SearchTest {
 	@Description("Search product usign Z-A filter")
 	public void CF060_search_by_Z_A_filter() {
 		search.selectProfile();
-		search.selectMenu(ProfileMenuEnum.LOGIN.getMenu());
+		search.selectMenu(ProfileMenuEnum.LOGIN);
 		search.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
-		search.selectNavigation(NavigationBarEnum.DEPARTMENTS.getNavigation());
+		search.selectNavigation(NavigationBarEnum.DEPARTMENTS);
 		search.searchProduct("Computadora");
 		search.validateSearch();
 		search.tapOnFilter();
@@ -117,9 +117,9 @@ public class SearchTest {
 	@Description("Search product usign minnor price filter")
 	public void CF061_search_by_minnor_price_filter() {
 		search.selectProfile();
-		search.selectMenu(ProfileMenuEnum.LOGIN.getMenu());
+		search.selectMenu(ProfileMenuEnum.LOGIN);
 		search.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
-		search.selectNavigation(NavigationBarEnum.DEPARTMENTS.getNavigation());
+		search.selectNavigation(NavigationBarEnum.DEPARTMENTS);
 		search.searchProduct("Computadora");
 		search.validateSearch();
 		search.tapOnFilter();
@@ -135,9 +135,9 @@ public class SearchTest {
 	@Description("Search product usign higher price filter")
 	public void CF062_search_by_higher_price_filter() {
 		search.selectProfile();
-		search.selectMenu(ProfileMenuEnum.LOGIN.getMenu());
+		search.selectMenu(ProfileMenuEnum.LOGIN);
 		search.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
-		search.selectNavigation(NavigationBarEnum.DEPARTMENTS.getNavigation());
+		search.selectNavigation(NavigationBarEnum.DEPARTMENTS);
 		search.searchProduct("Computadora");
 		search.validateSearch();
 		search.tapOnFilter();
@@ -153,9 +153,9 @@ public class SearchTest {
 	@Description("Search product usign popular filter")
 	public void CF063_search_by_popular_filter() {
 		search.selectProfile();
-		search.selectMenu(ProfileMenuEnum.LOGIN.getMenu());
+		search.selectMenu(ProfileMenuEnum.LOGIN);
 		search.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
-		search.selectNavigation(NavigationBarEnum.DEPARTMENTS.getNavigation());
+		search.selectNavigation(NavigationBarEnum.DEPARTMENTS);
 		search.searchProduct("Computadora");
 		search.validateSearch();
 		search.tapOnFilter();
@@ -171,9 +171,9 @@ public class SearchTest {
 	@Description("Search product usign subcategory filter")
 	public void CF000_search_by_subcategory_filter() {
 		search.selectProfile();
-		search.selectMenu(ProfileMenuEnum.LOGIN.getMenu());
+		search.selectMenu(ProfileMenuEnum.LOGIN);
 		search.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
-		search.selectNavigation(NavigationBarEnum.DEPARTMENTS.getNavigation());
+		search.selectNavigation(NavigationBarEnum.DEPARTMENTS);
 		search.searchProduct("Computadora");
 		search.validateSearch();
 		search.tapOnFilter();

@@ -23,7 +23,7 @@ public class LoginBusinessTest extends BaseDriver {
 	}
 
 	public void selectLoginOption() {
-		generalBusinessTest.selectMenuOption(ProfileMenuEnum.LOGIN.getMenu());
+		generalBusinessTest.selectMenuOption(ProfileMenuEnum.LOGIN);
 	}
 
 	public void initAsGuess() {
@@ -50,7 +50,7 @@ public class LoginBusinessTest extends BaseDriver {
 	@Step("Validate login")
 	public void validateLogin() {
 		generalBusinessTest.selectProfile();
-		generalBusinessTest.selectMenuOption(ProfileMenuEnum.PROFILE.getMenu());
+		generalBusinessTest.selectMenuOption(ProfileMenuEnum.PROFILE);
 		waitElementVisibility(NamesMobileElements.PROFILE_EMAIL);
 		MobileElement profileEmail = findElement(NamesMobileElements.PROFILE_EMAIL);
 		logger.info("EMAIL: " + getElementText(profileEmail));

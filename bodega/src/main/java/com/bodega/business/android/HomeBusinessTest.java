@@ -19,7 +19,7 @@ public class HomeBusinessTest extends BaseDriver {
 	}
 
 	public void selectHomeOption() {
-		generalBusinessTest.selectNavigationOption(NavigationBarEnum.HOME.getNavigation());
+		generalBusinessTest.selectNavigationOption(NavigationBarEnum.HOME);
 	}
 
 	@Step("Validate home page")

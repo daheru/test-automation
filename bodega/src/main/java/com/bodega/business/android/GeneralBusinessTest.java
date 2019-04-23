@@ -13,6 +13,7 @@ import com.bodega.constants.GeneralConstants;
 import com.bodega.constants.NamesMobileElements;
 import com.bodega.enums.MenusEnum;
 import com.bodega.enums.NavigationBarEnum;
+import com.bodega.enums.ProfileMenuEnum;
 
 import io.appium.java_client.MobileElement;
 import io.qameta.allure.Step;
@@ -22,28 +23,28 @@ public class GeneralBusinessTest extends BaseDriver {
 	private static final Logger logger = Logger.getLogger(GeneralBusinessTest.class.getName());
 
 	@Step("Tap on navigation option {navOption}")
-	public void selectNavigationOption(int navOption) {
+	public void selectNavigationOption( NavigationBarEnum navOption) {
 		waitElementVisibility(NamesMobileElements.NAV_BAR);
 		MobileElement navigationElement = null;
-		if (navOption == NavigationBarEnum.HOME.getNavigation()) {
-			logger.info(" Seleccionando menu home");
+		if (navOption.getNavigation() == NavigationBarEnum.HOME.getNavigation()) {
+			logger.info("Seleccionando menu home");
 			navigationElement = findElement(NamesMobileElements.NAV_BAR_HOME);
-		} else if (navOption == NavigationBarEnum.DEPARTMENTS.getNavigation()) {
-			logger.info(" Seleccionando menu departamentos");
+		} else if (navOption.getNavigation() == NavigationBarEnum.DEPARTMENTS.getNavigation()) {
+			logger.info("Seleccionando menu departamentos");
 			navigationElement = findElement(NamesMobileElements.NAV_BAR_DEPARTMENTS);
-		} else if (navOption == NavigationBarEnum.PROMOTIONS.getNavigation()) {
-			logger.info(" Seleccionando menu perfil");
+		} else if (navOption.getNavigation() == NavigationBarEnum.PROMOTIONS.getNavigation()) {
+			logger.info("Seleccionando menu perfil");
 			navigationElement = findElement(NamesMobileElements.NAV_BAR_PROMOTIONS);
-		} else if (navOption == NavigationBarEnum.CAR.getNavigation()) {
-			logger.info(" Seleccionando menu perfil");
+		} else if (navOption.getNavigation() == NavigationBarEnum.CAR.getNavigation()) {
+			logger.info("Seleccionando menu perfil");
 			navigationElement = findElement(NamesMobileElements.NAV_BAR_CAR);
 		}
 		navigationElement.click();
 	}
 
 	@Step("Tap on menu option {menuOptionEnum}")
-	public void selectMenuOption(String menuOptionEnum) {
-		logger.info("Seleccionando la opcion: " + menuOptionEnum);
+	public void selectMenuOption(ProfileMenuEnum menuOptionEnum) {
+		logger.info("Seleccionando la opcion: " + menuOptionEnum.getMenu());
 		waitElementVisibility(NamesMobileElements.MENU_NAME);
 		List<MobileElement> menuList = findElements(NamesMobileElements.MENU_NAME);
 		assertTrue("El elemento no existe", menuList.size() > 0);
@@ -51,7 +52,7 @@ public class GeneralBusinessTest extends BaseDriver {
 		int exit = 0;
 		do {
 			for (MobileElement element : menuList) {
-				if (getElementText(element).contains(menuOptionEnum)) {
+				if (getElementText(element).contains(menuOptionEnum.getMenu())) {
 					tapOnElement(element);
 					clicMenu = true;
 					break;

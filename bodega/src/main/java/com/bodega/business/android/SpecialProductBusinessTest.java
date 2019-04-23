@@ -8,6 +8,8 @@ import com.bodega.base.BaseDriver;
 import com.bodega.constants.AppMessages;
 import com.bodega.constants.GeneralConstants;
 import com.bodega.constants.NamesMobileElements;
+import com.bodega.enums.NavigationBarEnum;
+import com.bodega.enums.ProfileMenuEnum;
 
 import io.appium.java_client.MobileElement;
 import io.qameta.allure.Step;
@@ -29,11 +31,11 @@ public class SpecialProductBusinessTest extends BaseDriver {
 		general.selectProfile();
 	}
 
-	public void selectMenu(String menu) {
+	public void selectMenu(ProfileMenuEnum menu) {
 		general.selectMenuOption(menu);
 	}
 
-	public void selectNavigation(int option) {
+	public void selectNavigation(NavigationBarEnum option) {
 		general.selectNavigationOption(option);
 	}
 
@@ -88,6 +90,7 @@ public class SpecialProductBusinessTest extends BaseDriver {
 	
 	@Step("Increase product quantity")
 	public void increaseProductFromCar(int quantity) {
+		waitElementVisibility(NamesMobileElements.CAR_SPINNER);
 		tapOnElement(NamesMobileElements.CAR_SPINNER);
 		List<MobileElement> comboValues = findElements(NamesMobileElements.COMBO_OPTIONS);
 		for (MobileElement comboValue : comboValues) {

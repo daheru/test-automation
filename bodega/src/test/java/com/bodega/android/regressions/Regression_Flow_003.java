@@ -67,9 +67,9 @@ public class Regression_Flow_003 {
 		login.selectProfile();
 		login.selectLoginOption();
 		login.login("correo_test@correo.com", "Juan#123");
-		general.selectNavigationOption(NavigationBarEnum.CAR.getNavigation());
+		general.selectNavigationOption(NavigationBarEnum.CAR);
 		car.deleteProducts();
-		general.selectNavigationOption(NavigationBarEnum.DEPARTMENTS.getNavigation());
+		general.selectNavigationOption(NavigationBarEnum.DEPARTMENTS);
 		departments.selectDepartment();
 		departments.selectCategory();
 		product.selectProduct();
@@ -92,7 +92,7 @@ public class Regression_Flow_003 {
 		general.goBack();
 		general.goBack();
 		login.selectProfile();
-		menu.selectMenu( ProfileMenuEnum.ADDRESS.getMenu() );
+		menu.selectMenu(ProfileMenuEnum.ADDRESS);
 		menu.selectAsMainAddress();
 		address.setAddressUserName("Maria");
 		address.setAddressStreet("Golfo de Bengala");
@@ -102,7 +102,7 @@ public class Regression_Flow_003 {
 		menu.saveDirection();
 		general.goBack();
 		general.goBack();
-		general.selectNavigationOption(NavigationBarEnum.CAR.getNavigation());
+		general.selectNavigationOption(NavigationBarEnum.CAR);
 		car.validateCar();
 		car.selectContinueBuying();
 	}

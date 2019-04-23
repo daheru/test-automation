@@ -4,12 +4,12 @@ import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.TestName;
 
 import com.bodega.business.android.SpecialProductBusinessTest;
-import com.bodega.constants.GeneralConstants;
 import com.bodega.enums.NavigationBarEnum;
-import com.bodega.enums.ProfileMenuEnum;
 
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
@@ -20,10 +20,12 @@ import io.qameta.allure.junit4.DisplayName;
 
 @Feature("Speacial Product Module - No session")
 public class SpecialProductsTest {
-	
+
+	@Rule
+	public TestName name = new TestName();
 	private static final Logger logger = Logger.getLogger(SpecialProductsTest.class);
 	private static SpecialProductBusinessTest special = new SpecialProductBusinessTest();
-	
+
 	@AfterClass
 	public static void shutDown() {
 		special.driverDisconect();
@@ -33,38 +35,37 @@ public class SpecialProductsTest {
 	public void initApp() {
 		special.closeAndroidDialog();
 		special.validateWelcomePage();
+		logger.info("===> Iniciando caso de prueba: " + name.getMethodName());
 	}
 
 	@After
 	public void relauchApp() {
 		special.resetApp();
+		logger.info("Caso de prueba finalizado");
 	}
-	
+
 	@Test
 	@DisplayName("Add special product")
 	@Severity(SeverityLevel.BLOCKER)
 	@Story("As a user I want to add a special product to car")
 	@Description("Try to add a special product to car")
 	public void CF041_add_special_product() {
-		logger.info("Iniciando caso de prueba: Add special product");
-		special.selectNavigation( NavigationBarEnum.CAR.getNavigation() );
+		special.selectNavigation(NavigationBarEnum.CAR);
 		special.deleteProducts();
 		special.searchProduct("Motocicletas");
 		special.validateSearch();
 		special.selectProduct();
 		special.addProduct();
 		special.validateCar();
-		logger.info("Caso de prueba finalizado");
 	}
-	
+
 	@Test
 	@DisplayName("Add special product and normal product")
 	@Severity(SeverityLevel.BLOCKER)
 	@Story("As a user I want to add a special product and normal product to car")
 	@Description("Try to add a special product to car")
 	public void CF042_add_special_product_and_normal_product() {
-		logger.info("Iniciando caso de prueba: Add special product and normal product");
-		special.selectNavigation( NavigationBarEnum.CAR.getNavigation() );
+		special.selectNavigation(NavigationBarEnum.CAR);
 		special.deleteProducts();
 		special.searchProduct("Motocicletas");
 		special.validateSearch();
@@ -75,18 +76,16 @@ public class SpecialProductsTest {
 		special.searchProduct("Celulares");
 		special.validateSearch();
 		special.selectProduct();
-		special.validateSpecialProduct();
-		logger.info("Caso de prueba finalizado");
+		special.validateCar();
 	}
-	
+
 	@Test
 	@DisplayName("Add normal product and special product")
 	@Severity(SeverityLevel.CRITICAL)
 	@Story("As a user I want to add a special product to car")
 	@Description("Try to add a normal product and special product to car")
 	public void CF043_add_normal_product_and_special_product() {
-		logger.info("Iniciando caso de prueba: Add normal product and special product");
-		special.selectNavigation( NavigationBarEnum.CAR.getNavigation() );
+		special.selectNavigation(NavigationBarEnum.CAR);
 		special.deleteProducts();
 		special.searchProduct("Celular");
 		special.validateSearch();
@@ -97,25 +96,22 @@ public class SpecialProductsTest {
 		special.searchProduct("Motocicleta");
 		special.validateSearch();
 		special.selectProduct();
-		special.validateSpecialProduct();
-		logger.info("Caso de prueba finalizado");
+		special.validateCar();
 	}
-	
+
 	@Test
 	@DisplayName("Add presale product")
 	@Severity(SeverityLevel.CRITICAL)
 	@Story("As a user I want to add a special product to car")
 	@Description("Try to add a presale product to car")
 	public void CF04r_add_presale_product() {
-		logger.info("Iniciando caso de prueba: Add presale product");
-		special.selectNavigation( NavigationBarEnum.CAR.getNavigation() );
+		special.selectNavigation(NavigationBarEnum.CAR);
 		special.deleteProducts();
 		special.searchProduct("Preventa");
 		special.validateSearch();
 		special.selectProduct();
 		special.addProduct();
 		special.validateCar();
-		logger.info("Caso de prueba finalizado");
 	}
 
 	@Test
@@ -124,7 +120,7 @@ public class SpecialProductsTest {
 	@Story("As a user I want to add a special product to car")
 	@Description("Try to add a presale product to car")
 	public void CF000_increase_product_from_car() {
-		special.selectNavigation(NavigationBarEnum.CAR.getNavigation());
+		special.selectNavigation(NavigationBarEnum.CAR);
 		special.deleteProducts();
 		special.searchProduct("Celular");
 		special.validateSearch();

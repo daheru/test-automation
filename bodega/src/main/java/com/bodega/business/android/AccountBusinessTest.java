@@ -18,7 +18,7 @@ public class AccountBusinessTest extends BaseDriver {
 	}
 	
 	public void selectCreateAccount() {
-		generalBusinessTest.selectMenuOption( ProfileMenuEnum.CREATE_PROFILE.getMenu() );
+		generalBusinessTest.selectMenuOption( ProfileMenuEnum.CREATE_PROFILE );
 	}
 	
 	public void validateWelcomePage() {
@@ -69,6 +69,6 @@ public class AccountBusinessTest extends BaseDriver {
 		logger.info("Validando cuenta creada");
 		generalBusinessTest.validatePopUpMessages( AppMessages.CREATE_ACCOUNT_SUCCESS );
 		selectProfileOption();
-		generalBusinessTest.selectMenuOption( ProfileMenuEnum.PROFILE.getMenu() );
+		generalBusinessTest.selectMenuOption( ProfileMenuEnum.PROFILE );
 	}
 }

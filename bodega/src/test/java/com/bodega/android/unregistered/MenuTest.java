@@ -5,7 +5,9 @@ import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.TestName;
 
 import com.bodega.business.android.GeneralBusinessTest;
 import com.bodega.business.android.MenuBusinessTest;
@@ -21,6 +23,8 @@ import io.qameta.allure.junit4.DisplayName;
 @Feature("Menu Module - No session")
 public class MenuTest {
 
+	@Rule
+	public TestName name = new TestName();
 	private static final Logger logger = Logger.getLogger(MenuTest.class);
 	private static MenuBusinessTest main = new MenuBusinessTest();
 	private static GeneralBusinessTest general = new GeneralBusinessTest();
@@ -38,11 +42,13 @@ public class MenuTest {
 	public void initApp() {
 		main.closeAndroidDialog();
 		general.validateWelcomePage();
+		logger.info("===> Iniciando caso de prueba: " + name.getMethodName());
 	}
 
 	@After
 	public void relauchApp() {
 		main.resetApp();
+		logger.info("Caso de prueba finalizado");
 	}
 
 	@Test
@@ -51,12 +57,10 @@ public class MenuTest {
 	@Story("As a user I want to scan my ticket")
 	@Description("Scan ticket introducing numbers manually")
 	public void CF011_scan_manually_ticket() {
-		logger.info("Iniciando caso de prueba: Scan manually ticket");
 		main.selectProfile();
-		main.selectMenu(ProfileMenuEnum.GET_BILL.getMenu());
+		main.selectMenu(ProfileMenuEnum.GET_BILL);
 		main.closeAndroidDialog();
 		main.manualBill("36214691686686662445");
-		logger.info("Caso de prueba finalizado");
 	}
 
 	@Test
@@ -65,11 +69,9 @@ public class MenuTest {
 	@Story("As a user I want to use support page to ask for help or support")
 	@Description("Scan ticket introducing numbers manually")
 	public void CF015_CF016_validate_suppor_page() {
-		logger.info("Iniciando caso de prueba: Validate Support Page");
 		main.selectProfile();
-		main.selectMenu(ProfileMenuEnum.SUPPORT.getMenu());
+		main.selectMenu(ProfileMenuEnum.SUPPORT);
 		main.validateSupportPage();
-		logger.info("Caso de prueba finalizado");
 	}
 
 	@Test
@@ -78,11 +80,9 @@ public class MenuTest {
 	@Story("As a user I want to check terms")
 	@Description("Check all terms on the page")
 	public void CF017_CF021_validate_terms_page() {
-		logger.info("Iniciando caso de prueba: Validate Terms Page");
 		main.selectProfile();
-		main.selectMenu(ProfileMenuEnum.TERMS.getMenu());
+		main.selectMenu(ProfileMenuEnum.TERMS);
 		main.validateTerms(5);
-		logger.info("Caso de prueba finalizado");
 	}
 
 	@Test
@@ -91,11 +91,9 @@ public class MenuTest {
 	@Story("As a user I want to check support page to ")
 	@Description("Check all legals on the page")
 	public void CF022_CF027_validate_legals_page() {
-		logger.info("Iniciando caso de prueba: Validate Legals Page");
 		main.selectProfile();
-		main.selectMenu(ProfileMenuEnum.LEGALS.getMenu());
+		main.selectMenu(ProfileMenuEnum.LEGALS);
 		main.validateLegalsPage();
-		logger.info("Caso de prueba finalizado");
 	}
 	
 	@Test

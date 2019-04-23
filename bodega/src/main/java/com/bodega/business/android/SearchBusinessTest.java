@@ -8,6 +8,8 @@ import org.apache.log4j.Logger;
 import com.bodega.base.BaseDriver;
 import com.bodega.constants.NamesMobileElements;
 import com.bodega.enums.FiltersEnum;
+import com.bodega.enums.NavigationBarEnum;
+import com.bodega.enums.ProfileMenuEnum;
 
 import io.appium.java_client.MobileElement;
 import io.qameta.allure.Step;
@@ -27,11 +29,11 @@ public class SearchBusinessTest extends BaseDriver {
 		generalBusinessTest.selectProfile();
 	}
 
-	public void selectMenu(String menu) {
+	public void selectMenu(ProfileMenuEnum menu) {
 		generalBusinessTest.selectMenuOption(menu);
 	}
 
-	public void selectNavigation(int option) {
+	public void selectNavigation(NavigationBarEnum option) {
 		generalBusinessTest.selectNavigationOption(option);
 	}
 
@@ -44,30 +46,27 @@ public class SearchBusinessTest extends BaseDriver {
 		logger.info("Validando lista de productos");
 		waitElementVisibility(NamesMobileElements.SEARCH_PRODUCT_LIST);
 		if (!filterSelected.isEmpty()) {
+			float higherPrice = 0f;
+			float lowerPrice = 0f;
 			List<MobileElement> productList;
 			Collator comparador = Collator.getInstance();
 			comparador.setStrength(Collator.PRIMARY);
-			float higherPrice = 0f;
-			float lowerPrice = 0f;
+			waitElementVisibility(NamesMobileElements.SEARCH_PRODUCT_NAME);
+			productList = findElements(NamesMobileElements.SEARCH_PRODUCT_NAME);
 			if (FiltersEnum.A_Z.getFilter().equals(filterSelected)) {
-				productList = findElements(NamesMobileElements.SEARCH_PRODUCT_NAME);
-				assertTrue("Los productos no estan ordenados", comparador.compare(getElementText(productList.get(0)),
-						getElementText(productList.get(productList.size() - 1))) < 0);
+				assertTrue("Los productos no estan ordenados",
+						productList.size() > 0 && comparador.compare(getElementText(productList.get(0)),
+								getElementText(productList.get(productList.size() - 1))) < 0);
 			} else if (FiltersEnum.Z_A.getFilter().equals(filterSelected)) {
-				productList = findElements(NamesMobileElements.SEARCH_PRODUCT_NAME);
-				assertTrue("Los productos no estan ordenados", comparador.compare(getElementText(productList.get(0)),
+				assertTrue("Los productos no estan ordenados", productList.size() > 0 && comparador.compare(getElementText(productList.get(0)),
 						getElementText(productList.get(productList.size() - 1))) > 0);
 			} else if (FiltersEnum.HIGHER_PRICE.getFilter().equals(filterSelected)) {
-				productList = findElements(NamesMobileElements.SEARCH_PRODUCT_PRICE);
-				higherPrice = Float.parseFloat(getElementText(productList.get(0)).replaceAll("[^\\d.]", ""));
-				lowerPrice = Float
-						.parseFloat(getElementText(productList.get(productList.size() - 1)).replaceAll("[^\\d.]", ""));
+				higherPrice = productList.size() > 0 ? Float.parseFloat(getElementText(productList.get(0)).replaceAll("[^\\d.]", "")) : 0;
+				lowerPrice = productList.size() > 0 ? Float.parseFloat(getElementText(productList.get(productList.size() - 1)).replaceAll("[^\\d.]", "")) : 0;
 				assertTrue("Los productos no estan ordenados", higherPrice >= lowerPrice);
 			} else if (FiltersEnum.MINNOR_PRICE.getFilter().equals(filterSelected)) {
-				productList = findElements(NamesMobileElements.SEARCH_PRODUCT_PRICE);
-				higherPrice = Float
-						.parseFloat(getElementText(productList.get(productList.size() - 1)).replaceAll("[^\\d.]", ""));
-				lowerPrice = Float.parseFloat(getElementText(productList.get(0)).replaceAll("[^\\d.]", ""));
+				higherPrice = productList.size() > 0 ? Float.parseFloat(getElementText(productList.get(productList.size() - 1)).replaceAll("[^\\d.]", "")) : 0;
+				lowerPrice = productList.size() > 0 ? Float.parseFloat(getElementText(productList.get(0)).replaceAll("[^\\d.]", "")) : 0;
 				assertTrue("Los productos no estan ordenados", higherPrice >= lowerPrice);
 			}
 		}

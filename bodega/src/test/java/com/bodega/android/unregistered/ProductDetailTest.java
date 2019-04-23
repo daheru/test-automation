@@ -4,6 +4,7 @@ import org.apache.log4j.Logger;
 
 import com.bodega.business.android.GeneralBusinessTest;
 import com.bodega.business.android.LoginBusinessTest;
+import com.bodega.enums.ProfileMenuEnum;
 
 public class ProductDetailTest {
 
@@ -22,7 +23,7 @@ public class ProductDetailTest {
 		generalBusinessTest.selectProfile();
 	}
 
-	public void selectMenu(String menu) {
+	public void selectMenu(ProfileMenuEnum menu) {
 		generalBusinessTest.selectMenuOption(menu);
 	}
 	

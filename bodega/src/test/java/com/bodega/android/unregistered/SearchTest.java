@@ -4,7 +4,9 @@ import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.TestName;
 
 import com.bodega.business.android.SearchBusinessTest;
 import com.bodega.enums.FiltersEnum;
@@ -20,6 +22,8 @@ import io.qameta.allure.junit4.DisplayName;
 @Feature("Search Module - No session")
 public class SearchTest {
 
+	@Rule
+	public TestName name = new TestName();
 	private static final Logger logger = Logger.getLogger(SearchTest.class);
 	private static SearchBusinessTest search = new SearchBusinessTest();
 
@@ -32,12 +36,13 @@ public class SearchTest {
 	public void initApp() {
 		search.closeAndroidDialog();
 		search.validateWelcomePage();
+		logger.info("===> Iniciando caso de prueba: " + name.getMethodName());
 	}
 
 	@After
 	public void relauchApp() {
-		search.closeApp();
-		search.lauchApp();
+		search.resetApp();
+		logger.info("Caso de prueba finalizado");
 	}
 
 	@Test
@@ -46,10 +51,8 @@ public class SearchTest {
 	@Story("As a user I want to search a product")
 	@Description("Search product usign the search bar")
 	public void CF046_search_product() {
-		logger.info("Iniciando caso de prueba: Search product");
 		search.searchProduct("Celulares");
 		search.validateSearch();
-		logger.info("Caso de prueba finalizado");
 	}
 
 	@Test
@@ -58,10 +61,8 @@ public class SearchTest {
 	@Story("As a user I want to search a product")
 	@Description("Search an unexist product usign the search bar")
 	public void CF000_search_unexist_product() {
-		logger.info("Iniciando caso de prueba: Search unexist product");
 		search.searchProduct("Pan");
 		search.validateNoResults();
-		logger.info("Caso de prueba finalizado");
 	}
 
 	@Test
@@ -70,15 +71,13 @@ public class SearchTest {
 	@Story("As a user I want to search a product")
 	@Description("Search product usign A-Z filter")
 	public void CF047_search_by_A_Z_filter() {
-		logger.info("Iniciando caso de prueba: Search by A-Z");
-		search.selectNavigation(NavigationBarEnum.DEPARTMENTS.getNavigation());
+		search.selectNavigation(NavigationBarEnum.DEPARTMENTS);
 		search.searchProduct("Computadora");
 		search.validateSearch();
 		search.tapOnFilter();
 		search.selectFilter(FiltersEnum.A_Z.getFilter());
 		search.applyFilter();
 		search.validateSearch();
-		logger.info("Caso de prueba finalizado");
 	}
 
 	@Test
@@ -87,15 +86,13 @@ public class SearchTest {
 	@Story("As a user I want to search a product")
 	@Description("Search product usign Z-A filter")
 	public void CF048_search_by_Z_A_filter() {
-		logger.info("Iniciando caso de prueba: Search by Z-A");
-		search.selectNavigation(NavigationBarEnum.DEPARTMENTS.getNavigation());
+		search.selectNavigation(NavigationBarEnum.DEPARTMENTS);
 		search.searchProduct("Computadora");
 		search.validateSearch();
 		search.tapOnFilter();
 		search.selectFilter(FiltersEnum.Z_A.getFilter());
 		search.applyFilter();
 		search.validateSearch();
-		logger.info("Caso de prueba finalizado");
 	}
 
 	@Test
@@ -104,15 +101,13 @@ public class SearchTest {
 	@Story("As a user I want to search a product")
 	@Description("Search product usign minnor price filter")
 	public void CF049_search_by_minnor_price_filter() {
-		logger.info("Iniciando caso de prueba: Search by minnor price");
-		search.selectNavigation(NavigationBarEnum.DEPARTMENTS.getNavigation());
+		search.selectNavigation(NavigationBarEnum.DEPARTMENTS);
 		search.searchProduct("Computadora");
 		search.validateSearch();
 		search.tapOnFilter();
 		search.selectFilter(FiltersEnum.MINNOR_PRICE.getFilter());
 		search.applyFilter();
 		search.validateSearch();
-		logger.info("Caso de prueba finalizado");
 	}
 
 	@Test
@@ -121,15 +116,13 @@ public class SearchTest {
 	@Story("As a user I want to search a product")
 	@Description("Search product usign higher price filter")
 	public void CF050_search_by_higher_price_filter() {
-		logger.info("Iniciando caso de prueba: Search by higher price");
-		search.selectNavigation(NavigationBarEnum.DEPARTMENTS.getNavigation());
+		search.selectNavigation(NavigationBarEnum.DEPARTMENTS);
 		search.searchProduct("Computadora");
 		search.validateSearch();
 		search.tapOnFilter();
 		search.selectFilter(FiltersEnum.HIGHER_PRICE.getFilter());
 		search.applyFilter();
 		search.validateSearch();
-		logger.info("Caso de prueba finalizado");
 	}
 
 	@Test
@@ -138,14 +131,13 @@ public class SearchTest {
 	@Story("As a user I want to search a product")
 	@Description("Search product usign popular filter")
 	public void CF051_search_by_popular_filter() {
-		search.selectNavigation(NavigationBarEnum.DEPARTMENTS.getNavigation());
+		search.selectNavigation(NavigationBarEnum.DEPARTMENTS);
 		search.searchProduct("Computadora");
 		search.validateSearch();
 		search.tapOnFilter();
 		search.selectFilter(FiltersEnum.POPULAR.getFilter());
 		search.applyFilter();
 		search.validateSearch();
-		logger.info("Caso de prueba finalizado");
 	}
 
 	@Test
@@ -154,14 +146,12 @@ public class SearchTest {
 	@Story("As a user I want to search a product")
 	@Description("Search product usign subcategory filter")
 	public void CF000_search_by_subcategory_filter() {
-		search.selectNavigation(NavigationBarEnum.DEPARTMENTS.getNavigation());
+		search.selectNavigation(NavigationBarEnum.DEPARTMENTS);
 		search.searchProduct("Computadora");
 		search.validateSearch();
 		search.tapOnFilter();
 		search.selectSubCategory();
 		search.applyFilter();
 		search.validateSearch();
-		logger.info("Caso de prueba finalizado");
 	}
-
 }
