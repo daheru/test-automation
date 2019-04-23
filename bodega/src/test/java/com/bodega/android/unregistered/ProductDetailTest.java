@@ -1,23 +1,19 @@
-package com.bodega.android;
+package com.bodega.android.unregistered;
 
 import org.apache.log4j.Logger;
 
-import java.util.List;
-
 import com.bodega.business.android.GeneralBusinessTest;
 import com.bodega.business.android.LoginBusinessTest;
-import com.bodega.business.android.MainBusinessTest;
-import com.bodega.constants.NamesMobileElements;
 
-public class Product_Detail {
+public class ProductDetailTest {
 
-
-	public static final Logger logger = Logger.getLogger(MainBusinessTest.class);
-	public GeneralBusinessTest generalBusinessTest = new GeneralBusinessTest();
-	public LoginBusinessTest login = new LoginBusinessTest();
+	private static final Logger logger = Logger.getLogger(ProductDetailTest.class);
+	private GeneralBusinessTest generalBusinessTest = new GeneralBusinessTest();
+	private LoginBusinessTest login = new LoginBusinessTest();
 
 	public void login(String email, String pass) {
-		login.goToLogin();
+		login.selectProfile();
+		login.selectLoginOption();
 		login.login(email, pass);
 	}
 

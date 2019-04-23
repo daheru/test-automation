@@ -7,9 +7,7 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
-import com.bodega.enums.MenuOptionsEnum;
-
-public class Product_Detail {
+public class ProductDetailBusinessTest {
 	public static final Logger logger = Logger.getLogger(MyprofileBusinessTest.class);
 	public static MyprofileBusinessTest productdetail = new MyprofileBusinessTest();
 
