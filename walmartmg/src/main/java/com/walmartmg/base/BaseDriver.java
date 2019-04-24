@@ -70,26 +70,46 @@ public class BaseDriver {
 		}
 		return mobileElement.size() > 0 ? mobileElement.get(0) : null;
 	}
-	
+
 	public List<MobileElement> findElements(String element) {
 		if (element.startsWith(GeneralConstants.SLASH)) {
-			return driver.findElementsByXPath(element);
+			return driver.findElements(By.xpath(element));
 		}
-		return driver.findElementsById(element);
+		return driver.findElements(By.id(element));
 	}
 
 	public List<MobileElement> findSubElements(MobileElement elementParent, String elementChild) {
 		if (elementChild.startsWith(GeneralConstants.SLASH)) {
-			return elementParent.findElements(By.xpath(elementChild));
+			return elementParent != null ? elementParent.findElements(By.xpath(elementChild))
+					: new ArrayList<MobileElement>();
 		}
-		return elementParent.findElements(By.id(elementChild));
+		return elementParent != null ? elementParent.findElements(By.id(elementChild)) : new ArrayList<MobileElement>();
 	}
-	
+
 	public List<MobileElement> findSubElements(String elementParent, String elementChild) {
 		MobileElement parent = findElement(elementParent);
 		return parent != null ? findSubElements(parent, elementChild) : new ArrayList<MobileElement>();
 	}
-	
+
+	public MobileElement findSubElement(MobileElement elementParent, String elementChild) {
+		List<MobileElement> childs = new ArrayList<MobileElement>();
+		if (elementParent != null && elementChild.startsWith(GeneralConstants.SLASH)) {
+			childs = elementParent.findElements(By.xpath(elementChild));
+		} else if (elementParent != null) {
+			childs = elementParent.findElements(By.id(elementChild));
+		}
+		return childs.size() > 0 ? childs.get(0) : null;
+	}
+
+	public MobileElement findSubElement(String elementParent, String elementChild) {
+		MobileElement parent = findElement(elementParent);
+		return parent != null ? findSubElement(parent, elementChild) : null;
+	}
+
+	public MobileElement findElementByClass(String className) {
+		return driver.findElement(By.className(className));
+	}
+
 	public String getElementText(String element) {
 		MobileElement textboxElement = findElement(element);
 		return textboxElement != null ? textboxElement.getAttribute(ConfigConstants.ATTRIBUTE_TEXT).toLowerCase() : "";
@@ -98,7 +118,7 @@ public class BaseDriver {
 	public String getElementText(MobileElement element) {
 		return element != null ? element.getAttribute(ConfigConstants.ATTRIBUTE_TEXT).toLowerCase() : "";
 	}
-	
+
 	public void tapOnElement(String element) {
 		MobileElement tapElement = findElement(element);
 		if (tapElement != null) {
@@ -115,8 +135,25 @@ public class BaseDriver {
 	public void fillElement(String element, String text) {
 		MobileElement textboxElement = findElement(element);
 		if (textboxElement != null) {
+			textboxElement.clear();
+			textboxElement.click();
 			textboxElement.sendKeys(text);
 		}
+	}
+
+	public String getAttribute(String element, String attribute) {
+		MobileElement elementMobile = findElement(element);
+		if (elementMobile != null) {
+			return elementMobile.getAttribute(attribute);
+		}
+		return GeneralConstants.EMPTY;
+	}
+
+	public String getAttribute(MobileElement element, String attribute) {
+		if (element != null) {
+			return element.getAttribute(attribute);
+		}
+		return GeneralConstants.EMPTY;
 	}
 
 	public void waitElementVisibility(String element) {
@@ -130,7 +167,7 @@ public class BaseDriver {
 						|| false ? false : true;
 			}
 		} finally {
-			assertTrue("El elemento no existe", elementExist);
+			assertTrue("El elemento " + element + " no existe", elementExist);
 		}
 	}
 
@@ -200,13 +237,21 @@ public class BaseDriver {
 		}
 	}
 
+	public void waitEvent() {
+		try {
+			Thread.sleep(3000);
+		} catch (InterruptedException e) {
+			logger.error(e.getMessage());
+		}
+	}
+
 	public void assertEquals(String expected, String actual) {
 		try {
 			Assert.assertEquals(expected, actual);
 		} catch (AssertionError error) {
 			logger.error(error.getMessage());
 			logger.error("Caso de prueba finalizado");
-			Assert.fail("Caso de prueba finalizado con errores");
+			Assert.fail("Caso de prueba finalizado con errores: " + error.getMessage());
 		}
 	}
 
@@ -216,7 +261,7 @@ public class BaseDriver {
 		} catch (AssertionError error) {
 			logger.error(error.getMessage());
 			logger.error("Caso de prueba finalizado con errores");
-			Assert.fail("Caso de prueba finalizado con errores");
+			Assert.fail("Caso de prueba finalizado con errores: " + error.getMessage());
 		}
 	}
 
@@ -226,11 +271,12 @@ public class BaseDriver {
 		} catch (AssertionError err) {
 			logger.error(error);
 			logger.error("Caso de prueba finalizado");
-			Assert.fail("Caso de prueba finalizado con errores");
+			Assert.fail("Caso de prueba finalizado con errores: " + error);
 		}
 	}
 
 	public void searchOnAndroid() {
+		hideKeyboard();
 		driver.executeScript("mobile: performEditorAction", ImmutableMap.of("action", "done"));
 	}
 
@@ -239,18 +285,16 @@ public class BaseDriver {
 		try {
 			FileUtils.copyFile(scrFile, new File("C:\\Users\\vn0swlc\\Screenshot.jpg"));
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
 
-	public void scrollUntilShowElement(int scrollType, String element) {
-		if (GeneralConstants.SCROLL_UP == scrollType) {
-			while (!elementExist(element)) {
+	public void scrollUntilShowElement(int scrollType, String element) {		
+		int exit = 0;
+		while(!elementExist(element) && exit++ < 15) {
+			if (GeneralConstants.SCROLL_UP == scrollType) {
 				tapUp();
-			}
-		} else {
-			while (!elementExist(element)) {
+			} else {
 				tapDown();
 			}
 		}
@@ -264,8 +308,6 @@ public class BaseDriver {
 	}
 
 	private void initIOS() {
-		caps.setCapability("locationServicesEnabled", true);
-		caps.setCapability("locationServicesAuthorized", true);
 		caps.setCapability(MobileCapabilityType.APP, ConfigConstants.APP);
 	}
 

@@ -11,16 +11,15 @@ import com.walmartmg.enums.NavigationBarEnum;
 public class TermsBusinessTest extends BaseDriver {
 	private static final Logger logger = Logger.getLogger(TermsBusinessTest.class);
 
-
 	public GeneralBusinessTest general = new GeneralBusinessTest();
 
 	public void selectProfile() {
-		general.selectNavigationOption(NavigationBarEnum.PROFILE.getNavigation());
+		general.selectNavigationOption(NavigationBarEnum.PROFILE);
 
 	}
 
 	public void selectMenu() {
-		general.selectProfileMenu(ProfileMenuEnum.LEGALS.getMenu());
+		general.selectProfileMenu(ProfileMenuEnum.LEGALS);
 
 	}
 
@@ -32,9 +31,6 @@ public class TermsBusinessTest extends BaseDriver {
 		logger.info(" SE  VE AVISO DE PRIVACIDAD ");
 		logger.info(" SE  VE  VERSION APP ");
 		general.elementExist(NamesMobileElements.PROFILE_VERSION);
-		
-
-		
 
 	}
 

@@ -13,20 +13,22 @@ import com.walmartmg.enums.NavigationBarEnum;
 import com.walmartmg.enums.ProfileMenuEnum;
 
 import io.appium.java_client.MobileElement;
+import io.qameta.allure.Step;
 
-public class ProfileBusinessTest extends BaseDriver {
+public class MenuProfileBusinessTest extends BaseDriver {
 
-	public static final Logger logger = Logger.getLogger(ProfileBusinessTest.class);
+	public static final Logger logger = Logger.getLogger(MenuProfileBusinessTest.class);
 	public GeneralBusinessTest generalBusinessTest = new GeneralBusinessTest();
 
 	public void selectProfile() {
-		generalBusinessTest.selectNavigationOption(NavigationBarEnum.PROFILE.getNavigation());
+		generalBusinessTest.selectNavigationOption(NavigationBarEnum.PROFILE);
 	}
 
-	public void selectMenu(String menu) {
-		generalBusinessTest.selectProfileMenu(menu);
+	public void selectMenu(ProfileMenuEnum menuEnum) {
+		generalBusinessTest.selectProfileMenu(menuEnum);
 	}
 
+	@Step("Validate help page")
 	public void validateHelpPage() {
 		waitElementVisibility(NamesMobileElements.HELP_TITLE);
 		waitElementVisibility(NamesMobileElements.HELP_ICON);
@@ -36,36 +38,40 @@ public class ProfileBusinessTest extends BaseDriver {
 		waitElementVisibility(NamesMobileElements.HELP_CALL_BUTTON);
 	}
 
+	@Step("Tap on call us")
 	public void validateCallUs() {
 		waitElementVisibility(NamesMobileElements.HELP_CALL_BUTTON);
 		tapOnElement(NamesMobileElements.HELP_CALL_BUTTON);
 	}
-
+	
+	@Step("Tap on write us")
 	public void validateWriteUs() {
 		waitElementVisibility(NamesMobileElements.HELP_EMAIL_BUTTON);
 		tapOnElement(NamesMobileElements.HELP_EMAIL_BUTTON);
 	}
-
+	
+	@Step("Validate profile menu")
 	public void validateMenu(boolean isLogged) {
 		if (isLogged) {
 
 		} else {
-			generalBusinessTest.selectProfileMenu(ProfileMenuEnum.LOGIN.getMenu());
+			generalBusinessTest.selectProfileMenu(ProfileMenuEnum.LOGIN);
 			generalBusinessTest.goBack();
-			generalBusinessTest.selectProfileMenu(ProfileMenuEnum.CREATE_PROFILE.getMenu());
+			generalBusinessTest.selectProfileMenu(ProfileMenuEnum.CREATE_PROFILE);
 			generalBusinessTest.goBack();
-			generalBusinessTest.selectProfileMenu(ProfileMenuEnum.GET_BILL.getMenu());
+			generalBusinessTest.selectProfileMenu(ProfileMenuEnum.GET_BILL);
 			closeAndroidDialog();
 			generalBusinessTest.goBack();
-			generalBusinessTest.selectProfileMenu(ProfileMenuEnum.SUPPORT.getMenu());
+			generalBusinessTest.selectProfileMenu(ProfileMenuEnum.SUPPORT);
 			generalBusinessTest.goBack();
-			generalBusinessTest.selectProfileMenu(ProfileMenuEnum.TERMS.getMenu());
+			generalBusinessTest.selectProfileMenu(ProfileMenuEnum.TERMS);
 			generalBusinessTest.goBack();
-			generalBusinessTest.selectProfileMenu(ProfileMenuEnum.LEGALS.getMenu());
+			generalBusinessTest.selectProfileMenu(ProfileMenuEnum.LEGALS);
 			generalBusinessTest.goBack();
 		}
 	}
 
+	@Step("Validate terms page")
 	public void validateTermsPage() {
 		generalBusinessTest.valitateDropDownMenu(MenusEnum.TERMS_RETURNS);
 		generalBusinessTest.valitateDropDownMenu(MenusEnum.TERMS_DELIVERY);
@@ -79,6 +85,7 @@ public class ProfileBusinessTest extends BaseDriver {
 		generalBusinessTest.valitateDropDownMenu(MenusEnum.TERMS_ORDERS);
 	}
 	
+	@Step("Validate legals page")
 	public void validateLegalsPage() {
 		generalBusinessTest.valitateDropDownMenu(MenusEnum.LEGALS_TERMS);
 		generalBusinessTest.valitateDropDownMenu(MenusEnum.LEGALS_PRIVACITY);

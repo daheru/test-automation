@@ -6,6 +6,8 @@ import com.walmartmg.base.BaseDriver;
 import com.walmartmg.constants.NamesMobileElements;
 import com.walmartmg.enums.NavigationBarEnum;
 
+import io.qameta.allure.Step;
+
 public class FiltersBusinessTest extends BaseDriver {
 	
 	private static final Logger logger = Logger.getLogger( InvoiceBusinessTest.class );
@@ -14,7 +16,7 @@ public class FiltersBusinessTest extends BaseDriver {
 	
 	
 	public void selectDepartmentOption() {
-		generalBusinessTest.selectNavigationOption(NavigationBarEnum.DEPARTMENTS.getNavigation());
+		generalBusinessTest.selectNavigationOption(NavigationBarEnum.DEPARTMENTS);
 	}
 	
 	//Select department
@@ -30,6 +32,7 @@ public class FiltersBusinessTest extends BaseDriver {
 	}
 	
 	//Validate Screen Filter
+	@Step("Validate filter page")
 	public void validateScreenFilter() {
 		logger.info("Selecciona link Filtar");
 		tapOnElement(NamesMobileElements.FILTERS_LINK);
@@ -45,6 +48,7 @@ public class FiltersBusinessTest extends BaseDriver {
 		waitElementVisibility(NamesMobileElements.FILTERS_BUTTON);
 	}
 	
+	@Step("Tap on A-Z filter")
 	public void filterOrderAZ() {
 		logger.info("Selecciona link Filtar");
 		tapOnElement(NamesMobileElements.FILTERS_LINK);
@@ -54,6 +58,7 @@ public class FiltersBusinessTest extends BaseDriver {
 		tapOnElement(NamesMobileElements.FILTERS_BUTTON);
 	}
 	
+	@Step("Tap on Z-A filter")
 	public void filterOrderZA() {
 		logger.info("Selecciona link Filtar");
 		tapOnElement(NamesMobileElements.FILTERS_LINK);
@@ -63,6 +68,7 @@ public class FiltersBusinessTest extends BaseDriver {
 		tapOnElement(NamesMobileElements.FILTERS_BUTTON);
 	}
 	
+	@Step("Tap on minnor price filter")
 	public void filterSmallestToLargest() {
 		logger.info("Selecciona link Filtar");
 		tapOnElement(NamesMobileElements.FILTERS_LINK);
@@ -72,6 +78,7 @@ public class FiltersBusinessTest extends BaseDriver {
 		tapOnElement(NamesMobileElements.FILTERS_BUTTON);
 	}
 	
+	@Step("Tap on higher price filter")
 	public void filterLargestToSmallest() {
 		logger.info("Selecciona link Filtar");
 		tapOnElement(NamesMobileElements.FILTERS_LINK);
@@ -81,6 +88,7 @@ public class FiltersBusinessTest extends BaseDriver {
 		tapOnElement(NamesMobileElements.FILTERS_BUTTON);
 	}
 	
+	@Step("Tap on popularity filter")
 	public void filterPopularity() {
 		logger.info("Selecciona link Filtar");
 		tapOnElement(NamesMobileElements.FILTERS_LINK);
@@ -90,6 +98,7 @@ public class FiltersBusinessTest extends BaseDriver {
 		tapOnElement(NamesMobileElements.FILTERS_BUTTON);
 	}
 	
+	@Step("Tap on sub category filter")
 	public void filterBy() {
 		logger.info("Selecciona link Filtar");
 		tapOnElement(NamesMobileElements.FILTERS_LINK);

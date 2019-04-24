@@ -14,12 +14,12 @@ public class TermsyConditionsBusinessTest extends BaseDriver {
 	public GeneralBusinessTest general = new GeneralBusinessTest();
 
 	public void selectProfile() {
-		general.selectNavigationOption(NavigationBarEnum.PROFILE.getNavigation());
+		general.selectNavigationOption(NavigationBarEnum.PROFILE);
 
 	}
 
 	public void selectMenu() {
-		general.selectProfileMenu(ProfileMenuEnum.TERMS.getMenu());
+		general.selectProfileMenu(ProfileMenuEnum.TERMS);
 
 	}
 
@@ -32,8 +32,6 @@ public class TermsyConditionsBusinessTest extends BaseDriver {
 		waitElementVisibility(NamesMobileElements.PROFILE_CAN);
 		tapOnElement(NamesMobileElements.PROFILE_RET);
 		logger.info(" FINALIZA APARTADO DE DEVOLUCIONES ");
-
-		
 
 //precio /promociones
 		logger.info(" APARTADO DE PRECIO/PROMOCIONES ");
@@ -74,7 +72,7 @@ public class TermsyConditionsBusinessTest extends BaseDriver {
 		waitElementVisibility(NamesMobileElements.PROFILE_HORARIO);
 		tapOnElement(NamesMobileElements.PROFILE_SHIPPING);
 		logger.info(" FINALIZA APARTADO MARKETPLACE ");
- 
+
 		// seguridad
 		logger.info(" APARTADO SEGURIDAD ");
 		tapOnElement(NamesMobileElements.PROFILE_SEGURIDAD_PRIVACIDAD);
@@ -129,7 +127,6 @@ public class TermsyConditionsBusinessTest extends BaseDriver {
 		waitElementVisibility(NamesMobileElements.PROFILE_HISTPEIDOS);
 		tapOnElement(NamesMobileElements.PROFILE_TUSPEDIDOS);
 		logger.info(" FINALIZA APARTADO TUS PEDIDOS ");
-
 
 	}
 }

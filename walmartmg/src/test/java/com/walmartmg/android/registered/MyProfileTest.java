@@ -1,15 +1,28 @@
 package com.walmartmg.android.registered;
 
 import org.apache.log4j.Logger;
+import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.TestName;
 
 import com.walmartmg.business.android.registered.MyProfileBusinessTest;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Feature;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Story;
+import io.qameta.allure.junit4.DisplayName;
+
+@Feature("My Profile Module - No session")
 public class MyProfileTest {
 	
-	public static final Logger logger = Logger.getLogger( MyProfileTest.class );
+	@Rule
+	public TestName name = new TestName();
+	private static final Logger logger = Logger.getLogger( MyProfileTest.class );
 	private static MyProfileBusinessTest myprofile = new MyProfileBusinessTest();
 	
 	@AfterClass
@@ -18,14 +31,22 @@ public class MyProfileTest {
 	}	
 	
 	@Before
+	public void initApp() {
+		logger.info("===> Iniciando caso de prueba: " + name.getMethodName());
+	}
+	
+	@After
 	public void resetApp() {
-		myprofile.closeApp();
-		myprofile.lauchApp();
+		myprofile.resetApp();
+		logger.info("Caso de prueba finalizado");
 	}
 	
 	@Test
+	@DisplayName("Validate my profile page")
+	@Severity(SeverityLevel.BLOCKER)
+	@Story("As a user I want to manage my profile")
+	@Description("Validate that my profile page has all elements")
 	public void CP090_validate_screen_my_profile() {
-		logger.info("Start CP090 Validate screen My Perfile");
 		myprofile.selectProfileOption();
 		myprofile.selectMenuLogin();
 		myprofile.login("alejandra.jra11@gmail.com", "12345678");
@@ -36,8 +57,11 @@ public class MyProfileTest {
 	
 	// Personal Details
 	@Test
+	@DisplayName("Validate personal detail page")
+	@Severity(SeverityLevel.BLOCKER)
+	@Story("As a user I want to manage my profile")
+	@Description("Validate that personal detail page has all elements")
 	public void CP091_validate_screen_personal_details() {
-		logger.info("Start CP091 Validate screen Personal Detail");
 		myprofile.selectProfileOption();
 		myprofile.selectMenuLogin();
 		myprofile.login("alejandra.jra11@gmail.com", "12345678");
@@ -47,8 +71,11 @@ public class MyProfileTest {
 	}
 	
 	@Test
+	@DisplayName("Personal detail with invalid data")
+	@Severity(SeverityLevel.BLOCKER)
+	@Story("As a user I want to manage my profile")
+	@Description("Validate when user tries to change his personal detail with invalid data")
 	public void CP092_enter_invalid_data() {
-		logger.info("Start CP092 Enter invalid data in Personal Detail");
 		myprofile.selectProfileOption();
 		myprofile.selectMenuLogin();
 		myprofile.login("alejandra.jra11@gmail.com", "12345678");
@@ -59,8 +86,11 @@ public class MyProfileTest {
 	}
 	
 	@Test
+	@DisplayName("Personal detail")
+	@Severity(SeverityLevel.BLOCKER)
+	@Story("As a user I want to manage my profile")
+	@Description("Validate when user tries to change his personal detail")
 	public void CP093_enter_valid_data() {
-		logger.info("Start CP093 Enter valid data in Personal Detail");
 		myprofile.selectProfileOption();
 		myprofile.selectMenuLogin();
 		myprofile.login("alejandra.jra11@gmail.com", "12345678");
@@ -72,8 +102,11 @@ public class MyProfileTest {
 	
 	// Logon Data 
 	@Test 
+	@DisplayName("Validate logout")
+	@Severity(SeverityLevel.BLOCKER)
+	@Story("As a user I want to manage my profile")
+	@Description("Validate when user tap on logout button")
 	public void CP094_validate_screen_logon_data(){
-		logger.info("Start CP094 Validate Screen Logon data");
 		myprofile.selectProfileOption();
 		myprofile.selectMenuLogin();
 		myprofile.login("alejandra.jra11@gmail.com", "12345678");
@@ -83,62 +116,64 @@ public class MyProfileTest {
 	}
 	
 	@Test 
+	@DisplayName("Validate logout")
+	@Severity(SeverityLevel.BLOCKER)
+	@Story("As a user I want to manage my profile")
+	@Description("Validate when user tap on logout button")
 	public void CP095_empty_field() {
-		logger.info("Start CP095 Validate message in Empty Field");
 		myprofile.selectProfileOption();
 		myprofile.selectMenuLogin();
 		myprofile.login("alejandra.jra11@gmail.com", "12345678");
-		logger.info("Menu logueado");
 		myprofile.selectRequestMyProfile();
 		myprofile.emptyFieldLogonData();
 		myprofile.validateMessagePassword(" ", " ");
-		logger.info("Se validan mensajes");
 	}
 	
 	@Test
+	@DisplayName("Change password invalid data")
+	@Severity(SeverityLevel.BLOCKER)
+	@Story("As a user I want to manage my profile")
+	@Description("Validate when user try to change his password with invalid data")
 	public void CP096_enter_invalid_data() {
 		logger.info("Start CP096 Validate message invalid Logon Data");
 		myprofile.selectProfileOption();
 		myprofile.selectMenuLogin();
 		myprofile.login("alejandra.jra11@gmail.com", "12345678");
-		logger.info("Menu logueado");
 		myprofile.selectRequestMyProfile();
 		myprofile.enterDataLogonData("123", "123ed");
-		logger.info("Se valida mensaje");
 		myprofile.validateMessageInvalidLogon();
 	}
 	
 	@Test
+	@DisplayName("Change password")
+	@Severity(SeverityLevel.BLOCKER)
+	@Story("As a user I want to manage my profile")
+	@Description("Validate when user try to change his password")
 	public void CP097_enter_valid_data() {
-		logger.info("Start CP097 Validate message valid Logon Data");
 		myprofile.selectProfileOption();
 		myprofile.selectMenuLogin();
 		myprofile.login("alejandra.jra11@gmail.com", "12345678");
-		logger.info("Menu logueado");
 		myprofile.selectRequestMyProfile();
 		myprofile.enterDataLogonData("12345678", "12345679");
-		logger.info("Se valida mensaje");
 		myprofile.validateMessageUpdate();
 	}
 	
 	//Telephone information
 	@Test
+	@DisplayName("Validate phone info page")
+	@Severity(SeverityLevel.BLOCKER)
+	@Story("As a user I want to manage my profile")
+	@Description("Validate that phone info page has ")
 	public void CP098_validate_screen_phone_info() {
-		logger.info("Start CP098 Validate screen phone information");
 		myprofile.selectProfileOption();
 		myprofile.selectMenuLogin();
 		myprofile.login("alejandra.jra11@gmail.com", "12345678");
-		logger.info("Menu logueado");
 		myprofile.selectRequestMyProfile();
 		myprofile.validateScreenPhoneInf();
-		logger.info("Se valida pantalla");
-		
 	}
 	
 	@Test
 	public void CP099_enter_valid_phone_info() {
 		
 	}
-	
-	
 }

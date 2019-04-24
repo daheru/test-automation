@@ -7,6 +7,8 @@ import com.walmartmg.constants.GeneralConstants;
 import com.walmartmg.constants.NamesMobileElements;
 import com.walmartmg.enums.NavigationBarEnum;
 
+import io.qameta.allure.Step;
+
 public class HomeBusinessTest extends BaseDriver {
 
 	private static final Logger logger = Logger.getLogger(HomeBusinessTest.class);
@@ -16,9 +18,10 @@ public class HomeBusinessTest extends BaseDriver {
 	private ProductBusinessTest product = new ProductBusinessTest();
 
 	public void selectHomeOption() {
-		generalBusinessTest.selectNavigationOption(NavigationBarEnum.HOME.getNavigation());
+		generalBusinessTest.selectNavigationOption(NavigationBarEnum.HOME);
 	}
 
+	@Step("Validate home page")
 	public void validateElements() {
 		logger.info("Validando página de home");
 		waitElementVisibility(NamesMobileElements.HOME_CAR);
@@ -45,12 +48,14 @@ public class HomeBusinessTest extends BaseDriver {
 		search.validateEmptySearch();
 	}
 
+	@Step("Tap on scan product icon")
 	public void scanProduct() {
 		logger.info("Escaneando producto");
 		waitElementVisibility(NamesMobileElements.HOME_OFFERS_FILTER);
 		tapOnElement(NamesMobileElements.HOME_SCAN);
 	}
 
+	@Step("Validate scan page")
 	public void validateScanPage() {
 		logger.info("Validando página del scaner");
 		if (elementExist(NamesMobileElements.ANDROID_DIALOG_CONT)) {
@@ -70,6 +75,7 @@ public class HomeBusinessTest extends BaseDriver {
 		car.validateEmptyCar();
 	}
 
+	@Step("Validate starting buy")
 	public void validateStartingBuy() {
 		logger.info("Validando empezar a comprar");
 		waitElementVisibility(NamesMobileElements.CAR_EMPTY_CAR);
@@ -105,6 +111,7 @@ public class HomeBusinessTest extends BaseDriver {
 		car.deleteProduct();
 	}
 
+	@Step("Cancel delete product")
 	public void cancelDeleteProduct() {
 		car.cancelDeleteProduct();
 		car.validateCar();

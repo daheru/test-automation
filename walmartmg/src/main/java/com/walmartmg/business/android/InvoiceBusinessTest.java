@@ -8,22 +8,22 @@ import com.walmartmg.constants.NamesMobileElements;
 import com.walmartmg.enums.NavigationBarEnum;
 import com.walmartmg.enums.ProfileMenuEnum;
 
+import io.qameta.allure.Step;
 
 public class InvoiceBusinessTest extends BaseDriver {
-	
-	public static final Logger logger = Logger.getLogger( InvoiceBusinessTest.class );
-	public GeneralBusinessTest generalBusinessTest = new GeneralBusinessTest();
-	
-	
+
+	public static final Logger logger = Logger.getLogger(InvoiceBusinessTest.class);
+	private GeneralBusinessTest generalBusinessTest = new GeneralBusinessTest();
+
 	public void selectProfileOption() {
-		generalBusinessTest.selectNavigationOption( NavigationBarEnum.PROFILE.getNavigation() );
+		generalBusinessTest.selectNavigationOption(NavigationBarEnum.PROFILE);
 	}
-	
+
 	public void selectRequestInvoice() {
-		generalBusinessTest.selectProfileMenu( ProfileMenuEnum.GET_BILL.getMenu() );
+		generalBusinessTest.selectProfileMenu(ProfileMenuEnum.GET_BILL);
 	}
-	
-	
+
+	@Step("Validate invoice page")
 	public void validateElements() {
 		closeAndroidDialog();
 		waitElementVisibility(NamesMobileElements.INVOICE_TITLE);
@@ -32,8 +32,8 @@ public class InvoiceBusinessTest extends BaseDriver {
 		waitElementVisibility(NamesMobileElements.INVOICE_LINK);
 		logger.info("Termina validación");
 	}
-	
-	
+
+	@Step("Validate invoice code")
 	public void validateCodeInvoice(String code) {
 		closeAndroidDialog();
 		tapOnElement(NamesMobileElements.INVOICE_LINK);
@@ -41,16 +41,15 @@ public class InvoiceBusinessTest extends BaseDriver {
 		fillElement(NamesMobileElements.INV_MANUAL_NUM_INVOICE, code);
 		tapOnElement(NamesMobileElements.INV_MANUAL_BUTTON);
 	}
-	
-	public void validateMessageEmpty(){
+
+	public void validateMessageEmpty() {
 		logger.info("Valida campo vacio");
-		generalBusinessTest.validateFieldErrorMessage(AppMessages.EMPTY_FIELD, NamesMobileElements.INV_MANUAL_NUM_INVOICE_CONT);
+		generalBusinessTest.validateFieldErrorMessage(AppMessages.EMPTY_FIELD,
+				NamesMobileElements.INV_MANUAL_NUM_INVOICE_CONT);
 	}
-	
+
 	public void validateMessageError() {
 		logger.info("Valida alerta");
 		generalBusinessTest.validatePopUpMessages(AppMessages.INVOICE_INVALID_CODE);
 	}
-	
-	
 }

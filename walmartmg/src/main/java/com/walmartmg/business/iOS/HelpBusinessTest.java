@@ -16,12 +16,12 @@ public class HelpBusinessTest extends BaseDriver {
 
 	public void selectProfile() {
 
-		general.selectNavigationOption(NavigationBarEnum.PROFILE.getNavigation());
+		general.selectNavigationOption(NavigationBarEnum.PROFILE);
 
 	}
 
 	public void selectMenu() {
-		general.selectProfileMenu(ProfileMenuEnum.SUPPORT.getMenu());
+		general.selectProfileMenu(ProfileMenuEnum.SUPPORT);
 
 	}
 

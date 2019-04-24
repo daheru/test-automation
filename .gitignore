@@ -5,6 +5,7 @@ walmartmg/target/
 walmartmg/bin
 mobile-app-testing
 bodega
-
+/walmartmg/.allure/*
+walmartmg/allure-results/*
 \.DS_Store
 /.metadata/

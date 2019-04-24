@@ -17,12 +17,12 @@ public class LoginBusinessTest extends BaseDriver {
 	public GeneralBusinessTest general = new GeneralBusinessTest();
 
 	public void selectProfile() {
-		general.selectNavigationOption(NavigationBarEnum.PROFILE.getNavigation());
+		general.selectNavigationOption(NavigationBarEnum.PROFILE);
 
 	}
 
 	public void selectMenu() {
-		general.selectProfileMenu(ProfileMenuEnum.LOGIN.getMenu());
+		general.selectProfileMenu(ProfileMenuEnum.LOGIN);
 
 	}
 
@@ -153,7 +153,8 @@ public class LoginBusinessTest extends BaseDriver {
 		logger.info("FINALIZANDO CASO DE PRUEBA ");
 
 	}
-	public void Validate_link_Create_account () {
+
+	public void Validate_link_Create_account() {
 		logger.info("SE VALIDA PANTALLA DE INICIAR SESION  ");
 		logger.info("SE VALIDA ELEMENTO EMAIL   ");
 		general.elementExist(NamesMobileElements.LOGIN_EMAIL);
@@ -170,7 +171,5 @@ public class LoginBusinessTest extends BaseDriver {
 		waitElementVisibility(NamesMobileElements.LOGIN_CREATE_BUTTON);
 
 	}
-	
+
 }
-
-

@@ -5,6 +5,7 @@ import org.apache.log4j.Logger;
 import com.walmartmg.base.BaseDriver;
 import com.walmartmg.business.android.GeneralBusinessTest;
 import com.walmartmg.constants.NamesMobileElements;
+import com.walmartmg.enums.NavigationBarEnum;
 
 public class HomeBussinesTest extends BaseDriver {
 
@@ -13,8 +14,12 @@ public class HomeBussinesTest extends BaseDriver {
 	private GeneralBusinessTest general = new GeneralBusinessTest();
 
 	// classe entera para seleccionar los 3 elementos del menu
-	public void selectMenu(int menu) {
-		general.selectNavigationOption(menu);
+	public void selectHome() {
+		general.selectNavigationOption(NavigationBarEnum.HOME);
+	}
+	
+	public void selectDepartments() {
+		general.selectNavigationOption(NavigationBarEnum.DEPARTMENTS);
 	}
 
 	public void validateSearchPage() {

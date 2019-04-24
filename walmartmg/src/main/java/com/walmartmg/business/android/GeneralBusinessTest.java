@@ -14,31 +14,35 @@ import com.walmartmg.constants.GeneralConstants;
 import com.walmartmg.constants.NamesMobileElements;
 import com.walmartmg.enums.MenusEnum;
 import com.walmartmg.enums.NavigationBarEnum;
+import com.walmartmg.enums.ProfileMenuEnum;
 
 import io.appium.java_client.MobileElement;
+import io.qameta.allure.Step;
 
 public class GeneralBusinessTest extends BaseDriver {
 
 	private static final Logger logger = Logger.getLogger(GeneralBusinessTest.class.getName());
 
-	public void selectNavigationOption(int navOption) {
+	@Step("Tap on navigation bar {navOption}")
+	public void selectNavigationOption( NavigationBarEnum navigationBarEnum ) {
 		waitElementVisibility(NamesMobileElements.NAV_BAR);
 		MobileElement navigationElement = null;
-		if (navOption == NavigationBarEnum.HOME.getNavigation()) {
+		if (navigationBarEnum.getNavigation() == NavigationBarEnum.HOME.getNavigation()) {
 			logger.info(" Seleccionando menu home");
 			navigationElement = findElement(NamesMobileElements.NAV_BAR_HOME);
-		} else if (navOption == NavigationBarEnum.DEPARTMENTS.getNavigation()) {
+		} else if (navigationBarEnum.getNavigation() == NavigationBarEnum.DEPARTMENTS.getNavigation()) {
 			logger.info(" Seleccionando menu departamentos");
 			navigationElement = findElement(NamesMobileElements.NAV_BAR_DEPARTMENTS);
-		} else if (navOption == NavigationBarEnum.PROFILE.getNavigation()) {
+		} else if (navigationBarEnum.getNavigation() == NavigationBarEnum.PROFILE.getNavigation()) {
 			logger.info(" Seleccionando menu perfil");
 			navigationElement = findElement(NamesMobileElements.NAV_BAR_PROFILE);
 		}
 		navigationElement.click();
 	}
 
-	public void selectProfileMenu(String menuOptionEnum) {
-		logger.info("Seleccionando la opcion: " + menuOptionEnum);
+	@Step("Tap on menu {menuOptionEnum}")
+	public void selectProfileMenu(ProfileMenuEnum menuOptionEnum) {
+		logger.info("Seleccionando la opcion: " + menuOptionEnum.getMenu());
 		waitElementVisibility(NamesMobileElements.NAV_BAR);
 		List<MobileElement> menuList = findElements(NamesMobileElements.MENU_NAME);
 		Assert.assertTrue("El elemento móvil no existe", menuList.size() > 0);
@@ -46,7 +50,7 @@ public class GeneralBusinessTest extends BaseDriver {
 		int exit = 0;
 		do {
 			for (MobileElement element : menuList) {
-				if (element.getAttribute(ConfigConstants.ATTRIBUTE_TEXT).toLowerCase().contains(menuOptionEnum)) {
+				if (element.getAttribute(ConfigConstants.ATTRIBUTE_TEXT).toLowerCase().contains(menuOptionEnum.getMenu())) {
 					element.click();
 					clicMenu = true;
 					break;
@@ -61,6 +65,7 @@ public class GeneralBusinessTest extends BaseDriver {
 		} while (!clicMenu);
 	}
 
+	@Step("Scroll screen")
 	public void scrollScreen(int scrollType) {
 		logger.info("Realizando Scroll");
 		if (GeneralConstants.SCROLL_UP == scrollType) {
@@ -69,7 +74,8 @@ public class GeneralBusinessTest extends BaseDriver {
 			tapDown();
 		}
 	}
-
+	
+	@Step("Validate error {errorAppMessage} from fild {fieldCont}")
 	public void validateFieldErrorMessage(String errorAppMessage, String fieldCont) {
 		List<MobileElement> errors = findSubElements(findElement(fieldCont), NamesMobileElements.ERROR_TEXT_FIELD);
 		if (errors.size() > 0) {
@@ -80,12 +86,14 @@ public class GeneralBusinessTest extends BaseDriver {
 		}
 	}
 
+	@Step("Tap on back button")
 	public void goBack() {
 		waitElementVisibility(NamesMobileElements.BACK_BUTTON);
 		tapOnElement(NamesMobileElements.BACK_BUTTON);
 		logger.info("Tap en regresar");
 	}
 
+	@Step("Validate popup message {message}")
 	public void validatePopUpMessages(String message) {
 		try {
 			List<MobileElement> messageElement = findElements(NamesMobileElements.POPUP_TEXT_MESSAGE);
@@ -100,6 +108,7 @@ public class GeneralBusinessTest extends BaseDriver {
 
 	}
 
+	@Step("Tap on menu")
 	public void valitateDropDownMenu(MenusEnum menusEnum) {
 		logger.info("Seleccionando la opcion: " + menusEnum.getMenu());
 		List<MobileElement> terms = new ArrayList<MobileElement>();

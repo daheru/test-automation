@@ -2,13 +2,12 @@
 package com.walmartmg.business.iOS;
 
 import org.apache.log4j.Logger;
-import org.junit.Assert;
 
 import com.walmartmg.base.BaseDriver;
 import com.walmartmg.business.android.GeneralBusinessTest;
 import com.walmartmg.constants.NamesMobileElements;
-import com.walmartmg.enums.ProfileMenuEnum;
 import com.walmartmg.enums.NavigationBarEnum;
+import com.walmartmg.enums.ProfileMenuEnum;
 
 public class ProfileBusinessTest extends BaseDriver {
 	private static final Logger logger = Logger.getLogger(LoginBusinessTest.class);
@@ -16,12 +15,12 @@ public class ProfileBusinessTest extends BaseDriver {
 	public GeneralBusinessTest general = new GeneralBusinessTest();
 
 	public void selectProfile() {
-		general.selectNavigationOption(NavigationBarEnum.PROFILE.getNavigation());
+		general.selectNavigationOption(NavigationBarEnum.PROFILE);
 
 	}
 
 	public void selectMenu() {
-		general.selectProfileMenu(ProfileMenuEnum.CREATE_PROFILE.getMenu());
+		general.selectProfileMenu(ProfileMenuEnum.CREATE_PROFILE);
 
 	}
 
@@ -71,13 +70,13 @@ public class ProfileBusinessTest extends BaseDriver {
 
 	}
 
-	public void Data(String name, String lastname, String mail,String password) {
+	public void Data(String name, String lastname, String mail, String password) {
 		logger.info("INICIANDO CASO DE PRUEBA ");
 		logger.info("escribiendo datos para crear una cuenta   ");
 		fillElement(NamesMobileElements.PROFILE_NAME, name);
-		fillElement(NamesMobileElements.PROFILE_LAST_NAME,lastname);
+		fillElement(NamesMobileElements.PROFILE_LAST_NAME, lastname);
 		fillElement(NamesMobileElements.PROFILE_MAIL, mail);
-		fillElement(NamesMobileElements.PROFILE_PASSWORD,password);
+		fillElement(NamesMobileElements.PROFILE_PASSWORD, password);
 		waitElementVisibility(NamesMobileElements.LOGIN_SHOW_PASS);
 		tapOnElement(NamesMobileElements.LOGIN_SHOW_PASS);
 	}
@@ -89,6 +88,7 @@ public class ProfileBusinessTest extends BaseDriver {
 		logger.info("SE VALIDA los mensajes  de Error por cada uno de los elementos   ");
 		waitElementVisibility(NamesMobileElements.PROFILE_BUTTON);
 	}
+
 	public void validate_data2() {
 		logger.info("Se valida  acepta terminos/condiciones   ");
 		tapOnElement(NamesMobileElements.PROFILE_ACCEPTTERMS);
@@ -97,15 +97,12 @@ public class ProfileBusinessTest extends BaseDriver {
 		waitElementVisibility(NamesMobileElements.PROFILE_BUTTON);
 	}
 
-	
-	
 	// validacion de creacion de cuenta
 	public void vUser() {
 		logger.info("Se valida  acepta terminos/condiciones   ");
 		tapOnElement(NamesMobileElements.PROFILE_ACCEPTTERMS);
 		tapOnElement(NamesMobileElements.PROFILE_BUTTON);
 		waitElementVisibility(NamesMobileElements.LOGIN_MENSSAGE_OK);
-
 
 	}
 
@@ -118,7 +115,7 @@ public class ProfileBusinessTest extends BaseDriver {
 		waitElementVisibility(NamesMobileElements.PROFILE_BUTTON);
 		tapOnElement(NamesMobileElements.PROFILE_BUTTON);
 	}
-	
+
 	public void Create_account_Login_in() {
 		logger.info("INICIANDO CASO DE PRUEBA ");
 		logger.info("SE VALIDA  ELEMENTOs DE CREAR CUENTA ");
