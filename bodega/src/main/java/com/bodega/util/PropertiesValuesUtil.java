@@ -35,6 +35,6 @@ public class PropertiesValuesUtil {
 	}
 	
 	public static String getPropertyName( String propertyName ) {
-		return properties.getProperty( propertyName );
+		return properties.getProperty( propertyName ) != null ? properties.getProperty( propertyName ) : "";
 	}
 }

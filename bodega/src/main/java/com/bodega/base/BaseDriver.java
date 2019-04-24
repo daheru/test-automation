@@ -135,6 +135,8 @@ public class BaseDriver {
 	public void fillElement(String element, String text) {
 		MobileElement textboxElement = findElement(element);
 		if (textboxElement != null) {
+			textboxElement.clear();
+			textboxElement.click();
 			textboxElement.sendKeys(text);
 		}
 	}

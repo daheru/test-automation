@@ -34,6 +34,22 @@
 				<app.package>com.mx.walmart.bodega</app.package>
 				<app.activity>com.mx.walmart.bodega.SplashActivity</app.activity>
 				<app.version>Versi\u00f3n 2.0.5 (72)</app.version>
+				<test.package>com.bodega.android.*.*Test</test.package>
+			</properties>
+		</profile>
+		<profile>
+			<id>android-regressions</id>
+			<properties>
+				<device.name>Mobile_Test</device.name>
+				<device.udid>3300ce9aca6fb337</device.udid>
+				<platform.name>Android</platform.name>
+				<platform.version>9.0</platform.version>
+				<automation.name>UIAutomator2</automation.name>
+				<text.attribute>text</text.attribute>
+				<app.package>com.mx.walmart.bodega</app.package>
+				<app.activity>com.mx.walmart.bodega.SplashActivity</app.activity>
+				<app.version>Versi\u00f3n 2.0.5 (72)</app.version>
+				<test.package>com.bodega.android.regressions.Regression*</test.package>
 			</properties>
 		</profile>
 		<profile>
@@ -46,6 +62,7 @@
 				<automation.name>XCUITEst</automation.name>
 				<text.attribute>name</text.attribute>
 				<app.version>1.0.0</app.version>
+				<test.package>com.bodega.ios.*.*Test</test.package>
 			</properties>
 		</profile>
 	</profiles>
@@ -109,6 +126,9 @@
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>3.0.0-M3</version>
 				<configuration>
+					<includes>
+						<include>${test.package}</include>
+					</includes>
 					<reportVersion>2.7.0</reportVersion>
 					<systemPropertyVariables>
 						<allure.results.directory>${project.build.directory}/allure-results</allure.results.directory>

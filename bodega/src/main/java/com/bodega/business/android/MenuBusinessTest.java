@@ -107,10 +107,12 @@ public class MenuBusinessTest extends BaseDriver {
 	@Step("Select as main address")
 	public void selectAsMainAddress() {
 		logger.info("Tap en checkbox de direccion principal");
+		waitElementVisibility(NamesMobileElements.ADDRESS_ICON_FAV);
 		List<MobileElement> favIcon = findElements(NamesMobileElements.ADDRESS_ICON_FAV);
+		waitElementVisibility(NamesMobileElements.ADDRESS_DETAIL_NAME);
+		List<MobileElement> addressNames = findElements(NamesMobileElements.ADDRESS_DETAIL_NAME);
+		addressName = getElementText(addressNames.get(1));
 		if (favIcon.size() > 1) {
-			List<MobileElement> addressNames = findElements(NamesMobileElements.ADDRESS_DETAIL_NAME);
-			addressName = getElementText(addressNames.get(1));
 			waitEvent();
 			tapOnElement(favIcon.get(1));
 		}
@@ -292,7 +294,9 @@ public class MenuBusinessTest extends BaseDriver {
 	@Step("Validate favorite address")
 	public void validateFavoriteAddress() {
 		generalBusinessTest.validatePopUpMessages(AppMessages.ADDRESS_FAV_ICON);
-		waitEvent();
+		generalBusinessTest.goBack();
+		generalBusinessTest.selectMenuOption( ProfileMenuEnum.ADDRESS );
+		waitElementVisibility(NamesMobileElements.ADDRESS_DETAIL_NAME);
 		List<MobileElement> addressNames = findElements(NamesMobileElements.ADDRESS_DETAIL_NAME);
 		assertEquals(addressName, getElementText(addressNames.get(0)));
 	}

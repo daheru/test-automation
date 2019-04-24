@@ -22,29 +22,29 @@ public class GeneralBusinessTest extends BaseDriver {
 
 	private static final Logger logger = Logger.getLogger(GeneralBusinessTest.class.getName());
 
-	@Step("Tap on navigation option {navOption}")
-	public void selectNavigationOption( NavigationBarEnum navOption) {
+	@Step("Tap on navigation option {navigationBarEnum}")
+	public void selectNavigationOption( NavigationBarEnum navigationBarEnum) {
 		waitElementVisibility(NamesMobileElements.NAV_BAR);
 		MobileElement navigationElement = null;
-		if (navOption.getNavigation() == NavigationBarEnum.HOME.getNavigation()) {
+		if (navigationBarEnum.getNavigation() == NavigationBarEnum.HOME.getNavigation()) {
 			logger.info("Seleccionando menu home");
 			navigationElement = findElement(NamesMobileElements.NAV_BAR_HOME);
-		} else if (navOption.getNavigation() == NavigationBarEnum.DEPARTMENTS.getNavigation()) {
+		} else if (navigationBarEnum.getNavigation() == NavigationBarEnum.DEPARTMENTS.getNavigation()) {
 			logger.info("Seleccionando menu departamentos");
 			navigationElement = findElement(NamesMobileElements.NAV_BAR_DEPARTMENTS);
-		} else if (navOption.getNavigation() == NavigationBarEnum.PROMOTIONS.getNavigation()) {
+		} else if (navigationBarEnum.getNavigation() == NavigationBarEnum.PROMOTIONS.getNavigation()) {
 			logger.info("Seleccionando menu perfil");
 			navigationElement = findElement(NamesMobileElements.NAV_BAR_PROMOTIONS);
-		} else if (navOption.getNavigation() == NavigationBarEnum.CAR.getNavigation()) {
+		} else if (navigationBarEnum.getNavigation() == NavigationBarEnum.CAR.getNavigation()) {
 			logger.info("Seleccionando menu perfil");
 			navigationElement = findElement(NamesMobileElements.NAV_BAR_CAR);
 		}
 		navigationElement.click();
 	}
 
-	@Step("Tap on menu option {menuOptionEnum}")
-	public void selectMenuOption(ProfileMenuEnum menuOptionEnum) {
-		logger.info("Seleccionando la opcion: " + menuOptionEnum.getMenu());
+	@Step("Tap on menu option {profileMenuEnum}")
+	public void selectMenuOption(ProfileMenuEnum profileMenuEnum) {
+		logger.info("Seleccionando la opcion: " + profileMenuEnum.getMenu());
 		waitElementVisibility(NamesMobileElements.MENU_NAME);
 		List<MobileElement> menuList = findElements(NamesMobileElements.MENU_NAME);
 		assertTrue("El elemento no existe", menuList.size() > 0);
@@ -52,7 +52,7 @@ public class GeneralBusinessTest extends BaseDriver {
 		int exit = 0;
 		do {
 			for (MobileElement element : menuList) {
-				if (getElementText(element).contains(menuOptionEnum.getMenu())) {
+				if (getElementText(element).contains(profileMenuEnum.getMenu())) {
 					tapOnElement(element);
 					clicMenu = true;
 					break;
@@ -125,7 +125,6 @@ public class GeneralBusinessTest extends BaseDriver {
 
 	@Step("Validate Mama Lucha page")
 	public void validateWelcomePage() {
-		logger.info("Validando Welcome Page");
 		if (elementExist(NamesMobileElements.WELCOME_MAMA_LUCHA)) {
 			tapOnElement(NamesMobileElements.WELCOME_LINK_GUESS);
 		}

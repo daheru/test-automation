@@ -46,27 +46,30 @@ public class SearchBusinessTest extends BaseDriver {
 		logger.info("Validando lista de productos");
 		waitElementVisibility(NamesMobileElements.SEARCH_PRODUCT_LIST);
 		if (!filterSelected.isEmpty()) {
-			float higherPrice = 0f;
-			float lowerPrice = 0f;
+			double higherPrice = 0;
+			double lowerPrice = 0;
 			List<MobileElement> productList;
 			Collator comparador = Collator.getInstance();
-			comparador.setStrength(Collator.PRIMARY);
+			comparador.setStrength(Collator.TERTIARY);
 			waitElementVisibility(NamesMobileElements.SEARCH_PRODUCT_NAME);
-			productList = findElements(NamesMobileElements.SEARCH_PRODUCT_NAME);
 			if (FiltersEnum.A_Z.getFilter().equals(filterSelected)) {
+				productList = findElements(NamesMobileElements.SEARCH_PRODUCT_NAME);
 				assertTrue("Los productos no estan ordenados",
 						productList.size() > 0 && comparador.compare(getElementText(productList.get(0)),
 								getElementText(productList.get(productList.size() - 1))) < 0);
 			} else if (FiltersEnum.Z_A.getFilter().equals(filterSelected)) {
+				productList = findElements(NamesMobileElements.SEARCH_PRODUCT_NAME);
 				assertTrue("Los productos no estan ordenados", productList.size() > 0 && comparador.compare(getElementText(productList.get(0)),
 						getElementText(productList.get(productList.size() - 1))) > 0);
 			} else if (FiltersEnum.HIGHER_PRICE.getFilter().equals(filterSelected)) {
-				higherPrice = productList.size() > 0 ? Float.parseFloat(getElementText(productList.get(0)).replaceAll("[^\\d.]", "")) : 0;
-				lowerPrice = productList.size() > 0 ? Float.parseFloat(getElementText(productList.get(productList.size() - 1)).replaceAll("[^\\d.]", "")) : 0;
+				productList = findElements(NamesMobileElements.SEARCH_PRODUCT_PRICE);
+				higherPrice = productList.size() > 0 ? Double.parseDouble(getElementText(productList.get(0)).replaceAll("[^\\d.]", "")) : 0;
+				lowerPrice = productList.size() > 0 ? Double.parseDouble(getElementText(productList.get(productList.size() - 1)).replaceAll("[^\\d.]", "")) : 0;
 				assertTrue("Los productos no estan ordenados", higherPrice >= lowerPrice);
 			} else if (FiltersEnum.MINNOR_PRICE.getFilter().equals(filterSelected)) {
-				higherPrice = productList.size() > 0 ? Float.parseFloat(getElementText(productList.get(productList.size() - 1)).replaceAll("[^\\d.]", "")) : 0;
-				lowerPrice = productList.size() > 0 ? Float.parseFloat(getElementText(productList.get(0)).replaceAll("[^\\d.]", "")) : 0;
+				productList = findElements(NamesMobileElements.SEARCH_PRODUCT_PRICE);
+				higherPrice = productList.size() > 0 ? Double.parseDouble(getElementText(productList.get(productList.size() - 1)).replaceAll("[^\\d.]", "")) : 0;
+				lowerPrice = productList.size() > 0 ? Double.parseDouble(getElementText(productList.get(0)).replaceAll("[^\\d.]", "")) : 0;
 				assertTrue("Los productos no estan ordenados", higherPrice >= lowerPrice);
 			}
 		}

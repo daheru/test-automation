@@ -42,10 +42,12 @@ public class AccountBusinessTest extends BaseDriver {
 		generalBusinessTest.scrollUntilShowElement( GeneralConstants.SCROLL_UP, NamesMobileElements.ACCOUNT_CREATE_BUTTON );
 		fillElement( NamesMobileElements.ACCOUNT_PASS_TEXT, pass);
 		tapOnElement( NamesMobileElements.ACCOUNT_CREATE_BUTTON );
+		hideKeyboard();
 	}
 	
 	public void validateEmptyFields() {
 		logger.info("Validando mensajes de error");
+		scrollUntilShowElement(GeneralConstants.SCROLL_UP, NamesMobileElements.ACCOUNT_NAME_CONT);
 		generalBusinessTest.validateFieldErrorMessage( AppMessages.EMPTY_FIELD, NamesMobileElements.ACCOUNT_NAME_CONT);
 		generalBusinessTest.validateFieldErrorMessage( AppMessages.EMPTY_FIELD, NamesMobileElements.ACCOUNT_LASTNAME_CONT);
 		generalBusinessTest.validateFieldErrorMessage( AppMessages.EMPTY_FIELD, NamesMobileElements.ACCOUNT_EMAIL_CONT);
@@ -54,6 +56,7 @@ public class AccountBusinessTest extends BaseDriver {
 	
 	public void validateInvalidData() {
 		logger.info("Validando mensajes de error");
+		scrollUntilShowElement(GeneralConstants.SCROLL_UP, NamesMobileElements.ACCOUNT_NAME_CONT);
 		generalBusinessTest.validateFieldErrorMessage( AppMessages.INVALID_ACCOUNT_NAME, NamesMobileElements.ACCOUNT_NAME_CONT);
 		generalBusinessTest.validateFieldErrorMessage( AppMessages.INVALID_ACCOUNT_LAST_NAME, NamesMobileElements.ACCOUNT_LASTNAME_CONT);
 		generalBusinessTest.validateFieldErrorMessage( AppMessages.INVALID_ACCOUNT_EMAIL, NamesMobileElements.ACCOUNT_EMAIL_CONT);

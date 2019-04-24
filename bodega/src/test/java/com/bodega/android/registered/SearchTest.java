@@ -84,7 +84,7 @@ public class SearchTest {
 		search.selectProfile();
 		search.selectMenu(ProfileMenuEnum.LOGIN);
 		search.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
-		search.searchProduct("Refrigerador");
+		search.searchProduct("Pantallas");
 		search.validateSearch();
 		search.tapOnFilter();
 		search.selectFilter(FiltersEnum.A_Z.getFilter());

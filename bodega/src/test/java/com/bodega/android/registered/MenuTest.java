@@ -100,7 +100,7 @@ public class MenuTest {
 	@Description("Edit user's main address information")
 	public void CF013_edit_main_address() {
 		addressVO = main.initAddressVO();
-		addressVO.setAddressName("Mi direccion");
+		addressVO.setAddressName("Mi direccion ");
 		addressVO.setAddressPhone("5512345678");
 		main.selectProfile();
 		main.selectMenu(ProfileMenuEnum.LOGIN);

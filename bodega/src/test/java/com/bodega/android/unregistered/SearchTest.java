@@ -72,7 +72,7 @@ public class SearchTest {
 	@Description("Search product usign A-Z filter")
 	public void CF047_search_by_A_Z_filter() {
 		search.selectNavigation(NavigationBarEnum.DEPARTMENTS);
-		search.searchProduct("Computadora");
+		search.searchProduct("Pantallas");
 		search.validateSearch();
 		search.tapOnFilter();
 		search.selectFilter(FiltersEnum.A_Z.getFilter());

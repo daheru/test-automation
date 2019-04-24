@@ -53,6 +53,8 @@ public class DepartmentsTest {
 	public void CF049_validate_promotions() {
 		departments.selectNavigation( NavigationBarEnum.PROMOTIONS );
 		departments.validateProducts();
+		departments.goBack();
+		departments.validateHome();
 	}
 	
 	@Test
