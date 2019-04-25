@@ -23,7 +23,7 @@ public class GeneralBusinessTest extends BaseDriver {
 
 	private static final Logger logger = Logger.getLogger(GeneralBusinessTest.class.getName());
 
-	@Step("Tap on navigation bar {navOption}")
+	@Step("Tap on navigation bar {navigationBarEnum}")
 	public void selectNavigationOption( NavigationBarEnum navigationBarEnum ) {
 		waitElementVisibility(NamesMobileElements.NAV_BAR);
 		MobileElement navigationElement = null;

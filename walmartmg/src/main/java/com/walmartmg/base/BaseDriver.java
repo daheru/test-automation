@@ -138,6 +138,7 @@ public class BaseDriver {
 			textboxElement.clear();
 			textboxElement.click();
 			textboxElement.sendKeys(text);
+			hideKeyboard();
 		}
 	}
 

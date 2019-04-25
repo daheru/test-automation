@@ -27,14 +27,14 @@
 			<properties>
 				<device.name>Mobile_Test</device.name>
 				<!-- emulator-5554 -->
-				<!-- 8DM0218A15002368 -->
-				<device.udid>emulator-5554</device.udid>
+				<!-- 3300ce9aca6fb337 -->
+				<device.udid>3300ce9aca6fb337</device.udid>
 				<platform.name>Android</platform.name>
 				<platform.version>9.0</platform.version>
 				<automation.name>UIAutomator2</automation.name>
 				<text.attribute>text</text.attribute>
 				<app.version>Versi\u00f3n 0.0.30 Developer Build (30)</app.version>
-				<test.package>com.bodega.android.*.*Test</test.package>
+				<test.package>com.walmartmg.android.*.*Test</test.package>
 			</properties>
 		</profile>
 		<profile>
@@ -47,7 +47,7 @@
 				<automation.name>XCUITest</automation.name>
 				<text.attribute>name</text.attribute>
 				<app.version>1.0.0</app.version>
-				<test.package>com.bodega.ios.*.*Test</test.package>
+				<test.package>com.walmartmg.ios.*.*Test</test.package>
 			</properties>
 		</profile>
 	</profiles>
