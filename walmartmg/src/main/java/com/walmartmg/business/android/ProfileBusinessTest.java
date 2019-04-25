@@ -15,28 +15,26 @@ import com.walmartmg.enums.ProfileMenuEnum;
 
 import io.appium.java_client.MobileElement;
 
-public class ProfileBusinessTest extends BaseDriver{
+public class ProfileBusinessTest extends BaseDriver {
 
-	private static final Logger logger = Logger.getLogger( InvoiceBusinessTest.class );
+	private static final Logger logger = Logger.getLogger(InvoiceBusinessTest.class);
 	private GeneralBusinessTest general = new GeneralBusinessTest();
 	public static LoginBusinessTest login = new LoginBusinessTest();
 	private String email;
-	
-	
+
 	public void selectProfileOption() {
-		general.selectNavigationOption( NavigationBarEnum.PROFILE.getNavigation() );
+		general.selectNavigationOption(NavigationBarEnum.PROFILE);
 	}
-	
+
 	public void selectMenuLogin() {
-		general.selectProfileMenu(ProfileMenuEnum.LOGIN.getMenu());
+		general.selectProfileMenu(ProfileMenuEnum.LOGIN);
 	}
-	
+
 	public void selectRequestMyProfile() {
-		general.selectProfileMenu(ProfileMenuEnum.PROFILE.getMenu() );
+		general.selectProfileMenu(ProfileMenuEnum.PROFILE);
 	}
-	
-	
-	//Login
+
+	// Login
 	public void login(String email, String password) {
 		this.email = email;
 		fillElement(NamesMobileElements.LOGIN_EMAIL, email);
@@ -44,7 +42,7 @@ public class ProfileBusinessTest extends BaseDriver{
 		tapOnElement(NamesMobileElements.LOGIN_BUTTON);
 		validateLoginErrors(email, password);
 	}
-	
+
 	private void validateLoginErrors(String email, String password) {
 		logger.info("Verificando mensajes de validacion");
 		if (email.isEmpty()) {
@@ -53,10 +51,9 @@ public class ProfileBusinessTest extends BaseDriver{
 			general.validateFieldErrorMessage(AppMessages.NO_PASS, NamesMobileElements.LOGIN_PASS_CONT);
 		}
 	}
-	
-	
-	//myProfile
-	
+
+	// myProfile
+
 	public void validateScreenMyPorfile() {
 		logger.info("Validar pantalla");
 		waitElementVisibility(NamesMobileElements.MYPROFILE_PERSONAL_DETAILS_CONT);
@@ -65,12 +62,12 @@ public class ProfileBusinessTest extends BaseDriver{
 		waitElementVisibility(NamesMobileElements.MYPROFILE_LOGIN_DATA_LINKEDIT);
 		waitElementVisibility(NamesMobileElements.MYPROFILE_PHONE_INFO_CONT);
 		waitElementVisibility(NamesMobileElements.MYPROFILE_PHONE_INFO_LINKEDIT);
-		
+
 	}
-	
-	//Personal Data 
-	
-	public void validateScreenPersonalDetails(){
+
+	// Personal Data
+
+	public void validateScreenPersonalDetails() {
 		tapOnElement(NamesMobileElements.MYPROFILE_PERSONAL_DETAILS_LINKEDIT);
 		waitElementVisibility(NamesMobileElements.PERSONAL_DETAILS_NAMELABEL);
 		waitElementVisibility(NamesMobileElements.PERSONAL_DETAILS_NAMEFIELD);
@@ -79,9 +76,9 @@ public class ProfileBusinessTest extends BaseDriver{
 		waitElementVisibility(NamesMobileElements.PERSONAL_DETAILS_BIRTHDATELABEL);
 		waitElementVisibility(NamesMobileElements.PERSONAL_DETAILS_BIRTHDATEFIELD);
 		waitElementVisibility(NamesMobileElements.PERSONAL_DETAILS_BTNUPDATE);
-		
+
 	}
-	
+
 	public void enterDataPersonalDetails(String name, String lastname, String bornDate) {
 		tapOnElement(NamesMobileElements.MYPROFILE_PERSONAL_DETAILS_LINKEDIT);
 		fillElement(NamesMobileElements.PERSONAL_DETAILS_NAMEFIELD, name);
@@ -89,20 +86,20 @@ public class ProfileBusinessTest extends BaseDriver{
 		fillElement(NamesMobileElements.PERSONAL_DETAILS_BIRTHDATEFIELD, bornDate);
 		tapOnElement(NamesMobileElements.PERSONAL_DETAILS_BTNUPDATE);
 	}
-	
+
 	public void validateMessageAlert() {
 		logger.info("Valida alerta");
 		general.validatePopUpMessages(AppMessages.INVALID_AGE);
 	}
-	
+
 	public void validateMessageUpdate() {
 		logger.info("Valida alerta");
 		general.validatePopUpMessages(AppMessages.UPDATE_PERSONAL_DETAIL);
 	}
-	
-	//Logon Data
-	
-	public void validateScreenLogonData(){
+
+	// Logon Data
+
+	public void validateScreenLogonData() {
 		tapOnElement(NamesMobileElements.MYPROFILE_LOGIN_DATA_LINKEDIT);
 		waitElementVisibility(NamesMobileElements.LOGON_DATA_CONT);
 		waitElementVisibility(NamesMobileElements.LOGON_DATA_EMAIL);
@@ -110,14 +107,14 @@ public class ProfileBusinessTest extends BaseDriver{
 		waitElementVisibility(NamesMobileElements.LOGON_DATA_NEW_PASSSWORD);
 		waitElementVisibility(NamesMobileElements.LOGON_DATA_BTNUPDATE);
 	}
-	
+
 	public void emptyFieldLogonData() {
 		tapOnElement(NamesMobileElements.MYPROFILE_LOGIN_DATA_LINKEDIT);
 		logger.info("Push botton update");
 		tapOnElement(NamesMobileElements.LOGON_DATA_BTNUPDATE);
 	}
-	
-	public void validateMessagePassword(String currentPass,String newPass) {
+
+	public void validateMessagePassword(String currentPass, String newPass) {
 		logger.info("Verificando mensajes de validacion");
 		if (currentPass.isEmpty()) {
 			general.validateFieldErrorMessage(AppMessages.NO_PASS, NamesMobileElements.LOGON_DATA_CURRENT_PASSWORD);
@@ -125,7 +122,7 @@ public class ProfileBusinessTest extends BaseDriver{
 			general.validateFieldErrorMessage(AppMessages.NO_PASS, NamesMobileElements.LOGON_DATA_NEW_PASSSWORD);
 		}
 	}
-	
+
 	public void enterDataLogonData(String currentPass, String newPass) {
 		tapOnElement(NamesMobileElements.MYPROFILE_LOGIN_DATA_LINKEDIT);
 		logger.info("ingresar datos invalidos");
@@ -133,14 +130,14 @@ public class ProfileBusinessTest extends BaseDriver{
 		fillElement(NamesMobileElements.LOGON_DATA_NEW_PASSSWORD, newPass);
 		tapOnElement(NamesMobileElements.LOGON_DATA_BTNUPDATE);
 	}
-	
+
 	public void validateMessageInvalidLogon() {
 		logger.info("Valida alerta");
 		general.validatePopUpMessages(AppMessages.INVALID_DATA_PASSWORD);
 	}
-	
-	//Telephone information
-	
+
+	// Telephone information
+
 	public void validateScreenPhoneInf() {
 		tapOnElement(NamesMobileElements.MYPROFILE_PHONE_INFO_LINKEDIT);
 		waitElementVisibility(NamesMobileElements.PHONE_INFO_CONT);
@@ -164,8 +161,7 @@ public class ProfileBusinessTest extends BaseDriver{
 		waitElementVisibility(NamesMobileElements.PHONE_INFO_SECONDARY_EXT);
 		waitElementVisibility(NamesMobileElements.PHONE_INFO_BTNUPDATE);
 	}
-	
-	
+
 	public void enterPhoneValid(String movil, String fijo, String ext) {
 		tapOnElement(NamesMobileElements.MYPROFILE_PHONE_INFO_LINKEDIT);
 		fillElement(NamesMobileElements.PHONE_INFO_PRIMARY_FIELD, movil);
@@ -177,13 +173,9 @@ public class ProfileBusinessTest extends BaseDriver{
 		tapOnElement(NamesMobileElements.PHONE_INFO_BTNUPDATE);
 		general.validatePopUpMessages(AppMessages.UPDATE_PERSONAL_DETAIL);
 	}
-	 
-	public void selectProfile() {
-		general.selectNavigationOption(NavigationBarEnum.PROFILE.getNavigation());
-	}
 
-	public void selectMenu(String menu) {
-		general.selectProfileMenu(menu);
+	public void selectProfile() {
+		general.selectNavigationOption(NavigationBarEnum.PROFILE);
 	}
 
 	public void validateHelpPage() {
@@ -209,18 +201,18 @@ public class ProfileBusinessTest extends BaseDriver{
 		if (isLogged) {
 
 		} else {
-			general.selectProfileMenu(ProfileMenuEnum.LOGIN.getMenu());
+			general.selectProfileMenu(ProfileMenuEnum.LOGIN);
 			general.goBack();
-			general.selectProfileMenu(ProfileMenuEnum.CREATE_PROFILE.getMenu());
+			general.selectProfileMenu(ProfileMenuEnum.CREATE_PROFILE);
 			general.goBack();
-			general.selectProfileMenu(ProfileMenuEnum.GET_BILL.getMenu());
+			general.selectProfileMenu(ProfileMenuEnum.GET_BILL);
 			closeAndroidDialog();
 			general.goBack();
-			general.selectProfileMenu(ProfileMenuEnum.SUPPORT.getMenu());
+			general.selectProfileMenu(ProfileMenuEnum.SUPPORT);
 			general.goBack();
-			general.selectProfileMenu(ProfileMenuEnum.TERMS.getMenu());
+			general.selectProfileMenu(ProfileMenuEnum.TERMS);
 			general.goBack();
-			general.selectProfileMenu(ProfileMenuEnum.LEGALS.getMenu());
+			general.selectProfileMenu(ProfileMenuEnum.LEGALS);
 			general.goBack();
 		}
 	}
@@ -237,7 +229,7 @@ public class ProfileBusinessTest extends BaseDriver{
 		general.valitateDropDownMenu(MenusEnum.TERMS_ACCOUNT);
 		general.valitateDropDownMenu(MenusEnum.TERMS_ORDERS);
 	}
-	
+
 	public void validateLegalsPage() {
 		general.valitateDropDownMenu(MenusEnum.LEGALS_TERMS);
 		general.valitateDropDownMenu(MenusEnum.LEGALS_PRIVACITY);
@@ -245,5 +237,5 @@ public class ProfileBusinessTest extends BaseDriver{
 		assertEquals(ConfigConstants.APP_VERSION.toLowerCase(), getElementText(terms.get(2)));
 		logger.info("Página válida");
 	}
-	
+
 }

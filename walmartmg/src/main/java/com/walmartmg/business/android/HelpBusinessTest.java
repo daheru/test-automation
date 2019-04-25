@@ -16,40 +16,40 @@ import io.appium.java_client.MobileElement;
 
 public class HelpBusinessTest extends BaseDriver {
 
-	private static final Logger logger = Logger.getLogger( HelpBusinessTest.class );
+	private static final Logger logger = Logger.getLogger(HelpBusinessTest.class);
 	private GeneralBusinessTest general = new GeneralBusinessTest();
 	public static LoginBusinessTest login = new LoginBusinessTest();
 	private String email;
-	
+
 	public void selectProfileOption() {
-		general.selectNavigationOption( NavigationBarEnum.PROFILE.getNavigation() );
+		general.selectNavigationOption(NavigationBarEnum.PROFILE);
 	}
-	
+
 	public void selectMenuLogin() {
-		general.selectProfileMenu(ProfileMenuEnum.LOGIN.getMenu());
+		general.selectProfileMenu(ProfileMenuEnum.LOGIN);
 	}
-	
-	//Help
+
+	// Help
 	public void selectRequestMyProfile() {
-		general.selectProfileMenu(ProfileMenuEnum.SUPPORT.getMenu() );
+		general.selectProfileMenu(ProfileMenuEnum.SUPPORT);
 	}
-	
-	//Terms
+
+	// Terms
 	public void selectRequestMyProfileTerms() {
-		general.selectProfileMenu(ProfileMenuEnum.TERMS.getMenu() );
+		general.selectProfileMenu(ProfileMenuEnum.TERMS);
 	}
-	
-	//Legals
+
+	// Legals
 	public void selectRequestMyProfileLegal() {
-		general.selectProfileMenu(ProfileMenuEnum.LEGALS.getMenu() );
+		general.selectProfileMenu(ProfileMenuEnum.LEGALS);
 	}
-		
-	//Logout
+
+	// Logout
 	public void selectRequestMyProfileLogut() {
-		general.selectProfileMenu(ProfileMenuEnum.LOGOUT.getMenu() );
+		general.selectProfileMenu(ProfileMenuEnum.LOGOUT);
 	}
-	
-	//Login
+
+	// Login
 	public void login(String email, String password) {
 		this.email = email;
 		fillElement(NamesMobileElements.LOGIN_EMAIL, email);
@@ -57,7 +57,7 @@ public class HelpBusinessTest extends BaseDriver {
 		tapOnElement(NamesMobileElements.LOGIN_BUTTON);
 		validateLoginErrors(email, password);
 	}
-		
+
 	private void validateLoginErrors(String email, String password) {
 		logger.info("Verificando mensajes de validacion");
 		if (email.isEmpty()) {
@@ -66,8 +66,8 @@ public class HelpBusinessTest extends BaseDriver {
 			general.validateFieldErrorMessage(AppMessages.NO_PASS, NamesMobileElements.LOGIN_PASS_CONT);
 		}
 	}
-	
-	//validate screen help
+
+	// validate screen help
 	public void validateScreenHelp() {
 		logger.info("Validate screen");
 		waitElementVisibility(NamesMobileElements.HELP_TITLE);
@@ -76,22 +76,22 @@ public class HelpBusinessTest extends BaseDriver {
 		waitElementVisibility(NamesMobileElements.HELP_EMAIL_BUTTON);
 		waitElementVisibility(NamesMobileElements.HELP_PHONE);
 	}
-	
+
 	public void validateCallButton() {
 		logger.info("Validate acction call button");
 		waitElementVisibility(NamesMobileElements.HELP_CALL_BUTTON);
 		tapOnElement(NamesMobileElements.HELP_CALL_BUTTON);
 		logger.info("Se visualiza pantalla de llamada");
 	}
-	
+
 	public void validateEmailButton() {
 		logger.info("Validate acction email button");
 		waitElementVisibility(NamesMobileElements.HELP_EMAIL_BUTTON);
 		tapOnElement(NamesMobileElements.HELP_EMAIL_BUTTON);
 		logger.info("Se visualizan opciones de mensajeria");
 	}
-	
-	//Validate Termns and conditions 
+
+	// Validate Termns and conditions
 	public void validateTermsPage() {
 		general.valitateDropDownMenu(MenusEnum.TERMS_RETURNS);
 		general.valitateDropDownMenu(MenusEnum.TERMS_DELIVERY);
@@ -104,7 +104,7 @@ public class HelpBusinessTest extends BaseDriver {
 		general.valitateDropDownMenu(MenusEnum.TERMS_ACCOUNT);
 		general.valitateDropDownMenu(MenusEnum.TERMS_ORDERS);
 	}
-	
+
 	public void validateLegalsPage() {
 		general.valitateDropDownMenu(MenusEnum.LEGALS_TERMS);
 		general.valitateDropDownMenu(MenusEnum.LEGALS_PRIVACITY);
@@ -112,6 +112,5 @@ public class HelpBusinessTest extends BaseDriver {
 		assertEquals(ConfigConstants.APP_VERSION.toLowerCase(), getElementText(terms.get(2)));
 		logger.info("Página válida");
 	}
-	
-	
+
 }

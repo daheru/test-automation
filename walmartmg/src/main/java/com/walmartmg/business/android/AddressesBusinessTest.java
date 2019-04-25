@@ -29,15 +29,15 @@ public class AddressesBusinessTest extends BaseDriver{
 	}
 	
 	public void selectProfileOption() {
-		general.selectNavigationOption( NavigationBarEnum.PROFILE.getNavigation() );
+		general.selectNavigationOption( NavigationBarEnum.PROFILE );
 	}
 	
 	public void selectMenuLogin() {
-		general.selectProfileMenu(ProfileMenuEnum.LOGIN.getMenu());
+		general.selectProfileMenu(ProfileMenuEnum.LOGIN );
 	}
 	
 	public void selectRequestMyProfile() {
-		general.selectProfileMenu(ProfileMenuEnum.ADDRESS.getMenu() );
+		general.selectProfileMenu(ProfileMenuEnum.ADDRESS );
 	}
 	
 	public void pressBtnAdd() {

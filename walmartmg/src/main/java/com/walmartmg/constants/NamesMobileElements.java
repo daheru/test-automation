@@ -228,18 +228,6 @@ public final class NamesMobileElements {
 	public static final String AGREGAR_MAS_PRODUCTOS = PropertiesValuesUtil.getPropertyName("AGREGAR_MAS_PRODUCTOS");
 	public static final String AGREGAR_MAS_PRODUCTOS2 = PropertiesValuesUtil.getPropertyName("AGREGAR_MAS_PRODUCTOS2");
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	// ANDROID
 
 	public static final String NAME_FIELD = PropertiesValuesUtil.getPropertyName("NAME_FIELD");

@@ -11,27 +11,29 @@ import com.walmartmg.enums.ProfileMenuEnum;
 import io.qameta.allure.Step;
 
 public class InvoiceBusinessTest extends BaseDriver {
-	
-	public static final Logger logger = Logger.getLogger( InvoiceBusinessTest.class );
+
+	public static final Logger logger = Logger.getLogger(InvoiceBusinessTest.class);
 	public GeneralBusinessTest general = new GeneralBusinessTest();
 	public static LoginBusinessTest login = new LoginBusinessTest();
 	private String email;
+
 	public void selectProfileOption() {
-		general.selectNavigationOption( NavigationBarEnum.PROFILE.getNavigation() );
+		general.selectNavigationOption(NavigationBarEnum.PROFILE);
 	}
-	
+
 	public void selectMenuLogin() {
-		general.selectProfileMenu(ProfileMenuEnum.LOGIN.getMenu());
+		general.selectProfileMenu(ProfileMenuEnum.LOGIN);
+	}
 
 	public void selectRequestInvoice() {
-		generalBusinessTest.selectProfileMenu(ProfileMenuEnum.GET_BILL);
+		general.selectProfileMenu(ProfileMenuEnum.GET_BILL);
 	}
-	
+
 	public void selectRequestMyProfile() {
-		general.selectProfileMenu(ProfileMenuEnum.GET_BILL.getMenu() );
+		general.selectProfileMenu(ProfileMenuEnum.GET_BILL);
 	}
-	
-	//Login
+
+	// Login
 	public void login(String email, String password) {
 		this.email = email;
 		fillElement(NamesMobileElements.LOGIN_EMAIL, email);
@@ -39,7 +41,7 @@ public class InvoiceBusinessTest extends BaseDriver {
 		tapOnElement(NamesMobileElements.LOGIN_BUTTON);
 		validateLoginErrors(email, password);
 	}
-			
+
 	private void validateLoginErrors(String email, String password) {
 		logger.info("Verificando mensajes de validacion");
 		if (email.isEmpty()) {
@@ -48,8 +50,6 @@ public class InvoiceBusinessTest extends BaseDriver {
 			general.validateFieldErrorMessage(AppMessages.NO_PASS, NamesMobileElements.LOGIN_PASS_CONT);
 		}
 	}
-			
-	
 
 	@Step("Validate invoice page")
 	public void validateElements() {
@@ -78,9 +78,5 @@ public class InvoiceBusinessTest extends BaseDriver {
 	public void validateMessageError() {
 		logger.info("Valida alerta");
 		general.validatePopUpMessages(AppMessages.INVOICE_INVALID_CODE);
-	}
-	
-	public void selectRequestInvoice() {
-		general.selectProfileMenu(ProfileMenuEnum.GET_BILL.getMenu() );
 	}
 }

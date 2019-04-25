@@ -23,7 +23,7 @@ public class MyProfileTest {
 	@Rule
 	public TestName name = new TestName();
 	private static final Logger logger = Logger.getLogger( MyProfileTest.class );
-	private static MyProfileBusinessTest myprofile = new MyProfileBusinessTest();
+	private static ProfileBusinessTest myprofile = new ProfileBusinessTest();
 	
 	@AfterClass
 	public static void tearDown(){
