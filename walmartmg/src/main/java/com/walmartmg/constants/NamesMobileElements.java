@@ -351,6 +351,9 @@ public final class NamesMobileElements {
 	public static final String DEP_ITEM_CHILD = PropertiesValuesUtil.getPropertyName("DEP_ITEM_CHILD");
 	public static final String DEP_ICON = PropertiesValuesUtil.getPropertyName("DEP_ICON");
 	public static final String DEP_FAMILY_CONT = PropertiesValuesUtil.getPropertyName("DEP_FAMILY_CONT");
+	
+	public static final String MENU_PROFILE_CONT = PropertiesValuesUtil.getPropertyName("MENU_PROFILE_CONT");
+	
 	public static final String FILTERS_LINK = PropertiesValuesUtil.getPropertyName("FILTERS_LINK");
 	public static final String FILTERS_CONT = PropertiesValuesUtil.getPropertyName("FILTERS_CONT");
 	public static final String FILTERS_SORT_BY = PropertiesValuesUtil.getPropertyName("FILTERS_SORT_BY");
@@ -393,14 +396,49 @@ public final class NamesMobileElements {
 	public static final String LOGON_DATA_BTNUPDATE = PropertiesValuesUtil.getPropertyName("LOGON_DATA_BTNUPDATE");
 	
 	public static final String PHONE_INFO_CONT = PropertiesValuesUtil.getPropertyName("PHONE_INFO_CONT");
-	public static final String PHONE_INFO_PRIMARY = PropertiesValuesUtil.getPropertyName("PHONE_INFO_PRIMARY");
+	public static final String PHONE_INFO_SPINNER_PRIMARY = PropertiesValuesUtil.getPropertyName("PHONE_INFO_SPINNER_PRIMARY");
+	public static final String PHONE_INFO_COMBO = PropertiesValuesUtil.getPropertyName("PHONE_INFO_COMBO");
 	public static final String PHONE_INFO_PRIMARY_FIELD = PropertiesValuesUtil.getPropertyName("PHONE_INFO_PRIMARY_FIELD");
 	public static final String PHONE_INFO_PRIMARY_EXT = PropertiesValuesUtil.getPropertyName("PHONE_INFO_PRIMARY_EXT");
 	public static final String PHONE_INFO_ADD_LINK = PropertiesValuesUtil.getPropertyName("PHONE_INFO_ADD_LINK");
-	public static final String PHONE_INFO_SECONDARY = PropertiesValuesUtil.getPropertyName("PHONE_INFO_SECONDARY");
+	public static final String PHONE_INFO_SPINNER_SECONDARY = PropertiesValuesUtil.getPropertyName("PHONE_INFO_SPINNER_SECONDARY");
 	public static final String PHONE_INFO_SECONDARY_FIELD = PropertiesValuesUtil.getPropertyName("PHONE_INFO_SECONDARY_FIELD");
 	public static final String PHONE_INFO_SECONDARY_EXT = PropertiesValuesUtil.getPropertyName("PHONE_INFO_SECONDARY_EXT");
 	public static final String PHONE_INFO_BTNUPDATE = PropertiesValuesUtil.getPropertyName("PHONE_INFO_BTNUPDATE");
-	public static final String PHONE_INFO_COMBO = PropertiesValuesUtil.getPropertyName("PHONE_INFO_COMBO");
 	
+	public static final String ADDRESS_EMPTY_IMG = PropertiesValuesUtil.getPropertyName("ADDRESS_EMPTY_IMG");
+	public static final String ADDRESS_BTNADD = PropertiesValuesUtil.getPropertyName("ADDRESS_BTNADD");
+	public static final String ADDRESS_CONT = PropertiesValuesUtil.getPropertyName("ADDRESS_CONT");
+	public static final String ADDRESS_ADDRESS_NAME = PropertiesValuesUtil.getPropertyName("ADDRESS_ADDRESS_NAME");
+	public static final String ADDRESS_NAME = PropertiesValuesUtil.getPropertyName("ADDRESS_NAME");
+	public static final String ADDRESS_LAST_NAME = PropertiesValuesUtil.getPropertyName("ADDRESS_LAST_NAME");
+	public static final String ADDRESS_STREET = PropertiesValuesUtil.getPropertyName("ADDRESS_STREET");
+	public static final String ADDRESS_OUTER_NUMBER = PropertiesValuesUtil.getPropertyName("ADDRESS_OUTER_NUMBER");
+	public static final String ADDRESS_INNER_NUMBER = PropertiesValuesUtil.getPropertyName("ADDRESS_INNER_NUMBER");
+	public static final String ADDRESS_ZIP_CODE = PropertiesValuesUtil.getPropertyName("ADDRESS_ZIP_CODE");
+	public static final String ADDRESS_REFERENCE_ONE = PropertiesValuesUtil.getPropertyName("ADDRESS_REFERENCE_ONE");
+	public static final String ADDRESS_REFERENCE_TWO = PropertiesValuesUtil.getPropertyName("ADDRESS_REFERENCE_TWO");
+	public static final String ADDRESS_PHONE = PropertiesValuesUtil.getPropertyName("ADDRESS_PHONE");
+	public static final String ADDRESS_CHECK = PropertiesValuesUtil.getPropertyName("ADDRESS_CHECK");
+	public static final String ADDRESS_BTN_SAVE = PropertiesValuesUtil.getPropertyName("ADDRESS_BTN_SAVE");
+	public static final String ADDRESS_ADDRESS_NAME_CONT = PropertiesValuesUtil.getPropertyName("ADDRESS_ADDRESS_NAME_CONT");
+	public static final String ADDRESS_NAME_CONT = PropertiesValuesUtil.getPropertyName("ADDRESS_NAME_CONT");
+	public static final String ADDRESS_LAST_NAME_CONT = PropertiesValuesUtil.getPropertyName("ADDRESS_LAST_NAME_CONT");
+	public static final String ADDRESS_STREET_CONT = PropertiesValuesUtil.getPropertyName("ADDRESS_STREET_CONT");
+	public static final String ADDRESS_OUTER_NUMBER_CONT = PropertiesValuesUtil.getPropertyName("ADDRESS_OUTER_NUMBER_CONT");
+	public static final String ADDRESS_INNER_NUMBER_CONT = PropertiesValuesUtil.getPropertyName("ADDRESS_INNER_NUMBER_CONT");
+	public static final String ADDRESS_ZIP_CODE_CONT = PropertiesValuesUtil.getPropertyName("ADDRESS_ZIP_CODE_CONT");
+	public static final String ADDRESS_PHONE_CONT = PropertiesValuesUtil.getPropertyName("ADDRESS_PHONE_CONT");
+	
+	public static final String ORDERS_CONT = PropertiesValuesUtil.getPropertyName("ORDERS_CONT");
+	public static final String ORDERS_EMPTY_IMG = PropertiesValuesUtil.getPropertyName("ORDERS_EMPTY_IMG");
+	public static final String ORDERS_BTN_STARTSHOPPING = PropertiesValuesUtil.getPropertyName("ORDERS_BTN_STARTSHOPPING");
+	public static final String ORDERS_LIST_CONT = PropertiesValuesUtil.getPropertyName("ORDERS_LIST_CONT");
+	public static final String ORDERS_LIST_HEADER = PropertiesValuesUtil.getPropertyName("ORDERS_LIST_HEADER");
+	public static final String ORDERS_LIST_ORDERID = PropertiesValuesUtil.getPropertyName("ORDERS_LIST_ORDERID");
+	public static final String ORDERS_LIST_DATE = PropertiesValuesUtil.getPropertyName("ORDERS_LIST_DATE");
+	public static final String ORDERS_LIST_DETAIL = PropertiesValuesUtil.getPropertyName("ORDERS_LIST_DETAIL");
+	public static final String ORDERS_LIST_STATUS = PropertiesValuesUtil.getPropertyName("ORDERS_LIST_STATUS");
+	public static final String ORDERS_LIST_QUANTITY = PropertiesValuesUtil.getPropertyName("ORDERS_LIST_QUANTITY");
+	public static final String ORDERS_LIST_PRODUCT = PropertiesValuesUtil.getPropertyName("ORDERS_LIST_PRODUCT");
 }

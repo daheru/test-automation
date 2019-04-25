@@ -27,5 +27,11 @@ public class AppMessages {
 	public static final String INVALID_AGE = PropertiesValuesUtil.getPropertyName("INVALID_AGE");
 	public static final String UPDATE_PERSONAL_DETAIL = PropertiesValuesUtil.getPropertyName("UPDATE_PERSONAL_DETAIL");
 	public static final String INVALID_DATA_PASSWORD = PropertiesValuesUtil.getPropertyName("INVALID_DATA_PASSWORD");
+	public static final String ADDRESS_EMPTY_MSG = PropertiesValuesUtil.getPropertyName("ADDRESS_EMPTY_MSG");
+	public static final String ORDERS_EMPTY_MSG = PropertiesValuesUtil.getPropertyName("ORDERS_EMPTY_MSG");
+	public static final String INVALID_FIELDS_ADDRESS = PropertiesValuesUtil.getPropertyName("INVALID_FIELDS_ADDRESS");
+	public static final String INVALID_NUM_ADDRESS = PropertiesValuesUtil.getPropertyName("INVALID_NUM_ADDRESS");
+	public static final String INVALID_ZIP_ADDRESS = PropertiesValuesUtil.getPropertyName("INVALID_ZIP_ADDRESS");
+	public static final String INVALID_PHONE_ADDRESS = PropertiesValuesUtil.getPropertyName("INVALID_PHONE_ADDRESS");
 	
 }

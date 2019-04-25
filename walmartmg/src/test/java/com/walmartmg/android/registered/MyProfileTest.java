@@ -8,7 +8,7 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TestName;
 
-import com.walmartmg.business.android.registered.MyProfileBusinessTest;
+import com.walmartmg.business.android.ProfileBusinessTest;
 
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
@@ -170,10 +170,18 @@ public class MyProfileTest {
 		myprofile.login("alejandra.jra11@gmail.com", "12345678");
 		myprofile.selectRequestMyProfile();
 		myprofile.validateScreenPhoneInf();
+		logger.info("Se valida pantalla");
+		
 	}
 	
 	@Test
 	public void CP099_enter_valid_phone_info() {
-		
+		logger.info("Start CP099 Enter valid phone information");
+		myprofile.selectProfileOption();
+		myprofile.selectMenuLogin();
+		myprofile.login("alejandra.jra11@gmail.com", "12345678");
+		logger.info("Menu logueado");
+		myprofile.selectRequestMyProfile();
+		myprofile.enterPhoneValid("6574839263", "1234543456", "123");
 	}
 }

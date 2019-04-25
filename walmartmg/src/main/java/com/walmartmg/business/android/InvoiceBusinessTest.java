@@ -11,17 +11,45 @@ import com.walmartmg.enums.ProfileMenuEnum;
 import io.qameta.allure.Step;
 
 public class InvoiceBusinessTest extends BaseDriver {
-
-	public static final Logger logger = Logger.getLogger(InvoiceBusinessTest.class);
-	private GeneralBusinessTest generalBusinessTest = new GeneralBusinessTest();
-
+	
+	public static final Logger logger = Logger.getLogger( InvoiceBusinessTest.class );
+	public GeneralBusinessTest general = new GeneralBusinessTest();
+	public static LoginBusinessTest login = new LoginBusinessTest();
+	private String email;
 	public void selectProfileOption() {
-		generalBusinessTest.selectNavigationOption(NavigationBarEnum.PROFILE);
+		general.selectNavigationOption( NavigationBarEnum.PROFILE.getNavigation() );
 	}
+	
+	public void selectMenuLogin() {
+		general.selectProfileMenu(ProfileMenuEnum.LOGIN.getMenu());
 
 	public void selectRequestInvoice() {
 		generalBusinessTest.selectProfileMenu(ProfileMenuEnum.GET_BILL);
 	}
+	
+	public void selectRequestMyProfile() {
+		general.selectProfileMenu(ProfileMenuEnum.GET_BILL.getMenu() );
+	}
+	
+	//Login
+	public void login(String email, String password) {
+		this.email = email;
+		fillElement(NamesMobileElements.LOGIN_EMAIL, email);
+		fillElement(NamesMobileElements.LOGIN_PASS, password);
+		tapOnElement(NamesMobileElements.LOGIN_BUTTON);
+		validateLoginErrors(email, password);
+	}
+			
+	private void validateLoginErrors(String email, String password) {
+		logger.info("Verificando mensajes de validacion");
+		if (email.isEmpty()) {
+			general.validateFieldErrorMessage(AppMessages.NO_EMAIL, NamesMobileElements.LOGIN_EMAIL_CONT);
+		} else if (password.isEmpty()) {
+			general.validateFieldErrorMessage(AppMessages.NO_PASS, NamesMobileElements.LOGIN_PASS_CONT);
+		}
+	}
+			
+	
 
 	@Step("Validate invoice page")
 	public void validateElements() {
@@ -44,12 +72,15 @@ public class InvoiceBusinessTest extends BaseDriver {
 
 	public void validateMessageEmpty() {
 		logger.info("Valida campo vacio");
-		generalBusinessTest.validateFieldErrorMessage(AppMessages.EMPTY_FIELD,
-				NamesMobileElements.INV_MANUAL_NUM_INVOICE_CONT);
+		general.validateFieldErrorMessage(AppMessages.EMPTY_FIELD, NamesMobileElements.INV_MANUAL_NUM_INVOICE_CONT);
 	}
 
 	public void validateMessageError() {
 		logger.info("Valida alerta");
-		generalBusinessTest.validatePopUpMessages(AppMessages.INVOICE_INVALID_CODE);
+		general.validatePopUpMessages(AppMessages.INVOICE_INVALID_CODE);
+	}
+	
+	public void selectRequestInvoice() {
+		general.selectProfileMenu(ProfileMenuEnum.GET_BILL.getMenu() );
 	}
 }
