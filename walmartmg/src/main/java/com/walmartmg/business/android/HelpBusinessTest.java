@@ -5,7 +5,6 @@ import java.util.List;
 import org.apache.log4j.Logger;
 
 import com.walmartmg.base.BaseDriver;
-import com.walmartmg.constants.AppMessages;
 import com.walmartmg.constants.ConfigConstants;
 import com.walmartmg.constants.NamesMobileElements;
 import com.walmartmg.enums.MenusEnum;
@@ -18,8 +17,7 @@ public class HelpBusinessTest extends BaseDriver {
 
 	private static final Logger logger = Logger.getLogger(HelpBusinessTest.class);
 	private GeneralBusinessTest general = new GeneralBusinessTest();
-	public static LoginBusinessTest login = new LoginBusinessTest();
-	private String email;
+	private static LoginBusinessTest login = new LoginBusinessTest();
 
 	public void selectProfileOption() {
 		general.selectNavigationOption(NavigationBarEnum.PROFILE);
@@ -51,20 +49,7 @@ public class HelpBusinessTest extends BaseDriver {
 
 	// Login
 	public void login(String email, String password) {
-		this.email = email;
-		fillElement(NamesMobileElements.LOGIN_EMAIL, email);
-		fillElement(NamesMobileElements.LOGIN_PASS, password);
-		tapOnElement(NamesMobileElements.LOGIN_BUTTON);
-		validateLoginErrors(email, password);
-	}
-
-	private void validateLoginErrors(String email, String password) {
-		logger.info("Verificando mensajes de validacion");
-		if (email.isEmpty()) {
-			general.validateFieldErrorMessage(AppMessages.NO_EMAIL, NamesMobileElements.LOGIN_EMAIL_CONT);
-		} else if (password.isEmpty()) {
-			general.validateFieldErrorMessage(AppMessages.NO_PASS, NamesMobileElements.LOGIN_PASS_CONT);
-		}
+		login.login(email, password);
 	}
 
 	// validate screen help
