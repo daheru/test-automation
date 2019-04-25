@@ -136,7 +136,7 @@ public class BaseDriver {
 		MobileElement textboxElement = findElement(element);
 		if (textboxElement != null) {
 			textboxElement.clear();
-			textboxElement.sendKeys(text);	
+			textboxElement.sendKeys(text);
 		}
 	}
 
@@ -224,7 +224,7 @@ public class BaseDriver {
 			driver.executeScript("mobile: alert", ImmutableMap.of("action", "accept", "buttonLabel", "Allow"));
 		}
 	}
-	
+
 	public void driverDisconect() {
 		try {
 			Thread.sleep(3000);
@@ -307,6 +307,8 @@ public class BaseDriver {
 	}
 
 	private void initIOS() {
+		caps.setCapability("connectHardwareKeyboard", false);
+		caps.setCapability("sendKeyStrategy", "setValue");
 		caps.setCapability(MobileCapabilityType.APP, ConfigConstants.APP);
 	}
 
