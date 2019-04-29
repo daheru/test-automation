@@ -58,7 +58,7 @@
 				<device.name>IOS_Mobile_Test</device.name>
 				<device.udid>0000</device.udid>
 				<platform.name>IOS</platform.name>
-				<platform.version>12.10.4</platform.version>
+				<platform.version>12.2</platform.version>
 				<automation.name>XCUITEst</automation.name>
 				<text.attribute>name</text.attribute>
 				<app.version>1.0.0</app.version>
