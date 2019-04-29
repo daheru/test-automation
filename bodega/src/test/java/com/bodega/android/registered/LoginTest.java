@@ -157,18 +157,22 @@ public class LoginTest {
 		login.validatePassword();
 	}
 
+	/*
 	@Test
 	@DisplayName("Create new profile with invalid data")
 	@Severity(SeverityLevel.MINOR)
 	@Story("As a user I want to create a new account in the app")
 	@Description("Create a new account with invalida data")
-	public void login_new_profile_with_invalid_data() {
+	public void create_new_account_with_invalid_data() {
 		login.selectProfile();
 		login.selectLoginOption();
 		login.selectCreateAccount();
 		login.createAccount("1Juan", "Dominguez", "correo", "1");
+		login.tapDown();
+		login.tapDown();
 		login.validateErrorMessages(AppMessages.INVALID_ACCOUNT_NAME, NamesMobileElements.ACCOUNT_NAME_CONT);
 		login.validateErrorMessages(AppMessages.INVALID_ACCOUNT_EMAIL, NamesMobileElements.ACCOUNT_EMAIL_CONT);
 		login.validateErrorMessages(AppMessages.INVALID_ACCOUNT_PASS, NamesMobileElements.ACCOUNT_PASS_CONT);
 	}
+	*/
 }

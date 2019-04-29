@@ -4,7 +4,6 @@ import org.apache.log4j.Logger;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
-import org.junit.BeforeClass;
 import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TestName;
@@ -32,11 +31,6 @@ public class MenuTest {
 	private static GeneralBusinessTest general = new GeneralBusinessTest();
 	private static AddressVO addressVO;
 
-	@BeforeClass
-	public static void init() {
-		addressVO = main.initAddressVO();
-	}
-
 	@AfterClass
 	public static void shutDown() {
 		general.driverDisconect();
@@ -46,6 +40,7 @@ public class MenuTest {
 	public void initApp() {
 		general.closeAndroidDialog();
 		general.validateWelcomePage();
+		addressVO = main.initAddressVO();
 		logger.info("===> Iniciando caso de prueba: " + name.getMethodName());
 	}
 
@@ -355,5 +350,20 @@ public class MenuTest {
 		main.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
 		main.selectProfile();
 		main.validateMenu(true);
+	}
+	
+	@Test
+	@DisplayName("Validate zip code")
+	@Severity(SeverityLevel.BLOCKER)
+	@Story("As a user I want to manage my address information")
+	@Description("Validate invalid zip code")
+	public void CF000_validate_invalid_zip_code() {
+		main.selectProfile();
+		main.selectMenu(ProfileMenuEnum.LOGIN);
+		main.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
+		main.selectProfile();
+		main.selectMenu(ProfileMenuEnum.ADDRESS);
+		main.selectAddAddress();
+		main.validateZipCode("10051");
 	}
 }

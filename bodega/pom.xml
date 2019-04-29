@@ -26,6 +26,8 @@
 			<id>android</id>
 			<properties>
 				<device.name>Mobile_Test</device.name>
+				<!-- 7MLNW18C12011289 -->
+				<!-- 3300ce9aca6fb337 -->
 				<device.udid>3300ce9aca6fb337</device.udid>
 				<platform.name>Android</platform.name>
 				<platform.version>9.0</platform.version>
@@ -33,7 +35,7 @@
 				<text.attribute>text</text.attribute>
 				<app.package>com.mx.walmart.bodega</app.package>
 				<app.activity>com.mx.walmart.bodega.SplashActivity</app.activity>
-				<app.version>Versi\u00f3n 2.0.5 (72)</app.version>
+				<app.version>Versi\u00f3n 2.0.5 (73)</app.version>
 				<test.package>com.bodega.android.*.*Test</test.package>
 			</properties>
 		</profile>

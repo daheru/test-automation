@@ -10,7 +10,7 @@ import org.junit.Test;
 import org.junit.rules.TestName;
 
 import com.bodega.business.android.GeneralBusinessTest;
-import com.bodega.business.android.MyprofileBusinessTest;
+import com.bodega.business.android.ProfileBusinessTest;
 import com.bodega.constants.GeneralConstants;
 import com.bodega.enums.ProfileMenuEnum;
 
@@ -26,8 +26,8 @@ public class MyprofileTest {
 
 	@Rule
 	public TestName name = new TestName();
-	public static final Logger logger = Logger.getLogger(MyprofileBusinessTest.class);
-	public static MyprofileBusinessTest myprofile = new MyprofileBusinessTest();
+	public static final Logger logger = Logger.getLogger(ProfileBusinessTest.class);
+	public static ProfileBusinessTest myprofile = new ProfileBusinessTest();
 	public static GeneralBusinessTest general = new GeneralBusinessTest();
 
 	@BeforeClass

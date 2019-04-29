@@ -12,6 +12,8 @@ import org.junit.Test;
 import com.bodega.base.BaseDriver;
 import com.bodega.constants.AppMessages;
 import com.bodega.constants.GeneralConstants;
+	public static final Logger logger = Logger.getLogger(ProfileBusinessTest.class);
+	public static ProfileBusinessTest productdetail = new ProfileBusinessTest();
 import com.bodega.constants.NamesMobileElements;
 import com.bodega.enums.NavigationBarEnum;
 import com.bodega.enums.ProfileMenuEnum;

@@ -31,4 +31,5 @@ public class AppMessages {
 	public static final String ACCOUNT_EXIST_EMAIL = PropertiesValuesUtil.getPropertyName("ACCOUNT_EXIST_EMAIL");
 	public static final String CREATE_ACCOUNT_SUCCESS = PropertiesValuesUtil.getPropertyName("CREATE_ACCOUNT_SUCCESS");
 	public static final String ADDRESS_FAV_ICON = PropertiesValuesUtil.getPropertyName("ADDRESS_FAV_ICON");
+	public static final String UNEXIST_ZIPCODE = PropertiesValuesUtil.getPropertyName("UNEXIST_ZIPCODE");
 }

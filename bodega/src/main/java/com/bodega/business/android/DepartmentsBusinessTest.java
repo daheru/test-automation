@@ -48,6 +48,11 @@ public class DepartmentsBusinessTest extends BaseDriver {
 		home.validateHomePage();
 	}
 	
+	@Step("Validate navigation bar")
+	public void validateNavigationBar() {
+		waitElementVisibility(NamesMobileElements.NAV_BAR);
+	}
+	
 	@Step("Validate product list")
 	public void validateProducts() {
 		waitElementVisibility(NamesMobileElements.SEARCH_PRODUCT_LIST);
@@ -101,6 +106,6 @@ public class DepartmentsBusinessTest extends BaseDriver {
 		MobileElement titleToolbar = findElement( NamesMobileElements.DEPARTMENT_TITLE_TOOLBAR );
 		MobileElement titleFilter = findElementByClass( NamesMobileElements.DEPARTMENT_TITLE_FILTER );
 		String titleFilterText = getAttribute(titleFilter, "content-desc");
-		assertEquals(getElementText(titleToolbar), titleFilterText);
+		assertEquals(getElementText(titleToolbar).toLowerCase(), titleFilterText.toLowerCase());
 	}
 }

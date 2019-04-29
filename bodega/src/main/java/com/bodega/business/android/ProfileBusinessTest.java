@@ -5,7 +5,7 @@ import com.bodega.base.BaseDriver;
 import com.bodega.constants.NamesMobileElements;
 import com.bodega.enums.ProfileMenuEnum;
 
-public class MyprofileBusinessTest extends BaseDriver {
+public class ProfileBusinessTest extends BaseDriver {
 
 	private static final Logger logger = Logger.getLogger(MenuBusinessTest.class);
 	private GeneralBusinessTest generalBusinessTest = new GeneralBusinessTest();

@@ -4,6 +4,7 @@ import org.apache.log4j.Logger;
 
 import com.bodega.base.BaseDriver;
 import com.bodega.constants.AppMessages;
+import com.bodega.constants.GeneralConstants;
 import com.bodega.constants.NamesMobileElements;
 import com.bodega.enums.ProfileMenuEnum;
 
@@ -51,6 +52,7 @@ public class LoginBusinessTest extends BaseDriver {
 	public void validateLogin() {
 		generalBusinessTest.selectProfile();
 		generalBusinessTest.selectMenuOption(ProfileMenuEnum.PROFILE);
+		waitEvent();
 		waitElementVisibility(NamesMobileElements.PROFILE_EMAIL);
 		MobileElement profileEmail = findElement(NamesMobileElements.PROFILE_EMAIL);
 		logger.info("EMAIL: " + getElementText(profileEmail));
@@ -72,6 +74,7 @@ public class LoginBusinessTest extends BaseDriver {
 		fillElement(NamesMobileElements.REG_LAST_NAME_TEXT, lastName);
 		fillElement(NamesMobileElements.REG_EMAIL_TEXT, email);
 		fillElement(NamesMobileElements.REG_PASS_TEXT, pass);
+		scrollUntilShowElement(GeneralConstants.SCROLL_UP, NamesMobileElements.REG_CREATE_BUTTON);
 		tapOnElement( NamesMobileElements.REG_CREATE_BUTTON );
 	}
 	

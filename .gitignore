@@ -5,5 +5,5 @@ bodega/target/
 bodega/bin
 /bodega/.allure/*
 bodega/allure-results/*
-
+/bodega/allure-report/
 \.DS_Store

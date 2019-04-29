@@ -23,6 +23,7 @@ public class MenuBusinessTest extends BaseDriver {
 	private GeneralBusinessTest generalBusinessTest = new GeneralBusinessTest();
 	private LoginBusinessTest login = new LoginBusinessTest();
 	private static String addressName = "";
+	private static int addressCont = 0;
 
 	public AddressVO initAddressVO() {
 		return new AddressVO("Mi direccion ", "Juan", "Perez", "Av Rodolfo Gaona 46", "456", "", "11200",
@@ -44,6 +45,7 @@ public class MenuBusinessTest extends BaseDriver {
 	@Step("Select add address")
 	public void selectAddAddress() {
 		waitElementVisibility(NamesMobileElements.ADDRESS_LIST);
+		addressCont = findElements(NamesMobileElements.ADDRESS_LIST).size();
 		tapOnElement(NamesMobileElements.ADDRESS_ADD_BUTTON);
 		logger.info("Tap en agrega direccion");
 	}
@@ -67,7 +69,7 @@ public class MenuBusinessTest extends BaseDriver {
 		tapOnElement(NamesMobileElements.ADDRESS_NEIGHBORNHOOD);
 		List<MobileElement> neighbornhoods = findElements(NamesMobileElements.COMBO_OPTIONS);
 		for (MobileElement neighbornhood : neighbornhoods) {
-			if (neighbornhood.getAttribute(ConfigConstants.ATTRIBUTE_TEXT).toLowerCase()
+			if (getAttribute(neighbornhood, ConfigConstants.ATTRIBUTE_TEXT).toLowerCase()
 					.contains(addressVO.getAddressNeighbornhood().toLowerCase())) {
 				neighbornhood.click();
 				break;
@@ -131,12 +133,14 @@ public class MenuBusinessTest extends BaseDriver {
 		waitElementVisibility(NamesMobileElements.ADDRESS_LIST);
 		MobileElement addressList = findElement(NamesMobileElements.ADDRESS_LIST);
 		List<MobileElement> addressDetail = findSubElements(addressList, NamesMobileElements.ADDRESS_DETAIL_NAME);
+		assertTrue("No se guardo la direccion", addressDetail.size() > addressCont );
 		if (addressVO.isMainAddress()) {
 			assertEquals(addressVO.getAddressName().toLowerCase(), getElementText(addressDetail.get(0)));
 		} else {
 			assertTrue("La direccion no debe ser principal",
 					!addressVO.getAddressName().toLowerCase().equals(getElementText(addressDetail.get(0))));
 		}
+		addressCont = 0;
 		logger.info("Guardado exitoso");
 	}
 
@@ -264,6 +268,9 @@ public class MenuBusinessTest extends BaseDriver {
 
 	private void randomAddressName(AddressVO addressVO) {
 		Random generator = new Random();
+		if(addressVO == null) {
+			addressVO = initAddressVO();
+		}
 		String newAddress = addressVO.getAddressName() + generator.nextInt(1000);
 		addressVO.setAddressName(newAddress);
 	}
@@ -295,7 +302,7 @@ public class MenuBusinessTest extends BaseDriver {
 	public void validateFavoriteAddress() {
 		generalBusinessTest.validatePopUpMessages(AppMessages.ADDRESS_FAV_ICON);
 		generalBusinessTest.goBack();
-		generalBusinessTest.selectMenuOption( ProfileMenuEnum.ADDRESS );
+		generalBusinessTest.selectMenuOption(ProfileMenuEnum.ADDRESS);
 		waitElementVisibility(NamesMobileElements.ADDRESS_DETAIL_NAME);
 		List<MobileElement> addressNames = findElements(NamesMobileElements.ADDRESS_DETAIL_NAME);
 		assertEquals(addressName, getElementText(addressNames.get(0)));
@@ -335,6 +342,16 @@ public class MenuBusinessTest extends BaseDriver {
 		if (isLogged) {
 			generalBusinessTest.selectMenuOption(ProfileMenuEnum.LOGOUT);
 		}
+	}
+
+	@Step("Validate Zip Code")
+	public void validateZipCode(String zipCode) {
+		logger.info("Validando codigo postal");
+		scrollUntilShowElement(GeneralConstants.SCROLL_UP, NamesMobileElements.ADDRESS_ZIP_CODE_CONT);
+		fillElement(NamesMobileElements.ADDRESS_ZIP_CODE, zipCode);
+		generalBusinessTest.validatePopUpMessages(AppMessages.UNEXIST_ZIPCODE);
+		scrollUntilShowElement(GeneralConstants.SCROLL_UP, NamesMobileElements.ADDRESS_REFERENCES_ONE);
+		assertTrue("Error en la validacion de codigo postal", !elementExist(NamesMobileElements.ADDRESS_NEIGHBORNHOOD));
 	}
 
 	private void validateErrorMessages(String message, String element) {
