@@ -67,15 +67,6 @@ public class GeneralBusinessTest extends BaseDriver {
 		} while (!clicMenu);
 	}
 
-	@Step("Scroll screen")
-	public void scrollScreen(int scrollType) {
-		logger.info("Realizando Scroll");
-		if (GeneralConstants.SCROLL_UP == scrollType) {
-			tapUp();
-		} else {
-			tapDown();
-		}
-	}
 
 	@Step("Validate error field messages {errorAppMessage} for {fieldCont}")
 	public void validateFieldErrorMessage(String errorAppMessage, String fieldCont) {
@@ -157,6 +148,16 @@ public class GeneralBusinessTest extends BaseDriver {
 		} while (!clicMenu);
 	}
 
+	@Step("Realizando scroll")
+	public void scrollScreen(int scrollType) {
+		logger.info("Realizando Scroll");
+		if (GeneralConstants.SCROLL_UP == scrollType) {
+			tapUp();
+		} else {
+			tapDown();
+		}
+	}
+	
 	@Step("Random name")
 	public String randomString(int length, boolean useLetters, boolean useNumbers) {
 	    return RandomStringUtils.random(length, useLetters, useNumbers);

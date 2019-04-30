@@ -24,131 +24,87 @@ import io.qameta.allure.junit4.DisplayName;
 
 public class ProductDetailTest {
 
-@Rule
-public TestName name = new TestName();
+	@Rule
+	public TestName name = new TestName();
 
-private static final Logger logger = Logger.getLogger(ProductDetailTest.class);
-private static ProductDetailBusinessTest  detail= new ProductDetailBusinessTest();
+	private static final Logger logger = Logger.getLogger(ProductDetailTest.class);
+	private static ProductDetailBusinessTest detail = new ProductDetailBusinessTest();
 
-@AfterClass
-public static void shutDown() {
-	detail.driverDisconect();
-}
+	@AfterClass
+	public static void shutDown() {
+		detail.driverDisconect();
+	}
 
-@Before
-public void initApp() { 
-	detail.closeAndroidDialog();
-	detail.validateWelcomePage();
-	logger.info("===> Iniciando caso de prueba: " + name.getMethodName());
-}
+	@Before
+	public void initApp() {
+		detail.closeAndroidDialog();
+		detail.validateWelcomePage();
+		logger.info("===> Iniciando caso de prueba: " + name.getMethodName());
+	}
 
-@After
-public void relauchApp() {
-	detail.resetApp();
-	logger.info("Caso de prueba finalizado");
-}
+	@After
+	public void relauchApp() {
+		detail.resetApp();
+		logger.info("Caso de prueba finalizado");
+	}
 
-@Test
-@DisplayName("Add special product")
-@Severity(SeverityLevel.BLOCKER)
-@Story("As a user I want to add a special product to car")
-@Description("Try to add a special product to car")
-public void CF0_add_product_detail() {
-	detail.selectProfile();
-	detail.selectMenu(ProfileMenuEnum.LOGIN);
-	detail.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
-	detail.selectNavigation(NavigationBarEnum.CAR);
-	detail.deleteProducts();
-	detail.searchProduct("Motocicletas");
-	detail.validateSearch();
-	detail.selectProduct();
-	detail.addProduct();
-	detail.validateCar();
-}
-
-/*
-
-@Test
-@DisplayName("Add special product and normal product")
-@Severity(SeverityLevel.BLOCKER)
-@Story("As a user I want to add a special product and normal product to car")
-@Description("Try to add a special product to car")
-public void CF042_add_special_product_and_normal_product() {
-	special.selectProfile();
-	special.selectMenu(ProfileMenuEnum.LOGIN);
-	special.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
-	special.selectNavigation(NavigationBarEnum.CAR);
-	special.deleteProducts();
-	special.searchProduct("Motocicletas");
-	special.validateSearch();
-	special.selectProduct();
-	special.addProduct();
-	special.goBack();
-	special.goBack();
-	special.searchProduct("Celulares");
-	special.validateSearch();
-	special.selectProduct();
-	special.validateSpecialProduct();
-}
-
-@Test
-@DisplayName("Add normal product and special product")
-@Severity(SeverityLevel.CRITICAL)
-@Story("As a user I want to add a special product to car")
-@Description("Try to add a normal product and special product to car")
-public void CF043_add_normal_product_and_special_product() {
-	special.selectProfile();
-	special.selectMenu(ProfileMenuEnum.LOGIN);
-	special.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
-	special.selectNavigation(NavigationBarEnum.CAR);
-	special.deleteProducts();
-	special.searchProduct("Celular");
-	special.validateSearch();
-	special.selectProduct();
-	special.addProduct();
-	special.goBack();
-	special.goBack();
-	special.searchProduct("Motocicleta");
-	special.validateSearch();
-	special.selectProduct();
-	special.validateSpecialProduct();
-}
-
-@Test
-@DisplayName("Add presale product")
-@Severity(SeverityLevel.CRITICAL)
-@Story("As a user I want to add a special product to car")
-@Description("Try to add a presale product to car")
-public void CF04r_add_presale_product() {
-	special.selectProfile();
-	special.selectMenu(ProfileMenuEnum.LOGIN);
-	special.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
-	special.selectNavigation(NavigationBarEnum.CAR);
-	special.deleteProducts();
-	special.searchProduct("Preventa");
-	special.validateSearch();
-	special.selectProduct();
-	special.addProduct();
-	special.validateCar();
-}
-
-@Test
-@DisplayName("Increase product")
-@Severity(SeverityLevel.CRITICAL)
-@Story("As a user I want to add a special product to car")
-@Description("Try to add a presale product to car")
-public void CF000_increase_product_from_car() {
-	special.selectProfile();
-	special.selectMenu(ProfileMenuEnum.LOGIN);
-	special.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
-	special.selectNavigation(NavigationBarEnum.CAR);
-	special.deleteProducts();
-	special.searchProduct("Celular");
-	special.validateSearch();
-	special.selectProduct();
-	special.addProduct();
-	special.validateCar();
-	special.increaseProductFromCar(5);
-	special.goBack();
-} */
+	@Test
+	@DisplayName("Validate product detail caracteristics")
+	@Severity(SeverityLevel.MINOR)
+	@Story("As a user I want to know about product")
+	@Description("Validate caracteristics options when user selects a product")
+	public void CF037_product_detail_caracteristics() {
+		detail.selectProfile();
+		detail.selectMenu(ProfileMenuEnum.LOGIN);
+		detail.login( GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
+		detail.searchProduct("Celular");
+		detail.selectProduct();
+		detail.validateCaracteristics();
+	}
+	
+	@Test
+	@DisplayName("Validate product promotions")
+	@Severity(SeverityLevel.BLOCKER)
+	@Story("As a user I want to know about product")
+	@Description("Validate promotions when user selects a product")
+	public void CF038_product_detail_msi() {
+		detail.selectProfile();
+		detail.selectMenu(ProfileMenuEnum.LOGIN);
+		detail.login( GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
+		detail.searchProduct("Celular");
+		detail.selectProduct();
+		detail.validateMSI();
+	}
+	
+	@Test
+	@DisplayName("Add product")
+	@Severity(SeverityLevel.BLOCKER)
+	@Story("As a user I want to know about product")
+	@Description("Try to add a product to car")
+	public void CF039_product_detail_add_product() {
+		detail.selectProfile();
+		detail.selectMenu(ProfileMenuEnum.LOGIN);
+		detail.login( GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
+		detail.selectNavigation(NavigationBarEnum.CAR);
+		detail.deleteProducts();
+		detail.searchProduct("Celular");
+		detail.selectProduct();
+		detail.addProduct();
+		detail.selectCar();
+		detail.validateCar();
+	}
+	
+	@Test
+	@DisplayName("Add special product")
+	@Severity(SeverityLevel.BLOCKER)
+	@Story("As a user I want to know about product")
+	@Description("Validate different sellers information when user select a product")
+	public void CF040_product_detail_validate_skus() {
+		detail.selectProfile();
+		detail.selectMenu(ProfileMenuEnum.LOGIN);
+		detail.login( GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
+		detail.searchProduct("Celular");
+		detail.selectProduct();
+		detail.validateSellers();
+	}
 }

@@ -148,8 +148,9 @@ public final class NamesMobileElements {
 	public static final String MYPROFILE_BUTTON_PHONE_SAVE = PropertiesValuesUtil.getPropertyName ("MYPROFILE_BUTTON_PHONE_SAVE");
 	public static final String MYPROFILE_ADD_PHONE = PropertiesValuesUtil.getPropertyName ("MYPROFILE_ADD_PHONE");
 	public static final String MYPROFILE_BUTTON_PHONE_MOVIL = PropertiesValuesUtil.getPropertyName ("MYPROFILE_BUTTON_PHONE_MOVIL");
-	public static final String MYPROFILE_BUTTON_PHONE_FIJO = PropertiesValuesUtil.getPropertyName ("MYPROFILE_BUTTON_PHONE_FIJO");
-	public static final String MYPROFILE_BUTTON_PHONE_FIJO_LIS = PropertiesValuesUtil.getPropertyName ("MYPROFILE_BUTTON_PHONE_FIJO_LIS");
+	public static final String MYPROFILE_SPINNER_PRIMARY_BUTTON = PropertiesValuesUtil.getPropertyName ("MYPROFILE_SPINNER_PRIMARY_BUTTON");
+	public static final String MYPROFILE_SPINNER_SECUNDARY_BUTTON = PropertiesValuesUtil.getPropertyName ("MYPROFILE_SPINNER_SECUNDARY_BUTTON");
+	public static final String MYPROFILE_PHONE_PRIMARY_EXT = PropertiesValuesUtil.getPropertyName ("MYPROFILE_PHONE_PRIMARY_EXT");
 	
 	public static final String SEARCH_PRODUCT_LIST = PropertiesValuesUtil.getPropertyName ("SEARCH_PRODUCT_LIST");
 	public static final String SEARCH_FILTER_BUTTON = PropertiesValuesUtil.getPropertyName ("SEARCH_FILTER_BUTTON");
@@ -188,6 +189,12 @@ public final class NamesMobileElements {
 	public static final String PRODUCT_PLUS_BUTTON = PropertiesValuesUtil.getPropertyName ("PRODUCT_PLUS_BUTTON");
 	public static final String PRODUCT_MINUS_BUTTON = PropertiesValuesUtil.getPropertyName ("PRODUCT_MINUS_BUTTON");
 	public static final String PRODUCT_QUANTITY = PropertiesValuesUtil.getPropertyName ("PRODUCT_QUANTITY");
+	public static final String PRODUCT_DETAIL_MSI = PropertiesValuesUtil.getPropertyName ("PRODUCT_DETAIL_MSI");
+	public static final String PRODUCT_DETAIL_DESC = PropertiesValuesUtil.getPropertyName ("PRODUCT_DETAIL_DESC");
+	public static final String PRODUCT_DETAIL_SELLERS_CONT = PropertiesValuesUtil.getPropertyName ("PRODUCT_DETAIL_SELLERS_CONT");
+	public static final String PRODUCT_DETAIL_SELLERS_PRICE = PropertiesValuesUtil.getPropertyName ("PRODUCT_DETAIL_SELLERS_PRICE");
+	public static final String PRODUCT_DETAIL_SELLERS_SELL_BY = PropertiesValuesUtil.getPropertyName ("PRODUCT_DETAIL_SELLERS_SELL_BY");
+	public static final String PRODUCT_DETAIL_MSI_CONT = PropertiesValuesUtil.getPropertyName ("PRODUCT_DETAIL_MSI_CONT");
 	
 	public static final String CAR_EMPTY_CAR = PropertiesValuesUtil.getPropertyName ("CAR_EMPTY_CAR");
 	public static final String CAR_EMPTY_ICON = PropertiesValuesUtil.getPropertyName ("CAR_EMPTY_ICON");

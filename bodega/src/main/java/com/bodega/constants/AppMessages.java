@@ -32,4 +32,8 @@ public class AppMessages {
 	public static final String CREATE_ACCOUNT_SUCCESS = PropertiesValuesUtil.getPropertyName("CREATE_ACCOUNT_SUCCESS");
 	public static final String ADDRESS_FAV_ICON = PropertiesValuesUtil.getPropertyName("ADDRESS_FAV_ICON");
 	public static final String UNEXIST_ZIPCODE = PropertiesValuesUtil.getPropertyName("UNEXIST_ZIPCODE");
+	public static final String UPDATE_PROFILE = PropertiesValuesUtil.getPropertyName("UPDATE_PROFILE");
+	public static final String MYPROFILE_INVALID_DATA = PropertiesValuesUtil.getPropertyName("MYPROFILE_INVALID_DATA");
+	public static final String SAME_PASSWORD = PropertiesValuesUtil.getPropertyName("SAME_PASSWORD");
+	public static final String INVALID_AGE = PropertiesValuesUtil.getPropertyName("INVALID_AGE");
 }

@@ -267,11 +267,10 @@ public class MenuBusinessTest extends BaseDriver {
 	}
 
 	private void randomAddressName(AddressVO addressVO) {
-		Random generator = new Random();
 		if(addressVO == null) {
 			addressVO = initAddressVO();
 		}
-		String newAddress = addressVO.getAddressName() + generator.nextInt(1000);
+		String newAddress = addressVO.getAddressName() + generalBusinessTest.randomString(3, false, true);
 		addressVO.setAddressName(newAddress);
 	}
 

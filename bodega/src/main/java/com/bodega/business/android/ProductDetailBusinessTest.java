@@ -3,26 +3,17 @@ package com.bodega.business.android;
 import java.util.List;
 
 import org.apache.log4j.Logger;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
 
 import com.bodega.base.BaseDriver;
-import com.bodega.constants.AppMessages;
 import com.bodega.constants.GeneralConstants;
-	public static final Logger logger = Logger.getLogger(ProfileBusinessTest.class);
-	public static ProfileBusinessTest productdetail = new ProfileBusinessTest();
 import com.bodega.constants.NamesMobileElements;
 import com.bodega.enums.NavigationBarEnum;
 import com.bodega.enums.ProfileMenuEnum;
 
 import io.appium.java_client.MobileElement;
-import io.qameta.allure.Step;
 
 public class ProductDetailBusinessTest extends BaseDriver {
-	
+
 	public static final Logger logger = Logger.getLogger(ProductDetailBusinessTest.class);
 	private LoginBusinessTest login = new LoginBusinessTest();
 	private GeneralBusinessTest general = new GeneralBusinessTest();
@@ -30,10 +21,8 @@ public class ProductDetailBusinessTest extends BaseDriver {
 	private SearchBusinessTest search = new SearchBusinessTest();
 	private CarBusinessTest car = new CarBusinessTest();
 
-	
 	public void validateWelcomePage() {
 		general.validateWelcomePage();
-		
 	}
 
 	public void selectProfile() {
@@ -44,10 +33,10 @@ public class ProductDetailBusinessTest extends BaseDriver {
 		general.selectMenuOption(menu);
 	}
 
-	public void selectNavigation(NavigationBarEnum option) {
-		general.selectNavigationOption(option);
+	public void selectNavigation(NavigationBarEnum navigationBarEnum) {
+		general.selectNavigationOption(navigationBarEnum);
 	}
-
+	
 	public void login(String email, String password) {
 		login.login(email, password);
 	}
@@ -64,54 +53,59 @@ public class ProductDetailBusinessTest extends BaseDriver {
 		general.goBack();
 	}
 
-	@Step("Delete product")
-	public void deleteProducts() {
-		car.deleteProducts();
-	}
-
 	public void selectProduct() {
 		product.selectProduct();
+	}
+
+	public void validateCaracteristics() {
+		logger.info("Validando caracteristicas");
+		String productName = getElementText(NamesMobileElements.PRODUCT_DETAIL_NAME);
+		scrollUntilShowElement(GeneralConstants.SCROLL_UP, NamesMobileElements.PRODUCT_DETAIL_DESC);
+		tapOnElement(NamesMobileElements.PRODUCT_DETAIL_DESC);
+		assertEquals(productName, getElementText(NamesMobileElements.PRODUCT_DETAIL_NAME));
+	}
+
+	public void validateMSI() {
+		logger.info("Validando meses sin intereses");
+		scrollUntilShowElement(GeneralConstants.SCROLL_UP, NamesMobileElements.PRODUCT_DETAIL_MSI);
+		tapOnElement(NamesMobileElements.PRODUCT_DETAIL_MSI);
+		waitElementVisibility(NamesMobileElements.PRODUCT_DETAIL_MSI_CONT);
 	}
 
 	public void addProduct() {
 		product.addProduct();
 	}
 
-	public void validateCar() {
+	public void selectCar() {
 		car.selectCar();
+	}
+
+	public void validateCar() {
 		car.validateCar();
 	}
 
-	@Step("Validate special product car")
-	public void validateSpecialProductCar() {
-		assertEquals(1, car.getUpcs().size());
+	public void deleteProducts() {
+		car.deleteProducts();
 	}
 	
-	@Step("Validate special product")
-	public void validateSpecialProduct() {
-		logger.info("Validando mensaje");
-		waitElementVisibility(NamesMobileElements.PRODUCT_DETAIL_CONT);
-		scrollUntilShowElement(GeneralConstants.SCROLL_UP, NamesMobileElements.PRODUCT_ADD_BUTTON);
-		tapOnElement(NamesMobileElements.PRODUCT_ADD_BUTTON);
-		general.validatePopUpMessages(AppMessages.SPECIAL_PRODUCT_VALIDATION);
-		validateSpecialProductCar();
-	}
-	
-	@Step("Increase product quantity")
-	public void increaseProductFromCar(int quantity) {
-		waitElementVisibility(NamesMobileElements.CAR_SPINNER);
-		tapOnElement(NamesMobileElements.CAR_SPINNER);
-		List<MobileElement> comboValues = findElements(NamesMobileElements.COMBO_OPTIONS);
-		for (MobileElement comboValue : comboValues) {
-			if (getElementText(comboValue).toLowerCase().contains(String.valueOf(quantity))) {
-				comboValue.click();
-				break;
-			}
+	public void validateSellers() {
+		logger.info("Validando vendedores");
+		scrollUntilShowElement(GeneralConstants.SCROLL_UP, NamesMobileElements.PRODUCT_DETAIL_DESC);
+		List<MobileElement> sellers = findElements(NamesMobileElements.PRODUCT_DETAIL_SELLERS_CONT);
+		for (MobileElement seller : sellers) {
+			tapOnElement(seller);
+			String sellerPrice = getElementText(
+					findSubElement(seller, NamesMobileElements.PRODUCT_DETAIL_SELLERS_PRICE));
+			String sellerName = getElementText(
+					findSubElement(seller, NamesMobileElements.PRODUCT_DETAIL_SELLERS_SELL_BY));
+			scrollUntilShowElement(GeneralConstants.SCROLL_DOWN, NamesMobileElements.PRODUCT_DETAIL_PRICE);
+			tapUp();
+			String productPrice = getElementText(
+					findSubElement(NamesMobileElements.PRODUCT_DETAIL_CONT, NamesMobileElements.PRODUCT_DETAIL_PRICE));
+			String productSeller = getElementText(
+					findSubElement(NamesMobileElements.PRODUCT_DETAIL_CONT, NamesMobileElements.PRODUCT_DETAIL_SELLER));
+			assertEquals(sellerPrice, productPrice);
+			assertEquals(sellerName, productSeller);
 		}
-		general.validatePopUpMessages(AppMessages.CAR_UPDATE);
-		waitElementVisibility(NamesMobileElements.CAR_PRODUCT_ITEM);
-		MobileElement parentElement = findElement(NamesMobileElements.CAR_PRODUCT_ITEM);
-		String productName = getElementText(findSubElement(parentElement, NamesMobileElements.CAR_PRODUCT_NAME));
-		car.getUpcs().put(productName, quantity);
 	}
 }

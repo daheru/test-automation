@@ -44,8 +44,7 @@ public class LoginTest {
 
 	@After
 	public void relauchApp() {
-		login.closeApp();
-		login.lauchApp();
+		login.resetApp();
 		logger.info("Caso de prueba finalizado");
 	}
 

@@ -47,8 +47,7 @@ public class Regression_Flow_001 {
 
 	@After
 	public void relauchApp() {
-		login.closeApp();
-		login.lauchApp();
+		login.resetApp();
 	}
 
 	@Test

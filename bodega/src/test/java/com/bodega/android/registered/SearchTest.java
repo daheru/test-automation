@@ -44,8 +44,7 @@ public class SearchTest {
 
 	@After
 	public void relauchApp() {
-		search.closeApp();
-		search.lauchApp();
+		search.resetApp();
 		logger.info("Caso de prueba finalizado");
 	}
 

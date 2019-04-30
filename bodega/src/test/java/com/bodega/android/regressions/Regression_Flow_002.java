@@ -13,6 +13,7 @@ import com.bodega.business.android.HomeBusinessTest;
 import com.bodega.business.android.LoginBusinessTest;
 import com.bodega.business.android.MenuBusinessTest;
 import com.bodega.business.android.ProductBusinessTest;
+import com.bodega.constants.GeneralConstants;
 import com.bodega.vo.AddressVO;
 
 import io.qameta.allure.Description;
@@ -49,8 +50,7 @@ public class Regression_Flow_002 {
 
 	@After
 	public void relauchApp() {
-		login.closeApp();
-		login.lauchApp();
+		login.resetApp();
 	}
 
 	@Test
@@ -64,8 +64,8 @@ public class Regression_Flow_002 {
 		product.addProduct();
 		general.goBack();
 		general.goBack();
-		general.tapUp();
-		general.tapUp();
+		general.scrollScreen(GeneralConstants.SCROLL_UP);
+		general.scrollScreen(GeneralConstants.SCROLL_UP);
 		departments.selectShowAll();
 		product.selectProduct();
 		product.addProduct();
