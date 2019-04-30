@@ -1,38 +1,47 @@
 package com.walmartmg.business.android;
 
+import java.text.Collator;
+import java.util.List;
+
 import org.apache.log4j.Logger;
 
 import com.walmartmg.base.BaseDriver;
 import com.walmartmg.constants.NamesMobileElements;
+import com.walmartmg.enums.FiltersEnum;
 import com.walmartmg.enums.NavigationBarEnum;
 import com.walmartmg.enums.ProfileMenuEnum;
 
+import io.appium.java_client.MobileElement;
 import io.qameta.allure.Step;
 
 public class FiltersBusinessTest extends BaseDriver {
-	
-	private static final Logger logger = Logger.getLogger( InvoiceBusinessTest.class );
+
+	private static final Logger logger = Logger.getLogger(InvoiceBusinessTest.class);
 	private GeneralBusinessTest general = new GeneralBusinessTest();
 	private DepartmentsBusinessTest departments = new DepartmentsBusinessTest();
 	private LoginBusinessTest login = new LoginBusinessTest();
-	
-	
-	public void selectDepartmentOption() {
-		general.selectNavigationOption(NavigationBarEnum.DEPARTMENTS);
+	private static String filterSelected = "";
+
+	public void selectNavitionOption(NavigationBarEnum navigationBarEnum) {
+		generalBusinessTest.selectNavigationOption(navigationBarEnum);
+	}
+
+	public void selectProfileMenuOption(ProfileMenuEnum profileMenuEnum) {
+		generalBusinessTest.selectProfileMenu(profileMenuEnum);
 	}
 	
-	//Select department
-	public void selectDepartment () {
+	// Select department
+	public void selectDepartment() {
 		departments.selectDepartment();
 		logger.info("Selecciona un departamento");
 	}
-	
-	//Select family 
+
+	// Select family
 	public void selectFamily() {
 		departments.selectFamily();
 		logger.info("Selecciona una familia");
 	}
-	
+
 	//Select filters
 	public void pressLinkFilter() {
 		tapOnElement(NamesMobileElements.FILTERS_LINK);
@@ -53,10 +62,10 @@ public class FiltersBusinessTest extends BaseDriver {
 	
 	
 	
-	//Validate Screen Filter
+	// Validate Screen Filter
 	@Step("Validate filter page")
 	public void validateScreenFilter() {
-		logger.info("Selecciona link Filtar");
+		logger.info("Tap en filtrar");
 		waitElementVisibility(NamesMobileElements.FILTERS_CONT);
 		waitElementVisibility(NamesMobileElements.FILTERS_FILTER_BY);
 		waitElementVisibility(NamesMobileElements.FILTERS_SORT_BY_AZ);
@@ -68,7 +77,7 @@ public class FiltersBusinessTest extends BaseDriver {
 		waitElementVisibility(NamesMobileElements.FILTERS_FILTER_BY);
 		waitElementVisibility(NamesMobileElements.FILTERS_BUTTON);
 	}
-	
+
 	@Step("Tap on A-Z filter")
 	public void filterOrderAZ() {
 		logger.info("Selecciona ordenar por AZ");
@@ -76,7 +85,7 @@ public class FiltersBusinessTest extends BaseDriver {
 		logger.info("Presionar boton listo");
 		tapOnElement(NamesMobileElements.FILTERS_BUTTON);
 	}
-	
+
 	@Step("Tap on Z-A filter")
 	public void filterOrderZA() {
 		logger.info("Selecciona ordenar por ZA");
@@ -84,7 +93,7 @@ public class FiltersBusinessTest extends BaseDriver {
 		logger.info("Presionar boton listo");
 		tapOnElement(NamesMobileElements.FILTERS_BUTTON);
 	}
-	
+
 	@Step("Tap on minnor price filter")
 	public void filterSmallestToLargest() {
 		logger.info("Selecciona ordenar por $ - $$");
@@ -92,7 +101,7 @@ public class FiltersBusinessTest extends BaseDriver {
 		logger.info("Presionar boton listo");
 		tapOnElement(NamesMobileElements.FILTERS_BUTTON);
 	}
-	
+
 	@Step("Tap on higher price filter")
 	public void filterLargestToSmallest() {
 		logger.info("Selecciona ordenar por $$ - $");
@@ -100,7 +109,7 @@ public class FiltersBusinessTest extends BaseDriver {
 		logger.info("Presionar boton listo");
 		tapOnElement(NamesMobileElements.FILTERS_BUTTON);
 	}
-	
+
 	@Step("Tap on popularity filter")
 	public void filterPopularity() {
 		logger.info("Selecciona ordenar por Popularidad");
@@ -108,7 +117,7 @@ public class FiltersBusinessTest extends BaseDriver {
 		logger.info("Presionar boton listo");
 		tapOnElement(NamesMobileElements.FILTERS_BUTTON);
 	}
-	
+
 	@Step("Tap on sub category filter")
 	public void filterBy() {
 		tapOnElement(NamesMobileElements.FILTERS_FILTER_BY);
@@ -116,5 +125,44 @@ public class FiltersBusinessTest extends BaseDriver {
 		tapOnElement(NamesMobileElements.FILTERS_FILTER_BY_CHECK);
 		logger.info("Presionar boton listo");
 		tapOnElement(NamesMobileElements.FILTERS_BUTTON);
+	}
+	
+	public void login(String email, String password) {
+		login.login(email, password);
+	}
+	
+	@Step("Validate search")
+	public void validateSearch() {
+		logger.info("Validando lista de productos");
+		waitElementVisibility(NamesMobileElements.SEARCH_RESULT_LIST);
+		if (!filterSelected.isEmpty()) {
+			double higherPrice = 0;
+			double lowerPrice = 0;
+			List<MobileElement> productList;
+			Collator comparador = Collator.getInstance();
+			comparador.setStrength(Collator.TERTIARY);
+			waitElementVisibility(NamesMobileElements.SEARCH_PRODUCT_NAME);
+			if (FiltersEnum.A_Z.getFilter().equals(filterSelected)) {
+				productList = findElements(NamesMobileElements.SEARCH_PRODUCT_NAME);
+				assertTrue("Los productos no estan ordenados",
+						productList.size() > 0 && comparador.compare(getElementText(productList.get(0)),
+								getElementText(productList.get(productList.size() - 1))) < 0);
+			} else if (FiltersEnum.Z_A.getFilter().equals(filterSelected)) {
+				productList = findElements(NamesMobileElements.SEARCH_PRODUCT_NAME);
+				assertTrue("Los productos no estan ordenados", productList.size() > 0 && comparador.compare(getElementText(productList.get(0)),
+						getElementText(productList.get(productList.size() - 1))) > 0);
+			} else if (FiltersEnum.HIGHER_PRICE.getFilter().equals(filterSelected)) {
+				productList = findElements(NamesMobileElements.SEARCH_PRODUCT_PRICE);
+				higherPrice = productList.size() > 0 ? Double.parseDouble(getElementText(productList.get(0)).replaceAll("[^\\d.]", "")) : 0;
+				lowerPrice = productList.size() > 0 ? Double.parseDouble(getElementText(productList.get(productList.size() - 1)).replaceAll("[^\\d.]", "")) : 0;
+				assertTrue("Los productos no estan ordenados", higherPrice >= lowerPrice);
+			} else if (FiltersEnum.MINNOR_PRICE.getFilter().equals(filterSelected)) {
+				productList = findElements(NamesMobileElements.SEARCH_PRODUCT_PRICE);
+				higherPrice = productList.size() > 0 ? Double.parseDouble(getElementText(productList.get(productList.size() - 1)).replaceAll("[^\\d.]", "")) : 0;
+				lowerPrice = productList.size() > 0 ? Double.parseDouble(getElementText(productList.get(0)).replaceAll("[^\\d.]", "")) : 0;
+				assertTrue("Los productos no estan ordenados", higherPrice >= lowerPrice);
+			}
+		}
+		filterSelected = "";
 	}
 }

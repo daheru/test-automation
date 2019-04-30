@@ -41,8 +41,8 @@ public class GeneralBusinessTest extends BaseDriver {
 	}
 
 	@Step("Tap on menu {menuOptionEnum}")
-	public void selectProfileMenu(ProfileMenuEnum menuOptionEnum) {
-		logger.info("Seleccionando la opcion: " + menuOptionEnum.getMenu());
+	public void selectProfileMenu(ProfileMenuEnum profileMenuEnum) {
+		logger.info("Seleccionando la opcion: " + profileMenuEnum.getMenu());
 		waitElementVisibility(NamesMobileElements.NAV_BAR);
 		List<MobileElement> menuList = findElements(NamesMobileElements.MENU_NAME);
 		Assert.assertTrue("El elemento móvil no existe", menuList.size() > 0);
@@ -50,7 +50,7 @@ public class GeneralBusinessTest extends BaseDriver {
 		int exit = 0;
 		do {
 			for (MobileElement element : menuList) {
-				if (element.getAttribute(ConfigConstants.ATTRIBUTE_TEXT).toLowerCase().contains(menuOptionEnum.getMenu())) {
+				if (element.getAttribute(ConfigConstants.ATTRIBUTE_TEXT).toLowerCase().contains(profileMenuEnum.getMenu())) {
 					element.click();
 					clicMenu = true;
 					break;

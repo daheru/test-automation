@@ -120,7 +120,7 @@ public class AccountTest {
 	public void CP033_create_account() {
 		account.selectProfileOption();
 		account.selectCreateAccount();
-		account.createAccount("Maria","Tester","test3@correo.com","Test#1234");
+		account.createAccount("Maria","Tester","test10@correo.com","Test#1234");
 		account.validateCreateAccount();
 	}
 	

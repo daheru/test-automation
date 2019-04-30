@@ -9,6 +9,7 @@ import org.junit.Test;
 import org.junit.rules.TestName;
 
 import com.walmartmg.business.android.FiltersBusinessTest;
+import com.walmartmg.enums.NavigationBarEnum;
 
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
@@ -47,7 +48,7 @@ public class FiltersTest {
 	@Story("As a user I want to filter search results")
 	@Description("Validate that filters page has all elements")
 	public void CP081_validate_filters() {
-		filters.selectDepartmentOption();
+		filters.selectNavitionOption(NavigationBarEnum.DEPARTMENTS);
 		filters.selectDepartment();
 		filters.selectFamily();
 		filters.pressLinkFilter();
@@ -60,7 +61,7 @@ public class FiltersTest {
 	@Story("As a user I want to filter search results")
 	@Description("Filter search result list usign A-Z filter")
 	public void CP082_filter_order_by_az() {
-		filters.selectDepartmentOption();
+		filters.selectNavitionOption(NavigationBarEnum.DEPARTMENTS);
 		filters.selectDepartment();
 		filters.selectFamily();
 		filters.pressLinkFilter();
@@ -74,7 +75,7 @@ public class FiltersTest {
 	@Description("Filter search result list usign A-Z filter")
 	public void CP083_filter_order_by_za() {
 		logger.info("Start CP083 Filter Order By Z - A");
-		filters.selectDepartmentOption();
+		filters.selectNavitionOption(NavigationBarEnum.DEPARTMENTS);
 		filters.selectDepartment();
 		filters.selectFamily();
 		filters.pressLinkFilter();
@@ -87,7 +88,7 @@ public class FiltersTest {
 	@Story("As a user I want to filter search results")
 	@Description("Filter search result list usign minnor filter")
 	public void CP084_filter_orderby_smallest_to_largest() {
-		filters.selectDepartmentOption();
+		filters.selectNavitionOption(NavigationBarEnum.DEPARTMENTS);
 		filters.selectDepartment();
 		filters.selectFamily();
 		filters.pressLinkFilter();
@@ -100,7 +101,7 @@ public class FiltersTest {
 	@Story("As a user I want to filter search results")
 	@Description("Filter search result list usign higher filter")
 	public void CP085_filter_orderby_largest_to_smallest() {
-		filters.selectDepartmentOption();
+		filters.selectNavitionOption(NavigationBarEnum.DEPARTMENTS);
 		filters.selectDepartment();
 		filters.selectFamily();
 		filters.pressLinkFilter();
@@ -113,7 +114,7 @@ public class FiltersTest {
 	@Story("As a user I want to filter search results")
 	@Description("Filter search result list usign popularity filter")
 	public void CP086_filter_order_by_popularity () {
-		filters.selectDepartmentOption();
+		filters.selectNavitionOption(NavigationBarEnum.DEPARTMENTS);
 		filters.selectDepartment();
 		filters.selectFamily();
 		filters.pressLinkFilter();
@@ -126,7 +127,7 @@ public class FiltersTest {
 	@Story("As a user I want to filter search results")
 	@Description("Filter search result list usign sub category filter")
 	public void CP088_filter_filter_by () {
-		filters.selectDepartmentOption();
+		filters.selectNavitionOption(NavigationBarEnum.DEPARTMENTS);
 		filters.selectDepartment();
 		filters.selectFamily();
 		filters.pressLinkFilter();

@@ -294,6 +294,11 @@ public final class NamesMobileElements {
 	public static final String SEARCH_WITHOUT_RESULT_HEADER = PropertiesValuesUtil.getPropertyName("SEARCH_WITHOUT_RESULT_HEADER");
 	public static final String SEARCH_WITHOUT_RESULT_ICON = PropertiesValuesUtil.getPropertyName("SEARCH_WITHOUT_RESULT_ICON");
 	public static final String SEARCH_WITHOUT_RESULT_BOTTOM = PropertiesValuesUtil.getPropertyName("SEARCH_WITHOUT_RESULT_BOTTOM");
+	public static final String SEARCH_PRODUCT_ICON = PropertiesValuesUtil.getPropertyName ("SEARCH_PRODUCT_ICON");
+	public static final String SEARCH_PRODUCT_NAME = PropertiesValuesUtil.getPropertyName ("SEARCH_PRODUCT_NAME");
+	public static final String SEARCH_PRODUCT_PRICE = PropertiesValuesUtil.getPropertyName ("SEARCH_PRODUCT_PRICE");
+	public static final String SEARCH_NO_PRODUCT_LABEL = PropertiesValuesUtil.getPropertyName ("SEARCH_NO_PRODUCT_LABEL");
+	public static final String SEARCH_NO_PRODUCT_ICON = PropertiesValuesUtil.getPropertyName ("SEARCH_NO_PRODUCT_ICON");
 
 	public static final String SCAN_CONTAINER = PropertiesValuesUtil.getPropertyName("SCAN_CONTAINER");
 	public static final String SCAN_TITLE = PropertiesValuesUtil.getPropertyName("SCAN_TITLE");
