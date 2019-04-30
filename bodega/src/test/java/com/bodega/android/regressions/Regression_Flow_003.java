@@ -74,7 +74,7 @@ public class Regression_Flow_003 {
 		product.selectProduct();
 		general.goBack();
 		departments.tapOnFilter();
-		departments.selectFilter(FiltersEnum.Z_A.getFilter());
+		departments.selectFilter(FiltersEnum.Z_A);
 		departments.applyFilter();
 		product.selectProduct();
 		product.addProduct();

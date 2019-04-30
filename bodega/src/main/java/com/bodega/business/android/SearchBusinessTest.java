@@ -59,17 +59,24 @@ public class SearchBusinessTest extends BaseDriver {
 								getElementText(productList.get(productList.size() - 1))) < 0);
 			} else if (FiltersEnum.Z_A.getFilter().equals(filterSelected)) {
 				productList = findElements(NamesMobileElements.SEARCH_PRODUCT_NAME);
-				assertTrue("Los productos no estan ordenados", productList.size() > 0 && comparador.compare(getElementText(productList.get(0)),
-						getElementText(productList.get(productList.size() - 1))) > 0);
+				assertTrue("Los productos no estan ordenados",
+						productList.size() > 0 && comparador.compare(getElementText(productList.get(0)),
+								getElementText(productList.get(productList.size() - 1))) > 0);
 			} else if (FiltersEnum.HIGHER_PRICE.getFilter().equals(filterSelected)) {
 				productList = findElements(NamesMobileElements.SEARCH_PRODUCT_PRICE);
-				higherPrice = productList.size() > 0 ? Double.parseDouble(getElementText(productList.get(0)).replaceAll("[^\\d.]", "")) : 0;
-				lowerPrice = productList.size() > 0 ? Double.parseDouble(getElementText(productList.get(productList.size() - 1)).replaceAll("[^\\d.]", "")) : 0;
+				higherPrice = productList.size() > 0
+						? Double.parseDouble(getElementText(productList.get(0)).replaceAll("[^\\d.]", ""))
+						: 0;
+				lowerPrice = productList.size() > 0 ? Double.parseDouble(
+						getElementText(productList.get(productList.size() - 1)).replaceAll("[^\\d.]", "")) : 0;
 				assertTrue("Los productos no estan ordenados", higherPrice >= lowerPrice);
 			} else if (FiltersEnum.MINNOR_PRICE.getFilter().equals(filterSelected)) {
 				productList = findElements(NamesMobileElements.SEARCH_PRODUCT_PRICE);
-				higherPrice = productList.size() > 0 ? Double.parseDouble(getElementText(productList.get(productList.size() - 1)).replaceAll("[^\\d.]", "")) : 0;
-				lowerPrice = productList.size() > 0 ? Double.parseDouble(getElementText(productList.get(0)).replaceAll("[^\\d.]", "")) : 0;
+				higherPrice = productList.size() > 0 ? Double.parseDouble(
+						getElementText(productList.get(productList.size() - 1)).replaceAll("[^\\d.]", "")) : 0;
+				lowerPrice = productList.size() > 0
+						? Double.parseDouble(getElementText(productList.get(0)).replaceAll("[^\\d.]", ""))
+						: 0;
 				assertTrue("Los productos no estan ordenados", higherPrice >= lowerPrice);
 			}
 		}
@@ -99,15 +106,11 @@ public class SearchBusinessTest extends BaseDriver {
 	}
 
 	@Step("Tap filter {filters}")
-	public void selectFilter(String... filters) {
+	public void selectFilter(FiltersEnum filterEnum) {
 		logger.info("Aplicando filtros");
 		waitElementVisibility(NamesMobileElements.FILTER_LIST_CATEGORY);
-		for (String filter : filters) {
-			if (filterSelected.isEmpty()) {
-				filterSelected = filter;
-			}
-			tapOnElement(filter);
-		}
+		filterSelected = filterEnum.getFilter();
+		tapOnElement(filterEnum.getFilter());
 	}
 
 	@Step("Apply filter")

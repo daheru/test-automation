@@ -94,7 +94,7 @@ public class DepartmentsTest {
 		departments.selectDepartment();
 		departments.selectCategory();
 		departments.tapOnFilter();
-		departments.selectFilter(FiltersEnum.A_Z.getFilter());
+		departments.selectFilter(FiltersEnum.A_Z);
 		departments.applyFilter();
 		departments.validateSearch();
 		departments.goBack();
@@ -116,7 +116,7 @@ public class DepartmentsTest {
 		departments.selectDepartment();
 		departments.selectCategory();
 		departments.tapOnFilter();
-		departments.selectFilter(FiltersEnum.Z_A.getFilter());
+		departments.selectFilter(FiltersEnum.Z_A);
 		departments.applyFilter();
 		departments.validateSearch();
 		departments.goBack();
@@ -138,7 +138,7 @@ public class DepartmentsTest {
 		departments.selectDepartment();
 		departments.selectCategory();
 		departments.tapOnFilter();
-		departments.selectFilter(FiltersEnum.MINNOR_PRICE.getFilter());
+		departments.selectFilter(FiltersEnum.MINNOR_PRICE);
 		departments.applyFilter();
 		departments.validateSearch();
 		departments.goBack();
@@ -160,7 +160,7 @@ public class DepartmentsTest {
 		departments.selectDepartment();
 		departments.selectCategory();
 		departments.tapOnFilter();
-		departments.selectFilter(FiltersEnum.HIGHER_PRICE.getFilter());
+		departments.selectFilter(FiltersEnum.HIGHER_PRICE);
 		departments.applyFilter();
 		departments.validateSearch();
 		departments.goBack();
@@ -182,7 +182,7 @@ public class DepartmentsTest {
 		departments.selectDepartment();
 		departments.selectCategory();
 		departments.tapOnFilter();
-		departments.selectFilter(FiltersEnum.POPULAR.getFilter());
+		departments.selectFilter(FiltersEnum.POPULAR);
 		departments.applyFilter();
 		departments.validateSearch();
 		departments.goBack();

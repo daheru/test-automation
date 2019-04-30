@@ -21,12 +21,12 @@ import io.qameta.allure.junit4.DisplayName;
 
 @Feature("Departments Module - No session")
 public class DepartmentsTest {
-	
+
 	@Rule
 	public TestName name = new TestName();
 	private static final Logger logger = Logger.getLogger(DepartmentsTest.class);
 	private static DepartmentsBusinessTest departments = new DepartmentsBusinessTest();
-	
+
 	@AfterClass
 	public static void shutDown() {
 		departments.driverDisconect();
@@ -44,39 +44,39 @@ public class DepartmentsTest {
 		departments.resetApp();
 		logger.info("Caso de prueba finalizado");
 	}
-	
+
 	@Test
 	@DisplayName("Validate promotions")
 	@Severity(SeverityLevel.CRITICAL)
 	@Story("As a user I want to see the promotions")
 	@Description("Validate promotions list is showed when a user tap on promotions")
 	public void CF049_validate_promotions() {
-		departments.selectNavigation( NavigationBarEnum.PROMOTIONS );
+		departments.selectNavigation(NavigationBarEnum.PROMOTIONS);
 		departments.validateProducts();
 		departments.validateNavigationBar();
 	}
-	
+
 	@Test
 	@DisplayName("Validate departments")
 	@Severity(SeverityLevel.CRITICAL)
 	@Story("As a user I want to choice a department")
 	@Description("Validate department list is showed when a user tap on departments")
 	public void CF050_validate_departments() {
-		departments.selectNavigation( NavigationBarEnum.DEPARTMENTS );
+		departments.selectNavigation(NavigationBarEnum.DEPARTMENTS);
 		departments.validateDepartments();
 	}
-	
+
 	@Test
 	@DisplayName("Validate show all")
 	@Severity(SeverityLevel.NORMAL)
 	@Story("As a user I want to see all products when a user tap on show all")
 	@Description("Validate product list is showed when a user tap on show all")
 	public void CF051_validate_show_all() {
-		departments.selectNavigation( NavigationBarEnum.HOME );
+		departments.selectNavigation(NavigationBarEnum.HOME);
 		departments.selectShowAll();
 		departments.validateProducts();
 	}
-	
+
 	@Test
 	@DisplayName("Search by A-Z filter")
 	@Severity(SeverityLevel.NORMAL)
@@ -87,11 +87,11 @@ public class DepartmentsTest {
 		departments.selectDepartment();
 		departments.selectCategory();
 		departments.tapOnFilter();
-		departments.selectFilter( FiltersEnum.A_Z.getFilter() );
+		departments.selectFilter(FiltersEnum.A_Z);
 		departments.applyFilter();
 		departments.validateSearch();
 	}
-	
+
 	@Test
 	@DisplayName("Search by Z-A filter")
 	@Severity(SeverityLevel.NORMAL)
@@ -102,11 +102,11 @@ public class DepartmentsTest {
 		departments.selectDepartment();
 		departments.selectCategory();
 		departments.tapOnFilter();
-		departments.selectFilter( FiltersEnum.Z_A.getFilter() );
+		departments.selectFilter(FiltersEnum.Z_A);
 		departments.applyFilter();
 		departments.validateSearch();
 	}
-	
+
 	@Test
 	@DisplayName("Search by minnor price filter")
 	@Severity(SeverityLevel.NORMAL)
@@ -117,11 +117,11 @@ public class DepartmentsTest {
 		departments.selectDepartment();
 		departments.selectCategory();
 		departments.tapOnFilter();
-		departments.selectFilter( FiltersEnum.MINNOR_PRICE.getFilter() );
+		departments.selectFilter(FiltersEnum.MINNOR_PRICE);
 		departments.applyFilter();
 		departments.validateSearch();
 	}
-	
+
 	@Test
 	@DisplayName("Search by higher price filter")
 	@Severity(SeverityLevel.NORMAL)
@@ -132,11 +132,11 @@ public class DepartmentsTest {
 		departments.selectDepartment();
 		departments.selectCategory();
 		departments.tapOnFilter();
-		departments.selectFilter( FiltersEnum.HIGHER_PRICE.getFilter() );
+		departments.selectFilter(FiltersEnum.HIGHER_PRICE);
 		departments.applyFilter();
 		departments.validateSearch();
 	}
-	
+
 	@Test
 	@DisplayName("Search by popular filter")
 	@Severity(SeverityLevel.NORMAL)
@@ -147,11 +147,11 @@ public class DepartmentsTest {
 		departments.selectDepartment();
 		departments.selectCategory();
 		departments.tapOnFilter();
-		departments.selectFilter( FiltersEnum.POPULAR.getFilter() );
+		departments.selectFilter(FiltersEnum.POPULAR);
 		departments.applyFilter();
 		departments.validateSearch();
 	}
-	
+
 	@Test
 	@DisplayName("Valida tool bar title")
 	@Severity(SeverityLevel.NORMAL)

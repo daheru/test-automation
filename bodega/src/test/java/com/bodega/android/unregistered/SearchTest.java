@@ -75,7 +75,7 @@ public class SearchTest {
 		search.searchProduct("Pantallas");
 		search.validateSearch();
 		search.tapOnFilter();
-		search.selectFilter(FiltersEnum.A_Z.getFilter());
+		search.selectFilter(FiltersEnum.A_Z);
 		search.applyFilter();
 		search.validateSearch();
 	}
@@ -90,7 +90,7 @@ public class SearchTest {
 		search.searchProduct("Computadora");
 		search.validateSearch();
 		search.tapOnFilter();
-		search.selectFilter(FiltersEnum.Z_A.getFilter());
+		search.selectFilter(FiltersEnum.Z_A);
 		search.applyFilter();
 		search.validateSearch();
 	}
@@ -105,7 +105,7 @@ public class SearchTest {
 		search.searchProduct("Computadora");
 		search.validateSearch();
 		search.tapOnFilter();
-		search.selectFilter(FiltersEnum.MINNOR_PRICE.getFilter());
+		search.selectFilter(FiltersEnum.MINNOR_PRICE);
 		search.applyFilter();
 		search.validateSearch();
 	}
@@ -120,7 +120,7 @@ public class SearchTest {
 		search.searchProduct("Computadora");
 		search.validateSearch();
 		search.tapOnFilter();
-		search.selectFilter(FiltersEnum.HIGHER_PRICE.getFilter());
+		search.selectFilter(FiltersEnum.HIGHER_PRICE);
 		search.applyFilter();
 		search.validateSearch();
 	}
@@ -135,7 +135,7 @@ public class SearchTest {
 		search.searchProduct("Computadora");
 		search.validateSearch();
 		search.tapOnFilter();
-		search.selectFilter(FiltersEnum.POPULAR.getFilter());
+		search.selectFilter(FiltersEnum.POPULAR);
 		search.applyFilter();
 		search.validateSearch();
 	}

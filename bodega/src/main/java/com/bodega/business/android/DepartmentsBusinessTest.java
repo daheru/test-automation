@@ -6,6 +6,7 @@ import org.apache.log4j.Logger;
 
 import com.bodega.base.BaseDriver;
 import com.bodega.constants.NamesMobileElements;
+import com.bodega.enums.FiltersEnum;
 import com.bodega.enums.NavigationBarEnum;
 import com.bodega.enums.ProfileMenuEnum;
 
@@ -89,8 +90,8 @@ public class DepartmentsBusinessTest extends BaseDriver {
 		search.tapOnFilter();
 	}
 	
-	public void selectFilter(String filters) {
-		search.selectFilter(filters);
+	public void selectFilter(FiltersEnum filterEnum) {
+		search.selectFilter(filterEnum);
 	}
 	
 	public void applyFilter() {

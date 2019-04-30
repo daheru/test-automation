@@ -33,7 +33,7 @@ public class Regression_Flow_001 {
 	private SearchBusinessTest search = new SearchBusinessTest();
 	private DepartmentsBusinessTest departments = new DepartmentsBusinessTest();
 	private CarBusinessTest car = new CarBusinessTest();
-	
+
 	@AfterClass
 	public static void shutDown() {
 		general.driverDisconect();
@@ -71,14 +71,14 @@ public class Regression_Flow_001 {
 		departments.selectDepartment();
 		departments.selectCategory();
 		departments.tapOnFilter();
-		departments.selectFilter( FiltersEnum.MINNOR_PRICE.getFilter() );
+		departments.selectFilter(FiltersEnum.MINNOR_PRICE);
 		departments.applyFilter();
 		product.selectProduct();
 		product.addProduct();
 		car.validateCar();
 		car.selectContinueBuying();
 		login.login("fake_mail@hotmail.es", "12345678");
-		login.validatePopUpMessage( AppMessages.ACCOUNT_UNEXIST_EMAIL );
+		login.validatePopUpMessage(AppMessages.ACCOUNT_UNEXIST_EMAIL);
 		login.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
 		logger.info("Prueba de regresion finalizada");
 	}

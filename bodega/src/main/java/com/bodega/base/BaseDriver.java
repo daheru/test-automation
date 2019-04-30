@@ -216,7 +216,7 @@ public class BaseDriver {
 		}
 	}
 
-	protected void closeIOSDialog() {
+	public void closeIOSDialog() {
 		driver.executeScript("mobile: alert", ImmutableMap.of("action", "accept", "buttonLabel", "Allow"));
 		try {
 			Thread.sleep(3000);
