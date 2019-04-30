@@ -61,7 +61,7 @@ public class BaseDriver {
 		}
 	}
 
-	public MobileElement findElement(String element) {
+	protected MobileElement findElement(String element) {
 		List<MobileElement> mobileElement = null;
 		if (element.startsWith(GeneralConstants.SLASH)) {
 			mobileElement = driver.findElements(By.xpath(element));
@@ -71,14 +71,14 @@ public class BaseDriver {
 		return mobileElement.size() > 0 ? mobileElement.get(0) : null;
 	}
 
-	public List<MobileElement> findElements(String element) {
+	protected List<MobileElement> findElements(String element) {
 		if (element.startsWith(GeneralConstants.SLASH)) {
 			return driver.findElements(By.xpath(element));
 		}
 		return driver.findElements(By.id(element));
 	}
 
-	public List<MobileElement> findSubElements(MobileElement elementParent, String elementChild) {
+	protected List<MobileElement> findSubElements(MobileElement elementParent, String elementChild) {
 		if (elementChild.startsWith(GeneralConstants.SLASH)) {
 			return elementParent != null ? elementParent.findElements(By.xpath(elementChild))
 					: new ArrayList<MobileElement>();
@@ -86,12 +86,12 @@ public class BaseDriver {
 		return elementParent != null ? elementParent.findElements(By.id(elementChild)) : new ArrayList<MobileElement>();
 	}
 
-	public List<MobileElement> findSubElements(String elementParent, String elementChild) {
+	protected List<MobileElement> findSubElements(String elementParent, String elementChild) {
 		MobileElement parent = findElement(elementParent);
 		return parent != null ? findSubElements(parent, elementChild) : new ArrayList<MobileElement>();
 	}
 
-	public MobileElement findSubElement(MobileElement elementParent, String elementChild) {
+	protected MobileElement findSubElement(MobileElement elementParent, String elementChild) {
 		List<MobileElement> childs = new ArrayList<MobileElement>();
 		if (elementParent != null && elementChild.startsWith(GeneralConstants.SLASH)) {
 			childs = elementParent.findElements(By.xpath(elementChild));
@@ -101,38 +101,38 @@ public class BaseDriver {
 		return childs.size() > 0 ? childs.get(0) : null;
 	}
 
-	public MobileElement findSubElement(String elementParent, String elementChild) {
+	protected MobileElement findSubElement(String elementParent, String elementChild) {
 		MobileElement parent = findElement(elementParent);
 		return parent != null ? findSubElement(parent, elementChild) : null;
 	}
 
-	public MobileElement findElementByClass(String className) {
+	protected MobileElement findElementByClass(String className) {
 		return driver.findElement(By.className(className));
 	}
 
-	public String getElementText(String element) {
+	protected String getElementText(String element) {
 		MobileElement textboxElement = findElement(element);
 		return textboxElement != null ? textboxElement.getAttribute(ConfigConstants.ATTRIBUTE_TEXT).toLowerCase() : "";
 	}
 
-	public String getElementText(MobileElement element) {
+	protected String getElementText(MobileElement element) {
 		return element != null ? element.getAttribute(ConfigConstants.ATTRIBUTE_TEXT).toLowerCase() : "";
 	}
 
-	public void tapOnElement(String element) {
+	protected void tapOnElement(String element) {
 		MobileElement tapElement = findElement(element);
 		if (tapElement != null) {
 			tapElement.click();
 		}
 	}
 
-	public void tapOnElement(MobileElement element) {
+	protected void tapOnElement(MobileElement element) {
 		if (element != null) {
 			element.click();
 		}
 	}
 
-	public void fillElement(String element, String text) {
+	protected void fillElement(String element, String text) {
 		MobileElement textboxElement = findElement(element);
 		if (textboxElement != null) {
 			textboxElement.clear();
@@ -142,7 +142,7 @@ public class BaseDriver {
 		}
 	}
 
-	public String getAttribute(String element, String attribute) {
+	protected String getAttribute(String element, String attribute) {
 		MobileElement elementMobile = findElement(element);
 		if (elementMobile != null) {
 			return elementMobile.getAttribute(attribute);
@@ -150,14 +150,14 @@ public class BaseDriver {
 		return GeneralConstants.EMPTY;
 	}
 
-	public String getAttribute(MobileElement element, String attribute) {
+	protected String getAttribute(MobileElement element, String attribute) {
 		if (element != null) {
 			return element.getAttribute(attribute);
 		}
 		return GeneralConstants.EMPTY;
 	}
 
-	public void waitElementVisibility(String element) {
+	protected void waitElementVisibility(String element) {
 		boolean elementExist = false;
 		try {
 			if (element.startsWith(GeneralConstants.SLASH)) {
@@ -172,7 +172,7 @@ public class BaseDriver {
 		}
 	}
 
-	public boolean elementExist(String element) {
+	protected boolean elementExist(String element) {
 		MobileElement elements = findElement(element);
 		if (elements == null) {
 			return false;
@@ -180,21 +180,21 @@ public class BaseDriver {
 		return true;
 	}
 
-	public void tapUp() {
+	protected void tapUp() {
 		actions.press(PointOption.point(width, startPoint)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(500)))
 				.moveTo(PointOption.point(width, endPoint));
 		actions.release();
 		actions.perform();
 	}
 
-	public void tapDown() {
+	protected void tapDown() {
 		actions.press(PointOption.point(width, endPoint)).waitAction(WaitOptions.waitOptions(Duration.ofMillis(500)))
 				.moveTo(PointOption.point(width, startPoint));
 		actions.release();
 		actions.perform();
 	}
 
-	public void hideKeyboard() {
+	protected void hideKeyboard() {
 		driver.hideKeyboard();
 	}
 
@@ -202,11 +202,11 @@ public class BaseDriver {
 		driver.resetApp();
 	}
 
-	public void lauchApp() {
+	protected void lauchApp() {
 		driver.launchApp();
 	}
 
-	public void closeApp() {
+	protected void closeApp() {
 		driver.closeApp();
 	}
 
@@ -238,7 +238,7 @@ public class BaseDriver {
 		}
 	}
 
-	public void waitEvent() {
+	protected void waitEvent() {
 		try {
 			Thread.sleep(3000);
 		} catch (InterruptedException e) {
@@ -246,7 +246,7 @@ public class BaseDriver {
 		}
 	}
 
-	public void assertEquals(String expected, String actual) {
+	protected void assertEquals(String expected, String actual) {
 		try {
 			Assert.assertEquals(expected, actual);
 		} catch (AssertionError error) {
@@ -256,7 +256,7 @@ public class BaseDriver {
 		}
 	}
 
-	public void assertEquals(int expected, int actual) {
+	protected void assertEquals(int expected, int actual) {
 		try {
 			Assert.assertEquals(expected, actual);
 		} catch (AssertionError error) {
@@ -266,7 +266,7 @@ public class BaseDriver {
 		}
 	}
 
-	public void assertTrue(String error, boolean condition) {
+	protected void assertTrue(String error, boolean condition) {
 		try {
 			Assert.assertTrue(condition);
 		} catch (AssertionError err) {
@@ -276,12 +276,12 @@ public class BaseDriver {
 		}
 	}
 
-	public void searchOnAndroid() {
+	protected void searchOnAndroid() {
 		hideKeyboard();
 		driver.executeScript("mobile: performEditorAction", ImmutableMap.of("action", "done"));
 	}
 
-	public void takeScreenShot() {
+	protected void takeScreenShot() {
 		File scrFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
 		try {
 			FileUtils.copyFile(scrFile, new File("C:\\Users\\vn0swlc\\Screenshot.jpg"));
@@ -290,7 +290,7 @@ public class BaseDriver {
 		}
 	}
 
-	public void scrollUntilShowElement(int scrollType, String element) {		
+	protected void scrollUntilShowElement(int scrollType, String element) {		
 		int exit = 0;
 		while(!elementExist(element) && exit++ < 15) {
 			if (GeneralConstants.SCROLL_UP == scrollType) {

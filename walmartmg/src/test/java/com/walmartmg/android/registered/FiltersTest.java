@@ -9,6 +9,10 @@ import org.junit.Test;
 import org.junit.rules.TestName;
 
 import com.walmartmg.business.android.FiltersBusinessTest;
+import com.walmartmg.constants.GeneralConstants;
+import com.walmartmg.enums.FiltersEnum;
+import com.walmartmg.enums.NavigationBarEnum;
+import com.walmartmg.enums.ProfileMenuEnum;
 
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
@@ -47,10 +51,10 @@ public class FiltersTest {
 	@Story("As a user I want to filter search results")
 	@Description("Validate that filters page has all elements")
 	public void CP158_validate_filters() {
-		filters.selectProfileOption();
-		filters.selectMenuLogin();
-		filters.login("alejandra.jra11@gmail.com", "12345678");
-		filters.selectDepartmentOption();
+		filters.selectNavitionOption(NavigationBarEnum.PROFILE);
+		filters.selectProfileMenuOption(ProfileMenuEnum.LOGIN);
+		filters.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
+		filters.selectNavitionOption(NavigationBarEnum.DEPARTMENTS);
 		filters.selectDepartment();
 		filters.selectFamily();
 		filters.pressLinkFilter();
@@ -63,14 +67,15 @@ public class FiltersTest {
 	@Story("As a user I want to filter search results")
 	@Description("Filter search result list usign A-Z filter")
 	public void CP159_filter_order_by_az() {
-		filters.selectProfileOption();
-		filters.selectMenuLogin();
-		filters.login("alejandra.jra11@gmail.com", "12345678");
-		filters.selectDepartmentOption();
+		filters.selectNavitionOption(NavigationBarEnum.PROFILE);
+		filters.selectProfileMenuOption(ProfileMenuEnum.LOGIN);
+		filters.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
+		filters.selectNavitionOption(NavigationBarEnum.DEPARTMENTS);
 		filters.selectDepartment();
 		filters.selectFamily();
 		filters.pressLinkFilter();
-		filters.filterOrderAZ();
+		filters.selectFilter(FiltersEnum.A_Z);
+		filters.validateSearch();
 	}
 	
 	@Test
@@ -80,14 +85,15 @@ public class FiltersTest {
 	@Description("Filter search result list usign A-Z filter")
 	public void CP160_filter_order_by_za() {
 		logger.info("Start CP083 Filter Order By Z - A");
-		filters.selectProfileOption();
-		filters.selectMenuLogin();
-		filters.login("alejandra.jra11@gmail.com", "12345678");
-		filters.selectDepartmentOption();
+		filters.selectNavitionOption(NavigationBarEnum.PROFILE);
+		filters.selectProfileMenuOption(ProfileMenuEnum.LOGIN);
+		filters.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
+		filters.selectNavitionOption(NavigationBarEnum.DEPARTMENTS);
 		filters.selectDepartment();
 		filters.selectFamily();
 		filters.pressLinkFilter();
-		filters.filterOrderZA();
+		filters.selectFilter(FiltersEnum.Z_A);
+		filters.validateSearch();
 	}
 	
 	@Test
@@ -96,14 +102,15 @@ public class FiltersTest {
 	@Story("As a user I want to filter search results")
 	@Description("Filter search result list usign minnor filter")
 	public void CP161_filter_orderby_smallest_to_largest() {
-		filters.selectProfileOption();
-		filters.selectMenuLogin();
-		filters.login("alejandra.jra11@gmail.com", "12345678");
-		filters.selectDepartmentOption();
+		filters.selectNavitionOption(NavigationBarEnum.PROFILE);
+		filters.selectProfileMenuOption(ProfileMenuEnum.LOGIN);
+		filters.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
+		filters.selectNavitionOption(NavigationBarEnum.DEPARTMENTS);
 		filters.selectDepartment();
 		filters.selectFamily();
 		filters.pressLinkFilter();
-		filters.filterSmallestToLargest();
+		filters.selectFilter(FiltersEnum.MINNOR_PRICE);
+		filters.validateSearch();
 	}
 	
 	@Test
@@ -112,14 +119,15 @@ public class FiltersTest {
 	@Story("As a user I want to filter search results")
 	@Description("Filter search result list usign higher filter")
 	public void CP162_filter_orderby_largest_to_smallest() {
-		filters.selectProfileOption();
-		filters.selectMenuLogin();
-		filters.login("alejandra.jra11@gmail.com", "12345678");
-		filters.selectDepartmentOption();
+		filters.selectNavitionOption(NavigationBarEnum.PROFILE);
+		filters.selectProfileMenuOption(ProfileMenuEnum.LOGIN);
+		filters.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
+		filters.selectNavitionOption(NavigationBarEnum.DEPARTMENTS);
 		filters.selectDepartment();
 		filters.selectFamily();
 		filters.pressLinkFilter();
-		filters.filterLargestToSmallest();
+		filters.selectFilter(FiltersEnum.HIGHER_PRICE);
+		filters.validateSearch();
 	}
 	
 	@Test
@@ -128,14 +136,15 @@ public class FiltersTest {
 	@Story("As a user I want to filter search results")
 	@Description("Filter search result list usign popularity filter")
 	public void CP163_filter_order_by_popularity () {
-		filters.selectProfileOption();
-		filters.selectMenuLogin();
-		filters.login("alejandra.jra11@gmail.com", "12345678");
-		filters.selectDepartmentOption();
+		filters.selectNavitionOption(NavigationBarEnum.PROFILE);
+		filters.selectProfileMenuOption(ProfileMenuEnum.LOGIN);
+		filters.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
+		filters.selectNavitionOption(NavigationBarEnum.DEPARTMENTS);
 		filters.selectDepartment();
 		filters.selectFamily();
 		filters.pressLinkFilter();
-		filters.filterPopularity();
+		filters.selectFilter(FiltersEnum.POPULAR);
+		filters.validateSearch();
 	}
 	
 	@Test
@@ -144,14 +153,13 @@ public class FiltersTest {
 	@Story("As a user I want to filter search results")
 	@Description("Filter search result list usign sub category filter")
 	public void CP165_filter_filter_by () {
-		filters.selectProfileOption();
-		filters.selectMenuLogin();
-		filters.login("alejandra.jra11@gmail.com", "12345678");
-		filters.selectDepartmentOption();
+		filters.selectNavitionOption(NavigationBarEnum.PROFILE);
+		filters.selectProfileMenuOption(ProfileMenuEnum.LOGIN);
+		filters.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
+		filters.selectNavitionOption(NavigationBarEnum.DEPARTMENTS);
 		filters.selectDepartment();
 		filters.selectFamily();
 		filters.pressLinkFilter();
 		filters.filterBy();
 	}
-
 }

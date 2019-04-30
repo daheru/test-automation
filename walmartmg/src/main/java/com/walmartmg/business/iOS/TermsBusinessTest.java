@@ -30,8 +30,7 @@ public class TermsBusinessTest extends BaseDriver {
 		tapOnElement(NamesMobileElements.PROFILE_PRIVACY_NOTICE1);
 		logger.info(" SE  VE AVISO DE PRIVACIDAD ");
 		logger.info(" SE  VE  VERSION APP ");
-		general.elementExist(NamesMobileElements.PROFILE_VERSION);
-
+		elementExist(NamesMobileElements.PROFILE_VERSION);
 	}
 
 }

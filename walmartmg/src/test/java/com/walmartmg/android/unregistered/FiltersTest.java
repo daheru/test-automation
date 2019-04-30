@@ -9,6 +9,7 @@ import org.junit.Test;
 import org.junit.rules.TestName;
 
 import com.walmartmg.business.android.FiltersBusinessTest;
+import com.walmartmg.enums.FiltersEnum;
 import com.walmartmg.enums.NavigationBarEnum;
 
 import io.qameta.allure.Description;
@@ -65,7 +66,8 @@ public class FiltersTest {
 		filters.selectDepartment();
 		filters.selectFamily();
 		filters.pressLinkFilter();
-		filters.filterOrderAZ();
+		filters.selectFilter(FiltersEnum.A_Z);
+		filters.validateSearch();
 	}
 	
 	@Test
@@ -74,12 +76,12 @@ public class FiltersTest {
 	@Story("As a user I want to filter search results")
 	@Description("Filter search result list usign A-Z filter")
 	public void CP083_filter_order_by_za() {
-		logger.info("Start CP083 Filter Order By Z - A");
 		filters.selectNavitionOption(NavigationBarEnum.DEPARTMENTS);
 		filters.selectDepartment();
 		filters.selectFamily();
 		filters.pressLinkFilter();
-		filters.filterOrderZA();
+		filters.selectFilter(FiltersEnum.Z_A);
+		filters.validateSearch();
 	}
 	
 	@Test
@@ -92,7 +94,8 @@ public class FiltersTest {
 		filters.selectDepartment();
 		filters.selectFamily();
 		filters.pressLinkFilter();
-		filters.filterSmallestToLargest();
+		filters.selectFilter(FiltersEnum.MINNOR_PRICE);
+		filters.validateSearch();
 	}
 	
 	@Test
@@ -105,7 +108,8 @@ public class FiltersTest {
 		filters.selectDepartment();
 		filters.selectFamily();
 		filters.pressLinkFilter();
-		filters.filterLargestToSmallest();
+		filters.selectFilter(FiltersEnum.HIGHER_PRICE);
+		filters.validateSearch();
 	}
 	
 	@Test
@@ -118,7 +122,8 @@ public class FiltersTest {
 		filters.selectDepartment();
 		filters.selectFamily();
 		filters.pressLinkFilter();
-		filters.filterPopularity();
+		filters.selectFilter(FiltersEnum.POPULAR);
+		filters.validateSearch();
 	}
 	
 	@Test
@@ -130,7 +135,6 @@ public class FiltersTest {
 		filters.selectNavitionOption(NavigationBarEnum.DEPARTMENTS);
 		filters.selectDepartment();
 		filters.selectFamily();
-		filters.pressLinkFilter();
 		filters.filterBy();
 	}
 }

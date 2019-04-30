@@ -7,7 +7,6 @@ import org.junit.BeforeClass;
 import org.junit.Test;
 
 import com.walmartmg.business.android.AddressesBusinessTest;
-import com.walmartmg.business.android.GeneralBusinessTest;
 import com.walmartmg.constants.AppMessages;
 import com.walmartmg.vo.AddressVO;
 
@@ -31,8 +30,7 @@ public class YoursAddressesTest {
 	
 	@Before
 	public void resetApp() {
-		address.closeApp();
-		address.lauchApp();
+		address.resetApp();
 	}
 	
 	@Test

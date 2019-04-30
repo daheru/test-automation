@@ -45,7 +45,7 @@ public class AccountBusinessTest extends BaseDriver {
 		fillElement( NamesMobileElements.ACCOUNT_NAME_TEXT, name);
 		fillElement( NamesMobileElements.ACCOUNT_LASTNAME_TEXT, lastname);
 		fillElement( NamesMobileElements.ACCOUNT_EMAIL_TEXT, email);
-		generalBusinessTest.scrollUntilShowElement( GeneralConstants.SCROLL_UP, NamesMobileElements.ACCOUNT_CREATE_BUTTON );
+		scrollUntilShowElement( GeneralConstants.SCROLL_UP, NamesMobileElements.ACCOUNT_CREATE_BUTTON );
 		fillElement( NamesMobileElements.ACCOUNT_PASS_TEXT, pass);
 		tapOnElement( NamesMobileElements.ACCOUNT_CREATE_BUTTON );
 	}

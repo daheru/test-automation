@@ -20,8 +20,7 @@ public class InvoiceTest {
 	
 	@Before
 	public void resetApp() {
-		invoice.closeApp();
-		invoice.lauchApp();
+		invoice.resetApp();
 	}
 	
 	//Validate screen

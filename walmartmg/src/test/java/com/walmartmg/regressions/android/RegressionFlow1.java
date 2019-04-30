@@ -27,8 +27,7 @@ public class RegressionFlow1 {
 	
 	@Before
 	public void resetApp() {
-		general.closeApp();
-		general.lauchApp();
+		general.resetApp();
 	}
 	
 	@Test

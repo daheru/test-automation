@@ -19,8 +19,7 @@ public class YourOrdersTest {
 	
 	@Before
 	public void resetApp() {
-		orders.closeApp();
-		orders.lauchApp();
+		orders.resetApp();
 	}
 	
 	@Test

@@ -110,15 +110,15 @@ public class LoginBusinessTest extends BaseDriver {
 
 	public void Validate_profile() {
 		logger.info("SE VALIDA LA PANTALLA DE PERFIL    ");
-		general.elementExist(NamesMobileElements.LOGIN_IN);
+		elementExist(NamesMobileElements.LOGIN_IN);
 		logger.info("SE VALIDA  EL ELEMENTO INICIAR SESION    ");
-		general.elementExist(NamesMobileElements.LOGIN_ACCOUNT);
+		elementExist(NamesMobileElements.LOGIN_ACCOUNT);
 		logger.info("SE VALIDA EL ELEMENTO CREAR CUENTA  ");
-		general.elementExist(NamesMobileElements.LOGIN_HELP);
+		elementExist(NamesMobileElements.LOGIN_HELP);
 		logger.info("SE VALIDA EL ELEMENTO AYUDA     ");
-		general.elementExist(NamesMobileElements.LOGIN_LEGAL);
+		elementExist(NamesMobileElements.LOGIN_LEGAL);
 		logger.info("SE VALIDA EL ELEMENTO  LEGALES   ");
-		general.elementExist(NamesMobileElements.LOGIN_TERMS);
+		elementExist(NamesMobileElements.LOGIN_TERMS);
 		logger.info("SE VALIDA EL ELEMENTO TERMINOS/CONDICIONES    ");
 
 	}
@@ -126,17 +126,17 @@ public class LoginBusinessTest extends BaseDriver {
 	public void Validate_Page_Log_in() {
 		logger.info("SE VALIDA PANTALLA DE INICIAR SESION  ");
 		logger.info("SE VALIDA ELEMENTO EMAIL   ");
-		general.elementExist(NamesMobileElements.LOGIN_EMAIL);
+		elementExist(NamesMobileElements.LOGIN_EMAIL);
 		logger.info("SE VALIDA ELEMENTO CONTRASEÑA   ");
-		general.elementExist(NamesMobileElements.LOGIN_PASS);
+		elementExist(NamesMobileElements.LOGIN_PASS);
 		logger.info("SE VALIDA ELEMENTO SE VALIDA  SHOW PASS ");
-		general.elementExist(NamesMobileElements.LOGIN_SHOW_PASS);
+		elementExist(NamesMobileElements.LOGIN_SHOW_PASS);
 		logger.info("SE VALIDA BOTON INGRESAR   ");
-		general.elementExist(NamesMobileElements.LOGIN_BUTTON);
+		elementExist(NamesMobileElements.LOGIN_BUTTON);
 		logger.info("SE VALIDA ELEMENTO OLVIDASTE TU CONTRASEÑA  ");
-		general.elementExist(NamesMobileElements.LOGIN_FORGOT2);
+		elementExist(NamesMobileElements.LOGIN_FORGOT2);
 		logger.info("SE VALIDA ELEMENTO CREAR CUeNTA   ");
-		general.elementExist(NamesMobileElements.LOGIN_CREATE_BUTTON);
+		elementExist(NamesMobileElements.LOGIN_CREATE_BUTTON);
 		logger.info("FINALIZANDO CASO DE PRUEBA ");
 	}
 
@@ -147,7 +147,7 @@ public class LoginBusinessTest extends BaseDriver {
 		tapOnElement(NamesMobileElements.LOGIN_FORGOT2);
 		logger.info("se valida el  mensaje de Se enviará un correo a tu cuenta registrada.");
 		waitElementVisibility(NamesMobileElements.LOGIN_ALERT);
-		general.elementExist(NamesMobileElements.LOGIN_ALERT);
+		elementExist(NamesMobileElements.LOGIN_ALERT);
 		logger.info("se da click en ACEPTAR");
 		tapOnElement(NamesMobileElements.LOGIN_ALERT_BUTTON);
 		logger.info("FINALIZANDO CASO DE PRUEBA ");
@@ -157,15 +157,15 @@ public class LoginBusinessTest extends BaseDriver {
 	public void Validate_link_Create_account() {
 		logger.info("SE VALIDA PANTALLA DE INICIAR SESION  ");
 		logger.info("SE VALIDA ELEMENTO EMAIL   ");
-		general.elementExist(NamesMobileElements.LOGIN_EMAIL);
+		elementExist(NamesMobileElements.LOGIN_EMAIL);
 		logger.info("SE VALIDA ELEMENTO CONTRASEÑA   ");
-		general.elementExist(NamesMobileElements.LOGIN_PASS);
+		elementExist(NamesMobileElements.LOGIN_PASS);
 		logger.info("SE VALIDA ELEMENTO SE VALIDA  SHOW PASS ");
-		general.elementExist(NamesMobileElements.LOGIN_SHOW_PASS);
+		elementExist(NamesMobileElements.LOGIN_SHOW_PASS);
 		logger.info("SE VALIDA BOTON INGRESAR   ");
-		general.elementExist(NamesMobileElements.LOGIN_BUTTON);
+		elementExist(NamesMobileElements.LOGIN_BUTTON);
 		logger.info("SE VALIDA ELEMENTO OLVIDASTE TU CONTRASEÑA  ");
-		general.elementExist(NamesMobileElements.LOGIN_FORGOT2);
+		elementExist(NamesMobileElements.LOGIN_FORGOT2);
 		logger.info("da click  ELEMENTO CREAR CUeNTA   ");
 		tapOnElement(NamesMobileElements.LOGIN_CREATE_BUTTON);
 		waitElementVisibility(NamesMobileElements.LOGIN_CREATE_BUTTON);

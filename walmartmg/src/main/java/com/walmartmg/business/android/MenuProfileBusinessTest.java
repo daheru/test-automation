@@ -32,7 +32,7 @@ public class MenuProfileBusinessTest extends BaseDriver {
 	public void validateHelpPage() {
 		waitElementVisibility(NamesMobileElements.HELP_TITLE);
 		waitElementVisibility(NamesMobileElements.HELP_ICON);
-		generalBusinessTest.scrollUntilShowElement(GeneralConstants.SCROLL_UP, NamesMobileElements.HELP_EMAIL_BUTTON);
+		scrollUntilShowElement(GeneralConstants.SCROLL_UP, NamesMobileElements.HELP_EMAIL_BUTTON);
 		waitElementVisibility(NamesMobileElements.HELP_PHONE);
 		waitElementVisibility(NamesMobileElements.HELP_EMAIL_BUTTON);
 		waitElementVisibility(NamesMobileElements.HELP_CALL_BUTTON);

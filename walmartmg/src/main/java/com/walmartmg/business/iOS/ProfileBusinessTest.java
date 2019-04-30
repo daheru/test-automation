@@ -29,27 +29,27 @@ public class ProfileBusinessTest extends BaseDriver {
 		logger.info("SE VALIDA  ELEMENTOs DE CREAR CUENTA ");
 		logger.info("SE VALIDA  ELEMENTO Nombre ");
 		waitElementVisibility(NamesMobileElements.PROFILE_NAME);
-		general.elementExist(NamesMobileElements.PROFILE_NAME);
+		elementExist(NamesMobileElements.PROFILE_NAME);
 		logger.info("SE VALIDA  ELEMENTO Apellido ");
 		waitElementVisibility(NamesMobileElements.PROFILE_LAST_NAME);
-		general.elementExist(NamesMobileElements.PROFILE_LAST_NAME);
+		elementExist(NamesMobileElements.PROFILE_LAST_NAME);
 		logger.info("SE VALIDA  ELEMENTO Email ");
-		general.elementExist(NamesMobileElements.PROFILE_MAIL);
+		elementExist(NamesMobileElements.PROFILE_MAIL);
 		waitElementVisibility(NamesMobileElements.PROFILE_MAIL);
 		logger.info("SE VALIDA  ELEMENTO Contraseña");
-		general.elementExist(NamesMobileElements.PROFILE_PASSWORD);
+		elementExist(NamesMobileElements.PROFILE_PASSWORD);
 		waitElementVisibility(NamesMobileElements.PROFILE_PASSWORD);
 		logger.info("SE VALIDA  ELEMENTO Se visualice COntraseña  ");
-		general.elementExist(NamesMobileElements.LOGIN_SHOW_PASS);
+		elementExist(NamesMobileElements.LOGIN_SHOW_PASS);
 		waitElementVisibility(NamesMobileElements.LOGIN_SHOW_PASS);
 		logger.info("SE VALIDA  ELEMENTO TErminos y Condiciones ");
-		general.elementExist(NamesMobileElements.PROFILE_ACCEPTTERMS);
+		elementExist(NamesMobileElements.PROFILE_ACCEPTTERMS);
 		waitElementVisibility(NamesMobileElements.PROFILE_ACCEPTTERMS);
 		logger.info("SE VALIDA  ELEMENTO Boton Crear cuenta ");
-		general.elementExist(NamesMobileElements.PROFILE_BUTTON);
+		elementExist(NamesMobileElements.PROFILE_BUTTON);
 		waitElementVisibility(NamesMobileElements.PROFILE_BUTTON);
 		logger.info("SE VALIDA  ELEMENTO link iniciar sesion  ");
-		general.elementExist(NamesMobileElements.PROFILE_LOG_IN);
+		elementExist(NamesMobileElements.PROFILE_LOG_IN);
 		waitElementVisibility(NamesMobileElements.PROFILE_LOG_IN);
 
 	}
@@ -57,14 +57,14 @@ public class ProfileBusinessTest extends BaseDriver {
 	public void Validate_empty_fields() {
 		logger.info("INICIANDO CASO DE PRUEBA ");
 		logger.info("SE VALIDA  ELEMENTOs DE CREAR CUENTA ");
-		general.elementExist(NamesMobileElements.PROFILE_NAME);
-		general.elementExist(NamesMobileElements.PROFILE_LAST_NAME);
-		general.elementExist(NamesMobileElements.PROFILE_MAIL);
-		general.elementExist(NamesMobileElements.PROFILE_PASSWORD);
-		general.elementExist(NamesMobileElements.LOGIN_SHOW_PASS);
-		general.elementExist(NamesMobileElements.PROFILE_ACCEPTTERMS);
-		general.elementExist(NamesMobileElements.PROFILE_LOG_IN);
-		general.elementExist(NamesMobileElements.PROFILE_BUTTON);
+		elementExist(NamesMobileElements.PROFILE_NAME);
+		elementExist(NamesMobileElements.PROFILE_LAST_NAME);
+		elementExist(NamesMobileElements.PROFILE_MAIL);
+		elementExist(NamesMobileElements.PROFILE_PASSWORD);
+		elementExist(NamesMobileElements.LOGIN_SHOW_PASS);
+		elementExist(NamesMobileElements.PROFILE_ACCEPTTERMS);
+		elementExist(NamesMobileElements.PROFILE_LOG_IN);
+		elementExist(NamesMobileElements.PROFILE_BUTTON);
 		logger.info("SE VALIDA  Y SE DA CLICK EN EL BOTON DE CREAR CUENTA ESTE DESACTIVADO");
 		tapOnElement(NamesMobileElements.PROFILE_BUTTON);
 
@@ -111,7 +111,7 @@ public class ProfileBusinessTest extends BaseDriver {
 		tapOnElement(NamesMobileElements.PROFILE_ACCEPTTERMS);
 		tapOnElement(NamesMobileElements.PROFILE_BUTTON);
 		logger.info("Ya existe un usuario registrado con este correo electr\\u00f3nico\"   ");
-		general.elementExist(NamesMobileElements.PROFILE_MENSAGGE);
+		elementExist(NamesMobileElements.PROFILE_MENSAGGE);
 		waitElementVisibility(NamesMobileElements.PROFILE_BUTTON);
 		tapOnElement(NamesMobileElements.PROFILE_BUTTON);
 	}
@@ -121,27 +121,27 @@ public class ProfileBusinessTest extends BaseDriver {
 		logger.info("SE VALIDA  ELEMENTOs DE CREAR CUENTA ");
 		logger.info("SE VALIDA  ELEMENTO Nombre ");
 		waitElementVisibility(NamesMobileElements.PROFILE_NAME);
-		general.elementExist(NamesMobileElements.PROFILE_NAME);
+		elementExist(NamesMobileElements.PROFILE_NAME);
 		logger.info("SE VALIDA  ELEMENTO Apellido ");
 		waitElementVisibility(NamesMobileElements.PROFILE_LAST_NAME);
-		general.elementExist(NamesMobileElements.PROFILE_LAST_NAME);
+		elementExist(NamesMobileElements.PROFILE_LAST_NAME);
 		logger.info("SE VALIDA  ELEMENTO Email ");
-		general.elementExist(NamesMobileElements.PROFILE_MAIL);
+		elementExist(NamesMobileElements.PROFILE_MAIL);
 		waitElementVisibility(NamesMobileElements.PROFILE_MAIL);
 		logger.info("SE VALIDA  ELEMENTO Contraseña");
-		general.elementExist(NamesMobileElements.PROFILE_PASSWORD);
+		elementExist(NamesMobileElements.PROFILE_PASSWORD);
 		waitElementVisibility(NamesMobileElements.PROFILE_PASSWORD);
 		logger.info("SE VALIDA  ELEMENTO Se visualice COntraseña  ");
-		general.elementExist(NamesMobileElements.LOGIN_SHOW_PASS);
+		elementExist(NamesMobileElements.LOGIN_SHOW_PASS);
 		waitElementVisibility(NamesMobileElements.LOGIN_SHOW_PASS);
 		logger.info("SE VALIDA  ELEMENTO TErminos y Condiciones ");
-		general.elementExist(NamesMobileElements.PROFILE_ACCEPTTERMS);
+		elementExist(NamesMobileElements.PROFILE_ACCEPTTERMS);
 		waitElementVisibility(NamesMobileElements.PROFILE_ACCEPTTERMS);
 		logger.info("SE VALIDA  ELEMENTO Boton Crear cuenta ");
-		general.elementExist(NamesMobileElements.PROFILE_BUTTON);
+		elementExist(NamesMobileElements.PROFILE_BUTTON);
 		waitElementVisibility(NamesMobileElements.PROFILE_BUTTON);
 		logger.info("SE VALIDA  ELEMENTO link iniciar sesion  ");
-		general.elementExist(NamesMobileElements.PROFILE_LOG_IN);
+		elementExist(NamesMobileElements.PROFILE_LOG_IN);
 		logger.info("SE da clink iniciar sesion  ");
 		tapOnElement(NamesMobileElements.PROFILE_LOG_IN);
 	}

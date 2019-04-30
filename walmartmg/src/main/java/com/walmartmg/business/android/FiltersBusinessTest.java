@@ -23,13 +23,13 @@ public class FiltersBusinessTest extends BaseDriver {
 	private static String filterSelected = "";
 
 	public void selectNavitionOption(NavigationBarEnum navigationBarEnum) {
-		generalBusinessTest.selectNavigationOption(navigationBarEnum);
+		general.selectNavigationOption(navigationBarEnum);
 	}
 
 	public void selectProfileMenuOption(ProfileMenuEnum profileMenuEnum) {
-		generalBusinessTest.selectProfileMenu(profileMenuEnum);
+		general.selectProfileMenu(profileMenuEnum);
 	}
-	
+
 	// Select department
 	public void selectDepartment() {
 		departments.selectDepartment();
@@ -42,26 +42,20 @@ public class FiltersBusinessTest extends BaseDriver {
 		logger.info("Selecciona una familia");
 	}
 
-	//Select filters
+	// Select filters
 	public void pressLinkFilter() {
 		tapOnElement(NamesMobileElements.FILTERS_LINK);
 		logger.info("Seleccionar link filtro");
 	}
-	
+
 	public void login(String email, String pass) {
 		login.login(email, pass);
 	}
-	
-	public void selectProfileOption() {
-		general.selectNavigationOption( NavigationBarEnum.PROFILE );
-	}
-	
+
 	public void selectMenuLogin() {
-		general.selectProfileMenu(ProfileMenuEnum.LOGIN );
+		general.selectProfileMenu(ProfileMenuEnum.LOGIN);
 	}
-	
-	
-	
+
 	// Validate Screen Filter
 	@Step("Validate filter page")
 	public void validateScreenFilter() {
@@ -78,43 +72,17 @@ public class FiltersBusinessTest extends BaseDriver {
 		waitElementVisibility(NamesMobileElements.FILTERS_BUTTON);
 	}
 
-	@Step("Tap on A-Z filter")
-	public void filterOrderAZ() {
-		logger.info("Selecciona ordenar por AZ");
-		tapOnElement(NamesMobileElements.FILTERS_SORT_BY_AZ);
-		logger.info("Presionar boton listo");
-		tapOnElement(NamesMobileElements.FILTERS_BUTTON);
+	@Step("Select filter")
+	public void selectFilter(FiltersEnum filter) {
+		waitElementVisibility(NamesMobileElements.FILTERS_CONT);
+		filterSelected = filter.getFilter();
+		tapOnElement(filter.getFilter());
 	}
 
-	@Step("Tap on Z-A filter")
-	public void filterOrderZA() {
-		logger.info("Selecciona ordenar por ZA");
-		tapOnElement(NamesMobileElements.FILTERS_SORT_BY_ZA);
-		logger.info("Presionar boton listo");
-		tapOnElement(NamesMobileElements.FILTERS_BUTTON);
-	}
-
-	@Step("Tap on minnor price filter")
-	public void filterSmallestToLargest() {
-		logger.info("Selecciona ordenar por $ - $$");
-		tapOnElement(NamesMobileElements.FILTERS_SORT_BY_LESSTHAN);
-		logger.info("Presionar boton listo");
-		tapOnElement(NamesMobileElements.FILTERS_BUTTON);
-	}
-
-	@Step("Tap on higher price filter")
-	public void filterLargestToSmallest() {
-		logger.info("Selecciona ordenar por $$ - $");
-		tapOnElement(NamesMobileElements.FILTERS_SORT_BY_GREATERTHAN);
-		logger.info("Presionar boton listo");
-		tapOnElement(NamesMobileElements.FILTERS_BUTTON);
-	}
-
-	@Step("Tap on popularity filter")
-	public void filterPopularity() {
-		logger.info("Selecciona ordenar por Popularidad");
-		tapOnElement(NamesMobileElements.FILTERS_SORT_BY_POPULARITY);
-		logger.info("Presionar boton listo");
+	@Step("Apply filter")
+	public void applyFilter() {
+		logger.info("Buscando productos");
+		waitElementVisibility(NamesMobileElements.FILTERS_BUTTON);
 		tapOnElement(NamesMobileElements.FILTERS_BUTTON);
 	}
 
@@ -126,11 +94,7 @@ public class FiltersBusinessTest extends BaseDriver {
 		logger.info("Presionar boton listo");
 		tapOnElement(NamesMobileElements.FILTERS_BUTTON);
 	}
-	
-	public void login(String email, String password) {
-		login.login(email, password);
-	}
-	
+
 	@Step("Validate search")
 	public void validateSearch() {
 		logger.info("Validando lista de productos");
@@ -149,17 +113,24 @@ public class FiltersBusinessTest extends BaseDriver {
 								getElementText(productList.get(productList.size() - 1))) < 0);
 			} else if (FiltersEnum.Z_A.getFilter().equals(filterSelected)) {
 				productList = findElements(NamesMobileElements.SEARCH_PRODUCT_NAME);
-				assertTrue("Los productos no estan ordenados", productList.size() > 0 && comparador.compare(getElementText(productList.get(0)),
-						getElementText(productList.get(productList.size() - 1))) > 0);
+				assertTrue("Los productos no estan ordenados",
+						productList.size() > 0 && comparador.compare(getElementText(productList.get(0)),
+								getElementText(productList.get(productList.size() - 1))) > 0);
 			} else if (FiltersEnum.HIGHER_PRICE.getFilter().equals(filterSelected)) {
 				productList = findElements(NamesMobileElements.SEARCH_PRODUCT_PRICE);
-				higherPrice = productList.size() > 0 ? Double.parseDouble(getElementText(productList.get(0)).replaceAll("[^\\d.]", "")) : 0;
-				lowerPrice = productList.size() > 0 ? Double.parseDouble(getElementText(productList.get(productList.size() - 1)).replaceAll("[^\\d.]", "")) : 0;
+				higherPrice = productList.size() > 0
+						? Double.parseDouble(getElementText(productList.get(0)).replaceAll("[^\\d.]", ""))
+						: 0;
+				lowerPrice = productList.size() > 0 ? Double.parseDouble(
+						getElementText(productList.get(productList.size() - 1)).replaceAll("[^\\d.]", "")) : 0;
 				assertTrue("Los productos no estan ordenados", higherPrice >= lowerPrice);
 			} else if (FiltersEnum.MINNOR_PRICE.getFilter().equals(filterSelected)) {
 				productList = findElements(NamesMobileElements.SEARCH_PRODUCT_PRICE);
-				higherPrice = productList.size() > 0 ? Double.parseDouble(getElementText(productList.get(productList.size() - 1)).replaceAll("[^\\d.]", "")) : 0;
-				lowerPrice = productList.size() > 0 ? Double.parseDouble(getElementText(productList.get(0)).replaceAll("[^\\d.]", "")) : 0;
+				higherPrice = productList.size() > 0 ? Double.parseDouble(
+						getElementText(productList.get(productList.size() - 1)).replaceAll("[^\\d.]", "")) : 0;
+				lowerPrice = productList.size() > 0
+						? Double.parseDouble(getElementText(productList.get(0)).replaceAll("[^\\d.]", ""))
+						: 0;
 				assertTrue("Los productos no estan ordenados", higherPrice >= lowerPrice);
 			}
 		}
