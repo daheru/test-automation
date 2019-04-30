@@ -5,18 +5,20 @@ import org.apache.log4j.Logger;
 import com.walmartmg.base.BaseDriver;
 import com.walmartmg.constants.NamesMobileElements;
 import com.walmartmg.enums.NavigationBarEnum;
+import com.walmartmg.enums.ProfileMenuEnum;
 
 import io.qameta.allure.Step;
 
 public class FiltersBusinessTest extends BaseDriver {
 	
 	private static final Logger logger = Logger.getLogger( InvoiceBusinessTest.class );
-	private GeneralBusinessTest generalBusinessTest = new GeneralBusinessTest();
+	private GeneralBusinessTest general = new GeneralBusinessTest();
 	private DepartmentsBusinessTest departments = new DepartmentsBusinessTest();
+	private LoginBusinessTest login = new LoginBusinessTest();
 	
 	
 	public void selectDepartmentOption() {
-		generalBusinessTest.selectNavigationOption(NavigationBarEnum.DEPARTMENTS);
+		general.selectNavigationOption(NavigationBarEnum.DEPARTMENTS);
 	}
 	
 	//Select department
@@ -31,11 +33,30 @@ public class FiltersBusinessTest extends BaseDriver {
 		logger.info("Selecciona una familia");
 	}
 	
+	//Select filters
+	public void pressLinkFilter() {
+		tapOnElement(NamesMobileElements.FILTERS_LINK);
+		logger.info("Seleccionar link filtro");
+	}
+	
+	public void login(String email, String pass) {
+		login.login(email, pass);
+	}
+	
+	public void selectProfileOption() {
+		general.selectNavigationOption( NavigationBarEnum.PROFILE );
+	}
+	
+	public void selectMenuLogin() {
+		general.selectProfileMenu(ProfileMenuEnum.LOGIN );
+	}
+	
+	
+	
 	//Validate Screen Filter
 	@Step("Validate filter page")
 	public void validateScreenFilter() {
 		logger.info("Selecciona link Filtar");
-		tapOnElement(NamesMobileElements.FILTERS_LINK);
 		waitElementVisibility(NamesMobileElements.FILTERS_CONT);
 		waitElementVisibility(NamesMobileElements.FILTERS_FILTER_BY);
 		waitElementVisibility(NamesMobileElements.FILTERS_SORT_BY_AZ);
@@ -50,8 +71,6 @@ public class FiltersBusinessTest extends BaseDriver {
 	
 	@Step("Tap on A-Z filter")
 	public void filterOrderAZ() {
-		logger.info("Selecciona link Filtar");
-		tapOnElement(NamesMobileElements.FILTERS_LINK);
 		logger.info("Selecciona ordenar por AZ");
 		tapOnElement(NamesMobileElements.FILTERS_SORT_BY_AZ);
 		logger.info("Presionar boton listo");
@@ -60,8 +79,6 @@ public class FiltersBusinessTest extends BaseDriver {
 	
 	@Step("Tap on Z-A filter")
 	public void filterOrderZA() {
-		logger.info("Selecciona link Filtar");
-		tapOnElement(NamesMobileElements.FILTERS_LINK);
 		logger.info("Selecciona ordenar por ZA");
 		tapOnElement(NamesMobileElements.FILTERS_SORT_BY_ZA);
 		logger.info("Presionar boton listo");
@@ -70,8 +87,6 @@ public class FiltersBusinessTest extends BaseDriver {
 	
 	@Step("Tap on minnor price filter")
 	public void filterSmallestToLargest() {
-		logger.info("Selecciona link Filtar");
-		tapOnElement(NamesMobileElements.FILTERS_LINK);
 		logger.info("Selecciona ordenar por $ - $$");
 		tapOnElement(NamesMobileElements.FILTERS_SORT_BY_LESSTHAN);
 		logger.info("Presionar boton listo");
@@ -80,8 +95,6 @@ public class FiltersBusinessTest extends BaseDriver {
 	
 	@Step("Tap on higher price filter")
 	public void filterLargestToSmallest() {
-		logger.info("Selecciona link Filtar");
-		tapOnElement(NamesMobileElements.FILTERS_LINK);
 		logger.info("Selecciona ordenar por $$ - $");
 		tapOnElement(NamesMobileElements.FILTERS_SORT_BY_GREATERTHAN);
 		logger.info("Presionar boton listo");
@@ -90,8 +103,6 @@ public class FiltersBusinessTest extends BaseDriver {
 	
 	@Step("Tap on popularity filter")
 	public void filterPopularity() {
-		logger.info("Selecciona link Filtar");
-		tapOnElement(NamesMobileElements.FILTERS_LINK);
 		logger.info("Selecciona ordenar por Popularidad");
 		tapOnElement(NamesMobileElements.FILTERS_SORT_BY_POPULARITY);
 		logger.info("Presionar boton listo");
@@ -100,8 +111,6 @@ public class FiltersBusinessTest extends BaseDriver {
 	
 	@Step("Tap on sub category filter")
 	public void filterBy() {
-		logger.info("Selecciona link Filtar");
-		tapOnElement(NamesMobileElements.FILTERS_LINK);
 		tapOnElement(NamesMobileElements.FILTERS_FILTER_BY);
 		tapOnElement(NamesMobileElements.FILTERS_FILTER_BY_BRAND);
 		tapOnElement(NamesMobileElements.FILTERS_FILTER_BY_CHECK);

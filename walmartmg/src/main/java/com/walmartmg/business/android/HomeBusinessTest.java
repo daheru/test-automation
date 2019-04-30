@@ -6,19 +6,33 @@ import com.walmartmg.base.BaseDriver;
 import com.walmartmg.constants.GeneralConstants;
 import com.walmartmg.constants.NamesMobileElements;
 import com.walmartmg.enums.NavigationBarEnum;
+import com.walmartmg.enums.ProfileMenuEnum;
 
 import io.qameta.allure.Step;
 
 public class HomeBusinessTest extends BaseDriver {
 
 	private static final Logger logger = Logger.getLogger(HomeBusinessTest.class);
-	private GeneralBusinessTest generalBusinessTest = new GeneralBusinessTest();
+	private GeneralBusinessTest general = new GeneralBusinessTest();
 	private SearchBusinessTest search = new SearchBusinessTest();
 	private CarBusinessTest car = new CarBusinessTest();
 	private ProductBusinessTest product = new ProductBusinessTest();
+	private LoginBusinessTest login = new LoginBusinessTest();
 
+	public void login(String email, String pass) {
+		login.login(email, pass);
+	}
+	
+	public void selectProfileOption() {
+		general.selectNavigationOption( NavigationBarEnum.PROFILE );
+	}
+	
+	public void selectMenuLogin() {
+		general.selectProfileMenu(ProfileMenuEnum.LOGIN);
+	}
+	
 	public void selectHomeOption() {
-		generalBusinessTest.selectNavigationOption(NavigationBarEnum.HOME);
+		general.selectNavigationOption(NavigationBarEnum.HOME);
 	}
 
 	@Step("Validate home page")
@@ -96,7 +110,7 @@ public class HomeBusinessTest extends BaseDriver {
 	}
 
 	public void validatePopUpMessages(String message) {
-		generalBusinessTest.validatePopUpMessages(message);
+		general.validatePopUpMessages(message);
 	}
 
 	public void validateCar() {
@@ -104,7 +118,7 @@ public class HomeBusinessTest extends BaseDriver {
 	}
 
 	public void goBack() {
-		generalBusinessTest.goBack();
+		general.goBack();
 	}
 
 	public void deleteProduct() {

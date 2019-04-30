@@ -33,5 +33,7 @@ public class AppMessages {
 	public static final String INVALID_NUM_ADDRESS = PropertiesValuesUtil.getPropertyName("INVALID_NUM_ADDRESS");
 	public static final String INVALID_ZIP_ADDRESS = PropertiesValuesUtil.getPropertyName("INVALID_ZIP_ADDRESS");
 	public static final String INVALID_PHONE_ADDRESS = PropertiesValuesUtil.getPropertyName("INVALID_PHONE_ADDRESS");
+	public static final String ADD_ADDRESS = PropertiesValuesUtil.getPropertyName("ADD_ADDRESS");
+	public static final String DELETE_ADDRESS = PropertiesValuesUtil.getPropertyName("DELETE_ADDRESS");
 	
 }

@@ -417,6 +417,18 @@ public final class NamesMobileElements {
 	public static final String ADDRESS_INNER_NUMBER_CONT = PropertiesValuesUtil.getPropertyName("ADDRESS_INNER_NUMBER_CONT");
 	public static final String ADDRESS_ZIP_CODE_CONT = PropertiesValuesUtil.getPropertyName("ADDRESS_ZIP_CODE_CONT");
 	public static final String ADDRESS_PHONE_CONT = PropertiesValuesUtil.getPropertyName("ADDRESS_PHONE_CONT");
+	public static final String ADDRESS_NEIGHBORNHOOD = PropertiesValuesUtil.getPropertyName("ADDRESS_NEIGHBORNHOOD");
+	public static final String COMBO_OPTIONS = PropertiesValuesUtil.getPropertyName("COMBO_OPTIONS");
+	public static final String ADDRESS_LIST = PropertiesValuesUtil.getPropertyName("ADDRESS_LIST");
+	public static final String ADDRESS_PLUS_ADD = PropertiesValuesUtil.getPropertyName("ADDRESS_PLUS_ADD");
+	public static final String ADDRESS_BTN_DELETE = PropertiesValuesUtil.getPropertyName("ADDRESS_BTN_DELETE");
+	public static final String ADDRESS_BTN_EDIT = PropertiesValuesUtil.getPropertyName("ADDRESS_BTN_EDIT");
+	public static final String ADDRESS_FAVORITE = PropertiesValuesUtil.getPropertyName("ADDRESS_FAVORITE");
+	public static final String ADDRESS_TYPE = PropertiesValuesUtil.getPropertyName("ADDRESS_TYPE");
+	public static final String ADDRESS_DESCRIPTION = PropertiesValuesUtil.getPropertyName("ADDRESS_DESCRIPTION");
+	public static final String ADDRESS_TITLE_NAME = PropertiesValuesUtil.getPropertyName("ADDRESS_TITLE_NAME");
+	public static final String ADDRESS_DIALOG_DELETE = PropertiesValuesUtil.getPropertyName("ADDRESS_DIALOG_DELETE");
+	public static final String ADDRESS_DIALOG_BTNDELETE = PropertiesValuesUtil.getPropertyName("ADDRESS_DIALOG_BTNDELETE");
 	
 	public static final String ORDERS_CONT = PropertiesValuesUtil.getPropertyName("ORDERS_CONT");
 	public static final String ORDERS_EMPTY_IMG = PropertiesValuesUtil.getPropertyName("ORDERS_EMPTY_IMG");

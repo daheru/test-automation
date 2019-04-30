@@ -1,4 +1,4 @@
-package com.walmartmg.android.unregistered;
+package com.walmartmg.android.registered;
 
 import org.apache.log4j.Logger;
 import org.junit.After;
@@ -17,7 +17,7 @@ import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Story;
 import io.qameta.allure.junit4.DisplayName;
 
-@Feature("Filters Module - No session")
+@Feature("Filters Module - Session")
 public class FiltersTest {
 	
 	@Rule
@@ -46,7 +46,10 @@ public class FiltersTest {
 	@Severity(SeverityLevel.BLOCKER)
 	@Story("As a user I want to filter search results")
 	@Description("Validate that filters page has all elements")
-	public void CP081_validate_filters() {
+	public void CP158_validate_filters() {
+		filters.selectProfileOption();
+		filters.selectMenuLogin();
+		filters.login("alejandra.jra11@gmail.com", "12345678");
 		filters.selectDepartmentOption();
 		filters.selectDepartment();
 		filters.selectFamily();
@@ -59,7 +62,10 @@ public class FiltersTest {
 	@Severity(SeverityLevel.CRITICAL)
 	@Story("As a user I want to filter search results")
 	@Description("Filter search result list usign A-Z filter")
-	public void CP082_filter_order_by_az() {
+	public void CP159_filter_order_by_az() {
+		filters.selectProfileOption();
+		filters.selectMenuLogin();
+		filters.login("alejandra.jra11@gmail.com", "12345678");
 		filters.selectDepartmentOption();
 		filters.selectDepartment();
 		filters.selectFamily();
@@ -72,8 +78,11 @@ public class FiltersTest {
 	@Severity(SeverityLevel.CRITICAL)
 	@Story("As a user I want to filter search results")
 	@Description("Filter search result list usign A-Z filter")
-	public void CP083_filter_order_by_za() {
+	public void CP160_filter_order_by_za() {
 		logger.info("Start CP083 Filter Order By Z - A");
+		filters.selectProfileOption();
+		filters.selectMenuLogin();
+		filters.login("alejandra.jra11@gmail.com", "12345678");
 		filters.selectDepartmentOption();
 		filters.selectDepartment();
 		filters.selectFamily();
@@ -86,7 +95,10 @@ public class FiltersTest {
 	@Severity(SeverityLevel.CRITICAL)
 	@Story("As a user I want to filter search results")
 	@Description("Filter search result list usign minnor filter")
-	public void CP084_filter_orderby_smallest_to_largest() {
+	public void CP161_filter_orderby_smallest_to_largest() {
+		filters.selectProfileOption();
+		filters.selectMenuLogin();
+		filters.login("alejandra.jra11@gmail.com", "12345678");
 		filters.selectDepartmentOption();
 		filters.selectDepartment();
 		filters.selectFamily();
@@ -99,7 +111,10 @@ public class FiltersTest {
 	@Severity(SeverityLevel.CRITICAL)
 	@Story("As a user I want to filter search results")
 	@Description("Filter search result list usign higher filter")
-	public void CP085_filter_orderby_largest_to_smallest() {
+	public void CP162_filter_orderby_largest_to_smallest() {
+		filters.selectProfileOption();
+		filters.selectMenuLogin();
+		filters.login("alejandra.jra11@gmail.com", "12345678");
 		filters.selectDepartmentOption();
 		filters.selectDepartment();
 		filters.selectFamily();
@@ -112,7 +127,10 @@ public class FiltersTest {
 	@Severity(SeverityLevel.CRITICAL)
 	@Story("As a user I want to filter search results")
 	@Description("Filter search result list usign popularity filter")
-	public void CP086_filter_order_by_popularity () {
+	public void CP163_filter_order_by_popularity () {
+		filters.selectProfileOption();
+		filters.selectMenuLogin();
+		filters.login("alejandra.jra11@gmail.com", "12345678");
 		filters.selectDepartmentOption();
 		filters.selectDepartment();
 		filters.selectFamily();
@@ -125,11 +143,15 @@ public class FiltersTest {
 	@Severity(SeverityLevel.CRITICAL)
 	@Story("As a user I want to filter search results")
 	@Description("Filter search result list usign sub category filter")
-	public void CP088_filter_filter_by () {
+	public void CP165_filter_filter_by () {
+		filters.selectProfileOption();
+		filters.selectMenuLogin();
+		filters.login("alejandra.jra11@gmail.com", "12345678");
 		filters.selectDepartmentOption();
 		filters.selectDepartment();
 		filters.selectFamily();
 		filters.pressLinkFilter();
 		filters.filterBy();
 	}
+
 }

@@ -26,13 +26,12 @@ public class InvoiceTest {
 	
 	//Validate screen
 	@Test
-	public void CP110_validate_request_invoice() {
-		logger.info("Start CP110 invoice");
+	public void CP110_validate_screen_invoice() {
+		logger.info("Start CP110 validate screen invoice");
 		invoice.selectProfileOption();
 		invoice.selectMenuLogin();
 		invoice.login("alejandra.jra11@gmail.com", "12345678");
-		logger.info("Menu logueado");
-		invoice.selectRequestMyProfile();
+		invoice.selectRequestInvoice();
 		invoice.validateElements();
 	}
 	
@@ -43,8 +42,7 @@ public class InvoiceTest {
 		invoice.selectProfileOption();
 		invoice.selectMenuLogin();
 		invoice.login("alejandra.jra11@gmail.com", "12345678");
-		logger.info("Menu logueado");
-		invoice.selectRequestMyProfile();
+		invoice.selectRequestInvoice();
 		invoice.validateCodeInvoice("");
 		invoice.validateMessageEmpty();	
 	}
@@ -55,8 +53,7 @@ public class InvoiceTest {
 		invoice.selectProfileOption();
 		invoice.selectMenuLogin();
 		invoice.login("alejandra.jra11@gmail.com", "12345678");
-		logger.info("Menu logueado");
-		invoice.selectRequestMyProfile();
+		invoice.selectRequestInvoice();
 		invoice.validateCodeInvoice("55830475286542537193");
 	}
 	
@@ -66,8 +63,7 @@ public class InvoiceTest {
 		invoice.selectProfileOption();
 		invoice.selectMenuLogin();
 		invoice.login("alejandra.jra11@gmail.com", "12345678");
-		logger.info("Menu logueado");
-		invoice.selectRequestMyProfile();
+		invoice.selectRequestInvoice();
 		invoice.validateCodeInvoice("55830475286542537199");
 		invoice.validateMessageError();
 	}

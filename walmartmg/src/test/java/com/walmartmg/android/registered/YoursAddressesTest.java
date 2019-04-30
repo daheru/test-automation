@@ -8,13 +8,13 @@ import org.junit.Test;
 
 import com.walmartmg.business.android.AddressesBusinessTest;
 import com.walmartmg.business.android.GeneralBusinessTest;
+import com.walmartmg.constants.AppMessages;
 import com.walmartmg.vo.AddressVO;
 
 public class YoursAddressesTest {
 	
 	public static final Logger logger = Logger.getLogger( MyProfileTest.class );
 	private static AddressesBusinessTest address = new AddressesBusinessTest();
-	private static GeneralBusinessTest general = new GeneralBusinessTest();
 	private static AddressVO addressVO;
 	
 	
@@ -42,7 +42,7 @@ public class YoursAddressesTest {
 		address.selectMenuLogin();
 		address.login("alejandra.jra11@gmail.com", "12345678");
 		logger.info("Menu logueado");
-		address.selectRequestMyProfile();
+		address.selectRequestAddress();
 		address.validateScreenYoursAddresses();
 	}
 	
@@ -53,7 +53,7 @@ public class YoursAddressesTest {
 		address.selectMenuLogin();
 		address.login("alejandra.jra11@gmail.com", "12345678");
 		logger.info("Menu logueado");
-		address.selectRequestMyProfile();
+		address.selectRequestAddress();
 		address.pressBtnAdd();
 		address.validateFormAddAddress();
 	}
@@ -65,7 +65,7 @@ public class YoursAddressesTest {
 		address.selectMenuLogin();
 		address.login("alejandra.jra11@gmail.com", "12345678");
 		logger.info("Menu logueado");
-		address.selectRequestMyProfile();
+		address.selectRequestAddress();
 		address.pressBtnAdd();
 		address.pressBtnSave();
 		address.validateFieldsEmpty();
@@ -79,15 +79,74 @@ public class YoursAddressesTest {
 		addressVO.setAddressStreet("!$%&/()#");
 		addressVO.setAddressOutNumber("·$%&");
 		addressVO.setAddressInnerNumber("·$%&");
-		addressVO.setAddressZipcode("**00");
 		addressVO.setAddressPhone("123");
 		address.selectProfileOption();
 		address.selectMenuLogin();
 		address.login("alejandra.jra11@gmail.com", "12345678");
 		logger.info("Menu logueado");
-		address.selectRequestMyProfile();
+		address.selectRequestAddress();
 		address.pressBtnAdd();
-		
+		address.addNewDirection(addressVO);
+		address.pressBtnSave();
+		address.validateInvalidData();
 	}
-
+	
+	//Cuenta nueva 
+	@Test
+	public void CP104_add_new_address() {
+		logger.info("Start CP104 Add New Address");
+		addressVO = address.initAddressVO();
+		address.selectProfileOption();
+		address.selectMenuLogin();
+		address.login("alejandra.jra11@gmail.com", "12345678");
+		logger.info("Menu logueado");
+		address.selectRequestAddress();
+		address.pressBtnAdd();
+		address.addNewDirection(addressVO);
+		address.pressBtnSave();
+		address.validateAddress(addressVO, AppMessages.ADD_ADDRESS);
+	}
+	
+	//con direcciones existentes
+	@Test
+	public void CP104_1_add_new_address() {
+		logger.info("Start CP104 Add New Address");
+		addressVO = address.initAddressVO();
+		address.selectProfileOption();
+		address.selectMenuLogin();
+		address.login("alejandra.jra11@gmail.com", "12345678");
+		logger.info("Menu logueado");
+		address.selectRequestAddress();
+		address.pressPlusAdd();
+		address.addNewDirection(addressVO);
+		address.pressBtnSave();
+		address.validateAddress(addressVO, AppMessages.ADD_ADDRESS);
+	}
+	
+	@Test
+	public void CP105_edit_address() {
+		addressVO.setAddressName("$Mi Direccion-#");
+		addressVO.setAddressUserName("&Ju/an(");
+		addressVO.setAddressUserLastName("P=e)r$e!z");
+		addressVO.setAddressStreet("%Mi calle#");
+		address.selectProfileOption();
+		address.selectMenuLogin();
+		address.login("alejandra.ruiz.walis@gmail.com", "12345678");
+		logger.info("Menu logueado");
+		address.selectRequestAddress();
+		logger.info("Menu logueado");
+		address.editAddress(addressVO);
+		address.pressBtnSave();
+		address.validateAddress(addressVO, AppMessages.ADD_ADDRESS);
+	}
+	
+	@Test
+	public void CP106_delete_address() {
+		address.selectProfileOption();
+		address.selectMenuLogin();
+		address.login("alejandra.jra11@gmail.com", "12345678");
+		logger.info("Menu logueado");
+		address.selectRequestAddress();
+		address.removeAddress(addressVO);
+	}
 }

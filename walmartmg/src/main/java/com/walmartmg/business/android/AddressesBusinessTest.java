@@ -1,9 +1,13 @@
 package com.walmartmg.business.android;
 
+import java.util.List;
+import java.util.Random;
+
 import org.apache.log4j.Logger;
 
 import com.walmartmg.base.BaseDriver;
 import com.walmartmg.constants.AppMessages;
+import com.walmartmg.constants.ConfigConstants;
 import com.walmartmg.constants.GeneralConstants;
 import com.walmartmg.constants.NamesMobileElements;
 import com.walmartmg.enums.NavigationBarEnum;
@@ -36,12 +40,17 @@ public class AddressesBusinessTest extends BaseDriver{
 		general.selectProfileMenu(ProfileMenuEnum.LOGIN );
 	}
 	
-	public void selectRequestMyProfile() {
+	public void selectRequestAddress() {
 		general.selectProfileMenu(ProfileMenuEnum.ADDRESS );
 	}
 	
+	//botón cuenta nueva 
 	public void pressBtnAdd() {
 		tapOnElement(NamesMobileElements.ADDRESS_BTNADD);
+	}
+	
+	public void pressPlusAdd() {
+		tapOnElement(NamesMobileElements.ADDRESS_PLUS_ADD);
 	}
 	
 	public void pressBtnSave() {
@@ -51,7 +60,7 @@ public class AddressesBusinessTest extends BaseDriver{
 	
 	public void addNewDirection(AddressVO addressVO) {
 		logger.info("Escribiendo datos");
-		//randomAddressName(addressVO);
+		randomAddressName(addressVO);
 		waitElementVisibility(NamesMobileElements.ADDRESS_ADDRESS_NAME);
 		fillElement(NamesMobileElements.ADDRESS_ADDRESS_NAME, addressVO.getAddressName());
 		fillElement(NamesMobileElements.ADDRESS_NAME, addressVO.getAddressUserName());
@@ -63,7 +72,7 @@ public class AddressesBusinessTest extends BaseDriver{
 		tapOnElement(NamesMobileElements.ADDRESS_ZIP_CODE);
 		fillElement(NamesMobileElements.ADDRESS_ZIP_CODE, addressVO.getAddressZipcode());
 		hideKeyboard();
-		/*waitElementVisibility(NamesMobileElements.ADDRESS_NEIGHBORNHOOD);
+		waitElementVisibility(NamesMobileElements.ADDRESS_NEIGHBORNHOOD);
 		tapOnElement(NamesMobileElements.ADDRESS_NEIGHBORNHOOD);
 		List<MobileElement> neighbornhoods = findElements(NamesMobileElements.COMBO_OPTIONS);
 		for (MobileElement neighbornhood : neighbornhoods) {
@@ -72,7 +81,7 @@ public class AddressesBusinessTest extends BaseDriver{
 				neighbornhood.click();
 				break;
 			}
-		}*/
+		}
 		scrollUntilShowElement(GeneralConstants.SCROLL_UP, NamesMobileElements.ADDRESS_REFERENCE_TWO);
 		fillElement(NamesMobileElements.ADDRESS_REFERENCE_ONE, addressVO.getAddressReferenceOne());
 		scrollUntilShowElement(GeneralConstants.SCROLL_UP, NamesMobileElements.ADDRESS_BTN_SAVE);
@@ -82,19 +91,53 @@ public class AddressesBusinessTest extends BaseDriver{
 		selectAsMainAddress(addressVO.isMainAddress());
 	}
 	
+	public void editAddress(AddressVO addressVO) {
+		waitElementVisibility(NamesMobileElements.ADDRESS_LIST);
+		if (elementExist(NamesMobileElements.ADDRESS_BTN_EDIT)) {
+			tapOnElement(NamesMobileElements.ADDRESS_BTN_EDIT);
+			addNewDirection(addressVO);
+		} else {
+			assertTrue("No hay direcciones que editar", Boolean.FALSE);
+		}
+		logger.info("Editando direccion");
+	}
 	
+	
+	private void randomAddressName(AddressVO addressVO) {
+		Random generator = new Random();
+		String newAddress = addressVO.getAddressName() + generator.nextInt(1000);
+		addressVO.setAddressName(newAddress);
+	}
+	
+	
+	//@Step("Validate address")
+	public void validateAddress(AddressVO addressVO, String validationMessage) {
+		general.validatePopUpMessages(validationMessage);
+		waitElementVisibility(NamesMobileElements.ADDRESS_LIST);
+		MobileElement addressList = findElement(NamesMobileElements.ADDRESS_LIST);
+		List<MobileElement> addressDetail = findSubElements(addressList, NamesMobileElements.ADDRESS_ADDRESS_NAME);
+		if (addressVO.isMainAddress()) {
+			assertEquals(addressVO.getAddressName().toLowerCase(), getElementText(addressDetail.get(0)));
+		} else {
+			assertTrue("La direccion no debe ser principal",
+					!addressVO.getAddressName().toLowerCase().equals(getElementText(addressDetail.get(0))));
+		}
+		logger.info("Guardado exitoso");
+	}
+	
+	//check address principal
 	private void selectAsMainAddress(boolean check) {
 		logger.info("Tap en checkbox de direccion principal");
 		MobileElement checkMainAddress = findElement(NamesMobileElements.ADDRESS_CHECK);
-		//boolean checkMainAddressBool = checkMainAddress != null
-		//		? Boolean.parseBoolean(checkMainAddress.getAttribute(GeneralConstants.CHECKED))
-		//		: false;
-		//if (check && !checkMainAddressBool) {
-		//	tapOnElement(NamesMobileElements.ADDRESS_CHECK);
-		//}
-		//if (!check && checkMainAddressBool) {
-		//	tapOnElement(NamesMobileElements.ADDRESS_CHECK);
-		//}
+		boolean checkMainAddressBool = checkMainAddress != null
+				? Boolean.parseBoolean(checkMainAddress.getAttribute(GeneralConstants.CHECKED))
+				: false;
+		if (check && !checkMainAddressBool) {
+			tapOnElement(NamesMobileElements.ADDRESS_CHECK);
+		}
+		if (!check && checkMainAddressBool) {
+			tapOnElement(NamesMobileElements.ADDRESS_CHECK);
+		}
 	}
 
 	
@@ -139,25 +182,48 @@ public class AddressesBusinessTest extends BaseDriver{
 	}
 	
 	
-	public void validateInvalidMgsForm() {
-		
-		tapOnElement(NamesMobileElements.ADDRESS_BTNADD);
-		logger.info("Validate empty form");
-		
+	public void validateInvalidData() {
+		logger.info("Validate invalid data form");
 		scrollUntilShowElement(GeneralConstants.SCROLL_DOWN, NamesMobileElements.ADDRESS_ADDRESS_NAME_CONT);
 		general.validateFieldErrorMessage(AppMessages.INVALID_FIELDS_ADDRESS, NamesMobileElements.ADDRESS_ADDRESS_NAME_CONT);
+		general.validateFieldErrorMessage(AppMessages.INVALID_FIELDS_ADDRESS, NamesMobileElements.ADDRESS_NAME_CONT);
+		general.validateFieldErrorMessage(AppMessages.INVALID_FIELDS_ADDRESS, NamesMobileElements.ADDRESS_STREET_CONT);
+		general.validateFieldErrorMessage(AppMessages.INVALID_FIELDS_ADDRESS, NamesMobileElements.ADDRESS_OUTER_NUMBER_CONT);
+		general.validateFieldErrorMessage(AppMessages.INVALID_NUM_ADDRESS, NamesMobileElements.ADDRESS_INNER_NUMBER_CONT);
+		scrollUntilShowElement(GeneralConstants.SCROLL_UP, NamesMobileElements.ADDRESS_PHONE_CONT);
+		general.validateFieldErrorMessage(AppMessages.INVALID_PHONE_ADDRESS, NamesMobileElements.ADDRESS_PHONE_CONT);
+		logger.info("Complete the validation of the form");
 	}
 	
-	/*
-	 * public void validateAddressInvalidMessages() {
-		scrollUntilShowElement(GeneralConstants.SCROLL_DOWN, NamesMobileElements.ADDRESS_NAME_TEXT_CONT);
-		validateErrorMessages(AppMessages.INVALID_DATA_TEXT_FIELD, NamesMobileElements.ADDRESS_NAME_TEXT_CONT);
-		validateErrorMessages(AppMessages.INVALID_DATA_TEXT_FIELD, NamesMobileElements.ADDRESS_USER_NAME_CONT);
-		scrollUntilShowElement(GeneralConstants.SCROLL_UP, NamesMobileElements.ADDRESS_STREET_TEXT_CONT);
-		validateErrorMessages(AppMessages.INVALID_DATA_TEXT_FIELD, NamesMobileElements.ADDRESS_USER_LAST_NAME_CONT);
-		validateErrorMessages(AppMessages.INVALID_DATA_TEXT_FIELD, NamesMobileElements.ADDRESS_STREET_TEXT_CONT);
-		logger.info("Mensajes de error válidos");
+	//Delete address
+	public void removeAddress(AddressVO addressVO) {
+		waitElementVisibility(NamesMobileElements.ADDRESS_LIST);
+		if (elementExist(NamesMobileElements.ADDRESS_DESCRIPTION)) {
+			List<MobileElement> deletes = findElements(NamesMobileElements.ADDRESS_BTN_DELETE);
+			addressName = getElementText(findElements(NamesMobileElements.ADDRESS_BTN_DELETE).get(0));
+			tapOnElement(deletes.get(0));
+			waitElementVisibility(NamesMobileElements.ADDRESS_DIALOG_DELETE);
+			tapOnElement(NamesMobileElements.ADDRESS_DIALOG_BTNDELETE);
+			logger.info("Eliminando direccion");
+		} else {
+			randomAddressName(addressVO);
+			pressPlusAdd();
+			addNewDirection(addressVO);
+			selectAsMainAddress(false);
+			pressBtnSave();
+			validateAddress(addressVO, AppMessages.ADD_ADDRESS);
+			removeAddress(addressVO);
+		}
 	}
-	*/
+
+	public void validateRemoveAddress() {
+		general.validatePopUpMessages(AppMessages.DELETE_ADDRESS);
+		waitEvent();
+		List<MobileElement> address = findElements(NamesMobileElements.ADDRESS_BTN_DELETE);
+		String actualAddress = getElementText(address.get(0));
+		assertTrue("No se eliminó la dirección", !addressName.equals(actualAddress));
+	}
+
+	
 
 }

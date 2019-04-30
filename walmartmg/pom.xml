@@ -26,9 +26,10 @@
 			<id>android</id>
 			<properties>
 				<device.name>Mobile_Test</device.name>
-				<!-- emulator-5554 -->
+				<!-- emulator-5554 UIAutomator2-->
 				<!-- 3300ce9aca6fb337 -->
-				<device.udid>3300ce9aca6fb337</device.udid>
+				<!-- 8DM0218A15002368 -->
+				<device.udid>emulator-5554</device.udid>
 				<platform.name>Android</platform.name>
 				<platform.version>9.0</platform.version>
 				<automation.name>UIAutomator2</automation.name>
