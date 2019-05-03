@@ -76,7 +76,7 @@ public class LoginTest {
 		logger.info("INICIANDO CASO DE PRUEBA ");
 		login.selectProfile();
 		login.selectMenu();
-		login.login("javier_miranda@hotmail.com", "12345678");
+		login.login("javier_miranda@hotmail.es", "12345678");
 		login.RegNotuser();
 		logger.info("FINALIZANDO CASO DE PRUEBA ");
 

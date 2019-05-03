@@ -43,7 +43,7 @@ public class HomeBussinesTest extends BaseDriver {
 	}
 
 	public void searchProduct(String producto) {
-		logger.info("Validacion de un producto valido");
+		logger.info("Validacion de un producto ");
 		waitElementVisibility(NamesMobileElements.HOME_BUSCADOR);
 		tapOnElement(NamesMobileElements.HOME_BUSCADOR);
 		fillElement(NamesMobileElements.HOME_BUSCADOR, producto + "\n");
@@ -56,7 +56,7 @@ public class HomeBussinesTest extends BaseDriver {
 		waitElementVisibility(NamesMobileElements.HOME_MENSAGE_VALIDATE);
 	}
 
-	public void validateEmptySearch() {
+	public void validateEmptySearchProduct() {
 		logger.info("Validacion de producto Invalido");
 		waitElementVisibility(NamesMobileElements.HOME_BUSCADOR_0);
 	}
@@ -79,8 +79,7 @@ public class HomeBussinesTest extends BaseDriver {
 		logger.info("se agrega producto de las ofertas relampag");
 		tapOnElement(NamesMobileElements.HOME_AGREGAR_COMPRA);
 		logger.info("se ¡valida mensaje de agrego producto");
-		waitElementVisibility(NamesMobileElements.HOME_PRODUCT_AGREGADO);
-		waitElementVisibility(NamesMobileElements.HOME_PRODUCT_AGREGADO);
+		general.waitElementVisibility(NamesMobileElements.HOME_PRODUCT_AGREGADO);
 		logger.info("se agrega el mismo producto 2 veces");
 		tapOnElement(NamesMobileElements.HOME_AGREGAR_MAS_PRODUCTOS);
 		tapOnElement(NamesMobileElements.HOME_AGREGAR_MAS_PRODUCTOS);
@@ -96,7 +95,8 @@ public class HomeBussinesTest extends BaseDriver {
 		tapOnElement(NamesMobileElements.HOME_BUSCADOR);
 		fillElement(NamesMobileElements.HOME_BUSCADOR, producto + "\n");
 		logger.info("  selecciona prododucto producto");
-		tapOnElement(NamesMobileElements.HOME_SELECT);
+		general.waitElementVisibility(NamesMobileElements.HOME_SELECT_BUSCADOR);
+		tapOnElement(NamesMobileElements.HOME_SELECT_BUSCADOR);
 		logger.info("se agrega producto ");
 		tapOnElement(NamesMobileElements.HOME_AGREGAR_COMPRA);
 		// logger.info("/se valida el mensaje /");
@@ -164,7 +164,7 @@ public class HomeBussinesTest extends BaseDriver {
 		waitElementVisibility(NamesMobileElements.HOME_SUB_TOTAL);
 		logger.info("/se valida el que aparezca el boton de continuar comprando /");
 		waitElementVisibility(NamesMobileElements.HOME_CONTINUAR_COMPRANDO);
-		logger.info("FINALIZANDO CASO DE PRUEBA ");
+		
 
 	}
 
@@ -175,12 +175,13 @@ public class HomeBussinesTest extends BaseDriver {
 		logger.info(" Agrega  producto al carrito de compras  ");
 		tapOnElement(NamesMobileElements.HOME_AGREGAR_COMPRA);
 		logger.info("/se valida el mensaje del producto agregado/");
-		waitElementVisibility(NamesMobileElements.HOME_PRODUCT_AGREGADO);
+		//waitElementVisibility(NamesMobileElements.HOME_PRODUCT_AGREGADO);
 		logger.info("/PRODUCTO AGREGADO AL  CARRITO DE COMPRAS /");
 		tapOnElement(NamesMobileElements.HOME_COMPRAS);
 		logger.info("/se valida  BOTTON DE ELIMINAR /");
 		logger.info("/se elimina producto seleccionado  /");
 		waitElementVisibility(NamesMobileElements.HOME_BUTTON_ELIMINAR);
+		tapOnElement(NamesMobileElements.HOME_BUTTON_ELIMINAR);
 		tapOnElement(NamesMobileElements.HOME_BUTTON_ELIMINAR);
 		logger.info("/se valida que no hay producto en el carrito de compras/");
 		waitElementVisibility(NamesMobileElements.HOME_IMAGEN_CARTARE_ARTICULES);
@@ -221,13 +222,26 @@ public class HomeBussinesTest extends BaseDriver {
 		tapOnElement(NamesMobileElements.HOME_CONTINUAR_COMPRANDO);
 		logger.info("se valida que salga la pantalla pago seguro  ");
 		waitElementVisibility(NamesMobileElements.SECURE_PAYMENT);
-		logger.info("se valida que salga la pantalla pago seguro  ");
-		waitElementVisibility(NamesMobileElements.SECURE_PAYMENT);
-		waitElementVisibility(NamesMobileElements.SECURE_PAYMENT);
+		
+		
+	}	
+	
+	public void Validate_screen(){
+		logger.info("  selecciona  producto de interes ");
+		waitElementVisibility(NamesMobileElements.HOME_PRODT);
+		tapOnElement(NamesMobileElements.HOME_PRODT);
+		logger.info(" Agrega  producto al carrito de compras  ");
+		tapOnElement(NamesMobileElements.HOME_AGREGAR_COMPRA);
+		logger.info("/se valida el mensaje del producto agregado/");
+		waitElementVisibility(NamesMobileElements.HOME_PRODUCT_AGREGADO);
+		logger.info("/PRODUCTO AGREGADO AL  CARRITO DE COMPRAS /");
+		tapOnElement(NamesMobileElements.HOME_COMPRAS);
+		logger.info("/se valida el que aparezca el boton de continuar comprando y se da clicl en el  /");
+		waitElementVisibility(NamesMobileElements.HOME_CONTINUAR_COMPRANDO);
+		tapOnElement(NamesMobileElements.HOME_CONTINUAR_COMPRANDO);
 		logger.info("se valida que salga la pantalla pago seguro  ");
 		waitElementVisibility(NamesMobileElements.SECURE_PAYMENT);
 		
-	}	
-
+	}
 
 }

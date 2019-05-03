@@ -50,9 +50,9 @@ public class LoginBusinessTest extends BaseDriver {
 	public void validateLoginfail() {
 		logger.info("se visualiza el mensaje incorrecto  ");
 		String massageFail = getElementText(NamesMobileElements.LOGIN_MENSSAGE_FAIL);
-		logger.info("se valida el mensaje proporcionado por el aplicativo   ");
+		logger.info("El correo o la contraseña no son correctos.");
 		Assert.assertEquals("El correo o la contraseña no son correctos.".toLowerCase(), massageFail.toLowerCase());
-		tapOnElement(NamesMobileElements.BUTTON_FAIL);
+		logger.info("se visualiza el mensaje incorrecto  ");
 	}
 
 //  password incorrecto menor a 8 caracteres  
@@ -64,15 +64,12 @@ public class LoginBusinessTest extends BaseDriver {
 		waitElementVisibility(NamesMobileElements.LOGIN_SHOW_PASS);
 		tapOnElement(NamesMobileElements.LOGIN_SHOW_PASS);
 		tapOnElement(NamesMobileElements.LOGIN_BUTTON);
-
 	}
 //validacion 	
-
 	public void validateMinor() {
 		logger.info("se valida el mensaje de error que muestra elsistema ");
 		String massageFail = getElementText(NamesMobileElements.LOGIN_MENSSAGE_MINOR);
 		Assert.assertEquals("Ocurrio un error, favor de intentar nuevamente".toLowerCase(), massageFail.toLowerCase());
-		tapOnElement(NamesMobileElements.BUTTON_FAIL);
 		logger.info("FINALIZA CASO DE PRUEBA ");
 	}
 
@@ -81,7 +78,7 @@ public class LoginBusinessTest extends BaseDriver {
 		logger.info("se ingresa el correo   ");
 		fillElement(NamesMobileElements.LOGIN_EMAIL, "dj_fran_@hotmail.com");
 		logger.info("se ingresa el password   ");
-		fillElement(NamesMobileElements.LOGIN_PASS, "080714regina");
+		fillElement(NamesMobileElements.LOGIN_PASS, "emilze080714");
 		tapOnElement(NamesMobileElements.LOGIN_SHOW_PASS);
 		tapOnElement(NamesMobileElements.LOGIN_BUTTON);
 		Vmail();
@@ -89,10 +86,10 @@ public class LoginBusinessTest extends BaseDriver {
 
 //validacion del mail 
 	public void Vmail() {
-		logger.info("se valida que el coreo proporcionado es inavalido   ");
-		waitElementVisibility(NamesMobileElements.LOGIN_MENSSAGE_FAIL);
-		// tapOnElement(NamesMobileElements.BUTTON_FAIL);
-		waitElementVisibility(NamesMobileElements.BUTTON_FAIL);
+		logger.info("se valida que el correo proporcionado es inavalido   ");
+		String massageFail = getElementText(NamesMobileElements.LOGIN_MENSSAGE_FAIL);
+		logger.info("El correo o la contraseña no son correctos.");
+		Assert.assertEquals("El correo o la contraseña no son correctos.".toLowerCase(), massageFail.toLowerCase());
 		logger.info("FINALIZANDO CASO DE PRUEBA ");
 
 	}
@@ -102,7 +99,6 @@ public class LoginBusinessTest extends BaseDriver {
 		waitElementVisibility(NamesMobileElements.LOGIN_MENSSAGE_USERNOTEXIST);
 		String massageFail = getElementText(NamesMobileElements.LOGIN_MENSSAGE_USERNOTEXIST);
 		assertEquals("Este usuario no está registrado. Regístrate ahora.".toLowerCase(), massageFail.toLowerCase());
-		tapOnElement(NamesMobileElements.BUTTON_FAIL);
 		logger.info("FINALIZANDO CASO DE PRUEBA ");
 	}
 

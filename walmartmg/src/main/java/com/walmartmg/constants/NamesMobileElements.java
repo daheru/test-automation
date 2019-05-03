@@ -22,11 +22,10 @@ public final class NamesMobileElements {
 	public static final String MENU_NAME = PropertiesValuesUtil.getPropertyName("MENU_NAME");
 
 	public static final String LOGIN_BUTTON = PropertiesValuesUtil.getPropertyName("LOGIN_BUTTON");
-	public static final String BUTTON_FAIL = PropertiesValuesUtil.getPropertyName("BUTTON_FAIL");
 	public static final String LOGIN_EMAIL = PropertiesValuesUtil.getPropertyName("LOGIN_EMAIL");
 	public static final String LOGIN_PASS = PropertiesValuesUtil.getPropertyName("LOGIN_PASS");
 	
-	public static final String LOGIN_IN = PropertiesValuesUtil.getPropertyName("LOGIN_SHOLOGIN_INW_PASS");
+	public static final String LOGIN_IN = PropertiesValuesUtil.getPropertyName("LOGIN_IN");
 	public static final String LOGIN_ACCOUNT = PropertiesValuesUtil.getPropertyName("LOGIN_ACCOUNT");
 	public static final String LOGIN_HELP = PropertiesValuesUtil.getPropertyName("LOGIN_HELP");
 	public static final String LOGIN_LEGAL = PropertiesValuesUtil.getPropertyName("LOGIN_LEGAL");
@@ -37,7 +36,7 @@ public final class NamesMobileElements {
 	public static final String LOGIN_MENSSAGE_FAIL = PropertiesValuesUtil.getPropertyName("LOGIN_MENSSAGE_FAIL");
 	public static final String LOGIN_MENSSAGE_MINOR = PropertiesValuesUtil.getPropertyName("LOGIN_MENSSAGE_MINOR");
 	public static final String LOGIN_SHOW_PASS = PropertiesValuesUtil.getPropertyName("LOGIN_SHOW_PASS");
-	public static final String LOGIN_MENSSAGE_USERNOTEXIST = PropertiesValuesUtil.getPropertyName("MENSSAGE_USERNOTEXIST");
+	public static final String LOGIN_MENSSAGE_USERNOTEXIST = PropertiesValuesUtil.getPropertyName("LOGIN_MENSSAGE_USERNOTEXIST");
 	public static final String LOGIN_FORGOT2 = PropertiesValuesUtil.getPropertyName("LOGIN_FORGOT2");
 	public static final String LOGIN_ALERT = PropertiesValuesUtil.getPropertyName("LOGIN_ALERT");
 	public static final String LOGIN_ALERT_BUTTON = PropertiesValuesUtil.getPropertyName("LOGIN_ALERT");
@@ -154,7 +153,7 @@ public final class NamesMobileElements {
 	public static final String HOME_BUTTON_BACK = PropertiesValuesUtil.getPropertyName("HOME_BUTTON_BACK");
 	public static final String HOME_MENSAGE_VALIDATE = PropertiesValuesUtil.getPropertyName("HOME_MENSAGE_VALIDATE");
 
-	public static final String HOME_SELECT= PropertiesValuesUtil.getPropertyName("HOME_SELECT");
+	public static final String HOME_SELECT_BUSCADOR= PropertiesValuesUtil.getPropertyName("HOME_SELECT_BUSCADOR");
 	public static final String HOME_AGREGAR_MENOS_PRODUCTOS = PropertiesValuesUtil.getPropertyName("HOME_AGREGAR_MENOS_PRODUCTOS");
 	
 	public static final String HOME_BUTTON_ELIMINAR = PropertiesValuesUtil.getPropertyName("HOME_BUTTON_ELIMINAR");
@@ -181,6 +180,44 @@ public final class NamesMobileElements {
 
 	public static final String Perfil_Date_inicio = PropertiesValuesUtil.getPropertyName("Perfil_Date_inicio");
 	public static final String PERFIL_MENSAGE_ERROR = PropertiesValuesUtil.getPropertyName("PERFIL_MENSAGE_ERROR");
+	public static final String PERFIL_MENSAGE_OK = PropertiesValuesUtil.getPropertyName("PERFIL_MENSAGE_OK");
+	
+	public static final String PERFIL_CHANGE_PASSWORD = PropertiesValuesUtil.getPropertyName("PERFIL_CHANGE_PASSWORD");
+	public static final String PERFIL_PAGE_DATE_INICIO = PropertiesValuesUtil.getPropertyName("PERFIL_PAGE_DATE_INICIO");
+	public static final String PERFIL_MAIL = PropertiesValuesUtil.getPropertyName("PERFIL_MAIL");
+	public static final String PERFIL_PASSWORD_NEW = PropertiesValuesUtil.getPropertyName("PERFIL_PASSWORD_NEW");
+	public static final String PERFIL_CURRENT_PASSWORD = PropertiesValuesUtil.getPropertyName("PERFIL_CURRENT_PASSWORD");
+	public static final String PERFIL_MENSAGE_PASS_OK = PropertiesValuesUtil.getPropertyName("PERFIL_MENSAGE_PASS_OK");
+
+	public static final String PERFIL_MOVIL1 = PropertiesValuesUtil.getPropertyName("PERFIL_MOVIL1");
+	public static final String PERFIL_MOVIL2 = PropertiesValuesUtil.getPropertyName("PERFIL_MOVIL2");
+	public static final String PERFIL_Edit_botton_two = PropertiesValuesUtil.getPropertyName("PERFIL_Edit_botton_two");
+	public static final String PERFIL_MENSAGE_ok = PropertiesValuesUtil.getPropertyName("PERFIL_MENSAGE_ok");
+
+	public static final String PERFIL_ADDRES = PropertiesValuesUtil.getPropertyName("PERFIL_ADDRES");
+	public static final String PERFIL_ADRRES_ONE = PropertiesValuesUtil.getPropertyName("PERFIL_ADRRES_ONE");
+	public static final String PERFIL_ADDRES_TWO = PropertiesValuesUtil.getPropertyName("PERFIL_ADDRES_TWO");
+	public static final String PERFIL_BUTTON_MAS = PropertiesValuesUtil.getPropertyName("PERFIL_BUTTON_MAS");
+	public static final String PERFIL_FAVOR_ADDRES_RED = PropertiesValuesUtil.getPropertyName("PERFIL_FAVOR_ADDRES_RED");
+	public static final String PERFIL_FAVOR_ADRRES = PropertiesValuesUtil.getPropertyName("PERFIL_FAVOR_ADRRES");
+	public static final String PERFIL_BOTTON_OK = PropertiesValuesUtil.getPropertyName("PERFIL_BOTTON_OK");
+
+	public static final String PERFIL_NAME_ADDRES = PropertiesValuesUtil.getPropertyName("PERFIL_NAME_ADDRES");
+	public static final String PERFIL_NAME1 = PropertiesValuesUtil.getPropertyName("PERFIL_NAME1");
+	public static final String PERFIL_LASTNAME2 = PropertiesValuesUtil.getPropertyName("PERFIL_LASTNAME2");
+	public static final String PERFIL_STREET = PropertiesValuesUtil.getPropertyName("PERFIL_STREET");
+	public static final String PERFIL_NUMBER_EXT = PropertiesValuesUtil.getPropertyName("PERFIL_NUMBER_EXT");
+	public static final String PERFIL_NUMBER_INT = PropertiesValuesUtil.getPropertyName("PERFIL_NUMBER_INT");
+	public static final String PERFIL_CP = PropertiesValuesUtil.getPropertyName("PERFIL_CP");
+	public static final String PERFIL_COLONY = PropertiesValuesUtil.getPropertyName("PERFIL_COLONY");
+	public static final String PERFIL_TEL_NUM = PropertiesValuesUtil.getPropertyName("PERFIL_TEL_NUM");
+	public static final String PERFIL_SELECT_ADDRES_PRIN = PropertiesValuesUtil.getPropertyName("PERFIL_SELECT_ADDRES_PRIN");
+
+	public static final String PERFIL_YOUR_ORDERS = PropertiesValuesUtil.getPropertyName("PERFIL_YOUR_ORDERS");
+	public static final String PERFIL_PAGE_NO_ORDER = PropertiesValuesUtil.getPropertyName("PERFIL_PAGE_NO_ORDER");
+	public static final String PERFIL_DETAIL = PropertiesValuesUtil.getPropertyName("PERFIL_DETAIL");
+	public static final String PROFILE_LEGAL_LOGO = PropertiesValuesUtil.getPropertyName("PROFILE_LEGAL_LOGO");
+	public static final String PROFILE_SING_OFF = PropertiesValuesUtil.getPropertyName("PROFILE_SING_OFF");
 
 	
 	
@@ -310,9 +347,6 @@ public final class NamesMobileElements {
 	public static final String DEP_ITEM_CHILD = PropertiesValuesUtil.getPropertyName("DEP_ITEM_CHILD");
 	public static final String DEP_ICON = PropertiesValuesUtil.getPropertyName("DEP_ICON");
 	public static final String DEP_FAMILY_CONT = PropertiesValuesUtil.getPropertyName("DEP_FAMILY_CONT");
-	
-	public static final String MENU_PROFILE_CONT = PropertiesValuesUtil.getPropertyName("MENU_PROFILE_CONT");
-	
 	public static final String FILTERS_LINK = PropertiesValuesUtil.getPropertyName("FILTERS_LINK");
 	public static final String FILTERS_CONT = PropertiesValuesUtil.getPropertyName("FILTERS_CONT");
 	public static final String FILTERS_SORT_BY = PropertiesValuesUtil.getPropertyName("FILTERS_SORT_BY");
@@ -355,15 +389,15 @@ public final class NamesMobileElements {
 	public static final String LOGON_DATA_BTNUPDATE = PropertiesValuesUtil.getPropertyName("LOGON_DATA_BTNUPDATE");
 	
 	public static final String PHONE_INFO_CONT = PropertiesValuesUtil.getPropertyName("PHONE_INFO_CONT");
-	public static final String PHONE_INFO_SPINNER_PRIMARY = PropertiesValuesUtil.getPropertyName("PHONE_INFO_SPINNER_PRIMARY");
-	public static final String PHONE_INFO_COMBO = PropertiesValuesUtil.getPropertyName("PHONE_INFO_COMBO");
+	public static final String PHONE_INFO_PRIMARY = PropertiesValuesUtil.getPropertyName("PHONE_INFO_PRIMARY");
 	public static final String PHONE_INFO_PRIMARY_FIELD = PropertiesValuesUtil.getPropertyName("PHONE_INFO_PRIMARY_FIELD");
 	public static final String PHONE_INFO_PRIMARY_EXT = PropertiesValuesUtil.getPropertyName("PHONE_INFO_PRIMARY_EXT");
 	public static final String PHONE_INFO_ADD_LINK = PropertiesValuesUtil.getPropertyName("PHONE_INFO_ADD_LINK");
-	public static final String PHONE_INFO_SPINNER_SECONDARY = PropertiesValuesUtil.getPropertyName("PHONE_INFO_SPINNER_SECONDARY");
+	public static final String PHONE_INFO_SECONDARY = PropertiesValuesUtil.getPropertyName("PHONE_INFO_SECONDARY");
 	public static final String PHONE_INFO_SECONDARY_FIELD = PropertiesValuesUtil.getPropertyName("PHONE_INFO_SECONDARY_FIELD");
 	public static final String PHONE_INFO_SECONDARY_EXT = PropertiesValuesUtil.getPropertyName("PHONE_INFO_SECONDARY_EXT");
 	public static final String PHONE_INFO_BTNUPDATE = PropertiesValuesUtil.getPropertyName("PHONE_INFO_BTNUPDATE");
+	public static final String PHONE_INFO_COMBO = PropertiesValuesUtil.getPropertyName("PHONE_INFO_COMBO");
 	
 	public static final String ADDRESS_EMPTY_IMG = PropertiesValuesUtil.getPropertyName("ADDRESS_EMPTY_IMG");
 	public static final String ADDRESS_BTNADD = PropertiesValuesUtil.getPropertyName("ADDRESS_BTNADD");
