@@ -219,20 +219,7 @@ public final class NamesMobileElements {
 	public static final String PROFILE_LEGAL_LOGO = PropertiesValuesUtil.getPropertyName("PROFILE_LEGAL_LOGO");
 	public static final String PROFILE_SING_OFF = PropertiesValuesUtil.getPropertyName("PROFILE_SING_OFF");
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	// ANDROID
-
 	public static final String NAME_FIELD = PropertiesValuesUtil.getPropertyName("NAME_FIELD");
 	public static final String PASS_FIELD = PropertiesValuesUtil.getPropertyName("PASS_FIELD");
 	public static final String ERROR_TEXT_FIELD = PropertiesValuesUtil.getPropertyName("ERROR_TEXT_FIELD");
@@ -368,6 +355,8 @@ public final class NamesMobileElements {
 	public static final String FILTERS_FILTER_BY_CHECK = PropertiesValuesUtil.getPropertyName("FILTERS_FILTER_BY_CHECK");
 	public static final String FILTERS_BUTTON = PropertiesValuesUtil.getPropertyName("FILTERS_BUTTON");
 	
+	public static final String MENU_PROFILE_CONT = PropertiesValuesUtil.getPropertyName("MENU_PROFILE_CONT");
+	
 	public static final String LOGIN_EMAIL_CONT = PropertiesValuesUtil.getPropertyName("LOGIN_EMAIL_CONT");
 	public static final String LOGIN_PASS_CONT = PropertiesValuesUtil.getPropertyName("LOGIN_PASS_CONT");
 	public static final String LOGIN_FORGOT_PASS = PropertiesValuesUtil.getPropertyName("LOGIN_FORGOT_PASS");
@@ -405,6 +394,8 @@ public final class NamesMobileElements {
 	public static final String PHONE_INFO_SECONDARY_EXT = PropertiesValuesUtil.getPropertyName("PHONE_INFO_SECONDARY_EXT");
 	public static final String PHONE_INFO_BTNUPDATE = PropertiesValuesUtil.getPropertyName("PHONE_INFO_BTNUPDATE");
 	public static final String PHONE_INFO_COMBO = PropertiesValuesUtil.getPropertyName("PHONE_INFO_COMBO");
+	public static final String PHONE_INFO_SPINNER_PRIMARY = PropertiesValuesUtil.getPropertyName("PHONE_INFO_SPINNER_PRIMARY");
+	public static final String PHONE_INFO_SPINNER_SECONDARY = PropertiesValuesUtil.getPropertyName("PHONE_INFO_SPINNER_SECONDARY");
 	
 	public static final String ADDRESS_EMPTY_IMG = PropertiesValuesUtil.getPropertyName("ADDRESS_EMPTY_IMG");
 	public static final String ADDRESS_BTNADD = PropertiesValuesUtil.getPropertyName("ADDRESS_BTNADD");
