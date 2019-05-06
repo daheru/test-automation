@@ -79,7 +79,7 @@ public class HomeBussinesTest extends BaseDriver {
 		logger.info("se agrega producto de las ofertas relampag");
 		tapOnElement(NamesMobileElements.HOME_AGREGAR_COMPRA);
 		logger.info("se ¡valida mensaje de agrego producto");
-		general.waitElementVisibility(NamesMobileElements.HOME_PRODUCT_AGREGADO);
+		waitElementVisibility(NamesMobileElements.HOME_PRODUCT_AGREGADO);
 		logger.info("se agrega el mismo producto 2 veces");
 		tapOnElement(NamesMobileElements.HOME_AGREGAR_MAS_PRODUCTOS);
 		tapOnElement(NamesMobileElements.HOME_AGREGAR_MAS_PRODUCTOS);
@@ -95,7 +95,7 @@ public class HomeBussinesTest extends BaseDriver {
 		tapOnElement(NamesMobileElements.HOME_BUSCADOR);
 		fillElement(NamesMobileElements.HOME_BUSCADOR, producto + "\n");
 		logger.info("  selecciona prododucto producto");
-		general.waitElementVisibility(NamesMobileElements.HOME_SELECT_BUSCADOR);
+		waitElementVisibility(NamesMobileElements.HOME_SELECT_BUSCADOR);
 		tapOnElement(NamesMobileElements.HOME_SELECT_BUSCADOR);
 		logger.info("se agrega producto ");
 		tapOnElement(NamesMobileElements.HOME_AGREGAR_COMPRA);

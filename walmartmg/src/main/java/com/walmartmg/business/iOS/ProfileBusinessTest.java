@@ -161,10 +161,10 @@ public class ProfileBusinessTest extends BaseDriver {
 		tapOnElement(NamesMobileElements.PERFIL_Your_profile);
 		logger.info(" Se valida que esten los siguietnes elementos: DAtos perosonales / editar ");
 		waitElementVisibility(NamesMobileElements.PERFIL_Date_personal);
-		general.elementExist(NamesMobileElements.PERFIL_Edit);
+		elementExist(NamesMobileElements.PERFIL_Edit);
 		logger.info(" Se valida que esten los siguietnes elementos: DAtos inicio sesion / cambiar contraseña ");
 		waitElementVisibility(NamesMobileElements.Perfil_Date_inicio);
-		general.elementExist(NamesMobileElements.PERFIL_of_password);
+		elementExist(NamesMobileElements.PERFIL_of_password);
 		logger.info(" Se valida que esten los siguietnes elementos: informacion telefonica  / editar ");
 		waitElementVisibility(NamesMobileElements.PERFIL_Inf_tel);
 
@@ -179,10 +179,10 @@ public class ProfileBusinessTest extends BaseDriver {
 		logger.info(" Se da click  Editar  ");
 		tapOnElement(NamesMobileElements.PERFIL_Edit);
 		logger.info(" Se visualiza  el titulo EDITA TUS DATOS PERSONALES /nombre/apellido/fechanacieminto ");
-		general.elementExist(NamesMobileElements.PERFIL_Titule_date);
-		general.elementExist(NamesMobileElements.PERFIL_NAME);
-		general.elementExist(NamesMobileElements.PERFIL_LASTNAME);
-		general.elementExist(NamesMobileElements.PERFIL_DATE);
+		elementExist(NamesMobileElements.PERFIL_Titule_date);
+		elementExist(NamesMobileElements.PERFIL_NAME);
+		elementExist(NamesMobileElements.PERFIL_LASTNAME);
+		elementExist(NamesMobileElements.PERFIL_DATE);
 		logger.info(" Se visualiza  y se da click  terminos y condiones  ");
 		waitElementVisibility(NamesMobileElements.PERFIL_Botton_TERMS);
 		tapOnElement(NamesMobileElements.PERFIL_Botton_TERMS);
@@ -191,7 +191,7 @@ public class ProfileBusinessTest extends BaseDriver {
 		waitElementVisibility(NamesMobileElements.PERFIL_Links_term);
 		logger.info(" Se da visualiza  boton de OK y se da click   ");
 		waitElementVisibility(NamesMobileElements.PERFIL_button_ok);
-		general.elementExist(NamesMobileElements.PERFIL_button_ok);
+		elementExist(NamesMobileElements.PERFIL_button_ok);
 		tapOnElement(NamesMobileElements.PERFIL_button_ok);
 
 	}
@@ -205,7 +205,7 @@ public class ProfileBusinessTest extends BaseDriver {
 		logger.info(" Se da click  Editar  ");
 		tapOnElement(NamesMobileElements.PERFIL_Edit);
 		logger.info(" Se visualiza  el titulo EDITA TUS DATOS PERSONALES /nombre/apellido/fechanacieminto ");
-		general.elementExist(NamesMobileElements.PERFIL_Titule_date);
+		elementExist(NamesMobileElements.PERFIL_Titule_date);
 		fillElement(NamesMobileElements.PERFIL_NAME, name);
 		fillElement(NamesMobileElements.PERFIL_LASTNAME, Last);
 		fillElement(NamesMobileElements.PERFIL_DATE, date);
@@ -218,7 +218,7 @@ public class ProfileBusinessTest extends BaseDriver {
 		tapOnElement(NamesMobileElements.PERFIL_button_ok);
 		logger.info(" Se Visualiza  Mensaje de Error //Datos incorrectos, por favor verifique e intente de nuevo.//  ");
 		waitElementVisibility(NamesMobileElements.PERFIL_MENSAGE_ERROR);
-		general.elementExist(NamesMobileElements.PERFIL_MENSAGE_ERROR);
+		elementExist(NamesMobileElements.PERFIL_MENSAGE_ERROR);
 
 	}
 
@@ -231,7 +231,7 @@ public class ProfileBusinessTest extends BaseDriver {
 		logger.info(" Se da click  Editar  ");
 		tapOnElement(NamesMobileElements.PERFIL_Edit);
 		logger.info(" Se visualiza  el titulo EDITA TUS DATOS PERSONALES /nombre/apellido/fechanacieminto ");
-		general.elementExist(NamesMobileElements.PERFIL_Titule_date);
+		elementExist(NamesMobileElements.PERFIL_Titule_date);
 		fillElement(NamesMobileElements.PERFIL_NAME, name);
 		fillElement(NamesMobileElements.PERFIL_LASTNAME, Last);
 
@@ -251,7 +251,7 @@ public class ProfileBusinessTest extends BaseDriver {
 		logger.info(" se da click  en 'TU PERFIL' ");
 		tapOnElement(NamesMobileElements.PERFIL_Your_profile);
 		logger.info(" se da click  en 'DAtos de inicio sesion' ");
-		general.elementExist(NamesMobileElements.Perfil_Date_inicio);
+		elementExist(NamesMobileElements.Perfil_Date_inicio);
 		logger.info(" se da click  en 'Cambiar COntraseña ");
 		tapOnElement(NamesMobileElements.PERFIL_CHANGE_PASSWORD);
 		logger.info(" se valida los  siguientes  campos ");
@@ -281,7 +281,7 @@ public class ProfileBusinessTest extends BaseDriver {
 		logger.info(" se da click  en 'TU PERFIL' ");
 		tapOnElement(NamesMobileElements.PERFIL_Your_profile);
 		logger.info(" se da click  en 'DAtos de inicio sesion' ");
-		general.elementExist(NamesMobileElements.Perfil_Date_inicio);
+		elementExist(NamesMobileElements.Perfil_Date_inicio);
 		logger.info(" se da click  en 'Cambiar COntraseña ");
 		tapOnElement(NamesMobileElements.PERFIL_CHANGE_PASSWORD);
 		logger.info(" se valida los  siguientes  campos ");
@@ -313,7 +313,7 @@ public class ProfileBusinessTest extends BaseDriver {
 		tapOnElement(NamesMobileElements.PERFIL_button_ok);
 		logger.info(" se valida el mensaje cambio de contraseña   ");
 		waitElementVisibility(NamesMobileElements.PERFIL_MENSAGE_PASS_OK);
-		general.elementExist(NamesMobileElements.PERFIL_MENSAGE_PASS_OK);
+		elementExist(NamesMobileElements.PERFIL_MENSAGE_PASS_OK);
 
 	}
 
@@ -327,11 +327,11 @@ public class ProfileBusinessTest extends BaseDriver {
 		List<MobileElement> editButtons = findElements(NamesMobileElements.PERFIL_Edit);
 		tapOnElement(editButtons.get(1));
 		logger.info(" Se visualiza el  numero de telefono movil  ");
-		general.findElement(NamesMobileElements.PERFIL_MOVIL1);
+		findElement(NamesMobileElements.PERFIL_MOVIL1);
 		logger.info(" Se visualiza el  numero de telefono Fijo  ");
-		general.findElement(NamesMobileElements.PERFIL_MOVIL2);
+		findElement(NamesMobileElements.PERFIL_MOVIL2);
 		logger.info(" se visualiza   boton de ok  ");
-		general.findElement(NamesMobileElements.PERFIL_button_ok);
+		findElement(NamesMobileElements.PERFIL_button_ok);
 
 	}
 
@@ -345,15 +345,15 @@ public class ProfileBusinessTest extends BaseDriver {
 		List<MobileElement> editButtons = findElements(NamesMobileElements.PERFIL_Edit);
 		tapOnElement(editButtons.get(1));
 		logger.info(" Se visualiza el  numero de telefono movil  ");
-		general.findElement(NamesMobileElements.PERFIL_MOVIL1);
+		findElement(NamesMobileElements.PERFIL_MOVIL1);
 		logger.info(" Se edita el numero de movil");
 		fillElement(NamesMobileElements.PERFIL_MOVIL1, Tel);
 		logger.info(" Se visualiza el  numero de telefono Fijo  ");
-		general.findElement(NamesMobileElements.PERFIL_MOVIL2);
+		findElement(NamesMobileElements.PERFIL_MOVIL2);
 		logger.info(" Se edita el numero de movil");
 		fillElement(NamesMobileElements.PERFIL_MOVIL2, cell);
 		logger.info(" se visualiza   boton de ok  ");
-		general.findElement(NamesMobileElements.PERFIL_button_ok);
+		findElement(NamesMobileElements.PERFIL_button_ok);
 		logger.info(" se da click   boton de ok  ");
 		tapOnElement(NamesMobileElements.PERFIL_button_ok);
 	}
@@ -370,15 +370,15 @@ public class ProfileBusinessTest extends BaseDriver {
 		tapOnElement(NamesMobileElements.PERFIL_ADDRES);
 		logger.info(" se da valida que esten los elementos  ");
 		logger.info(" se da valida que esten las  la dirrecion Principal ");
-		general.findElement(NamesMobileElements.PERFIL_ADRRES_ONE);
+		findElement(NamesMobileElements.PERFIL_ADRRES_ONE);
 		logger.info(" se da valida que esten en rojo la  dirrecion principal");
-		general.findElement(NamesMobileElements.PERFIL_FAVOR_ADDRES_RED);
+		findElement(NamesMobileElements.PERFIL_FAVOR_ADDRES_RED);
 		logger.info(" se da valida que esten las  la dirrecion Secundaria  ");
-		general.findElement(NamesMobileElements.PERFIL_ADDRES_TWO);
+		findElement(NamesMobileElements.PERFIL_ADDRES_TWO);
 		logger.info(" se da valida que no este  en rojo la  dirrecion secundaria");
-		general.findElement(NamesMobileElements.PERFIL_FAVOR_ADRRES);
+		findElement(NamesMobileElements.PERFIL_FAVOR_ADRRES);
 		logger.info(" se da valida que este el  voto de agregar mas DIRREIONES ");
-		general.findElement(NamesMobileElements.PERFIL_BUTTON_MAS);
+		findElement(NamesMobileElements.PERFIL_BUTTON_MAS);
 
 	}
 
@@ -386,14 +386,14 @@ public class ProfileBusinessTest extends BaseDriver {
 		logger.info(" se da click  en 'TUs DIRRECIONES ' ");
 		tapOnElement(NamesMobileElements.PERFIL_ADDRES);
 		logger.info(" se da valida que este el  Boton de agregar mas DIRREIONES ");
-		general.findElement(NamesMobileElements.PERFIL_BUTTON_MAS);
+		findElement(NamesMobileElements.PERFIL_BUTTON_MAS);
 		tapOnElement(NamesMobileElements.PERFIL_BUTTON_MAS);
 	}
 
 	public void Validate_error_mensage() {
 		logger.info(" se abre para agregar una  dirrecion nueva  ' ");
 		logger.info(" se da cliek en   Ok  para guardar cambios  ' ");
-		general.findElement(NamesMobileElements.PERFIL_BOTTON_OK);
+		findElement(NamesMobileElements.PERFIL_BOTTON_OK);
 		tapOnElement(NamesMobileElements.PERFIL_BOTTON_OK);
 		logger.info("se valida  mensaje  de error por  **campos requeridos** ");
 	}
@@ -402,7 +402,7 @@ public class ProfileBusinessTest extends BaseDriver {
 		logger.info(" se da click  en 'TUs DIRRECIONES ' ");
 		tapOnElement(NamesMobileElements.PERFIL_ADDRES);
 		logger.info(" se da valida que este el  Boton de agregar mas DIRREIONES ");
-		general.findElement(NamesMobileElements.PERFIL_BUTTON_MAS);
+		findElement(NamesMobileElements.PERFIL_BUTTON_MAS);
 		tapOnElement(NamesMobileElements.PERFIL_BUTTON_MAS);
 		logger.info(" se visualiza los siguientes campos para llenar");
 		waitElementVisibility(NamesMobileElements.PERFIL_NAME_ADDRES);
@@ -422,7 +422,7 @@ public class ProfileBusinessTest extends BaseDriver {
 		logger.info(" se da click  en 'TUS Pedidos ' ");
 		tapOnElement(NamesMobileElements.PERFIL_YOUR_ORDERS);
 		logger.info("Se visualiza en pantalla Imagen ,Aún no tienes ningún pedido");
-		general.findElement(NamesMobileElements.PERFIL_PAGE_NO_ORDER);
+		findElement(NamesMobileElements.PERFIL_PAGE_NO_ORDER);
 		String massageFail = getElementText(NamesMobileElements.PERFIL_PAGE_NO_ORDER);
 		Assert.assertEquals("Aún no tienes ningún pedido ".toLowerCase(), massageFail.toLowerCase());
 
@@ -432,7 +432,7 @@ public class ProfileBusinessTest extends BaseDriver {
 		logger.info(" se da click  en 'TUS Pedidos ' ");
 		tapOnElement(NamesMobileElements.PERFIL_YOUR_ORDERS);
 		logger.info("Se visualiza en pantalla los pedidos realizados ");
-		general.findElement(NamesMobileElements.PERFIL_PAGE_NO_ORDER);
+		findElement(NamesMobileElements.PERFIL_PAGE_NO_ORDER);
 		logger.info("Se visualiza en pantalla el detalle del pedido ");
 		tapOnElement(NamesMobileElements.PERFIL_DETAIL);
 	}
@@ -483,7 +483,7 @@ public class ProfileBusinessTest extends BaseDriver {
 		tapOnElement(NamesMobileElements.PROFILE_PRIVACY_NOTICE1);
 		logger.info("SE  VE AVISO DE PRIVACIDAD ");
 		logger.info("SE  VE  VERSION APP ");
-		general.elementExist(NamesMobileElements.PROFILE_VERSION);
+		elementExist(NamesMobileElements.PROFILE_VERSION);
 	}
 
 	public void click_terms() {
