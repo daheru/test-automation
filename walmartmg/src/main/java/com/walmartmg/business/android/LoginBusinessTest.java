@@ -23,7 +23,7 @@ public class LoginBusinessTest extends BaseDriver {
 	}
 
 	public void selectMenuLogin() {
-		generalBusinessTest.selectProfileMenu(ProfileMenuEnum.LOGIN);
+		generalBusinessTest.selectMenuOption(ProfileMenuEnum.LOGIN);
 	}
 
 	@Step("Validate login page")
@@ -51,7 +51,7 @@ public class LoginBusinessTest extends BaseDriver {
 	@Step("Validate login")
 	public void validateLogin() {
 		logger.info("Validando Login");
-		generalBusinessTest.selectProfileMenu(ProfileMenuEnum.PROFILE);
+		generalBusinessTest.selectMenuOption(ProfileMenuEnum.PROFILE);
 		MobileElement userEmail = findElement(NamesMobileElements.USER_EMAIL);
 		assertEquals(email, userEmail.getAttribute(ConfigConstants.ATTRIBUTE_TEXT));
 	}

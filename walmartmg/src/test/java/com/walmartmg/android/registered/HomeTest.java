@@ -9,6 +9,7 @@ import org.junit.Test;
 import org.junit.rules.TestName;
 
 import com.walmartmg.business.android.HomeBusinessTest;
+import com.walmartmg.constants.GeneralConstants;
 
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
@@ -19,7 +20,7 @@ import io.qameta.allure.junit4.DisplayName;
 
 @Feature("Home Module - Whit session")
 public class HomeTest {
-	
+
 	@Rule
 	public TestName name = new TestName();
 	private static final Logger logger = Logger.getLogger(HomeTest.class);
@@ -34,13 +35,12 @@ public class HomeTest {
 	public void initApp() {
 		logger.info("===> Iniciando caso de prueba: " + name.getMethodName());
 	}
-	
+
 	@After
 	public void resetApp() {
 		home.resetApp();
 		logger.info("Caso de prueba finalizado");
 	}
-
 
 	@Test
 	@DisplayName("Search valid product")
@@ -50,10 +50,24 @@ public class HomeTest {
 	public void CP166_search_valid_product() {
 		home.selectProfileOption();
 		home.selectMenuLogin();
-		home.login("alejandra.jra11@gmail.com", "12345678");
+		home.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
 		home.selectHomeOption();
 		home.searchProduct("Celulares");
 		home.validateSearch();
+	}
+	
+	@Test
+	@DisplayName("Validate product detail")
+	@Severity(SeverityLevel.BLOCKER)
+	@Story("As a user I want to search a product")
+	@Description("Validate that product detail has all elements")
+	public void CP000_validate_product() {
+		home.selectProfileOption();
+		home.selectMenuLogin();
+		home.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
+		home.selectHomeOption();
+		home.selectProduct();
+		home.validateProduct();
 	}
 
 	@Test
@@ -64,7 +78,7 @@ public class HomeTest {
 	public void CP167_search_unexist_product() {
 		home.selectProfileOption();
 		home.selectMenuLogin();
-		home.login("alejandra.jra11@gmail.com", "12345678");
+		home.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
 		home.selectHomeOption();
 		home.searchProduct("Pan");
 		home.validateEmptySearch();
@@ -78,7 +92,7 @@ public class HomeTest {
 	public void CP168_home_scan_validate_page() {
 		home.selectProfileOption();
 		home.selectMenuLogin();
-		home.login("alejandra.jra11@gmail.com", "12345678");
+		home.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
 		home.selectHomeOption();
 		home.scanProduct();
 		home.validateScanPage();
@@ -92,7 +106,7 @@ public class HomeTest {
 	public void CP171_home_empty_car() {
 		home.selectProfileOption();
 		home.selectMenuLogin();
-		home.login("alejandra.jra11@gmail.com", "12345678");
+		home.login(GeneralConstants.TEST_EMPTY_EMAIL, GeneralConstants.TEST_EMPTY_PASS);
 		home.selectHomeOption();
 		home.selectCar();
 		home.validateEmptyCar();
@@ -106,7 +120,7 @@ public class HomeTest {
 	public void CP172_home_validate_starting_buy() {
 		home.selectProfileOption();
 		home.selectMenuLogin();
-		home.login("alejandra.jra11@gmail.com", "12345678");
+		home.login(GeneralConstants.TEST_EMPTY_EMAIL, GeneralConstants.TEST_EMPTY_PASS);
 		home.selectHomeOption();
 		home.selectCar();
 		home.validateStartingBuy();
@@ -120,11 +134,13 @@ public class HomeTest {
 	public void CP173_add_product() {
 		home.selectProfileOption();
 		home.selectMenuLogin();
-		home.login("alejandra.jra11@gmail.com", "12345678");
+		home.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
 		home.selectHomeOption();
+		home.selectCar();
+		home.deleteProducts();
 		home.selectProduct();
-		home.validateProduct();
 		home.addProduct();
+		home.selectCar();
 		home.validateCar();
 	}
 
@@ -136,16 +152,17 @@ public class HomeTest {
 	public void CP174_add_product_by_search() {
 		home.selectProfileOption();
 		home.selectMenuLogin();
-		home.login("alejandra.jra11@gmail.com", "12345678");
+		home.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
 		home.selectHomeOption();
+		home.selectCar();
+		home.deleteProducts();
 		home.searchProduct("Celulares");
-		home.validateSearch();
 		home.selectProduct();
-		home.validateProduct();
 		home.addProduct();
+		home.selectCar();
 		home.validateCar();
 	}
-	
+
 	@Test
 	@DisplayName("Delete product")
 	@Severity(SeverityLevel.BLOCKER)
@@ -154,17 +171,19 @@ public class HomeTest {
 	public void CP175_remove_product_from_detail() {
 		home.selectProfileOption();
 		home.selectMenuLogin();
-		home.login("alejandra.jra11@gmail.com", "12345678");
+		home.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
 		home.selectHomeOption();
+		home.selectCar();
+		home.deleteProducts();
 		home.searchProduct("Celulares");
 		home.validateSearch();
 		home.selectProduct();
-		home.validateProduct();
 		home.addProduct();
 		home.removeProduct();
+		home.selectCar();
 		home.validateCar();
 	}
-	
+
 	@Test
 	@DisplayName("Add product using plus")
 	@Severity(SeverityLevel.BLOCKER)
@@ -173,14 +192,16 @@ public class HomeTest {
 	public void CP176_add_product_using_plus() {
 		home.selectProfileOption();
 		home.selectMenuLogin();
-		home.login("alejandra.jra11@gmail.com", "12345678");
+		home.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
 		home.selectHomeOption();
+		home.selectCar();
+		home.deleteProducts();
 		home.searchProduct("Celulares");
 		home.validateSearch();
 		home.selectProduct();
-		home.validateProduct();
 		home.addProduct();
 		home.addProduct();
+		home.selectCar();
 		home.validateCar();
 	}
 
@@ -192,13 +213,15 @@ public class HomeTest {
 	public void CP177_validate_car() {
 		home.selectProfileOption();
 		home.selectMenuLogin();
-		home.login("alejandra.jra11@gmail.com", "12345678");
+		home.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
 		home.selectHomeOption();
+		home.selectCar();
+		home.deleteProducts();
 		home.searchProduct("Celulares");
 		home.validateSearch();
 		home.selectProduct();
 		home.addProduct();
-		home.goBack();
+		home.selectCar();
 		home.validateCar();
 	}
 
@@ -210,16 +233,18 @@ public class HomeTest {
 	public void CP178_eliminate_product() {
 		home.selectProfileOption();
 		home.selectMenuLogin();
-		home.login("alejandra.jra11@gmail.com", "12345678");
+		home.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
 		home.selectHomeOption();
+		home.selectCar();
+		home.deleteProducts();
 		home.selectProduct();
 		home.addProduct();
 		home.goBack();
 		home.selectCar();
 		home.deleteProduct();
-		home.validateEmptyCar();
+		home.validateCar();
 	}
-	
+
 	@Test
 	@DisplayName("Cancel delete product")
 	@Severity(SeverityLevel.BLOCKER)
@@ -228,14 +253,16 @@ public class HomeTest {
 	public void CP179_cancel_eliminate_product() {
 		home.selectProfileOption();
 		home.selectMenuLogin();
-		home.login("alejandra.jra11@gmail.com", "12345678");
+		home.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
 		home.selectHomeOption();
+		home.selectCar();
+		home.deleteProducts();
 		home.selectProduct();
 		home.addProduct();
 		home.goBack();
 		home.selectCar();
-		home.deleteProduct();
-		home.validateEmptyCar();
+		home.cancelDeleteProduct();
+		home.validateCar();
 	}
 
 	@Test
@@ -246,7 +273,7 @@ public class HomeTest {
 	public void CP180_validate_buy() {
 		home.selectProfileOption();
 		home.selectMenuLogin();
-		home.login("alejandra.jra11@gmail.com", "12345678");
+		home.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
 		home.selectHomeOption();
 		home.selectProduct();
 		home.addProduct();

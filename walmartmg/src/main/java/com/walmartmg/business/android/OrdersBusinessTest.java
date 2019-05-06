@@ -13,25 +13,22 @@ public class OrdersBusinessTest extends BaseDriver {
 	private static final Logger logger = Logger.getLogger(InvoiceBusinessTest.class);
 	private GeneralBusinessTest general = new GeneralBusinessTest();
 	private static LoginBusinessTest login = new LoginBusinessTest();
-	
+
 	public void selectProfileOption() {
 		general.selectNavigationOption(NavigationBarEnum.PROFILE);
 	}
 
 	public void selectMenuLogin() {
-		general.selectProfileMenu(ProfileMenuEnum.LOGIN);
+		general.selectMenuOption(ProfileMenuEnum.LOGIN);
 	}
 
 	public void selectRequestMyProfile() {
-		general.selectProfileMenu(ProfileMenuEnum.ORDERS);
+		general.selectMenuOption(ProfileMenuEnum.ORDERS);
 	}
 
-	// Login
 	public void login(String email, String password) {
 		login.login(email, password);
 	}
-
-	// Validate screen your orders with new account
 
 	public void validateScreenYouOrders() {
 		logger.info("Validate screen");

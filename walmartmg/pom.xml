@@ -25,16 +25,15 @@
 		<profile>
 			<id>android</id>
 			<properties>
-				<device.name>Mobile_Test</device.name>
-				<!-- emulator-5554 UIAutomator2-->
+				<device.name>Samsung_Galaxy_S8_wm15</device.name>
 				<!-- 3300ce9aca6fb337 -->
 				<!-- 8DM0218A15002368 -->
-				<device.udid>emulator-5554</device.udid>
+				<device.udid>8DM0218A15002368</device.udid>
 				<platform.name>Android</platform.name>
-				<platform.version>9.0</platform.version>
+				<platform.version>9</platform.version>
 				<automation.name>UIAutomator2</automation.name>
 				<text.attribute>text</text.attribute>
-				<app.version>Versi\u00f3n 0.0.30 Developer Build (30)</app.version>
+				<app.version>Versi\u00f3n 0.0.40 Developer Build (40)</app.version>
 				<test.package>com.walmartmg.android.*.*Test</test.package>
 			</properties>
 		</profile>

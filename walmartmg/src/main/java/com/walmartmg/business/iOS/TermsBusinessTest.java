@@ -19,7 +19,7 @@ public class TermsBusinessTest extends BaseDriver {
 	}
 
 	public void selectMenu() {
-		general.selectProfileMenu(ProfileMenuEnum.LEGALS);
+		general.selectMenuOption(ProfileMenuEnum.LEGALS);
 
 	}
 

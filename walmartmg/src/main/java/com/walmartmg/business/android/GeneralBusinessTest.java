@@ -9,7 +9,6 @@ import org.junit.Assert;
 import org.openqa.selenium.StaleElementReferenceException;
 
 import com.walmartmg.base.BaseDriver;
-import com.walmartmg.constants.ConfigConstants;
 import com.walmartmg.constants.GeneralConstants;
 import com.walmartmg.constants.NamesMobileElements;
 import com.walmartmg.enums.MenusEnum;
@@ -24,7 +23,7 @@ public class GeneralBusinessTest extends BaseDriver {
 	private static final Logger logger = Logger.getLogger(GeneralBusinessTest.class.getName());
 
 	@Step("Tap on navigation bar {navigationBarEnum}")
-	public void selectNavigationOption( NavigationBarEnum navigationBarEnum ) {
+	public void selectNavigationOption(NavigationBarEnum navigationBarEnum) {
 		waitElementVisibility(NamesMobileElements.NAV_BAR);
 		MobileElement navigationElement = null;
 		if (navigationBarEnum.getNavigation() == NavigationBarEnum.HOME.getNavigation()) {
@@ -40,18 +39,18 @@ public class GeneralBusinessTest extends BaseDriver {
 		navigationElement.click();
 	}
 
-	@Step("Tap on menu {menuOptionEnum}")
-	public void selectProfileMenu(ProfileMenuEnum profileMenuEnum) {
+	@Step("Tap on menu option {profileMenuEnum}")
+	public void selectMenuOption(ProfileMenuEnum profileMenuEnum) {
 		logger.info("Seleccionando la opcion: " + profileMenuEnum.getMenu());
-		waitElementVisibility(NamesMobileElements.NAV_BAR);
+		waitElementVisibility(NamesMobileElements.MENU_NAME);
 		List<MobileElement> menuList = findElements(NamesMobileElements.MENU_NAME);
-		Assert.assertTrue("El elemento móvil no existe", menuList.size() > 0);
+		assertTrue("El elemento no existe", menuList.size() > 0);
 		boolean clicMenu = false;
 		int exit = 0;
 		do {
 			for (MobileElement element : menuList) {
-				if (element.getAttribute(ConfigConstants.ATTRIBUTE_TEXT).toLowerCase().contains(profileMenuEnum.getMenu())) {
-					element.click();
+				if (getElementText(element).contains(profileMenuEnum.getMenu())) {
+					tapOnElement(element);
 					clicMenu = true;
 					break;
 				}
@@ -74,7 +73,7 @@ public class GeneralBusinessTest extends BaseDriver {
 			tapDown();
 		}
 	}
-	
+
 	@Step("Validate error {errorAppMessage} from fild {fieldCont}")
 	public void validateFieldErrorMessage(String errorAppMessage, String fieldCont) {
 		List<MobileElement> errors = findSubElements(findElement(fieldCont), NamesMobileElements.ERROR_TEXT_FIELD);
@@ -151,14 +150,14 @@ public class GeneralBusinessTest extends BaseDriver {
 					clicMenu = true;
 					exit = 0;
 					goBack();
-					indexEnum ++;
+					indexEnum++;
 				}
 			}
-			if( !clicMenu ) {
+			if (!clicMenu) {
 				scrollScreen(GeneralConstants.SCROLL_UP);
 				validateMenuExist(exit++);
 			}
-		} while ( indexEnum < subTermsEnum.length );
+		} while (indexEnum < subTermsEnum.length);
 	}
 
 	private void validateMenuExist(int exit) {

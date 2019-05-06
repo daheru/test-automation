@@ -21,15 +21,13 @@ public class InvoiceBusinessTest extends BaseDriver {
 	}
 
 	public void selectMenuLogin() {
-		general.selectProfileMenu(ProfileMenuEnum.LOGIN);
+		general.selectMenuOption(ProfileMenuEnum.LOGIN);
 	}
 
 	public void selectRequestInvoice() {
-		general.selectProfileMenu(ProfileMenuEnum.GET_BILL);
+		general.selectMenuOption(ProfileMenuEnum.GET_BILL);
 	}
 
-	
-	// Login
 	public void login(String email, String password) {
 		login.login(email, password);
 	}
@@ -52,13 +50,13 @@ public class InvoiceBusinessTest extends BaseDriver {
 		fillElement(NamesMobileElements.INV_MANUAL_NUM_INVOICE, code);
 		tapOnElement(NamesMobileElements.INV_MANUAL_BUTTON);
 	}
-	
+
 	@Step("Validate invoice empty field")
 	public void validateMessageEmpty() {
 		logger.info("Valida campo vacio");
 		general.validateFieldErrorMessage(AppMessages.EMPTY_FIELD, NamesMobileElements.INV_MANUAL_NUM_INVOICE_CONT);
 	}
-	
+
 	@Step("Validate invoice invalid data")
 	public void validateMessageError() {
 		logger.info("Valida alerta");

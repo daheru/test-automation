@@ -28,7 +28,7 @@ public class ProfileBusinessTest extends BaseDriver {
 	}
 
 	public void selectMenu() {
-		general.selectProfileMenu(ProfileMenuEnum.CREATE_PROFILE);
+		general.selectMenuOption(ProfileMenuEnum.CREATE_PROFILE);
 
 	}
 

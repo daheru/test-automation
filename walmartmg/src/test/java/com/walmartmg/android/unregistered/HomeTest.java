@@ -110,6 +110,7 @@ public class HomeTest {
 		home.selectProduct();
 		home.validateProduct();
 		home.addProduct();
+		home.selectCar();
 		home.validateCar();
 	}
 
@@ -124,6 +125,7 @@ public class HomeTest {
 		home.selectProduct();
 		home.validateProduct();
 		home.addProduct();
+		home.selectCar();
 		home.validateCar();
 	}
 	
@@ -139,6 +141,7 @@ public class HomeTest {
 		home.validateProduct();
 		home.addProduct();
 		home.removeProduct();
+		home.selectCar();
 		home.validateCar();
 	}
 	
@@ -154,6 +157,7 @@ public class HomeTest {
 		home.validateProduct();
 		home.addProduct();
 		home.addProduct();
+		home.selectCar();
 		home.validateCar();
 	}
 
@@ -167,7 +171,7 @@ public class HomeTest {
 		home.validateSearch();
 		home.selectProduct();
 		home.addProduct();
-		home.goBack();
+		home.selectCar();
 		home.validateCar();
 	}
 
@@ -179,9 +183,9 @@ public class HomeTest {
 	public void CP014_eliminate_product() {
 		home.selectProduct();
 		home.addProduct();
-		home.goBack();
 		home.selectCar();
 		home.deleteProduct();
+		home.selectCar();
 		home.validateEmptyCar();
 	}
 	

@@ -17,15 +17,26 @@ import io.qameta.allure.Step;
 
 public class MenuProfileBusinessTest extends BaseDriver {
 
-	public static final Logger logger = Logger.getLogger(MenuProfileBusinessTest.class);
-	public GeneralBusinessTest generalBusinessTest = new GeneralBusinessTest();
+	private static final Logger logger = Logger.getLogger(MenuProfileBusinessTest.class);
+	private GeneralBusinessTest generalBusinessTest = new GeneralBusinessTest();
+	private LoginBusinessTest login = new LoginBusinessTest();
 
 	public void selectProfile() {
 		generalBusinessTest.selectNavigationOption(NavigationBarEnum.PROFILE);
 	}
 
 	public void selectMenu(ProfileMenuEnum menuEnum) {
-		generalBusinessTest.selectProfileMenu(menuEnum);
+		generalBusinessTest.selectMenuOption(menuEnum);
+	}
+
+	public void login(String email, String password) {
+		login.login(email, password);
+	}
+
+	@Step("Validate home page")
+	public void validateHomePage() {
+		scrollUntilShowElement(GeneralConstants.SCROLL_UP, NamesMobileElements.HOME_PRODUCT_LIST);
+		waitElementVisibility(NamesMobileElements.HOME_PRODUCT_LIST);
 	}
 
 	@Step("Validate help page")
@@ -43,31 +54,39 @@ public class MenuProfileBusinessTest extends BaseDriver {
 		waitElementVisibility(NamesMobileElements.HELP_CALL_BUTTON);
 		tapOnElement(NamesMobileElements.HELP_CALL_BUTTON);
 	}
-	
+
 	@Step("Tap on write us")
 	public void validateWriteUs() {
 		waitElementVisibility(NamesMobileElements.HELP_EMAIL_BUTTON);
 		tapOnElement(NamesMobileElements.HELP_EMAIL_BUTTON);
 	}
-	
+
 	@Step("Validate profile menu")
 	public void validateMenu(boolean isLogged) {
 		if (isLogged) {
-
+			generalBusinessTest.selectMenuOption(ProfileMenuEnum.PROFILE);
+			generalBusinessTest.goBack();
+			generalBusinessTest.selectMenuOption(ProfileMenuEnum.ADDRESS);
+			generalBusinessTest.goBack();
+			generalBusinessTest.selectMenuOption(ProfileMenuEnum.ORDERS);
+			generalBusinessTest.goBack();
 		} else {
-			generalBusinessTest.selectProfileMenu(ProfileMenuEnum.LOGIN);
+			generalBusinessTest.selectMenuOption(ProfileMenuEnum.LOGIN);
 			generalBusinessTest.goBack();
-			generalBusinessTest.selectProfileMenu(ProfileMenuEnum.CREATE_PROFILE);
+			generalBusinessTest.selectMenuOption(ProfileMenuEnum.CREATE_PROFILE);
 			generalBusinessTest.goBack();
-			generalBusinessTest.selectProfileMenu(ProfileMenuEnum.GET_BILL);
-			closeAndroidDialog();
-			generalBusinessTest.goBack();
-			generalBusinessTest.selectProfileMenu(ProfileMenuEnum.SUPPORT);
-			generalBusinessTest.goBack();
-			generalBusinessTest.selectProfileMenu(ProfileMenuEnum.TERMS);
-			generalBusinessTest.goBack();
-			generalBusinessTest.selectProfileMenu(ProfileMenuEnum.LEGALS);
-			generalBusinessTest.goBack();
+		}
+		generalBusinessTest.selectMenuOption(ProfileMenuEnum.GET_BILL);
+		closeAndroidDialog();
+		generalBusinessTest.goBack();
+		generalBusinessTest.selectMenuOption(ProfileMenuEnum.SUPPORT);
+		generalBusinessTest.goBack();
+		generalBusinessTest.selectMenuOption(ProfileMenuEnum.TERMS);
+		generalBusinessTest.goBack();
+		generalBusinessTest.selectMenuOption(ProfileMenuEnum.LEGALS);
+		generalBusinessTest.goBack();
+		if (isLogged) {
+			generalBusinessTest.selectMenuOption(ProfileMenuEnum.LOGOUT);
 		}
 	}
 
@@ -84,13 +103,17 @@ public class MenuProfileBusinessTest extends BaseDriver {
 		generalBusinessTest.valitateDropDownMenu(MenusEnum.TERMS_ACCOUNT);
 		generalBusinessTest.valitateDropDownMenu(MenusEnum.TERMS_ORDERS);
 	}
-	
+
 	@Step("Validate legals page")
-	public void validateLegalsPage() {
-		generalBusinessTest.valitateDropDownMenu(MenusEnum.LEGALS_TERMS);
-		generalBusinessTest.valitateDropDownMenu(MenusEnum.LEGALS_PRIVACITY);
-		List<MobileElement> terms = findElements(NamesMobileElements.LEGALS_ITEM);
-		assertEquals(ConfigConstants.APP_VERSION.toLowerCase(), getElementText(terms.get(2)));
+	public void validateLegalsPage(int elementNum) {
 		logger.info("Página válida");
+		List<MobileElement> terms = findSubElements(NamesMobileElements.TERMS_LIST, NamesMobileElements.TERMS_ITEM);
+		assertEquals(elementNum, terms.size());
+		for (MobileElement element : terms) {
+			if (!ConfigConstants.APP_VERSION.toLowerCase().equals(getElementText(element).toLowerCase())) {
+				tapOnElement(element);
+				tapOnElement(NamesMobileElements.BACK_BUTTON);
+			}
+		}
 	}
 }

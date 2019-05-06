@@ -23,28 +23,28 @@ import io.qameta.allure.junit4.DisplayName;
 
 @Feature("Filters Module - Session")
 public class FiltersTest {
-	
+
 	@Rule
 	public TestName name = new TestName();
-	private static final Logger logger = Logger.getLogger( FiltersTest.class );
+	private static final Logger logger = Logger.getLogger(FiltersTest.class);
 	private static FiltersBusinessTest filters = new FiltersBusinessTest();
-	
+
 	@AfterClass
-	public static void tearDown(){
+	public static void tearDown() {
 		filters.driverDisconect();
-	}	
-	
+	}
+
 	@Before
 	public void initApp() {
 		logger.info("===> Iniciando caso de prueba: " + name.getMethodName());
 	}
-	
+
 	@After
 	public void resetApp() {
 		filters.resetApp();
 		logger.info("Caso de prueba finalizado");
 	}
-	
+
 	@Test
 	@DisplayName("Validate filters")
 	@Severity(SeverityLevel.BLOCKER)
@@ -60,7 +60,7 @@ public class FiltersTest {
 		filters.pressLinkFilter();
 		filters.validateScreenFilter();
 	}
-	
+
 	@Test
 	@DisplayName("Filter results by A-Z filter")
 	@Severity(SeverityLevel.CRITICAL)
@@ -75,9 +75,10 @@ public class FiltersTest {
 		filters.selectFamily();
 		filters.pressLinkFilter();
 		filters.selectFilter(FiltersEnum.A_Z);
+		filters.applyFilter();
 		filters.validateSearch();
 	}
-	
+
 	@Test
 	@DisplayName("Filter results by Z-A filter")
 	@Severity(SeverityLevel.CRITICAL)
@@ -93,9 +94,10 @@ public class FiltersTest {
 		filters.selectFamily();
 		filters.pressLinkFilter();
 		filters.selectFilter(FiltersEnum.Z_A);
+		filters.applyFilter();
 		filters.validateSearch();
 	}
-	
+
 	@Test
 	@DisplayName("Filter results by minnor filter")
 	@Severity(SeverityLevel.CRITICAL)
@@ -110,9 +112,10 @@ public class FiltersTest {
 		filters.selectFamily();
 		filters.pressLinkFilter();
 		filters.selectFilter(FiltersEnum.MINNOR_PRICE);
+		filters.applyFilter();
 		filters.validateSearch();
 	}
-	
+
 	@Test
 	@DisplayName("Filter results by higher filter")
 	@Severity(SeverityLevel.CRITICAL)
@@ -127,15 +130,16 @@ public class FiltersTest {
 		filters.selectFamily();
 		filters.pressLinkFilter();
 		filters.selectFilter(FiltersEnum.HIGHER_PRICE);
+		filters.applyFilter();
 		filters.validateSearch();
 	}
-	
+
 	@Test
 	@DisplayName("Filter results by popularity filter")
 	@Severity(SeverityLevel.CRITICAL)
 	@Story("As a user I want to filter search results")
 	@Description("Filter search result list usign popularity filter")
-	public void CP163_filter_order_by_popularity () {
+	public void CP163_filter_order_by_popularity() {
 		filters.selectNavitionOption(NavigationBarEnum.PROFILE);
 		filters.selectProfileMenuOption(ProfileMenuEnum.LOGIN);
 		filters.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
@@ -144,15 +148,16 @@ public class FiltersTest {
 		filters.selectFamily();
 		filters.pressLinkFilter();
 		filters.selectFilter(FiltersEnum.POPULAR);
+		filters.applyFilter();
 		filters.validateSearch();
 	}
-	
+
 	@Test
 	@DisplayName("Filter results by sub category filter")
 	@Severity(SeverityLevel.CRITICAL)
 	@Story("As a user I want to filter search results")
 	@Description("Filter search result list usign sub category filter")
-	public void CP165_filter_filter_by () {
+	public void CP165_filter_filter_by() {
 		filters.selectNavitionOption(NavigationBarEnum.PROFILE);
 		filters.selectProfileMenuOption(ProfileMenuEnum.LOGIN);
 		filters.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);

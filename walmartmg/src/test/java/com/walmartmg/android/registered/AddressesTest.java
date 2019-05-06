@@ -1,77 +1,102 @@
 package com.walmartmg.android.registered;
 
 import org.apache.log4j.Logger;
+import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
+import org.junit.Rule;
 import org.junit.Test;
+import org.junit.rules.TestName;
 
 import com.walmartmg.business.android.AddressesBusinessTest;
 import com.walmartmg.constants.AppMessages;
+import com.walmartmg.constants.GeneralConstants;
 import com.walmartmg.vo.AddressVO;
 
-public class YoursAddressesTest {
-	
-	public static final Logger logger = Logger.getLogger( MyProfileTest.class );
+import io.qameta.allure.Description;
+import io.qameta.allure.Severity;
+import io.qameta.allure.SeverityLevel;
+import io.qameta.allure.Story;
+import io.qameta.allure.junit4.DisplayName;
+
+public class AddressesTest {
+
+	@Rule
+	public TestName name = new TestName();
+	private static final Logger logger = Logger.getLogger(ProfileTest.class);
 	private static AddressesBusinessTest address = new AddressesBusinessTest();
 	private static AddressVO addressVO;
-	
-	
+
 	@BeforeClass
 	public static void init() {
 		addressVO = address.initAddressVO();
 	}
 
-	
 	@AfterClass
-	public static void tearDown(){
+	public static void tearDown() {
 		address.driverDisconect();
-	}	
-	
+	}
+
 	@Before
+	public void initApp() {
+		logger.info("===> Iniciando caso de prueba: " + name.getMethodName());
+	}
+
+	@After
 	public void resetApp() {
 		address.resetApp();
+		logger.info("Caso de prueba finalizado");
 	}
-	
+
 	@Test
+	@DisplayName("Validate profile without address")
+	@Severity(SeverityLevel.BLOCKER)
+	@Story("As a user I want to manage my addresses")
+	@Description("Validate when a user does not have address")
 	public void CP100_validate_without_addresses() {
-		logger.info("Start CP100 Validate without addresses");
 		address.selectProfileOption();
 		address.selectMenuLogin();
-		address.login("alejandra.jra11@gmail.com", "12345678");
-		logger.info("Menu logueado");
+		address.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
 		address.selectRequestAddress();
 		address.validateScreenYoursAddresses();
 	}
-	
+
 	@Test
+	@DisplayName("Validate add address page")
+	@Severity(SeverityLevel.BLOCKER)
+	@Story("As a user I want to manage my addresses")
+	@Description("Validate add address page")
 	public void CP101_validate_form() {
-		logger.info("Start CP101 Validate Form");
 		address.selectProfileOption();
 		address.selectMenuLogin();
-		address.login("alejandra.jra11@gmail.com", "12345678");
-		logger.info("Menu logueado");
+		address.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
 		address.selectRequestAddress();
 		address.pressBtnAdd();
 		address.validateFormAddAddress();
 	}
-	
+
 	@Test
+	@DisplayName("Validate add address without data")
+	@Severity(SeverityLevel.BLOCKER)
+	@Story("As a user I want to manage my addresses")
+	@Description("Validate add address when users do not put information")
 	public void CP102_validate_form_with_empty_fields() {
-		logger.info("Start CP102 Validate error messages with fields empty");
 		address.selectProfileOption();
 		address.selectMenuLogin();
-		address.login("alejandra.jra11@gmail.com", "12345678");
-		logger.info("Menu logueado");
+		address.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
 		address.selectRequestAddress();
 		address.pressBtnAdd();
 		address.pressBtnSave();
 		address.validateFieldsEmpty();
 	}
-	
+
 	@Test
+	@DisplayName("Validate add address with invalid data")
+	@Severity(SeverityLevel.BLOCKER)
+	@Story("As a user I want to manage my addresses")
+	@Description("Validate add address when users put invalid information")
 	public void CP103_validate_invalid_data() {
-		logger.info("Start CP103 Validate error messages with invalid data");
 		addressVO.setAddressName("Ç·$%&$%&");
 		addressVO.setAddressUserName("$·%&/(");
 		addressVO.setAddressStreet("!$%&/()#");
@@ -80,48 +105,53 @@ public class YoursAddressesTest {
 		addressVO.setAddressPhone("123");
 		address.selectProfileOption();
 		address.selectMenuLogin();
-		address.login("alejandra.jra11@gmail.com", "12345678");
-		logger.info("Menu logueado");
+		address.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
 		address.selectRequestAddress();
 		address.pressBtnAdd();
 		address.addNewDirection(addressVO);
 		address.pressBtnSave();
 		address.validateInvalidData();
 	}
-	
-	//Cuenta nueva 
+
 	@Test
+	@DisplayName("Validate add address")
+	@Severity(SeverityLevel.BLOCKER)
+	@Story("As a user I want to manage my addresses")
+	@Description("Validate when users add new address")
 	public void CP104_add_new_address() {
-		logger.info("Start CP104 Add New Address");
 		addressVO = address.initAddressVO();
 		address.selectProfileOption();
 		address.selectMenuLogin();
-		address.login("alejandra.jra11@gmail.com", "12345678");
-		logger.info("Menu logueado");
+		address.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
 		address.selectRequestAddress();
 		address.pressBtnAdd();
 		address.addNewDirection(addressVO);
 		address.pressBtnSave();
 		address.validateAddress(addressVO, AppMessages.ADD_ADDRESS);
 	}
-	
-	//con direcciones existentes
+
 	@Test
+	@DisplayName("Validate add address page")
+	@Severity(SeverityLevel.BLOCKER)
+	@Story("As a user I want to manage my addresses")
+	@Description("Validate add address page")
 	public void CP104_1_add_new_address() {
-		logger.info("Start CP104 Add New Address");
 		addressVO = address.initAddressVO();
 		address.selectProfileOption();
 		address.selectMenuLogin();
-		address.login("alejandra.jra11@gmail.com", "12345678");
-		logger.info("Menu logueado");
+		address.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
 		address.selectRequestAddress();
 		address.pressPlusAdd();
 		address.addNewDirection(addressVO);
 		address.pressBtnSave();
 		address.validateAddress(addressVO, AppMessages.ADD_ADDRESS);
 	}
-	
+
 	@Test
+	@DisplayName("Validate edit address")
+	@Severity(SeverityLevel.BLOCKER)
+	@Story("As a user I want to manage my addresses")
+	@Description("Validate when users edit an address")
 	public void CP105_edit_address() {
 		addressVO.setAddressName("$Mi Direccion-#");
 		addressVO.setAddressUserName("&Ju/an(");
@@ -129,21 +159,22 @@ public class YoursAddressesTest {
 		addressVO.setAddressStreet("%Mi calle#");
 		address.selectProfileOption();
 		address.selectMenuLogin();
-		address.login("alejandra.ruiz.walis@gmail.com", "12345678");
-		logger.info("Menu logueado");
+		address.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
 		address.selectRequestAddress();
-		logger.info("Menu logueado");
 		address.editAddress(addressVO);
 		address.pressBtnSave();
 		address.validateAddress(addressVO, AppMessages.ADD_ADDRESS);
 	}
-	
+
 	@Test
+	@DisplayName("Validate delete address")
+	@Severity(SeverityLevel.BLOCKER)
+	@Story("As a user I want to manage my addresses")
+	@Description("Validate when users delete an address")
 	public void CP106_delete_address() {
 		address.selectProfileOption();
 		address.selectMenuLogin();
-		address.login("alejandra.jra11@gmail.com", "12345678");
-		logger.info("Menu logueado");
+		address.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
 		address.selectRequestAddress();
 		address.removeAddress(addressVO);
 	}

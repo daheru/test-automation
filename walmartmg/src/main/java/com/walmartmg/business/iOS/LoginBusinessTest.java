@@ -22,7 +22,7 @@ public class LoginBusinessTest extends BaseDriver {
 	}
 
 	public void selectMenu() {
-		general.selectProfileMenu(ProfileMenuEnum.LOGIN);
+		general.selectMenuOption(ProfileMenuEnum.LOGIN);
 
 	}
 

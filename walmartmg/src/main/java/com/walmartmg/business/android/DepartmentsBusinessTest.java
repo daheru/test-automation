@@ -26,7 +26,7 @@ public class DepartmentsBusinessTest extends BaseDriver {
 	}
 
 	public void selectMenu(ProfileMenuEnum menuOption) {
-		general.selectProfileMenu(menuOption);
+		general.selectMenuOption(menuOption);
 	}
 	
 	@Step("Validate department")

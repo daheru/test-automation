@@ -25,7 +25,7 @@ public class AccountBusinessTest extends BaseDriver {
 	}
 	
 	public void selectCreateAccount() {
-		generalBusinessTest.selectProfileMenu( ProfileMenuEnum.CREATE_PROFILE );
+		generalBusinessTest.selectMenuOption( ProfileMenuEnum.CREATE_PROFILE );
 	}
 	
 	@Step("Validate account page")
@@ -75,7 +75,7 @@ public class AccountBusinessTest extends BaseDriver {
 	public void validateCreateAccount() {
 		generalBusinessTest.validatePopUpMessages( AppMessages.CREATE_ACCOUNT_SUCCESS );
 		selectProfileOption();
-		generalBusinessTest.selectProfileMenu( ProfileMenuEnum.PROFILE );
+		generalBusinessTest.selectMenuOption( ProfileMenuEnum.PROFILE );
 	}
 	
 	@Step("Show password")

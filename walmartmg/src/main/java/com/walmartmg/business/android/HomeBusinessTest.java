@@ -22,15 +22,15 @@ public class HomeBusinessTest extends BaseDriver {
 	public void login(String email, String pass) {
 		login.login(email, pass);
 	}
-	
+
 	public void selectProfileOption() {
-		general.selectNavigationOption( NavigationBarEnum.PROFILE );
+		general.selectNavigationOption(NavigationBarEnum.PROFILE);
 	}
-	
+
 	public void selectMenuLogin() {
-		general.selectProfileMenu(ProfileMenuEnum.LOGIN);
+		general.selectMenuOption(ProfileMenuEnum.LOGIN);
 	}
-	
+
 	public void selectHomeOption() {
 		general.selectNavigationOption(NavigationBarEnum.HOME);
 	}
@@ -109,10 +109,6 @@ public class HomeBusinessTest extends BaseDriver {
 		product.addProduct();
 	}
 
-	public void validatePopUpMessages(String message) {
-		general.validatePopUpMessages(message);
-	}
-
 	public void validateCar() {
 		car.validateCar();
 	}
@@ -124,11 +120,14 @@ public class HomeBusinessTest extends BaseDriver {
 	public void deleteProduct() {
 		car.deleteProduct();
 	}
+	
+	public void deleteProducts() {
+		car.deleteProducts();
+	}
 
 	@Step("Cancel delete product")
 	public void cancelDeleteProduct() {
 		car.cancelDeleteProduct();
-		car.validateCar();
 	}
 
 	public void removeProduct() {
@@ -138,5 +137,4 @@ public class HomeBusinessTest extends BaseDriver {
 	public void validateBuy() {
 		car.validateContinue();
 	}
-
 }

@@ -67,6 +67,7 @@ public class FiltersTest {
 		filters.selectFamily();
 		filters.pressLinkFilter();
 		filters.selectFilter(FiltersEnum.A_Z);
+		filters.applyFilter();
 		filters.validateSearch();
 	}
 	
@@ -81,6 +82,7 @@ public class FiltersTest {
 		filters.selectFamily();
 		filters.pressLinkFilter();
 		filters.selectFilter(FiltersEnum.Z_A);
+		filters.applyFilter();
 		filters.validateSearch();
 	}
 	
@@ -95,6 +97,7 @@ public class FiltersTest {
 		filters.selectFamily();
 		filters.pressLinkFilter();
 		filters.selectFilter(FiltersEnum.MINNOR_PRICE);
+		filters.applyFilter();
 		filters.validateSearch();
 	}
 	
@@ -109,6 +112,7 @@ public class FiltersTest {
 		filters.selectFamily();
 		filters.pressLinkFilter();
 		filters.selectFilter(FiltersEnum.HIGHER_PRICE);
+		filters.applyFilter();
 		filters.validateSearch();
 	}
 	
@@ -123,6 +127,7 @@ public class FiltersTest {
 		filters.selectFamily();
 		filters.pressLinkFilter();
 		filters.selectFilter(FiltersEnum.POPULAR);
+		filters.applyFilter();
 		filters.validateSearch();
 	}
 	
@@ -135,6 +140,7 @@ public class FiltersTest {
 		filters.selectNavitionOption(NavigationBarEnum.DEPARTMENTS);
 		filters.selectDepartment();
 		filters.selectFamily();
+		filters.pressLinkFilter();
 		filters.filterBy();
 	}
 }

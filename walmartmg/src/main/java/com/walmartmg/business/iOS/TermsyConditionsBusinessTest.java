@@ -19,7 +19,7 @@ public class TermsyConditionsBusinessTest extends BaseDriver {
 	}
 
 	public void selectMenu() {
-		general.selectProfileMenu(ProfileMenuEnum.TERMS);
+		general.selectMenuOption(ProfileMenuEnum.TERMS);
 
 	}
 

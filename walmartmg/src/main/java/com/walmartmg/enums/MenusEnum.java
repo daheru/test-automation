@@ -15,9 +15,6 @@ public enum MenusEnum {
 	TERMS_ACCOUNT("cuenta", new String[]{ NamesMobileElements.TERMS_ITEM, NamesMobileElements.TERMS_ITEM_CHILD }, new String[]{"cuenta", "beneficios", "olvidaste", "configuración", "newsletter"}),
 	TERMS_ORDERS("pedidos", new String[]{ NamesMobileElements.TERMS_ITEM, NamesMobileElements.TERMS_ITEM_CHILD }, new String[]{"comprar", "invitado", "revisa", "estatus", "tipos", "rastrea", "historial"}),
 	
-	LEGALS_TERMS("términos", new String[]{ NamesMobileElements.LEGALS_ITEM, NamesMobileElements.LEGALS_ITEM_CHILD }, new String[] { "disponibilidad", "pago", "políticas", "tiempo" }),
-	LEGALS_PRIVACITY("privacidad", new String[]{ NamesMobileElements.LEGALS_ITEM, NamesMobileElements.LEGALS_ITEM_CHILD }, new String[] { "aviso" }),
-	
 	DEP_COMPUTERS("computadoras", new String[]{ NamesMobileElements.DEP_ITEM, NamesMobileElements.DEP_ITEM_CHILD }, new String[] { "laptops", "accesorios", "pc", "tablets", "escritorio", "software", "impresoras", "componentes", "destacados", "proyectores" }),
 	DEP_TV_VIDEO("tv", new String[]{ NamesMobileElements.DEP_ITEM, NamesMobileElements.DEP_ITEM_CHILD }, new String[] { "pantallas", "accesorios", "audio", "muebles", "dvd", "destacados" }),
 	DEP_AUDIO("audio", new String[]{ NamesMobileElements.DEP_ITEM, NamesMobileElements.DEP_ITEM_CHILD }, new String[] { "sonido", "mp3", "audio", "audífonos", "dj", "bocinas", "minicomponentes", "destacados" }),

@@ -16,13 +16,13 @@ import com.walmartmg.vo.AddressVO;
 
 import io.appium.java_client.MobileElement;
 
-public class AddressesBusinessTest extends BaseDriver{
-	
-	private static final Logger logger = Logger.getLogger( InvoiceBusinessTest.class );
+public class AddressesBusinessTest extends BaseDriver {
+
+	private static final Logger logger = Logger.getLogger(InvoiceBusinessTest.class);
 	private GeneralBusinessTest general = new GeneralBusinessTest();
 	private LoginBusinessTest login = new LoginBusinessTest();
 	private static String addressName = "";
-	
+
 	public AddressVO initAddressVO() {
 		return new AddressVO("Mi direccion ", "Juan", "Perez", "Av Rodolfo Gaona 46", "456", "", "11200",
 				"Lomas de Sotelo", "Entre calle 1 y calle 2", "Plaza Toreo", "Movil", "5555555555", true);
@@ -31,33 +31,32 @@ public class AddressesBusinessTest extends BaseDriver{
 	public void login(String email, String pass) {
 		login.login(email, pass);
 	}
-	
+
 	public void selectProfileOption() {
-		general.selectNavigationOption( NavigationBarEnum.PROFILE );
+		general.selectNavigationOption(NavigationBarEnum.PROFILE);
 	}
-	
+
 	public void selectMenuLogin() {
-		general.selectProfileMenu(ProfileMenuEnum.LOGIN );
+		general.selectMenuOption(ProfileMenuEnum.LOGIN);
 	}
-	
+
 	public void selectRequestAddress() {
-		general.selectProfileMenu(ProfileMenuEnum.ADDRESS );
+		general.selectMenuOption(ProfileMenuEnum.ADDRESS);
 	}
-	
-	//botón cuenta nueva 
+
+	// botón cuenta nueva
 	public void pressBtnAdd() {
 		tapOnElement(NamesMobileElements.ADDRESS_BTNADD);
 	}
-	
+
 	public void pressPlusAdd() {
 		tapOnElement(NamesMobileElements.ADDRESS_PLUS_ADD);
 	}
-	
+
 	public void pressBtnSave() {
 		tapOnElement(NamesMobileElements.ADDRESS_BTN_SAVE);
 	}
-		
-	
+
 	public void addNewDirection(AddressVO addressVO) {
 		logger.info("Escribiendo datos");
 		randomAddressName(addressVO);
@@ -90,7 +89,7 @@ public class AddressesBusinessTest extends BaseDriver{
 		fillElement(NamesMobileElements.ADDRESS_PHONE, addressVO.getAddressPhone());
 		selectAsMainAddress(addressVO.isMainAddress());
 	}
-	
+
 	public void editAddress(AddressVO addressVO) {
 		waitElementVisibility(NamesMobileElements.ADDRESS_LIST);
 		if (elementExist(NamesMobileElements.ADDRESS_BTN_EDIT)) {
@@ -101,16 +100,14 @@ public class AddressesBusinessTest extends BaseDriver{
 		}
 		logger.info("Editando direccion");
 	}
-	
-	
+
 	private void randomAddressName(AddressVO addressVO) {
 		Random generator = new Random();
 		String newAddress = addressVO.getAddressName() + generator.nextInt(1000);
 		addressVO.setAddressName(newAddress);
 	}
-	
-	
-	//@Step("Validate address")
+
+	// @Step("Validate address")
 	public void validateAddress(AddressVO addressVO, String validationMessage) {
 		general.validatePopUpMessages(validationMessage);
 		waitElementVisibility(NamesMobileElements.ADDRESS_LIST);
@@ -124,8 +121,8 @@ public class AddressesBusinessTest extends BaseDriver{
 		}
 		logger.info("Guardado exitoso");
 	}
-	
-	//check address principal
+
+	// check address principal
 	private void selectAsMainAddress(boolean check) {
 		logger.info("Tap en checkbox de direccion principal");
 		MobileElement checkMainAddress = findElement(NamesMobileElements.ADDRESS_CHECK);
@@ -140,16 +137,15 @@ public class AddressesBusinessTest extends BaseDriver{
 		}
 	}
 
-	
-	//Validate screen your addresses with new account 
+	// Validate screen your addresses with new account
 	public void validateScreenYoursAddresses() {
 		logger.info("Validate screen without addresses");
 		waitElementVisibility(NamesMobileElements.ADDRESS_EMPTY_IMG);
 		general.validatePopUpMessages(AppMessages.ADDRESS_EMPTY_MSG);
 		waitElementVisibility(NamesMobileElements.ADDRESS_BTNADD);
 	}
-	
-	//Validate Form
+
+	// Validate Form
 	public void validateFormAddAddress() {
 		logger.info("Validate Form");
 		waitElementVisibility(NamesMobileElements.ADDRESS_ADDRESS_NAME);
@@ -167,35 +163,37 @@ public class AddressesBusinessTest extends BaseDriver{
 		waitElementVisibility(NamesMobileElements.ADDRESS_BTN_SAVE);
 		logger.info("Complete the validation of the form");
 	}
-	
-	//Validate error messages with fields empty
+
+	// Validate error messages with fields empty
 	public void validateFieldsEmpty() {
 		logger.info("Validate error messages with fields empty");
 		scrollUntilShowElement(GeneralConstants.SCROLL_DOWN, NamesMobileElements.ADDRESS_ADDRESS_NAME_CONT);
-		general.validateFieldErrorMessage( AppMessages.EMPTY_FIELD, NamesMobileElements.ADDRESS_ADDRESS_NAME_CONT);
-		general.validateFieldErrorMessage( AppMessages.EMPTY_FIELD, NamesMobileElements.ADDRESS_STREET_CONT);
-		general.validateFieldErrorMessage( AppMessages.EMPTY_FIELD, NamesMobileElements.ADDRESS_OUTER_NUMBER_CONT);
-		general.validateFieldErrorMessage( AppMessages.EMPTY_FIELD, NamesMobileElements.ADDRESS_ZIP_CODE_CONT);
+		general.validateFieldErrorMessage(AppMessages.EMPTY_FIELD, NamesMobileElements.ADDRESS_ADDRESS_NAME_CONT);
+		general.validateFieldErrorMessage(AppMessages.EMPTY_FIELD, NamesMobileElements.ADDRESS_STREET_CONT);
+		general.validateFieldErrorMessage(AppMessages.EMPTY_FIELD, NamesMobileElements.ADDRESS_OUTER_NUMBER_CONT);
+		general.validateFieldErrorMessage(AppMessages.EMPTY_FIELD, NamesMobileElements.ADDRESS_ZIP_CODE_CONT);
 		scrollUntilShowElement(GeneralConstants.SCROLL_UP, NamesMobileElements.ADDRESS_PHONE_CONT);
-		general.validateFieldErrorMessage( AppMessages.EMPTY_FIELD, NamesMobileElements.ADDRESS_PHONE_CONT);
+		general.validateFieldErrorMessage(AppMessages.EMPTY_FIELD, NamesMobileElements.ADDRESS_PHONE_CONT);
 		logger.info("Complete the validation of the form");
 	}
-	
-	
+
 	public void validateInvalidData() {
 		logger.info("Validate invalid data form");
 		scrollUntilShowElement(GeneralConstants.SCROLL_DOWN, NamesMobileElements.ADDRESS_ADDRESS_NAME_CONT);
-		general.validateFieldErrorMessage(AppMessages.INVALID_FIELDS_ADDRESS, NamesMobileElements.ADDRESS_ADDRESS_NAME_CONT);
+		general.validateFieldErrorMessage(AppMessages.INVALID_FIELDS_ADDRESS,
+				NamesMobileElements.ADDRESS_ADDRESS_NAME_CONT);
 		general.validateFieldErrorMessage(AppMessages.INVALID_FIELDS_ADDRESS, NamesMobileElements.ADDRESS_NAME_CONT);
 		general.validateFieldErrorMessage(AppMessages.INVALID_FIELDS_ADDRESS, NamesMobileElements.ADDRESS_STREET_CONT);
-		general.validateFieldErrorMessage(AppMessages.INVALID_FIELDS_ADDRESS, NamesMobileElements.ADDRESS_OUTER_NUMBER_CONT);
-		general.validateFieldErrorMessage(AppMessages.INVALID_NUM_ADDRESS, NamesMobileElements.ADDRESS_INNER_NUMBER_CONT);
+		general.validateFieldErrorMessage(AppMessages.INVALID_FIELDS_ADDRESS,
+				NamesMobileElements.ADDRESS_OUTER_NUMBER_CONT);
+		general.validateFieldErrorMessage(AppMessages.INVALID_NUM_ADDRESS,
+				NamesMobileElements.ADDRESS_INNER_NUMBER_CONT);
 		scrollUntilShowElement(GeneralConstants.SCROLL_UP, NamesMobileElements.ADDRESS_PHONE_CONT);
 		general.validateFieldErrorMessage(AppMessages.INVALID_PHONE_ADDRESS, NamesMobileElements.ADDRESS_PHONE_CONT);
 		logger.info("Complete the validation of the form");
 	}
-	
-	//Delete address
+
+	// Delete address
 	public void removeAddress(AddressVO addressVO) {
 		waitElementVisibility(NamesMobileElements.ADDRESS_LIST);
 		if (elementExist(NamesMobileElements.ADDRESS_DESCRIPTION)) {
@@ -223,7 +221,5 @@ public class AddressesBusinessTest extends BaseDriver{
 		String actualAddress = getElementText(address.get(0));
 		assertTrue("No se eliminó la dirección", !addressName.equals(actualAddress));
 	}
-
-	
 
 }

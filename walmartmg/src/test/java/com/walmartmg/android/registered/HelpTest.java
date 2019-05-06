@@ -9,6 +9,7 @@ import org.junit.Test;
 import org.junit.rules.TestName;
 
 import com.walmartmg.business.android.HelpBusinessTest;
+import com.walmartmg.constants.GeneralConstants;
 
 import io.qameta.allure.Description;
 import io.qameta.allure.Severity;
@@ -47,7 +48,7 @@ public class HelpTest {
 	public void CP115_validate_screen() {
 		help.selectProfileOption();
 		help.selectMenuLogin();
-		help.login("alejandra.jra11@gmail.com", "12345678");
+		help.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
 		help.selectRequestMyProfile();
 		help.validateScreenHelp();
 	}
@@ -60,7 +61,7 @@ public class HelpTest {
 	public void CP116_validate_call_button() {
 		help.selectProfileOption();
 		help.selectMenuLogin();
-		help.login("alejandra.jra11@gmail.com", "12345678");
+		help.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
 		help.selectRequestMyProfile();
 		help.validateCallButton();
 	}
@@ -73,47 +74,8 @@ public class HelpTest {
 	public void CP117_validate_email_button() {
 		help.selectProfileOption();
 		help.selectMenuLogin();
-		help.login("alejandra.jra11@gmail.com", "12345678");
+		help.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
 		help.selectRequestMyProfile();
 		help.validateEmailButton();
-	}
-	
-	@Test
-	@DisplayName("Validate term page")
-	@Severity(SeverityLevel.NORMAL)
-	@Story("As a usert I want to know about use terms on the app")
-	@Description("Validate that term page has all elements")
-	public void CP118_validate_terms_page() {
-		help.selectProfileOption();
-		help.selectMenuLogin();
-		help.login("alejandra.jra11@gmail.com", "12345678");
-		help.selectRequestMyProfileTerms();
-		help.validateTermsPage();
-	}
-	
-	@Test
-	@DisplayName("Validate legals page")
-	@Severity(SeverityLevel.NORMAL)
-	@Story("As a usert I want to know about use terms on the app")
-	@Description("Validate that computers department has all categories and sub categories")
-	public void CP129_validate_legals_page() {
-		help.selectProfileOption();
-		help.selectMenuLogin();
-		help.login("alejandra.jra11@gmail.com", "12345678");
-		help.selectRequestMyProfileLegal();
-		help.validateLegalsPage();
-	}
-	
-	@Test
-	@DisplayName("Validate computers department")
-	@Severity(SeverityLevel.NORMAL)
-	@Story("As a user I want to search a product by department")
-	@Description("Validate that computers department has all categories and sub categories")
-	public void CP130_validate_logout() {
-		help.selectProfileOption();
-		help.selectMenuLogin();
-		help.login("alejandra.jra11@gmail.com", "12345678");
-		help.selectRequestMyProfileLogut();
-		
 	}
 }

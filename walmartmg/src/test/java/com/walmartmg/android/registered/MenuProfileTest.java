@@ -1,4 +1,4 @@
-package com.walmartmg.android.unregistered;
+package com.walmartmg.android.registered;
 
 import org.apache.log4j.Logger;
 import org.junit.After;
@@ -9,6 +9,7 @@ import org.junit.Test;
 import org.junit.rules.TestName;
 
 import com.walmartmg.business.android.MenuProfileBusinessTest;
+import com.walmartmg.constants.GeneralConstants;
 import com.walmartmg.enums.ProfileMenuEnum;
 
 import io.qameta.allure.Description;
@@ -43,46 +44,16 @@ public class MenuProfileTest {
 	}
 
 	@Test
-	@DisplayName("Validate menu no session")
+	@DisplayName("Validate menu with session")
 	@Severity(SeverityLevel.BLOCKER)
 	@Story("As a user I want to use my profile menu")
-	@Description("Validate that profile menu without session has all elements")
-	public void CP017_validate_menu_without_login() {
+	@Description("Validate that profile menu with session has all elements")
+	public void CP089_validate_menu_with_login() {
 		profile.selectProfile();
-		profile.validateMenu(false);
-	}
-	
-	@Test
-	@DisplayName("Validate help page")
-	@Severity(SeverityLevel.CRITICAL)
-	@Story("As a user I want to use my profile menu")
-	@Description("Validate that help page has all elements")
-	public void CP039_validate_help_page() {
+		profile.selectMenu(ProfileMenuEnum.LOGIN);
+		profile.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
 		profile.selectProfile();
-		profile.selectMenu(ProfileMenuEnum.SUPPORT);
-		profile.validateHelpPage();
-	}
-	
-	@Test
-	@DisplayName("Validate call us page")
-	@Severity(SeverityLevel.CRITICAL)
-	@Story("As a user I want to use my profile menu")
-	@Description("Validate that call us element works correctly")
-	public void CP040_validate_help_callus() {
-		profile.selectProfile();
-		profile.selectMenu(ProfileMenuEnum.SUPPORT);
-		profile.validateCallUs();
-	}
-	
-	@Test
-	@DisplayName("Validate write us page")
-	@Severity(SeverityLevel.CRITICAL)
-	@Story("As a user I want to use my profile menu")
-	@Description("Validate that write us works correctly")
-	public void CP041_validate_help_writeus() {
-		profile.selectProfile();
-		profile.selectMenu(ProfileMenuEnum.SUPPORT);
-		profile.validateWriteUs();
+		profile.validateMenu(true);
 	}
 	
 	@Test
@@ -90,7 +61,10 @@ public class MenuProfileTest {
 	@Severity(SeverityLevel.NORMAL)
 	@Story("As a user I want to use my profile menu")
 	@Description("Validate that terms page has all elements")
-	public void CP042_CP052_validate_terms_and_conds() {
+	public void CP118_CP128_validate_terms_and_conds() {
+		profile.selectProfile();
+		profile.selectMenu(ProfileMenuEnum.LOGIN);
+		profile.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
 		profile.selectProfile();
 		profile.selectMenu(ProfileMenuEnum.TERMS);
 		profile.validateTermsPage();
@@ -101,9 +75,26 @@ public class MenuProfileTest {
 	@Severity(SeverityLevel.NORMAL)
 	@Story("As a user I want to use my profile menu")
 	@Description("Validate that legals page has all elements")
-	public void CF030_CF035_validate_legals_page() {
+	public void CF129_validate_legals_page() {
+		profile.selectProfile();
+		profile.selectMenu(ProfileMenuEnum.LOGIN);
+		profile.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
 		profile.selectProfile();
 		profile.selectMenu(ProfileMenuEnum.LEGALS);
 		profile.validateLegalsPage(7);
+	}
+	
+	@Test
+	@DisplayName("Validate logout")
+	@Severity(SeverityLevel.BLOCKER)
+	@Story("As a user I want to use my profile menu")
+	@Description("Validate when user try to logout")
+	public void CF130_logout() {
+		profile.selectProfile();
+		profile.selectMenu(ProfileMenuEnum.LOGIN);
+		profile.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
+		profile.selectProfile();
+		profile.selectMenu(ProfileMenuEnum.LOGOUT);
+		profile.validateHomePage();
 	}
 }

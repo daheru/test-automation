@@ -34,6 +34,7 @@ public class SearchBusinessTest extends BaseDriver {
 		waitElementVisibility(NamesMobileElements.SEARCH_WITHOUT_RESULT_HEADER);
 		waitElementVisibility(NamesMobileElements.SEARCH_WITHOUT_RESULT_ICON);
 		waitElementVisibility(NamesMobileElements.SEARCH_WITHOUT_RESULT_BOTTOM);
+		waitElementVisibility(NamesMobileElements.SEARCH_WITHOUT_TAKE_ME);
 	}
 
 }

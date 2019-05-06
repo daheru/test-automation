@@ -27,25 +27,25 @@ public class FiltersBusinessTest extends BaseDriver {
 	}
 
 	public void selectProfileMenuOption(ProfileMenuEnum profileMenuEnum) {
-		general.selectProfileMenu(profileMenuEnum);
+		general.selectMenuOption(profileMenuEnum);
 	}
 
 	// Select department
 	public void selectDepartment() {
-		departments.selectDepartment();
 		logger.info("Selecciona un departamento");
+		departments.selectDepartment();
 	}
 
 	// Select family
 	public void selectFamily() {
-		departments.selectFamily();
 		logger.info("Selecciona una familia");
+		departments.selectFamily();
 	}
 
 	// Select filters
 	public void pressLinkFilter() {
-		tapOnElement(NamesMobileElements.FILTERS_LINK);
 		logger.info("Seleccionar link filtro");
+		tapOnElement(NamesMobileElements.FILTERS_LINK);
 	}
 
 	public void login(String email, String pass) {
@@ -53,7 +53,7 @@ public class FiltersBusinessTest extends BaseDriver {
 	}
 
 	public void selectMenuLogin() {
-		general.selectProfileMenu(ProfileMenuEnum.LOGIN);
+		general.selectMenuOption(ProfileMenuEnum.LOGIN);
 	}
 
 	// Validate Screen Filter

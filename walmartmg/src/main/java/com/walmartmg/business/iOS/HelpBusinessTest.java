@@ -21,7 +21,7 @@ public class HelpBusinessTest extends BaseDriver {
 	}
 
 	public void selectMenu() {
-		general.selectProfileMenu(ProfileMenuEnum.SUPPORT);
+		general.selectMenuOption(ProfileMenuEnum.SUPPORT);
 
 	}
 
