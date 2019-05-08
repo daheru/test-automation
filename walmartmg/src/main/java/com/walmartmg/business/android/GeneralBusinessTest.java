@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import org.apache.commons.lang3.RandomStringUtils;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.StaleElementReferenceException;
@@ -164,5 +165,10 @@ public class GeneralBusinessTest extends BaseDriver {
 		if (exit > 15) {
 			assertTrue("La opciones son incorrectas o no aparecen en pantalla", Boolean.FALSE);
 		}
+	}
+	
+	@Step("Random string")
+	public String randomString(int length, boolean useLetters, boolean useNumbers) {
+	    return RandomStringUtils.random(length, useLetters, useNumbers);
 	}
 }

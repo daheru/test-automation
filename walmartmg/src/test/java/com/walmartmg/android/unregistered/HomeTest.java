@@ -88,7 +88,7 @@ public class HomeTest {
 	@Description("Validate car page when there are not products")
 	public void CP007_home_empty_car() {
 		home.selectCar();
-		home.validateEmptyCar();
+		home.validateCar();
 	}
 
 	@Test
@@ -123,7 +123,6 @@ public class HomeTest {
 		home.searchProduct("Celulares");
 		home.validateSearch();
 		home.selectProduct();
-		home.validateProduct();
 		home.addProduct();
 		home.selectCar();
 		home.validateCar();
@@ -138,13 +137,12 @@ public class HomeTest {
 		home.searchProduct("Celulares");
 		home.validateSearch();
 		home.selectProduct();
-		home.validateProduct();
 		home.addProduct();
 		home.removeProduct();
 		home.selectCar();
 		home.validateCar();
 	}
-	
+
 	@Test
 	@DisplayName("Add product using plus")
 	@Severity(SeverityLevel.BLOCKER)
@@ -154,7 +152,6 @@ public class HomeTest {
 		home.searchProduct("Celulares");
 		home.validateSearch();
 		home.selectProduct();
-		home.validateProduct();
 		home.addProduct();
 		home.addProduct();
 		home.selectCar();
@@ -185,8 +182,7 @@ public class HomeTest {
 		home.addProduct();
 		home.selectCar();
 		home.deleteProduct();
-		home.selectCar();
-		home.validateEmptyCar();
+		home.validateCar();
 	}
 	
 	@Test
@@ -199,8 +195,8 @@ public class HomeTest {
 		home.addProduct();
 		home.goBack();
 		home.selectCar();
-		home.deleteProduct();
-		home.validateEmptyCar();
+		home.cancelDeleteProduct();
+		home.validateCar();
 	}
 
 	@Test
@@ -212,6 +208,7 @@ public class HomeTest {
 		home.selectProduct();
 		home.addProduct();
 		home.selectCar();
+		home.validateCar();
 		home.validateBuy();
 	}
 }

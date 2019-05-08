@@ -20,7 +20,7 @@ import io.qameta.allure.SeverityLevel;
 import io.qameta.allure.Story;
 import io.qameta.allure.junit4.DisplayName;
 
-public class AddressesTest {
+public class AddressTest {
 
 	@Rule
 	public TestName name = new TestName();

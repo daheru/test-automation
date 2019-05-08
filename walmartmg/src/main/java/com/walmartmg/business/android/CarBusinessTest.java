@@ -70,6 +70,7 @@ public class CarBusinessTest extends BaseDriver {
 			}
 			assertTrue("Los productos no estan en el carrito", validCar);
 		}
+		cleanCar();
 	}
 
 	public Map<String, Integer> getUpcs() {

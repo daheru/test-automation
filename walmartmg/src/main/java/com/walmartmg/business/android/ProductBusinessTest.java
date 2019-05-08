@@ -48,15 +48,16 @@ public class ProductBusinessTest extends BaseDriver {
 		waitElementVisibility(NamesMobileElements.PRODUCT_DETAIL_PRICE);
 		waitElementVisibility(NamesMobileElements.PRODUCT_DETAIL_SELLER);
 		waitElementVisibility(NamesMobileElements.PRODUCT_DETAIL_UPC);
-		waitElementVisibility(NamesMobileElements.PRODUCT_ADD_BUTTON);
+		waitElementVisibility(NamesMobileElements.PRODUCT_ADD_BUTTON_CONT);
 		waitElementVisibility(NamesMobileElements.PRODUCT_DETAIL_MSI);
 		waitElementVisibility(NamesMobileElements.PRODUCT_DETAIL_DESC);
+		scrollUntilShowElement(GeneralConstants.SCROLL_DOWN, NamesMobileElements.PRODUCT_ADD_BUTTON_CONT);
 	}
 	
 	@Step("Add product")
 	public void addProduct() {
 		logger.info("Agregando producto");
-		scrollUntilShowElement(GeneralConstants.SCROLL_UP, NamesMobileElements.PRODUCT_ADD_BUTTON);
+		scrollUntilShowElement(GeneralConstants.SCROLL_UP, NamesMobileElements.PRODUCT_ADD_BUTTON_CONT);
 		waitElementVisibility(NamesMobileElements.PRODUCT_DETAIL_UPC);
 		if (elementExist(NamesMobileElements.PRODUCT_PLUS_BUTTON)) {
 			tapOnElement(NamesMobileElements.PRODUCT_PLUS_BUTTON);
@@ -74,7 +75,7 @@ public class ProductBusinessTest extends BaseDriver {
 	@Step("Delete product")
 	public void removeProduct() {
 		logger.info("Eliminando producto");
-		scrollUntilShowElement(GeneralConstants.SCROLL_UP, NamesMobileElements.PRODUCT_ADD_BUTTON);
+		scrollUntilShowElement(GeneralConstants.SCROLL_UP, NamesMobileElements.PRODUCT_ADD_BUTTON_CONT);
 		waitElementVisibility(NamesMobileElements.PRODUCT_DETAIL_UPC);
 		if (elementExist(NamesMobileElements.PRODUCT_MINUS_BUTTON)) {
 			String quantity = getElementText(findElement(NamesMobileElements.PRODUCT_QUANTITY)).replaceAll("[^\\d]",

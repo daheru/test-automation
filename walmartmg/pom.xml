@@ -19,22 +19,28 @@
 		<maven.compiler.target>1.7</maven.compiler.target>
 		<!-- Alliure properties -->
 		<aspectj.version>1.8.10</aspectj.version>
+		<!-- Project commons properties -->
+<!-- 		<appium.server>https://us1.appium.testobject.com/wd/hub</appium.server> -->
+		<appium.server>http://0.0.0.0:4723/wd/hub</appium.server>
+		<api.key>E0067C6622A349D68CBF305BAF7B7940</api.key>
 	</properties>
 
 	<profiles>
 		<profile>
 			<id>android</id>
 			<properties>
-				<device.name>Samsung_Galaxy_S8_wm15</device.name>
+				<device.name>Samsung Galaxy S8</device.name>
 				<!-- 3300ce9aca6fb337 -->
 				<!-- 8DM0218A15002368 -->
-				<device.udid>8DM0218A15002368</device.udid>
+				<device.udid>3300ce9aca6fb337</device.udid>
 				<platform.name>Android</platform.name>
-				<platform.version>9</platform.version>
+				<platform.version>9.0</platform.version>
 				<automation.name>UIAutomator2</automation.name>
 				<text.attribute>text</text.attribute>
 				<app.version>Versi\u00f3n 0.0.40 Developer Build (40)</app.version>
 				<test.package>com.walmartmg.android.*.*Test</test.package>
+				<app.package>com.mx.walmart.tecnologia</app.package>
+				<app.activity>com.mx.walmart.bodega.SplashActivity</app.activity>
 			</properties>
 		</profile>
 		<profile>

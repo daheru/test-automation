@@ -35,5 +35,6 @@ public class AppMessages {
 	public static final String INVALID_PHONE_ADDRESS = PropertiesValuesUtil.getPropertyName("INVALID_PHONE_ADDRESS");
 	public static final String ADD_ADDRESS = PropertiesValuesUtil.getPropertyName("ADD_ADDRESS");
 	public static final String DELETE_ADDRESS = PropertiesValuesUtil.getPropertyName("DELETE_ADDRESS");
+	public static final String LOGIN_SUCCESS = PropertiesValuesUtil.getPropertyName("LOGIN_SUCCESS");
 	
 }

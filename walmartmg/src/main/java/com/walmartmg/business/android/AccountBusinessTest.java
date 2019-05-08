@@ -30,6 +30,7 @@ public class AccountBusinessTest extends BaseDriver {
 	
 	@Step("Validate account page")
 	public void validateElements() {
+		logger.info("Validando elementos");
 		waitElementVisibility( NamesMobileElements.ACCOUNT_NAME_CONT );
 		waitElementVisibility( NamesMobileElements.ACCOUNT_LASTNAME_CONT );
 		waitElementVisibility( NamesMobileElements.ACCOUNT_EMAIL_CONT );
@@ -42,6 +43,7 @@ public class AccountBusinessTest extends BaseDriver {
 	
 	@Step("Create account with {name}, {lastname}, {email}, {pass}")
 	public void createAccount( String name, String lastname, String email, String pass ) {
+		logger.info("Creando cuenta");
 		fillElement( NamesMobileElements.ACCOUNT_NAME_TEXT, name);
 		fillElement( NamesMobileElements.ACCOUNT_LASTNAME_TEXT, lastname);
 		fillElement( NamesMobileElements.ACCOUNT_EMAIL_TEXT, email);
@@ -52,6 +54,7 @@ public class AccountBusinessTest extends BaseDriver {
 	
 	@Step("Validate empty fields")
 	public void validateEmptyFields() {
+		logger.info("Validando datos vacios");
 		generalBusinessTest.validateFieldErrorMessage( AppMessages.EMPTY_FIELD, NamesMobileElements.ACCOUNT_NAME_CONT);
 		generalBusinessTest.validateFieldErrorMessage( AppMessages.EMPTY_FIELD, NamesMobileElements.ACCOUNT_LASTNAME_CONT);
 		generalBusinessTest.validateFieldErrorMessage( AppMessages.EMPTY_FIELD, NamesMobileElements.ACCOUNT_EMAIL_CONT);
@@ -60,6 +63,7 @@ public class AccountBusinessTest extends BaseDriver {
 	
 	@Step("Validate invalid fields")
 	public void validateInvalidData() {
+		logger.info("Validando datos invalidos");
 		generalBusinessTest.validateFieldErrorMessage( AppMessages.INVALID_ACCOUNT_NAME, NamesMobileElements.ACCOUNT_NAME_CONT);
 		generalBusinessTest.validateFieldErrorMessage( AppMessages.INVALID_ACCOUNT_LAST_NAME, NamesMobileElements.ACCOUNT_LASTNAME_CONT);
 		generalBusinessTest.validateFieldErrorMessage( AppMessages.INVALID_ACCOUNT_EMAIL, NamesMobileElements.ACCOUNT_EMAIL_CONT);
@@ -68,6 +72,7 @@ public class AccountBusinessTest extends BaseDriver {
 	
 	@Step("Validate exist email")
 	public void validateExistEmail() {
+		logger.info("Validando email existente");
 		generalBusinessTest.validatePopUpMessages( AppMessages.ACCOUNT_EXIST_EMAIL ); 
 	}
 	
@@ -109,6 +114,11 @@ public class AccountBusinessTest extends BaseDriver {
 	@Step("Validate login success")
 	public void validateLogin( ) {
 		waitElementVisibility(NamesMobileElements.LOGIN_BUTTON);
+	}
+	
+	public String randomMail() {
+		String email = generalBusinessTest.randomString(10, true, true);
+		return email + "@correo.com";
 	}
 	
 }

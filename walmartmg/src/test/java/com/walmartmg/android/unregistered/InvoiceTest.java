@@ -41,14 +41,12 @@ public class InvoiceTest {
 		logger.info("Caso de prueba finalizado");
 	}
 	
-	//Validate screen
 	@Test
 	@DisplayName("Validate request invoice page")
 	@Severity(SeverityLevel.BLOCKER)
 	@Story("As a user I want to request an invoice")
 	@Description("Validate that request invoice page has all elements")
 	public void CP034_validate_request_invoice() {
-		logger.info("Start CP034");
 		invoice.selectProfileOption();
 		invoice.selectRequestInvoice();
 		invoice.validateElements();
@@ -60,7 +58,6 @@ public class InvoiceTest {
 	@Story("As a user I want to request an invoice")
 	@Description("Validate error messages when user inserts an empty invoice code")
 	public void CP037_empty_code_invoice(){
-		logger.info("Start CP037 Validate Empty field");
 		invoice.selectProfileOption();
 		invoice.selectRequestInvoice();
 		invoice.validateCodeInvoice("");
@@ -73,7 +70,6 @@ public class InvoiceTest {
 	@Story("As a user I want to request an invoice")
 	@Description("Validate invoice page when user inserts a invoice code")
 	public void CP037_code_correct_invoice() {
-		logger.info("Start CP037 Validate correct code");
 		invoice.selectProfileOption();
 		invoice.selectRequestInvoice();
 		invoice.validateCodeInvoice("55830475286542537193");
@@ -85,7 +81,6 @@ public class InvoiceTest {
 	@Story("As a user I want to request an invoice")
 	@Description("Validate invoice page when user inserts a wrong invoice code")
 	public void CP038_code_wrong_invoice() {
-		logger.info("Start CP037 Validate wrong code");
 		invoice.selectProfileOption();
 		invoice.selectRequestInvoice();
 		invoice.validateCodeInvoice("55830475286542537199");

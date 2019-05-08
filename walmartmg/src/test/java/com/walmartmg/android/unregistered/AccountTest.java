@@ -9,6 +9,7 @@ import org.junit.Test;
 import org.junit.rules.TestName;
 
 import com.walmartmg.business.android.AccountBusinessTest;
+import com.walmartmg.constants.GeneralConstants;
 
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
@@ -84,7 +85,7 @@ public class AccountTest {
 	public void CP030_create_account_exist_email() {
 		account.selectProfileOption();
 		account.selectCreateAccount();
-		account.createAccount("Juan","Lopez","dj_fran_@hotmail.es","12345678");
+		account.createAccount("Juan","Lopez",GeneralConstants.TEST_EMAIL,"12345678");
 		account.validateExistEmail();
 	}
 	
@@ -112,7 +113,7 @@ public class AccountTest {
 		account.validateLogin();
 	}
 	
-	//@Test
+	@Test
 	@DisplayName("Create new account")
 	@Severity(SeverityLevel.BLOCKER)
 	@Story("As a user I want to create a new account")
@@ -120,7 +121,7 @@ public class AccountTest {
 	public void CP033_create_account() {
 		account.selectProfileOption();
 		account.selectCreateAccount();
-		account.createAccount("Maria","Tester","test10@correo.com","Test#1234");
+		account.createAccount("Lucia","Lopez", account.randomMail(), GeneralConstants.TEST_PASS);
 		account.validateCreateAccount();
 	}
 	

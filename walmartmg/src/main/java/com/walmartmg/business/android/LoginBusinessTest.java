@@ -1,6 +1,9 @@
 package com.walmartmg.business.android;
 
+import java.util.List;
+
 import org.apache.log4j.Logger;
+import org.openqa.selenium.StaleElementReferenceException;
 
 import com.walmartmg.base.BaseDriver;
 import com.walmartmg.constants.AppMessages;
@@ -45,7 +48,16 @@ public class LoginBusinessTest extends BaseDriver {
 	}
 
 	public void validatePopUpMessages(String message) {
-		generalBusinessTest.validatePopUpMessages(message);
+		try {
+			List<MobileElement> messageElement = findElements(NamesMobileElements.POPUP_TEXT_MESSAGE);
+			if (messageElement != null && messageElement.size() > 0) {
+				assertTrue("Mensaje incorrecto", message.toLowerCase().contains(getElementText(messageElement.get(0))));
+			} else {
+				logger.info("Mensaje inalcanzable");
+			}
+		} catch (StaleElementReferenceException err) {
+			logger.info("Mensaje inalcanzable");
+		}
 	}
 
 	@Step("Validate login")
@@ -91,6 +103,22 @@ public class LoginBusinessTest extends BaseDriver {
 	public void createAccount() {
 		tapOnElement(NamesMobileElements.LOGIN_REGISTER_BUTTON);
 		waitElementVisibility(NamesMobileElements.ACCOUNT_CREATE_BUTTON);
-		assertTrue("El elemnto no existe", elementExist(NamesMobileElements.ACCOUNT_CREATE_BUTTON));
+		assertTrue("El elemento no existe", elementExist(NamesMobileElements.ACCOUNT_CREATE_BUTTON));
+	}
+
+	@Step("Validate error login")
+	public void validateErrorLogin() {
+		waitElementVisibility(NamesMobileElements.LOGIN_ERROR);
+		assertEquals(getElementText(NamesMobileElements.LOGIN_ERROR), AppMessages.LOGIN_FAIL);
+	}
+
+	@Step("Validate empty messages")
+	public void validateEmptyMessages(String email, String pass) {
+		if(email.isEmpty()) {
+			generalBusinessTest.validateFieldErrorMessage(AppMessages.INVALID_ACCOUNT_EMAIL,NamesMobileElements.LOGIN_EMAIL_CONT);
+		}
+		if(pass.isEmpty()) {
+			generalBusinessTest.validateFieldErrorMessage(AppMessages.EMPTY_FIELD, NamesMobileElements.LOGIN_PASS_CONT);
+		}
 	}
 }

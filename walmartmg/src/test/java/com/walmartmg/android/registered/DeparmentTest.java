@@ -174,6 +174,7 @@ public class DeparmentTest {
 		departments.validateDepartment(MenusEnum.DEP_MATTRESSES);
 	}
 
+	/*
 	@Test
 	@DisplayName("Validate cars department")
 	@Severity(SeverityLevel.NORMAL)
@@ -368,6 +369,7 @@ public class DeparmentTest {
 		departments.selectDepartmentOption();
 		departments.validateDepartment(MenusEnum.DEP_HOME_ELECTRONICS);
 	}
+	*/
 
 	@Test
 	@DisplayName("Add product")

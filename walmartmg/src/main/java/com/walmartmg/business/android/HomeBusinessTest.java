@@ -85,10 +85,6 @@ public class HomeBusinessTest extends BaseDriver {
 		car.selectCar();
 	}
 
-	public void validateEmptyCar() {
-		car.validateEmptyCar();
-	}
-
 	@Step("Validate starting buy")
 	public void validateStartingBuy() {
 		logger.info("Validando empezar a comprar");

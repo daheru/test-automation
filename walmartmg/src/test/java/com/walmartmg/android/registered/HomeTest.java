@@ -109,7 +109,7 @@ public class HomeTest {
 		home.login(GeneralConstants.TEST_EMPTY_EMAIL, GeneralConstants.TEST_EMPTY_PASS);
 		home.selectHomeOption();
 		home.selectCar();
-		home.validateEmptyCar();
+		home.validateCar();
 	}
 
 	@Test

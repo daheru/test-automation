@@ -10,6 +10,7 @@ import org.junit.rules.TestName;
 
 import com.walmartmg.business.android.LoginBusinessTest;
 import com.walmartmg.constants.AppMessages;
+import com.walmartmg.constants.GeneralConstants;
 
 import io.qameta.allure.Description;
 import io.qameta.allure.Feature;
@@ -62,6 +63,7 @@ public class LoginTest {
 		login.selectProfileOption();
 		login.selectMenuLogin();
 		login.login("", "");
+		login.validateEmptyMessages("","");
 	}
 	
 	@Test
@@ -72,8 +74,8 @@ public class LoginTest {
 	public void CP020_login_wrong_email() {
 		login.selectProfileOption();
 		login.selectMenuLogin();
-		login.login("dj_fran@hotmail.es", "12345678");
-		login.validatePopUpMessages( AppMessages.ACCOUNT_UNEXIST_EMAIL );
+		login.login(GeneralConstants.TEST_WRONG_EMAIL, GeneralConstants.TEST_WRONG_PASS);
+		login.validateErrorLogin();
 	}
 	
 	@Test
@@ -84,7 +86,8 @@ public class LoginTest {
 	public void CP021_login_without_pass() {
 		login.selectProfileOption();
 		login.selectMenuLogin();
-		login.login("dj_fran_@hotmail.es", "");
+		login.login(GeneralConstants.TEST_EMAIL, "");
+		login.validateEmptyMessages(GeneralConstants.TEST_EMAIL, "");
 	}
 	
 	@Test
@@ -95,7 +98,8 @@ public class LoginTest {
     public void CP022_login_without_email() {
 		login.selectProfileOption();
 		login.selectMenuLogin();
-		login.login("", "080714regina");
+		login.login("", GeneralConstants.TEST_PASS);
+		login.validateEmptyMessages("", GeneralConstants.TEST_PASS);
     }
 	
 	@Test
@@ -106,8 +110,8 @@ public class LoginTest {
 	public void CP023_login_invalid_pass() {
 		login.selectProfileOption();
 		login.selectMenuLogin();
-		login.login("dj_fran_@hotmail.es", "123");
-		login.validatePopUpMessages( AppMessages.UNEXPECTED_ERROR );
+		login.login(GeneralConstants.TEST_EMAIL, "123");
+		login.validateErrorLogin();
 	}
 	
 	@Test
@@ -118,7 +122,8 @@ public class LoginTest {
     public void CP026_login_success() {
 		login.selectProfileOption();
 		login.selectMenuLogin();
-		login.login("dj_fran_@hotmail.es", "080714regina");
+		login.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
+		login.validatePopUpMessages( AppMessages.LOGIN_SUCCESS );
 		login.validateLogin();
     }
 	
@@ -130,7 +135,7 @@ public class LoginTest {
     public void CP000_showPassword() {
 		login.selectProfileOption();
 		login.selectMenuLogin();
-		login.showPassword("080714regina");
+		login.showPassword(GeneralConstants.TEST_PASS);
     }
     
     @Test
@@ -141,7 +146,7 @@ public class LoginTest {
     public void CP024_forgotPassword_success() {
     	login.selectProfileOption();
     	login.selectMenuLogin();
-    	login.forgotPass("dj_fran@hotmail.es");
+    	login.forgotPass(GeneralConstants.TEST_EMAIL);
     }
     
     @Test

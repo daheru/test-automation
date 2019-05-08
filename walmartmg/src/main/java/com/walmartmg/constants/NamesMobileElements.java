@@ -282,6 +282,7 @@ public final class NamesMobileElements {
 	public static final String PRODUCT_DETAIL_SELLERS_PRICE = PropertiesValuesUtil.getPropertyName("PRODUCT_DETAIL_SELLERS_PRICE");
 	public static final String PRODUCT_DETAIL_SELLERS_SELL_BY = PropertiesValuesUtil.getPropertyName("PRODUCT_DETAIL_SELLERS_SELL_BY");
 	public static final String PRODUCT_DETAIL_MSI_CONT = PropertiesValuesUtil.getPropertyName("PRODUCT_DETAIL_MSI_CONT");
+	public static final String PRODUCT_ADD_BUTTON_CONT = PropertiesValuesUtil.getPropertyName("PRODUCT_ADD_BUTTON_CONT");
 	
 	public static final String SEARCH_RESULT_LIST = PropertiesValuesUtil.getPropertyName("SEARCH_RESULT_LIST");
 	public static final String SEARCH_RESULT_ELEMENT = PropertiesValuesUtil.getPropertyName("SEARCH_RESULT_ELEMENT");
@@ -341,6 +342,7 @@ public final class NamesMobileElements {
 	public static final String DEP_ITEM_CHILD = PropertiesValuesUtil.getPropertyName("DEP_ITEM_CHILD");
 	public static final String DEP_ICON = PropertiesValuesUtil.getPropertyName("DEP_ICON");
 	public static final String DEP_FAMILY_CONT = PropertiesValuesUtil.getPropertyName("DEP_FAMILY_CONT");
+	
 	public static final String FILTERS_LINK = PropertiesValuesUtil.getPropertyName("FILTERS_LINK");
 	public static final String FILTERS_CONT = PropertiesValuesUtil.getPropertyName("FILTERS_CONT");
 	public static final String FILTERS_SORT_BY = PropertiesValuesUtil.getPropertyName("FILTERS_SORT_BY");
@@ -361,6 +363,7 @@ public final class NamesMobileElements {
 	public static final String LOGIN_PASS_CONT = PropertiesValuesUtil.getPropertyName("LOGIN_PASS_CONT");
 	public static final String LOGIN_FORGOT_PASS = PropertiesValuesUtil.getPropertyName("LOGIN_FORGOT_PASS");
 	public static final String LOGIN_REGISTER_BUTTON = PropertiesValuesUtil.getPropertyName("LOGIN_REGISTER_BUTTON");
+	public static final String LOGIN_ERROR = PropertiesValuesUtil.getPropertyName("LOGIN_ERROR");
 	
 	public static final String MYPROFILE_PERSONAL_DETAILS_CONT = PropertiesValuesUtil.getPropertyName("MYPROFILE_PERSONAL_DETAILS_CONT");
 	public static final String MYPROFILE_PERSONAL_DETAILS_LINKEDIT = PropertiesValuesUtil.getPropertyName("MYPROFILE_PERSONAL_DETAILS_LINKEDIT");
