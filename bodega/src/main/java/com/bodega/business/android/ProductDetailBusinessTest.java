@@ -21,10 +21,6 @@ public class ProductDetailBusinessTest extends BaseDriver {
 	private SearchBusinessTest search = new SearchBusinessTest();
 	private CarBusinessTest car = new CarBusinessTest();
 
-	public void validateWelcomePage() {
-		general.validateWelcomePage();
-	}
-
 	public void selectProfile() {
 		general.selectProfile();
 	}

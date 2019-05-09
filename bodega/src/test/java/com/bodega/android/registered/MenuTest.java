@@ -8,7 +8,6 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TestName;
 
-import com.bodega.business.android.GeneralBusinessTest;
 import com.bodega.business.android.MenuBusinessTest;
 import com.bodega.constants.AppMessages;
 import com.bodega.constants.GeneralConstants;
@@ -28,25 +27,24 @@ public class MenuTest {
 	@Rule public TestName name = new TestName();
 	private static final Logger logger = Logger.getLogger(MenuTest.class);
 	private static MenuBusinessTest main = new MenuBusinessTest();
-	private static GeneralBusinessTest general = new GeneralBusinessTest();
 	private static AddressVO addressVO;
 
 	@AfterClass
 	public static void shutDown() {
-		general.driverDisconect();
+		main.driverDisconect();
 	}
 
 	@Before
 	public void initApp() {
-		general.closeAndroidDialog();
-		general.validateWelcomePage();
+		main.closeAndroidDialog();
+		main.validateWelcomePage();
 		addressVO = main.initAddressVO();
 		logger.info("===> Iniciando caso de prueba: " + name.getMethodName());
 	}
 
 	@After
 	public void relauchApp() {
-		general.resetApp();
+		main.resetApp();
 		logger.info("Caso de prueba finalizado");
 	}
 
@@ -207,7 +205,7 @@ public class MenuTest {
 		main.login(GeneralConstants.TEST_EMAIL, GeneralConstants.TEST_PASS);
 		main.selectProfile();
 		main.selectMenu(ProfileMenuEnum.TERMS);
-		main.validateTerms(5);
+		main.validateTerms();
 	}
 
 	@Test
@@ -243,7 +241,7 @@ public class MenuTest {
 	@Severity(SeverityLevel.BLOCKER)
 	@Story("As a user I want to manage my address information")
 	@Description("Trying create a new direction without data")
-	public void CF115_add_address_without_data() {
+	public void CF015_add_address_without_data() {
 		addressVO = new AddressVO();
 		main.selectProfile();
 		main.selectMenu(ProfileMenuEnum.LOGIN);

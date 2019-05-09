@@ -20,11 +20,8 @@ public class DepartmentsBusinessTest extends BaseDriver {
 	private LoginBusinessTest login = new LoginBusinessTest();
 	private SearchBusinessTest search = new SearchBusinessTest();
 	private HomeBusinessTest home = new HomeBusinessTest();
+	private String departmentName = "";
 	
-	public void validateWelcomePage() {
-		general.validateWelcomePage();
-	}
-
 	public void selectProfile() {
 		general.selectProfile();
 	}
@@ -75,6 +72,7 @@ public class DepartmentsBusinessTest extends BaseDriver {
 		logger.info("Seleccionado Departamento");
 		waitElementVisibility(NamesMobileElements.DEPARTMENT_DEPARTMENT_LIST);
 		List<MobileElement> departments = findSubElements(NamesMobileElements.DEPARTMENT_DEPARTMENT_LIST, NamesMobileElements.DEPARTMENT_ITEM_TEXT);
+		departmentName = getElementText(departments.get(0));
 		tapOnElement(departments.get(0));
 	}
 
@@ -84,6 +82,7 @@ public class DepartmentsBusinessTest extends BaseDriver {
 		waitElementVisibility(NamesMobileElements.DEPARTMENT_CAT_LIST);
 		List<MobileElement> categoties = findSubElements(NamesMobileElements.DEPARTMENT_CAT_LIST, NamesMobileElements.DEPARTMENT_CAT_ITEM);
 		tapOnElement(categoties.get(0));
+		waitElementVisibility(NamesMobileElements.DEPARTMENT_CAT_FILTER);
 	}
 	
 	public void tapOnFilter() {
@@ -105,8 +104,6 @@ public class DepartmentsBusinessTest extends BaseDriver {
 	public void validateTitleToolbar() {
 		waitElementVisibility( NamesMobileElements.DEPARTMENT_TITLE_TOOLBAR );
 		MobileElement titleToolbar = findElement( NamesMobileElements.DEPARTMENT_TITLE_TOOLBAR );
-		MobileElement titleFilter = findElementByClass( NamesMobileElements.DEPARTMENT_TITLE_FILTER );
-		String titleFilterText = getAttribute(titleFilter, "content-desc");
-		assertEquals(getElementText(titleToolbar).toLowerCase(), titleFilterText.toLowerCase());
+		assertEquals(getElementText(titleToolbar).toLowerCase(), departmentName);
 	}
 }

@@ -166,7 +166,7 @@ public final class NamesMobileElements {
 	public static final String DEPARTMENT_CAT_LIST = PropertiesValuesUtil.getPropertyName ("DEPARTMENT_CAT_LIST");
 	public static final String DEPARTMENT_CAT_ITEM = PropertiesValuesUtil.getPropertyName ("DEPARTMENT_CAT_ITEM");
 	public static final String DEPARTMENT_TITLE_TOOLBAR = PropertiesValuesUtil.getPropertyName ("DEPARTMENT_TITLE_TOOLBAR");
-	public static final String DEPARTMENT_TITLE_FILTER = PropertiesValuesUtil.getPropertyName ("DEPARTMENT_TITLE_FILTER");
+	public static final String DEPARTMENT_CAT_FILTER = PropertiesValuesUtil.getPropertyName ("DEPARTMENT_CAT_FILTER");
 	
 	public static final String FILTER_A_TO_Z = PropertiesValuesUtil.getPropertyName ("FILTER_A_TO_Z");
 	public static final String FILTER_Z_TO_A = PropertiesValuesUtil.getPropertyName ("FILTER_Z_TO_A");
@@ -220,4 +220,194 @@ public final class NamesMobileElements {
 	public static final String ACCOUNT_SHOW_PASS = PropertiesValuesUtil.getPropertyName("ACCOUNT_SHOW_PASS");
 	public static final String ACCOUNT_CREATE_BUTTON = PropertiesValuesUtil.getPropertyName("ACCOUNT_CREATE_BUTTON");
 	
+	public static final String CHECKOUT_ADDRESS_SEARCH_CONT = PropertiesValuesUtil.getPropertyName("CHECKOUT_ADDRESS_SEARCH_CONT");
+	public static final String CHECKOUT_ADDRESS_SEARCH_STEPS = PropertiesValuesUtil.getPropertyName("CHECKOUT_ADDRESS_SEARCH_STEPS");
+	public static final String CHECKOUT_ADDRESS_SEARCH_TITLE = PropertiesValuesUtil.getPropertyName("CHECKOUT_ADDRESS_SEARCH_TITLE");
+	public static final String CHECKOUT_ADDRESS_SEARCH_LIST = PropertiesValuesUtil.getPropertyName("CHECKOUT_ADDRESS_SEARCH_LIST");
+	public static final String CHECKOUT_ADDRESS_ADDRESS_CONT = PropertiesValuesUtil.getPropertyName("CHECKOUT_ADDRESS_ADDRESS_CONT");
+	public static final String CHECKOUT_ADDRESS_TITLE = PropertiesValuesUtil.getPropertyName("CHECKOUT_ADDRESS_TITLE");
+	public static final String CHECKOUT_ADDRESS_LIST = PropertiesValuesUtil.getPropertyName("CHECKOUT_ADDRESS_LIST");
+	public static final String CHECKOUT_ADDRESS_NAME = PropertiesValuesUtil.getPropertyName("CHECKOUT_ADDRESS_NAME");
+	public static final String CHECKOUT_ADDRESS_ICON = PropertiesValuesUtil.getPropertyName("CHECKOUT_ADDRESS_ICON");
+	public static final String CHECKOUT_ADDRESS_DOTS = PropertiesValuesUtil.getPropertyName("CHECKOUT_ADDRESS_DOTS");
+	public static final String CHECKOUT_ADDRESS_TYPE = PropertiesValuesUtil.getPropertyName("CHECKOUT_ADDRESS_TYPE");
+	public static final String CHECKOUT_ADDRESS_DESC = PropertiesValuesUtil.getPropertyName("CHECKOUT_ADDRESS_DESC");
+	public static final String CHECKOUT_PICKUPSTORE_CONT = PropertiesValuesUtil.getPropertyName("CHECKOUT_PICKUPSTORE_CONT");
+	public static final String CHECKOUT_PICKUPSTORE_TITLE = PropertiesValuesUtil.getPropertyName("CHECKOUT_PICKUPSTORE_TITLE");
+	public static final String CHECKOUT_PICKUPSTORE_BUTTON = PropertiesValuesUtil.getPropertyName("CHECKOUT_PICKUPSTORE_BUTTON");
+	
+	public static final String CHECKOUT_STORE_CONT = PropertiesValuesUtil.getPropertyName("CHECKOUT_STORE_CONT");
+	public static final String CHECKOUT_STORE_TITLE = PropertiesValuesUtil.getPropertyName("CHECKOUT_STORE_TITLE");
+	public static final String CHECKOUT_STORE_SEARCH_CONT = PropertiesValuesUtil.getPropertyName("CHECKOUT_STORE_SEARCH_CONT");
+	public static final String CHECKOUT_STORE_SEARCH = PropertiesValuesUtil.getPropertyName("CHECKOUT_STORE_SEARCH");
+	public static final String CHECKOUT_STORE_LIST = PropertiesValuesUtil.getPropertyName("CHECKOUT_STORE_LIST");
+	public static final String CHECKOUT_STORE_ITEM_CONT = PropertiesValuesUtil.getPropertyName("CHECKOUT_STORE_ITEM_CONT");
+	public static final String CHECKOUT_STORE_ITEM_NAME = PropertiesValuesUtil.getPropertyName("CHECKOUT_STORE_ITEM_NAME");
+	public static final String CHECKOUT_STORE_ITEM_ADDRESS = PropertiesValuesUtil.getPropertyName("CHECKOUT_STORE_ITEM_ADDRESS");
+	public static final String CHECKOUT_STORE_ITEM_SCHEDULE = PropertiesValuesUtil.getPropertyName("CHECKOUT_STORE_ITEM_SCHEDULE");
+	public static final String CHECKOUT_STORE_ITEM_TIME = PropertiesValuesUtil.getPropertyName("CHECKOUT_STORE_ITEM_TIME");
+	
+	public static final String CHECKOUT_CARD_CONT = PropertiesValuesUtil.getPropertyName("CHECKOUT_CARD_CONT");
+	public static final String CHECKOUT_CARD_DATA = PropertiesValuesUtil.getPropertyName("CHECKOUT_CARD_DATA");
+	public static final String CHECKOUT_CARD = PropertiesValuesUtil.getPropertyName("CHECKOUT_CARD");
+	public static final String CHECKOUT_CARD_FRONT = PropertiesValuesUtil.getPropertyName("CHECKOUT_CARD_FRONT");
+	public static final String CHECKOUT_CARD_FRONT_NUMBER = PropertiesValuesUtil.getPropertyName("CHECKOUT_CARD_FRONT_NUMBER");
+	public static final String CHECKOUT_CARD_FRONT_NAME = PropertiesValuesUtil.getPropertyName("CHECKOUT_CARD_FRONT_NAME");
+	public static final String CHECKOUT_CARD_FRONT_EXP = PropertiesValuesUtil.getPropertyName("CHECKOUT_CARD_FRONT_EXP");
+	public static final String CHECKOUT_CARD_NUMBER_CONT = PropertiesValuesUtil.getPropertyName("CHECKOUT_CARD_NUMBER_CONT");
+	public static final String CHECKOUT_CARD_NUMBER = PropertiesValuesUtil.getPropertyName("CHECKOUT_CARD_NUMBER");
+	public static final String CHECKOUT_CARD_NAME_CONT = PropertiesValuesUtil.getPropertyName("CHECKOUT_CARD_NAME_CONT");
+	public static final String CHECKOUT_CARD_NAME = PropertiesValuesUtil.getPropertyName("CHECKOUT_CARD_NAME");
+	public static final String CHECKOUT_CARD_PRIV_CONT = PropertiesValuesUtil.getPropertyName("CHECKOUT_CARD_PRIV_CONT");
+	public static final String CHECKOUT_CARD_PRIV_EXP_CONT = PropertiesValuesUtil.getPropertyName("CHECKOUT_CARD_PRIV_EXP_CONT");
+	public static final String CHECKOUT_CARD_PRIV_EXP = PropertiesValuesUtil.getPropertyName("CHECKOUT_CARD_PRIV_EXP");
+	public static final String CHECKOUT_CARD_PRIV_ICON = PropertiesValuesUtil.getPropertyName("CHECKOUT_CARD_PRIV_ICON");
+	
+	public static final String CHECKOUT_CARD_PRIV_SEC_CONT = PropertiesValuesUtil.getPropertyName("CHECKOUT_CARD_PRIV_SEC_CONT");
+	public static final String CHECKOUT_CARD_PRIV_SEC = PropertiesValuesUtil.getPropertyName("CHECKOUT_CARD_PRIV_SEC");
+	
+	public static final String CHECKOUT_CARD_QUESTION = PropertiesValuesUtil.getPropertyName("CHECKOUT_CARD_QUESTION");
+	
+	public static final String CHECKOUT_CARD_ANSWER_CONT = PropertiesValuesUtil.getPropertyName("CHECKOUT_CARD_ANSWER_CONT");
+	public static final String CHECKOUT_CARD_ANSWER_YES = PropertiesValuesUtil.getPropertyName("CHECKOUT_CARD_ANSWER_YES");
+	public static final String CHECKOUT_CARD_ANSWER_NO = PropertiesValuesUtil.getPropertyName("CHECKOUT_CARD_ANSWER_NO");
+	
+	public static final String CHECKOUT_CARD_PAYMENT_CARDS_CONT = PropertiesValuesUtil.getPropertyName("CHECKOUT_CARD_PAYMENT_CARDS_CONT");
+	public static final String CHECKOUT_CARD_PAYMENT_CARDS_ITEM = PropertiesValuesUtil.getPropertyName("CHECKOUT_CARD_PAYMENT_CARDS_ITEM");
+	public static final String CHECKOUT_CARD_PAYMENT_CARDS_ITEM_NAME = PropertiesValuesUtil.getPropertyName("CHECKOUT_CARD_PAYMENT_CARDS_ITEM_NAME");
+	public static final String CHECKOUT_CARD_PAYMENT_CARDS_ITEM_DELETE = PropertiesValuesUtil.getPropertyName("CHECKOUT_CARD_PAYMENT_CARDS_ITEM_DELETE");
+	public static final String CHECKOUT_CARD_PAYMENT_CARDS_ITEM_MAIN = PropertiesValuesUtil.getPropertyName("CHECKOUT_CARD_PAYMENT_CARDS_ITEM_MAIN");
+	public static final String CHECKOUT_CARD_PAYMENT_CARDS_ITEM_OWNER = PropertiesValuesUtil.getPropertyName("CHECKOUT_CARD_PAYMENT_CARDS_ITEM_OWNER");
+	public static final String CHECKOUT_CARD_PAYMENT_CARDS_ITEM_DATE = PropertiesValuesUtil.getPropertyName("CHECKOUT_CARD_PAYMENT_CARDS_ITEM_DATE");
+	public static final String CHECKOUT_CARD_PAYMENT_CONT = PropertiesValuesUtil.getPropertyName("CHECKOUT_CARD_PAYMENT_CONT");
+	public static final String CHECKOUT_CARD_PAYMENT_TITLE = PropertiesValuesUtil.getPropertyName("CHECKOUT_CARD_PAYMENT_TITLE");
+	public static final String CHECKOUT_CARD_PAYMENT_ADD_CARD = PropertiesValuesUtil.getPropertyName("CHECKOUT_CARD_PAYMENT_ADD_CARD");
+	public static final String CHECKOUT_CARD_PAYMENT_STORE = PropertiesValuesUtil.getPropertyName("CHECKOUT_CARD_PAYMENT_STORE");
+	public static final String CHECKOUT_CARD_PAYMENT_PAYPAL = PropertiesValuesUtil.getPropertyName("CHECKOUT_CARD_PAYMENT_PAYPAL");
+	public static final String CHECKOUT_CARD_NEXT_BUTTON = PropertiesValuesUtil.getPropertyName("CHECKOUT_CARD_NEXT_BUTTON");
+	
+	public static final String CHECKOUT_SUMMARY_CONT = PropertiesValuesUtil.getPropertyName("CHECKOUT_SUMMARY_CONT");
+	public static final String CHECKOUT_SUMMARY_TITLE = PropertiesValuesUtil.getPropertyName("CHECKOUT_SUMMARY_TITLE");
+	public static final String CHECKOUT_SUMMARY_ITEM_LIST = PropertiesValuesUtil.getPropertyName("CHECKOUT_SUMMARY_ITEM_LIST");
+	public static final String CHECKOUT_SUMMARY_ITEM = PropertiesValuesUtil.getPropertyName("CHECKOUT_SUMMARY_ITEM");
+	public static final String CHECKOUT_SUMMARY_ITEM_IMAGE = PropertiesValuesUtil.getPropertyName("CHECKOUT_SUMMARY_ITEM_IMAGE");
+	public static final String CHECKOUT_SUMMARY_ITEM_DESC = PropertiesValuesUtil.getPropertyName("CHECKOUT_SUMMARY_ITEM_DESC");
+	public static final String CHECKOUT_SUMMARY_ITEM_PRICE = PropertiesValuesUtil.getPropertyName("CHECKOUT_SUMMARY_ITEM_PRICE");
+	public static final String CHECKOUT_SUMMARY_ITEM_QUAN = PropertiesValuesUtil.getPropertyName("CHECKOUT_SUMMARY_ITEM_QUAN");
+	
+	public static final String CHECKOUT_SUMMARY_CUPPON_CONT = PropertiesValuesUtil.getPropertyName("CHECKOUT_SUMMARY_CUPPON_CONT");
+	public static final String CHECKOUT_SUMMARY_CUPPON_TITLE = PropertiesValuesUtil.getPropertyName("CHECKOUT_SUMMARY_CUPPON_TITLE");
+	public static final String CHECKOUT_SUMMARY_CUPPON_CUP_CONT = PropertiesValuesUtil.getPropertyName("CHECKOUT_SUMMARY_CUPPON_CUP_CONT");
+	public static final String CHECKOUT_SUMMARY_CUPPON_CUP = PropertiesValuesUtil.getPropertyName("CHECKOUT_SUMMARY_CUPPON_CUP");
+	public static final String CHECKOUT_SUMMARY_CUPPON_BUTTON = PropertiesValuesUtil.getPropertyName("CHECKOUT_SUMMARY_CUPPON_BUTTON");
+	
+	public static final String CHECKOUT_SUMMARY_PRICE_CONT = PropertiesValuesUtil.getPropertyName("CHECKOUT_SUMMARY_PRICE_CONT");
+	public static final String CHECKOUT_SUMMARY_PRICE_SUBTOTAL = PropertiesValuesUtil.getPropertyName("CHECKOUT_SUMMARY_PRICE_SUBTOTAL");
+	public static final String CHECKOUT_SUMMARY_PRICE_SUBTOTAL_VAL = PropertiesValuesUtil.getPropertyName("CHECKOUT_SUMMARY_PRICE_SUBTOTAL_VAL");
+	public static final String CHECKOUT_SUMMARY_PRICE_DISC = PropertiesValuesUtil.getPropertyName("CHECKOUT_SUMMARY_PRICE_DISC");
+	public static final String CHECKOUT_SUMMARY_PRICE_DISC_VAL = PropertiesValuesUtil.getPropertyName("CHECKOUT_SUMMARY_PRICE_DISC_VAL");
+	public static final String CHECKOUT_SUMMARY_PRICE_SHIP = PropertiesValuesUtil.getPropertyName("CHECKOUT_SUMMARY_PRICE_SHIP");
+	public static final String CHECKOUT_SUMMARY_PRICE_SHIP_VAL = PropertiesValuesUtil.getPropertyName("CHECKOUT_SUMMARY_PRICE_SHIP_VAL");
+	public static final String CHECKOUT_SUMMARY_PRICE_DISCSHIP = PropertiesValuesUtil.getPropertyName("CHECKOUT_SUMMARY_PRICE_DISCSHIP");
+	public static final String CHECKOUT_SUMMARY_PRICE_DISCSHIP_VAL = PropertiesValuesUtil.getPropertyName("CHECKOUT_SUMMARY_PRICE_DISCSHIP_VAL");
+	public static final String CHECKOUT_SUMMARY_PRICE_TOTAL = PropertiesValuesUtil.getPropertyName("CHECKOUT_SUMMARY_PRICE_TOTAL");
+	public static final String CHECKOUT_SUMMARY_PRICE_TOTAL_VAL = PropertiesValuesUtil.getPropertyName("CHECKOUT_SUMMARY_PRICE_TOTAL_VAL");
+	public static final String CHECKOUT_SUMMARY_PRICE_IVA = PropertiesValuesUtil.getPropertyName("CHECKOUT_SUMMARY_PRICE_IVA");
+	
+	public static final String CHECKOUT_SUMMARY_DELIVERY_CONT = PropertiesValuesUtil.getPropertyName("CHECKOUT_SUMMARY_DELIVERY_CONT");
+	public static final String CHECKOUT_SUMMARY_DELIVERY_TITLE = PropertiesValuesUtil.getPropertyName("CHECKOUT_SUMMARY_DELIVERY_TITLE");
+	public static final String CHECKOUT_SUMMARY_DELIVERY_NAME = PropertiesValuesUtil.getPropertyName("CHECKOUT_SUMMARY_DELIVERY_NAME");
+	public static final String CHECKOUT_SUMMARY_DELIVERY_ADDRESS = PropertiesValuesUtil.getPropertyName("CHECKOUT_SUMMARY_DELIVERY_ADDRESS");
+	public static final String CHECKOUT_SUMMARY_DELIVERY_TIME = PropertiesValuesUtil.getPropertyName("CHECKOUT_SUMMARY_DELIVERY_TIME");
+	public static final String CHECKOUT_SUMMARY_DELIVERY_CHECK_TIMES = PropertiesValuesUtil.getPropertyName("CHECKOUT_SUMMARY_DELIVERY_CHECK_TIMES");
+	
+	public static final String CHECKOUT_SUMMARY_PAYMENT_CONT = PropertiesValuesUtil.getPropertyName("CHECKOUT_SUMMARY_PAYMENT_CONT");
+	public static final String CHECKOUT_SUMMARY_PAYMENT_METHOD = PropertiesValuesUtil.getPropertyName("CHECKOUT_SUMMARY_PAYMENT_METHOD");
+	public static final String CHECKOUT_SUMMARY_PAYMENT_TYPE = PropertiesValuesUtil.getPropertyName("CHECKOUT_SUMMARY_PAYMENT_TYPE");
+	
+	public static final String CHECKOUT_SUMMARY_INFO = PropertiesValuesUtil.getPropertyName("CHECKOUT_SUMMARY_INFO");
+	public static final String CHECKOUT_SUMMARY_OPENPAY = PropertiesValuesUtil.getPropertyName("CHECKOUT_SUMMARY_OPENPAY");
+	public static final String CHECKOUT_SUMMARY_TOTAL = PropertiesValuesUtil.getPropertyName("CHECKOUT_SUMMARY_TOTAL");
+	public static final String CHECKOUT_SUMMARY_TOTAL_VAL = PropertiesValuesUtil.getPropertyName("CHECKOUT_SUMMARY_TOTAL_VAL");
+	public static final String CHECKOUT_SUMMARY_APPLY_BUTTON = PropertiesValuesUtil.getPropertyName("CHECKOUT_SUMMARY_APPLY_BUTTON");
+	
+	public static final String CHECKOUT_ORDER_CONT = PropertiesValuesUtil.getPropertyName("CHECKOUT_ORDER_CONT");
+	public static final String CHECKOUT_ORDER_USER_CONT = PropertiesValuesUtil.getPropertyName("CHECKOUT_ORDER_USER_CONT");
+	public static final String CHECKOUT_ORDER_USER_CONFIRM = PropertiesValuesUtil.getPropertyName("CHECKOUT_ORDER_USER_CONFIRM");
+	public static final String CHECKOUT_ORDER_USER_EMAIL = PropertiesValuesUtil.getPropertyName("CHECKOUT_ORDER_USER_EMAIL");
+	public static final String CHECKOUT_ORDER_USER_REVIEW = PropertiesValuesUtil.getPropertyName("CHECKOUT_ORDER_USER_REVIEW");
+	
+	public static final String CHECKOUT_ORDER_NUM_CONT = PropertiesValuesUtil.getPropertyName("CHECKOUT_ORDER_NUM_CONT");
+	public static final String CHECKOUT_ORDER_NUM_TEXT = PropertiesValuesUtil.getPropertyName("CHECKOUT_ORDER_NUM_TEXT");
+	public static final String CHECKOUT_ORDER_NUM_VAL = PropertiesValuesUtil.getPropertyName("CHECKOUT_ORDER_NUM_VAL");
+	
+	public static final String CHECKOUT_ORDER_BARCODE_CONT = PropertiesValuesUtil.getPropertyName("CHECKOUT_ORDER_BARCODE_CONT");
+	public static final String CHECKOUT_ORDER_BARCODE_INS = PropertiesValuesUtil.getPropertyName("CHECKOUT_ORDER_BARCODE_INS");
+	public static final String CHECKOUT_ORDER_BARCODE_DATE = PropertiesValuesUtil.getPropertyName("CHECKOUT_ORDER_BARCODE_DATE");
+	public static final String CHECKOUT_ORDER_BARCODE_TOTAL = PropertiesValuesUtil.getPropertyName("CHECKOUT_ORDER_BARCODE_TOTAL");
+	public static final String CHECKOUT_ORDER_BARCODE_CODE = PropertiesValuesUtil.getPropertyName("CHECKOUT_ORDER_BARCODE_CODE");
+	public static final String CHECKOUT_ORDER_BARCODE_SAVE = PropertiesValuesUtil.getPropertyName("CHECKOUT_ORDER_BARCODE_SAVE");
+	public static final String CHECKOUT_ORDER_BARCODE_SHARE = PropertiesValuesUtil.getPropertyName("CHECKOUT_ORDER_BARCODE_SHARE");
+	
+	public static final String CHECKOUT_ORDER_INVOICE_CONT = PropertiesValuesUtil.getPropertyName("CHECKOUT_ORDER_INVOICE_CONT");
+	public static final String CHECKOUT_ORDER_INVOICE_TITLE = PropertiesValuesUtil.getPropertyName("CHECKOUT_ORDER_INVOICE_TITLE");
+	
+	public static final String CHECKOUT_ORDER_SUMMARY_TITLE = PropertiesValuesUtil.getPropertyName("CHECKOUT_ORDER_SUMMARY_TITLE");
+	public static final String CHECKOUT_ORDER_SUMMARY_PRICE_CONT = PropertiesValuesUtil.getPropertyName("CHECKOUT_ORDER_SUMMARY_PRICE_CONT");
+	
+	public static final String CHECKOUT_ORDER_TIP = PropertiesValuesUtil.getPropertyName("CHECKOUT_ORDER_TIP");
+	public static final String CHECKOUT_ORDER_CONTINUE_BUTTON = PropertiesValuesUtil.getPropertyName("CHECKOUT_ORDER_CONTINUE_BUTTON");
+	
+	public static final String CHECKOUT_OUT_STOCK_CONT = PropertiesValuesUtil.getPropertyName("CHECKOUT_OUT_STOCK_CONT");
+	
+	public static final String CHECKOUT_OUT_STOCK_OUT_CAR_CONT = PropertiesValuesUtil.getPropertyName("CHECKOUT_OUT_STOCK_OUT_CAR_CONT");
+	public static final String CHECKOUT_OUT_STOCK_OUT_CAR_LIST = PropertiesValuesUtil.getPropertyName("CHECKOUT_OUT_STOCK_OUT_CAR_LIST");
+	public static final String CHECKOUT_SUMMARY_ITEM_OUTSTOCK = PropertiesValuesUtil.getPropertyName("CHECKOUT_SUMMARY_ITEM_OUTSTOCK");
+	//Mismas propiedades que en CHECKOUT_SUMMARY_ITEM para items internos
+
+	public static final String CHECKOUT_OUT_STOCK_IN_CAR_CONT = PropertiesValuesUtil.getPropertyName("CHECKOUT_OUT_STOCK_IN_CAR_CONT");
+	public static final String CHECKOUT_OUT_STOCK_IN_CAR_LIST = PropertiesValuesUtil.getPropertyName("CHECKOUT_OUT_STOCK_IN_CAR_CONT");
+	//Mismas propiedades que en CHECKOUT_SUMMARY_ITEM para items internos
+	
+	public static final String CHECKOUT_OUT_STOCK_SUMMARY_CONT = PropertiesValuesUtil.getPropertyName("CHECKOUT_OUT_STOCK_SUMMARY_CONT");
+	//Mismas propiedades que en CHECKOUT_SUMMARY_PRICE para datos internos
+
+	public static final String CHECKOUT_OUT_STOCK_GOHOME_BUTTON = PropertiesValuesUtil.getPropertyName("CHECKOUT_OUT_STOCK_GOHOME_BUTTON");
+	public static final String CHECKOUT_OUT_STOCK_ACCEPT_BUTTON = PropertiesValuesUtil.getPropertyName("CHECKOUT_OUT_STOCK_ACCEPT_BUTTON");
+	
+	public static final String CHECKOUT_PAYMENT_PROMO_STEPS = PropertiesValuesUtil.getPropertyName("CHECKOUT_PAYMENT_PROMO_STEPS");
+	public static final String CHECKOUT_PAYMENT_PROMO_CARD_TYPE = PropertiesValuesUtil.getPropertyName("CHECKOUT_PAYMENT_PROMO_CARD_TYPE");
+	public static final String CHECKOUT_PAYMENT_PROMO_CARD_DIGITS = PropertiesValuesUtil.getPropertyName("CHECKOUT_PAYMENT_PROMO_CARD_DIGITS");
+	public static final String CHECKOUT_PAYMENT_PROMO_TOTAL = PropertiesValuesUtil.getPropertyName("CHECKOUT_PAYMENT_PROMO_TOTAL");
+	public static final String CHECKOUT_PAYMENT_PROMO_PAY_CASH = PropertiesValuesUtil.getPropertyName("CHECKOUT_PAYMENT_PROMO_PAY_CASH");
+	public static final String CHECKOUT_PAYMENT_PROMO_CASH_OPTION = PropertiesValuesUtil.getPropertyName("CHECKOUT_PAYMENT_PROMO_CASH_OPTION");
+	public static final String CHECKOUT_PAYMENT_PROMO_CASH_PLUS_OPTION = PropertiesValuesUtil.getPropertyName("CHECKOUT_PAYMENT_PROMO_CASH_PLUS_OPTION");
+	public static final String CHECKOUT_PAYMENT_PROMO_CONTINUE_BUTTON = PropertiesValuesUtil.getPropertyName("CHECKOUT_PAYMENT_PROMO_CONTINUE_BUTTON");
+			
+	public static final String CHECKOUT_ADDRESS_PICKUP_NAME = PropertiesValuesUtil.getPropertyName("CHECKOUT_ADDRESS_PICKUP_NAME");
+	public static final String CHECKOUT_ADDRESS_PICKUP_CONT = PropertiesValuesUtil.getPropertyName("CHECKOUT_ADDRESS_PICKUP_CONT");
+	public static final String CHECKOUT_ADDRESS_PICKUP_PHONE_CONT = PropertiesValuesUtil.getPropertyName("CHECKOUT_ADDRESS_PICKUP_PHONE_CONT");
+	public static final String CHECKOUT_ADDRESS_PICKUP_SAVE = PropertiesValuesUtil.getPropertyName("CHECKOUT_ADDRESS_PICKUP_SAVE");
+	//Mismas propiedades que en CHECKOUT_STORE_ITEM
+	
+	public static final String CHECKOUT_ADDRESS_IDNAME_CONT = PropertiesValuesUtil.getPropertyName("CHECKOUT_ADDRESS_IDNAME_CONT");
+	public static final String CHECKOUT_ADDRESS_IDNAME = PropertiesValuesUtil.getPropertyName("CHECKOUT_ADDRESS_IDNAME");
+	public static final String CHECKOUT_ADDRESS_STREET_CONT = PropertiesValuesUtil.getPropertyName("CHECKOUT_ADDRESS_STREET_CONT");
+	public static final String CHECKOUT_ADDRESS_STREET = PropertiesValuesUtil.getPropertyName("CHECKOUT_ADDRESS_STREET");
+	public static final String CHECKOUT_ADDRESS_IN_NUMBER_CONT = PropertiesValuesUtil.getPropertyName("CHECKOUT_ADDRESS_IN_NUMBER_CONT");
+	public static final String CHECKOUT_ADDRESS_IN_NUMBER = PropertiesValuesUtil.getPropertyName("CHECKOUT_ADDRESS_IN_NUMBER");
+	public static final String CHECKOUT_ADDRESS_OUT_NUMBER_CONT = PropertiesValuesUtil.getPropertyName("CHECKOUT_ADDRESS_OUT_NUMBER_CONT");
+	public static final String CHECKOUT_ADDRESS_OUT_NUMBER = PropertiesValuesUtil.getPropertyName("CHECKOUT_ADDRESS_OUT_NUMBER");
+	public static final String CHECKOUT_ADDRESS_ZIPCODE_CONT = PropertiesValuesUtil.getPropertyName("CHECKOUT_ADDRESS_ZIPCODE_CONT");
+	public static final String CHECKOUT_ADDRESS_ZIPCODE = PropertiesValuesUtil.getPropertyName("CHECKOUT_ADDRESS_ZIPCODE");
+	public static final String CHECKOUT_ADDRESS_NEIGHBORHOOD = PropertiesValuesUtil.getPropertyName("CHECKOUT_ADDRESS_NEIGHBORHOOD");
+	public static final String CHECKOUT_ADDRESS_REFERENCE_CONT = PropertiesValuesUtil.getPropertyName("CHECKOUT_ADDRESS_REFERENCE_CONT");
+	public static final String CHECKOUT_ADDRESS_REFERENCE = PropertiesValuesUtil.getPropertyName("CHECKOUT_ADDRESS_REFERENCE");
+	public static final String CHECKOUT_ADDRESS_BUYER_NAME_CONT = PropertiesValuesUtil.getPropertyName("CHECKOUT_ADDRESS_BUYER_NAME_CONT");
+	public static final String CHECKOUT_ADDRESS_BUYER_NAME = PropertiesValuesUtil.getPropertyName("CHECKOUT_ADDRESS_BUYER_NAME");
+	public static final String CHECKOUT_ADDRESS_BUYER_LASTNAME_CONT = PropertiesValuesUtil.getPropertyName("CHECKOUT_ADDRESS_BUYER_LASTNAME_CONT");
+	public static final String CHECKOUT_ADDRESS_BUYER_LASTNAME = PropertiesValuesUtil.getPropertyName("CHECKOUT_ADDRESS_BUYER_LASTNAME");
+	public static final String CHECKOUT_ADDRESS_PHONE_CONT = PropertiesValuesUtil.getPropertyName("CHECKOUT_ADDRESS_PHONE_CONT");
+	public static final String CHECKOUT_ADDRESS_PHONE = PropertiesValuesUtil.getPropertyName("CHECKOUT_ADDRESS_PHONE");
+	public static final String CHECKOUT_ADDRESS_SAVE_BUTTON = PropertiesValuesUtil.getPropertyName("CHECKOUT_ADDRESS_SAVE_BUTTON");
 }

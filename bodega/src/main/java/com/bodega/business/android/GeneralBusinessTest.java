@@ -3,6 +3,7 @@ package com.bodega.business.android;
 import java.util.List;
 
 import org.apache.commons.lang3.RandomStringUtils;
+import org.apache.commons.lang3.RandomUtils;
 import org.apache.log4j.Logger;
 import org.junit.Assert;
 import org.openqa.selenium.StaleElementReferenceException;
@@ -67,7 +68,6 @@ public class GeneralBusinessTest extends BaseDriver {
 		} while (!clicMenu);
 	}
 
-
 	@Step("Validate error field messages {errorAppMessage} for {fieldCont}")
 	public void validateFieldErrorMessage(String errorAppMessage, String fieldCont) {
 		List<MobileElement> errors = findSubElements(findElement(fieldCont), NamesMobileElements.ERROR_TEXT_FIELD);
@@ -114,13 +114,6 @@ public class GeneralBusinessTest extends BaseDriver {
 
 	}
 
-	@Step("Validate Mama Lucha page")
-	public void validateWelcomePage() {
-		if (elementExist(NamesMobileElements.WELCOME_MAMA_LUCHA)) {
-			tapOnElement(NamesMobileElements.WELCOME_LINK_GUESS);
-		}
-	}
-
 	@Step("Validate menu and submenu")
 	public void valitateMenuAndSubMenus(MenusEnum menusEnum) {
 		logger.info("Seleccionando la opcion: " + menusEnum.getMenu());
@@ -158,9 +151,43 @@ public class GeneralBusinessTest extends BaseDriver {
 		}
 	}
 	
-	@Step("Random name")
+	@Step("Random string")
 	public String randomString(int length, boolean useLetters, boolean useNumbers) {
 	    return RandomStringUtils.random(length, useLetters, useNumbers);
+	}
+	
+	@Step("Random int")
+	public int randomNumber(int start, int end) {
+	    return RandomUtils.nextInt(start, end);
+	}
+	
+	@Step("Tap on term {termsEnum}")
+	public void selectTerms(String termsEnum) {
+		logger.info("Seleccionando la opcion: " + termsEnum);
+		waitElementVisibility(NamesMobileElements.LIST_TERMS);
+		MobileElement menuTerm = findElement(NamesMobileElements.LIST_TERMS);
+		List<MobileElement> terms = findSubElements(menuTerm, NamesMobileElements.LIST_TERM_ELEMENT);
+		assertTrue("El elemento no existe", terms.size() > 0);
+		boolean clicMenu = false;
+		int exit = 0;
+		do {
+			for (MobileElement element : terms) {
+				if (getElementText(element).contains(termsEnum)) {
+					tapOnElement(element);
+					goBack();
+					clicMenu = true;
+					break;
+				}
+			}
+			if (!clicMenu) {
+				scrollScreen(GeneralConstants.SCROLL_UP);
+				
+				menuTerm = findElement(NamesMobileElements.LIST_TERMS);
+				terms = findSubElements(menuTerm, NamesMobileElements.LIST_TERM_ELEMENT);
+				exit++;
+			}
+			validateMenuExist(exit);
+		} while (!clicMenu);
 	}
 	
 	private void validateSubTerm(String[] subTermsEnum) {

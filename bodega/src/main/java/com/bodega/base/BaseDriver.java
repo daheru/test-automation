@@ -51,9 +51,20 @@ public class BaseDriver {
 		if (driver == null) {
 			caps = new DesiredCapabilities();
 			caps.setCapability(MobileCapabilityType.DEVICE_NAME, ConfigConstants.DEVICE_NAME);
-			caps.setCapability(MobileCapabilityType.UDID, ConfigConstants.UDID);
+			//caps.setCapability(MobileCapabilityType.UDID, ConfigConstants.UDID);
 			caps.setCapability(MobileCapabilityType.PLATFORM_NAME, ConfigConstants.PLATFORM_NAME);
 			caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, ConfigConstants.PLATFORM_VERSION);
+			caps.setCapability("noReset", false);
+			
+			caps.setCapability("testobject_api_key", ConfigConstants.API_KEY);
+			caps.setCapability("phoneOnly", true);
+			caps.setCapability("tabletOnly", false);
+			caps.setCapability("privateDevicesOnly", true);
+			caps.setCapability("appiumVersion", "1.12.0");
+			caps.setCapability("cacheId", "16a7eafc578");
+			caps.setCapability("testobject_app_id", "2");
+			caps.setCapability("testobject_suite_name", "Bodega App");
+			
 			initDriver();
 			initPropsWindow();
 			initWait();
@@ -136,9 +147,7 @@ public class BaseDriver {
 		MobileElement textboxElement = findElement(element);
 		if (textboxElement != null) {
 			textboxElement.clear();
-			textboxElement.click();
 			textboxElement.sendKeys(text);
-			hideKeyboard();
 		}
 	}
 
@@ -301,11 +310,16 @@ public class BaseDriver {
 		}
 	}
 
+	public void validateWelcomePage() {
+		if (elementExist(NamesMobileElements.WELCOME_MAMA_LUCHA)) {
+			tapOnElement(NamesMobileElements.WELCOME_LINK_GUESS);
+		}
+	}
+	
 	private void initAndroid() {
 		caps.setCapability(ConfigConstants.APP_PACKAGE, ConfigConstants.APP_PACKAGE_VALUE);
 		caps.setCapability(ConfigConstants.APP_ACTIVITY, ConfigConstants.APP_ACTIVITY_VALUE);
 		caps.setCapability(MobileCapabilityType.AUTOMATION_NAME, ConfigConstants.AUTOMATION_NAME);
-		caps.setCapability("noReset", false);
 	}
 
 	private void initIOS() {

@@ -1,7 +1,6 @@
 package com.bodega.business.android;
 
 import java.util.List;
-import java.util.Random;
 
 import org.apache.log4j.Logger;
 
@@ -12,6 +11,7 @@ import com.bodega.constants.GeneralConstants;
 import com.bodega.constants.NamesMobileElements;
 import com.bodega.enums.MenusEnum;
 import com.bodega.enums.ProfileMenuEnum;
+import com.bodega.enums.TermsEnum;
 import com.bodega.vo.AddressVO;
 
 import io.appium.java_client.MobileElement;
@@ -44,10 +44,12 @@ public class MenuBusinessTest extends BaseDriver {
 
 	@Step("Select add address")
 	public void selectAddAddress() {
-		waitElementVisibility(NamesMobileElements.ADDRESS_LIST);
-		addressCont = findElements(NamesMobileElements.ADDRESS_LIST).size();
-		tapOnElement(NamesMobileElements.ADDRESS_ADD_BUTTON);
 		logger.info("Tap en agrega direccion");
+		addressCont = 0;
+		if(elementExist(NamesMobileElements.ADDRESS_LIST)) {
+			addressCont = findElements(NamesMobileElements.ADDRESS_LIST).size();
+		} 
+		tapOnElement(NamesMobileElements.ADDRESS_ADD_BUTTON);
 	}
 
 	@Step("Add new direction")
@@ -113,7 +115,7 @@ public class MenuBusinessTest extends BaseDriver {
 		List<MobileElement> favIcon = findElements(NamesMobileElements.ADDRESS_ICON_FAV);
 		waitElementVisibility(NamesMobileElements.ADDRESS_DETAIL_NAME);
 		List<MobileElement> addressNames = findElements(NamesMobileElements.ADDRESS_DETAIL_NAME);
-		addressName = getElementText(addressNames.get(1));
+		addressName = addressNames.size() > 1 ? getElementText(addressNames.get(1)) : getElementText(addressNames.get(0));
 		if (favIcon.size() > 1) {
 			waitEvent();
 			tapOnElement(favIcon.get(1));
@@ -230,15 +232,11 @@ public class MenuBusinessTest extends BaseDriver {
 	}
 
 	@Step("Validate terms page")
-	public void validateTerms(int elementNum) {
-		MobileElement menuTerm = findElement(NamesMobileElements.LIST_TERMS);
-		List<MobileElement> terms = findSubElements(menuTerm, NamesMobileElements.LIST_TERM_ELEMENT);
-		assertEquals(elementNum, terms.size());
-		for (MobileElement element : terms) {
-			tapOnElement(element);
-			tapOnElement(NamesMobileElements.BACK_BUTTON);
-		}
+	public void validateTerms() {
 		logger.info("Página válida");
+		for (TermsEnum term : TermsEnum.values()  ) {
+			generalBusinessTest.selectTerms(term.getTerm());
+		}
 	}
 
 	@Step("Validate support page")

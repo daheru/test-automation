@@ -21,10 +21,6 @@ public class AccountBusinessTest extends BaseDriver {
 		generalBusinessTest.selectMenuOption( ProfileMenuEnum.CREATE_PROFILE );
 	}
 	
-	public void validateWelcomePage() {
-		generalBusinessTest.validateWelcomePage();
-	}
-	
 	public void validateElements() {
 		logger.info("Validando account page");
 		waitElementVisibility( NamesMobileElements.ACCOUNT_NAME_CONT );

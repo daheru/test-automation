@@ -8,7 +8,6 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TestName;
 
-import com.bodega.business.android.GeneralBusinessTest;
 import com.bodega.business.android.LoginBusinessTest;
 import com.bodega.constants.AppMessages;
 import com.bodega.constants.GeneralConstants;
@@ -28,7 +27,6 @@ public class LoginTest {
 	public TestName name = new TestName();
 	private static final Logger logger = Logger.getLogger(LoginTest.class);
 	private static LoginBusinessTest login = new LoginBusinessTest();
-	private static GeneralBusinessTest general = new GeneralBusinessTest();
 
 	@AfterClass
 	public static void shutDown() {
@@ -38,7 +36,7 @@ public class LoginTest {
 	@Before
 	public void initApp() {
 		login.closeAndroidDialog();
-		general.validateWelcomePage();
+		login.validateWelcomePage();
 		logger.info("===> Iniciando caso de prueba: " + name.getMethodName());
 	}
 

@@ -9,7 +9,6 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TestName;
 
-import com.bodega.business.android.GeneralBusinessTest;
 import com.bodega.business.android.ProfileBusinessTest;
 import com.bodega.constants.GeneralConstants;
 import com.bodega.enums.ProfileMenuEnum;
@@ -28,7 +27,6 @@ public class MyProfileTest {
 	public TestName name = new TestName();
 	public static final Logger logger = Logger.getLogger(ProfileBusinessTest.class);
 	public static ProfileBusinessTest myprofile = new ProfileBusinessTest();
-	public static GeneralBusinessTest general = new GeneralBusinessTest();
 
 	@BeforeClass
 	public static void init() {
@@ -43,7 +41,7 @@ public class MyProfileTest {
 	@Before
 	public void intapp() {
 		myprofile.closeAndroidDialog();
-		general.validateWelcomePage();
+		myprofile.validateWelcomePage();
 		logger.info("===> Iniciando caso de prueba: " + name.getMethodName());
 	}
 

@@ -9,7 +9,6 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TestName;
 
-import com.bodega.business.android.GeneralBusinessTest;
 import com.bodega.business.android.MenuBusinessTest;
 import com.bodega.enums.ProfileMenuEnum;
 
@@ -27,7 +26,6 @@ public class MenuTest {
 	public TestName name = new TestName();
 	private static final Logger logger = Logger.getLogger(MenuTest.class);
 	private static MenuBusinessTest main = new MenuBusinessTest();
-	private static GeneralBusinessTest general = new GeneralBusinessTest();
 	
 	@BeforeClass
 	public static void init() {
@@ -41,7 +39,7 @@ public class MenuTest {
 	@Before
 	public void initApp() {
 		main.closeAndroidDialog();
-		general.validateWelcomePage();
+		main.validateWelcomePage();
 		logger.info("===> Iniciando caso de prueba: " + name.getMethodName());
 	}
 
@@ -82,7 +80,7 @@ public class MenuTest {
 	public void CF017_CF021_validate_terms_page() {
 		main.selectProfile();
 		main.selectMenu(ProfileMenuEnum.TERMS);
-		main.validateTerms(5);
+		main.validateTerms();
 	}
 
 	@Test

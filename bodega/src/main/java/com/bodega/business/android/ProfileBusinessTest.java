@@ -96,6 +96,9 @@ public class ProfileBusinessTest extends BaseDriver {
 			tapOnElement(NamesMobileElements.MYPROFILE_SPINNER_PRIMARY_BUTTON);
 			extension = NamesMobileElements.MYPROFILE_PHONE_PRIMARY_EXT;
 		} else {
+			if(elementExist(NamesMobileElements.MYPROFILE_ADD_PHONE)) {
+				tapOnElement(NamesMobileElements.MYPROFILE_ADD_PHONE);				
+			}
 			fillElement(NamesMobileElements.MYPROFILE_PHONE_SECONDARY, isValid ? generalBusinessTest.randomString(10, false, true) : "123");
 			tapOnElement(NamesMobileElements.MYPROFILE_SPINNER_SECUNDARY_BUTTON);
 			extension = NamesMobileElements.MYPROFILE_PHONE_SECONDARY_EXT;

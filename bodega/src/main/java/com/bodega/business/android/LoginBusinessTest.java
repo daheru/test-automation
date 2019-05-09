@@ -32,11 +32,11 @@ public class LoginBusinessTest extends BaseDriver {
 	}
 
 	@Step("User write email {email} and password {pass}")
-	public void login(String email, String pass) {
+	public void login(String email, String password) {
 		this.email = email;
-		this.password = pass;
+		this.password = password;
 		fillElement(NamesMobileElements.LOGIN_EMAIL_TEXT, email);
-		fillElement(NamesMobileElements.LOGIN_PASS_TEXT, pass);
+		fillElement(NamesMobileElements.LOGIN_PASS_TEXT, password);
 		tapOnElement(NamesMobileElements.LOGIN_LOGIN_BUTTON);
 		logger.info("Escribiendo email y password");
 	}
