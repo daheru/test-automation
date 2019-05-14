@@ -248,12 +248,14 @@ public final class NamesMobileElements {
 	public static final String CHECKOUT_STORE_ITEM_TIME = PropertiesValuesUtil.getPropertyName("CHECKOUT_STORE_ITEM_TIME");
 	
 	public static final String CHECKOUT_CARD_CONT = PropertiesValuesUtil.getPropertyName("CHECKOUT_CARD_CONT");
-	public static final String CHECKOUT_CARD_DATA = PropertiesValuesUtil.getPropertyName("CHECKOUT_CARD_DATA");
 	public static final String CHECKOUT_CARD = PropertiesValuesUtil.getPropertyName("CHECKOUT_CARD");
 	public static final String CHECKOUT_CARD_FRONT = PropertiesValuesUtil.getPropertyName("CHECKOUT_CARD_FRONT");
 	public static final String CHECKOUT_CARD_FRONT_NUMBER = PropertiesValuesUtil.getPropertyName("CHECKOUT_CARD_FRONT_NUMBER");
 	public static final String CHECKOUT_CARD_FRONT_NAME = PropertiesValuesUtil.getPropertyName("CHECKOUT_CARD_FRONT_NAME");
 	public static final String CHECKOUT_CARD_FRONT_EXP = PropertiesValuesUtil.getPropertyName("CHECKOUT_CARD_FRONT_EXP");
+	public static final String CHECKOUT_CARD_BACK = PropertiesValuesUtil.getPropertyName("CHECKOUT_CARD_BACK");
+	public static final String CHECKOUT_CARD_LINE = PropertiesValuesUtil.getPropertyName("CHECKOUT_CARD_LINE");
+	public static final String CHECKOUT_CARD_CVV = PropertiesValuesUtil.getPropertyName("CHECKOUT_CARD_CVV");
 	public static final String CHECKOUT_CARD_NUMBER_CONT = PropertiesValuesUtil.getPropertyName("CHECKOUT_CARD_NUMBER_CONT");
 	public static final String CHECKOUT_CARD_NUMBER = PropertiesValuesUtil.getPropertyName("CHECKOUT_CARD_NUMBER");
 	public static final String CHECKOUT_CARD_NAME_CONT = PropertiesValuesUtil.getPropertyName("CHECKOUT_CARD_NAME_CONT");
@@ -366,7 +368,7 @@ public final class NamesMobileElements {
 	//Mismas propiedades que en CHECKOUT_SUMMARY_ITEM para items internos
 
 	public static final String CHECKOUT_OUT_STOCK_IN_CAR_CONT = PropertiesValuesUtil.getPropertyName("CHECKOUT_OUT_STOCK_IN_CAR_CONT");
-	public static final String CHECKOUT_OUT_STOCK_IN_CAR_LIST = PropertiesValuesUtil.getPropertyName("CHECKOUT_OUT_STOCK_IN_CAR_CONT");
+	public static final String CHECKOUT_OUT_STOCK_IN_CAR_LIST = PropertiesValuesUtil.getPropertyName("CHECKOUT_OUT_STOCK_IN_CAR_LIST");
 	//Mismas propiedades que en CHECKOUT_SUMMARY_ITEM para items internos
 	
 	public static final String CHECKOUT_OUT_STOCK_SUMMARY_CONT = PropertiesValuesUtil.getPropertyName("CHECKOUT_OUT_STOCK_SUMMARY_CONT");

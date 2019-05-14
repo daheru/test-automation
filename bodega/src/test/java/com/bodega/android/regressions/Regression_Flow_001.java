@@ -56,7 +56,7 @@ public class Regression_Flow_001 {
 	@Description("Regression Flow using diffent functionality")
 	public void regresion_flow_001() {
 		logger.info("Iniciando prueba de regresion");
-		search.searchProduct("Videojuegos");
+		search.searchProduct("123abc");
 		search.validateNoResults();
 		general.goBack();
 		search.searchProduct("xbox");
@@ -75,6 +75,7 @@ public class Regression_Flow_001 {
 		departments.applyFilter();
 		product.selectProduct();
 		product.addProduct();
+		car.selectCar();
 		car.validateCar();
 		car.selectContinueBuying();
 		login.login("fake_mail@hotmail.es", "12345678");

@@ -51,11 +51,11 @@ public class BaseDriver {
 		if (driver == null) {
 			caps = new DesiredCapabilities();
 			caps.setCapability(MobileCapabilityType.DEVICE_NAME, ConfigConstants.DEVICE_NAME);
-			//caps.setCapability(MobileCapabilityType.UDID, ConfigConstants.UDID);
+			caps.setCapability(MobileCapabilityType.UDID, ConfigConstants.UDID);
 			caps.setCapability(MobileCapabilityType.PLATFORM_NAME, ConfigConstants.PLATFORM_NAME);
 			caps.setCapability(MobileCapabilityType.PLATFORM_VERSION, ConfigConstants.PLATFORM_VERSION);
 			caps.setCapability("noReset", false);
-			
+			/*
 			caps.setCapability("testobject_api_key", ConfigConstants.API_KEY);
 			caps.setCapability("phoneOnly", true);
 			caps.setCapability("tabletOnly", false);
@@ -64,7 +64,7 @@ public class BaseDriver {
 			caps.setCapability("cacheId", "16a7eafc578");
 			caps.setCapability("testobject_app_id", "2");
 			caps.setCapability("testobject_suite_name", "Bodega App");
-			
+			*/
 			initDriver();
 			initPropsWindow();
 			initWait();
@@ -257,7 +257,7 @@ public class BaseDriver {
 
 	protected void assertEquals(String expected, String actual) {
 		try {
-			Assert.assertEquals(expected, actual);
+			Assert.assertEquals(expected.toLowerCase(), actual.toLowerCase());
 		} catch (AssertionError error) {
 			logger.error(error.getMessage());
 			logger.error("Caso de prueba finalizado");

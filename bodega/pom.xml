@@ -20,8 +20,8 @@
 		<!-- Alliure properties -->
 		<aspectj.version>1.8.10</aspectj.version>
 		<!-- Project commons properties -->
-		<appium.server>https://us1.appium.testobject.com/wd/hub</appium.server>
-<!-- 		<appium.server>http://0.0.0.0:4723/wd/hub</appium.server> -->
+<!-- 		<appium.server>https://us1.appium.testobject.com/wd/hub</appium.server> -->
+		<appium.server>http://0.0.0.0:4723/wd/hub</appium.server>
 		<api.key>D0E420A30BA14BCCBB58093EE5D8978A</api.key>
 	</properties>
 

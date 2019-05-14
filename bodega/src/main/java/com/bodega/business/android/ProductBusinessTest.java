@@ -23,7 +23,8 @@ public class ProductBusinessTest extends BaseDriver {
 		logger.info("Seleccionando producto");
 		scrollUntilShowElement(GeneralConstants.SCROLL_UP, NamesMobileElements.SEARCH_PRODUCT_LIST);
 		waitElementVisibility(NamesMobileElements.SEARCH_PRODUCT_LIST);
-		List<MobileElement> products = findElements(NamesMobileElements.SEARCH_PRODUCT_NAME);
+		List<MobileElement> products = findSubElements(NamesMobileElements.SEARCH_PRODUCT_LIST,
+				NamesMobileElements.SEARCH_PRODUCT_NAME);
 		tapOnElement(products.get(general.randomNumber(0, products.size() - 1)));
 	}
 
@@ -51,9 +52,10 @@ public class ProductBusinessTest extends BaseDriver {
 		scrollUntilShowElement(GeneralConstants.SCROLL_UP, NamesMobileElements.PRODUCT_ADD_BUTTON);
 		waitElementVisibility(NamesMobileElements.PRODUCT_DETAIL_UPC);
 		if (elementExist(NamesMobileElements.PRODUCT_MINUS_BUTTON)) {
-			String quantity = getElementText(findElement(NamesMobileElements.PRODUCT_QUANTITY)).replaceAll("[^\\d]", "");
+			String quantity = getElementText(findElement(NamesMobileElements.PRODUCT_QUANTITY)).replaceAll("[^\\d]",
+					"");
 			String errorMessage;
-			if( GeneralConstants.UNO.equals(quantity) ) {
+			if (GeneralConstants.UNO.equals(quantity)) {
 				errorMessage = AppMessages.DELETE_PRODUCT;
 			} else {
 				errorMessage = AppMessages.UPDATE_PRODUCT;
@@ -63,14 +65,14 @@ public class ProductBusinessTest extends BaseDriver {
 			waitElementVisibility(NamesMobileElements.PRODUCT_DETAIL_CONT);
 			MobileElement parentElement = findElement(NamesMobileElements.PRODUCT_DETAIL_CONT);
 			String productName = getElementText(findSubElement(parentElement, NamesMobileElements.PRODUCT_DETAIL_NAME));
-			if( car.getUpcs().get(productName) == 1 ) {
+			if (car.getUpcs().get(productName) == 1) {
 				car.getUpcs().remove(productName);
 			} else {
 				car.getUpcs().replace(productName, car.getUpcs().get(productName) - 1);
 			}
 		}
 	}
-	
+
 	@Step("Validate special product")
 	public void validateSpecialProduct() {
 		logger.info("Validando mensaje");
@@ -79,7 +81,7 @@ public class ProductBusinessTest extends BaseDriver {
 		tapOnElement(NamesMobileElements.PRODUCT_ADD_BUTTON);
 		general.validatePopUpMessages(AppMessages.SPECIAL_PRODUCT_VALIDATION);
 	}
-	
+
 	public void increaseProduct(String productName) {
 		if (car.getUpcs().get(productName) == null) {
 			car.getUpcs().put(productName, 1);
