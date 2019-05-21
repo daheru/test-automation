@@ -1,5 +1,1 @@
-mobile-app-testing/.settings/
-mobile-app-testing/target/
-*.classpath
-*.project
-mobile-app-testing/bin
+/target/
